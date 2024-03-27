@@ -1,0 +1,43 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'a'>;
+
+const { href, class: className, ...props } = Astro.props;
+
+const { pathname } = Astro.url;
+const subpath = pathname.match(/[^\/]+/g);
+const isActive = href === pathname || href === '/' + subpath?.[0];
+const isDropDown = href === '/nashi-uslugi'
+---
+
+<li>
+	<a href={href} class:list={[className, { active: isActive, dropdown: isDropDown }]} {...props}>
+		<slot />
+	</a>
+</li>
+<style lang="scss">
+	
+	a {
+		display: inline-block;
+		text-decoration: none;
+		transition: .3s ease color;
+		&:hover {
+			color: var(--btn-primary);
+		}
+
+		&.active {
+			position: relative;
+
+			&::after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				bottom: -5px;
+				height: 3px;
+				border-bottom: 2px solid var(--btn-primary);
+				left: 0;
+			}
+		}
+	}
+</style>
