@@ -1,0 +1,107 @@
+---
+
+---
+
+
+<div class="dropdown__menu">
+    <ul>
+        <li>
+            <a href="">Оценка недвижимости</a>
+        </li>
+        <li>
+            <a href="">Ипотека</a>
+        </li>
+        <li>
+            <a href="">Продажа квартиры</a>
+        </li>
+        <li>
+            <a href="">Рефинансирование</a>
+        </li>
+        <li>
+            <a href="">Аренда</a>
+        </li>
+    </ul>
+</div>
+
+<style lang="scss" is:global>
+
+    .dropdown {
+        padding-right: 20px;
+
+        @media(max-width: 992px) { 
+            display: flex;
+            flex-direction: column;
+            
+        }
+    }
+
+    .dropdown__menu {
+        position: absolute;
+        left: 0;
+        width: 225%;
+        background-color: #03283c;
+        padding: 15px 0;
+        z-index: 2;
+        top: 30px;
+        transition: .45s ease all;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+
+            &.active {
+                opacity: 1;
+                transform: translateY(0px);
+                pointer-events: all;
+            }
+
+        @media(max-width: 992px) {
+            position: static;
+            opacity: unset;
+            transform: unset;
+            pointer-events: unset;
+            width: 100%;
+            background-color: unset;
+            padding: unset;
+            z-index: 2;
+            transition: unset;
+            margin-top: 10px;
+            display: none;
+           &.active {
+            display: block;
+           } 
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            font-size: 18px;
+            width: 100%;
+
+            @media(max-width: 992px) {
+                align-items: center;
+                
+                
+            }
+
+            li {
+                width: 100%;
+                display: flex;
+            }
+        }
+        a {
+            
+            color: var(--primary);
+            padding: 20px 10px;
+            width: 100%;
+            transition: .3s ease all;
+            &:hover {
+                background-color: var(--primary);
+                color: var(--headers-primary);
+            }
+
+            @media(max-width: 992px) {
+                color: var(--headers-primary)  
+            }
+        }
+    }
+</style>

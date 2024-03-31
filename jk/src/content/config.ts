@@ -7,7 +7,17 @@ const homepage = defineCollection({
     image: image(),
   }),
 });
+const newBuildings = defineCollection({
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    location: z.string(),
+    year: z.string(),
+    buildingType: z.string(),
+    image: image(),
+  }),
+});
 
 export const collections = {
-  homepage: homepage,
+  'homepage': homepage,
+  'newBuildings': newBuildings,
 };

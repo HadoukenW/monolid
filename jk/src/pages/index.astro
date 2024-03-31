@@ -6,10 +6,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Hero from '../components/Hero.astro'
 import About from '../components/About.astro';
 import OurServices from '../components/OurServices.astro'
+import NewBuildings from '../components/NewBuildings.astro';
+import OurPartners from '../components/OurPartners.astro';
+import Maps from '../components/Maps.astro';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
@@ -20,8 +23,87 @@ import OurServices from '../components/OurServices.astro'
 					<Hero />
 					<About />
 					<OurServices />
+					<NewBuildings />
+					<OurPartners />
+					<Maps />
 				</main>
 			<Footer />
 		</div>
 	</body>
 </html>
+
+<script>
+
+	
+
+	const policy = document.querySelectorAll('.policy')
+
+	policy.forEach((item) => {
+		item.addEventListener('click', e => {
+			e.preventDefault()
+
+			console.log(123)
+		})
+	})
+
+	import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+	gsap.registerPlugin(ScrollTrigger);
+	const tl = gsap.timeline()
+
+	tl.from('header', {
+		opacity: 0,
+	}).from('.swiper', {
+		opacity: 0,
+	})
+
+	gsap.from('.about__wrapper li', {
+		scrollTrigger: {
+			trigger: '.about__wrapper li',
+			start: 'center 90%'
+
+		},
+
+		y: 10,
+		opacity: 0,
+		stagger: .2,
+	})
+
+	gsap.from('.ourservives__wrapper li', {
+		scrollTrigger: {
+			trigger: '.ourservives__wrapper li',
+			start: 'center 90%'
+
+		},
+
+		y: 10,
+		opacity: 0,
+		stagger: .05,
+	})
+
+	gsap.from('.newBuildings__ul li', {
+		scrollTrigger: {
+			trigger: '.newBuildings__ul li',
+			start: 'center 90%'
+
+		},
+
+		y: 10,
+		opacity: 0,
+		stagger: .4,
+	})
+
+	import IMask from 'imask';
+
+	const elements = document.querySelectorAll('.phoneMask');
+	const maskOptions = {
+	mask: '+{7}(000)000-00-00'
+	};
+
+	elements.forEach((element) => {
+
+		const mask = IMask(element, maskOptions);
+	})
+
+</script>

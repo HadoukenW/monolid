@@ -1,0 +1,167 @@
+---
+    import { Image } from 'astro:assets'
+import sber from '../assets/sber.png'
+import alfa from '../assets/alfabank.png'
+import uralsib from '../assets/uralsib.png'
+import vtbbank from '../assets/vtbbank.png'
+import promsvyaz from '../assets/promsvyaz.png'
+---
+
+<section>
+    <div class="container">
+        <h2>Наши партнёры по ипотеке</h2>
+
+        <ul>
+            <li>
+                <a href="#">
+                    <Image src={sber} alt="сбербанк"/>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <Image src={alfa} alt="Альфабанк"/>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <Image src={uralsib} alt="Уралсиб"/>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <Image src={vtbbank} alt="Втб банк"/>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <Image src={promsvyaz} alt="Промсвязьбанк"/>
+                </a>
+            </li>
+        </ul>
+
+
+        <div class="form__wrapper">
+            <p>Подобрать недвижимость</p>
+
+            <form>
+                <div class="input__wrapper">
+                    <label for="">
+                        <input type="text" placeholder="Введите ваше имя"/>
+                    </label>
+                    <label for="">
+                        <input class="phoneMask" type="text" placeholder="Ваш номер телефона"/>
+                    </label>
+                </div>
+    
+                <button>Записаться на консультацию</button>
+    
+                <a class="policy" href="">Нажимая на кнопку, вы даете согласие на обработку персональных данных</a>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<style lang="scss">
+
+    section {
+        padding: var(--section-padding) 0;
+        
+    }
+
+
+    h2 {
+        font-weight: 700;
+        font-size: clamp(1.5rem, 0.797rem + 2.34vw, 2.25rem);
+        color: var(--headers-primary);
+        text-align: center; 
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        gap: 22px;
+        margin-top: 50px;
+        flex-wrap: wrap;
+
+        li {
+            img {
+                @media(max-width: 520px) {
+                    max-width: 160px;
+                    height: 75px;
+                }
+            }
+        }
+
+    }
+
+    .form__wrapper {
+        margin-top: 30px;
+        padding: 25px;
+        background-color: #03283C;
+        p {
+            font-weight: 400;
+            font-size: 24px;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        form {
+            margin-top: clamp(1.875rem, 1.333rem + 1.81vw, 2.688rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+
+
+            button {
+                font-weight: 500;
+                font-size: 18px;
+                padding: 7px 23px;
+                background-color: var(--btn-primary);
+                border-radius: 20px;
+                color: var(--primary);
+                margin-top: 30px;
+                line-height: 160%;
+            }
+
+            a {
+                font-weight: 400;
+                font-size: 16px;
+                text-align: center;
+                color: var(--primary);
+                margin-top: 15px;
+                text-decoration:underline;
+            }
+        }
+    }
+
+    .input__wrapper {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        justify-content: center;
+
+        @media(max-width: 550px) {
+            flex-wrap: wrap;
+        }
+
+        label {
+            width: 100%;
+            max-width: 381px;
+        }
+        input {
+            font-weight: 400;
+            font-size: 16px;
+            text-align: center;
+            color: var(--headers-primary);
+            padding: 13px;
+            border: 1px solid #d9d9d9;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 381px;
+        }
+
+        
+    }
+</style>
