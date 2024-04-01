@@ -9,6 +9,7 @@ import OurServices from '../components/OurServices.astro'
 import NewBuildings from '../components/NewBuildings.astro';
 import OurPartners from '../components/OurPartners.astro';
 import Maps from '../components/Maps.astro';
+import { Breadcrumbs } from "astro-breadcrumbs";
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import Maps from '../components/Maps.astro';
 	<body>
 		<div class="wrapper">
 			<Header />
+			<div class="visually-hidden"><Breadcrumbs indexText="Главная"/></div>
 				<main>
 					<Hero />
 					<About />
@@ -106,4 +108,5 @@ import Maps from '../components/Maps.astro';
 		const mask = IMask(element, maskOptions);
 	})
 
+	
 </script>

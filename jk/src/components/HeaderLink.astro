@@ -10,17 +10,20 @@ const { pathname } = Astro.url;
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === '/' + subpath?.[0];
 const isDropDown = href === '/nashi-uslugi'
+const isServices = href === '/nashi-uslugi'
 ---
 
 <li itemprop="name" class:list={[className, {dropdown: isDropDown}]}>
-	<a itemprop="url" href={href} class:list={[className, { active: isActive }]} {...props}>	
+	<a itemprop="url" href={href} class:list={[className, { active: isActive, }, {prevent: isServices}]} {...props}>	
 		<slot />
 	</a>
 	{isDropDown && <DropDown />}
 	{isDropDown && <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M12 16a1 1 0 0 1-.71-.29l-6-6a1 1 0 0 1 1.42-1.42l5.29 5.3 5.29-5.29a1 1 0 0 1 1.41 1.41l-6 6a1 1 0 0 1-.7.29z" data-name="16" fill="#000000" opacity="1" data-original="#000000"></path></g></svg>}
 </li>
 <style lang="scss">
-	
+	.prevent {
+		pointer-events: none;
+	}
 	a {
 		display: inline-block;
 		text-decoration: none;
@@ -49,7 +52,7 @@ const isDropDown = href === '/nashi-uslugi'
 		position: relative;
 		display: flex;
 		align-items: center;
-
+		cursor: pointer;
 		@media(max-width: 992px) {
              align-items: unset;   
         }
@@ -75,14 +78,28 @@ const isDropDown = href === '/nashi-uslugi'
 <script>
 	const dropdown = document.querySelectorAll('.dropdown')
 	const dropdownMenu = document.querySelectorAll('.dropdown__menu')
+	const dropdownLinks = document.querySelectorAll('.dropdown__link')
+	const body = document.querySelector('body')
 		dropdown?.forEach((item, idx) => {
-			item.addEventListener('click', e => {
-			e.preventDefault()
-
+			
+			item.addEventListener('click', e => {			
+			e.stopPropagation()
 			item.classList.toggle('active')
 			dropdownMenu[idx]?.classList.toggle('active')
+			
+			
 		})
 		})
+		
+		dropdownLinks.forEach((link) => {
+			link.addEventListener('click', e => {
+				document.querySelector('.burger-menu')?.classList.remove('active')
+				body?.classList.remove('locked')
+			})
+		})
+
+		
+	
 		
 </script>
 

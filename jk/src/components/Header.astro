@@ -10,7 +10,7 @@ import logo from '../assets/logo.jpg'
 		<nav itemtype="https://schema.org/SiteNavigationElement" itemscope aria-label="Основное меню">
 			<a class="logo" href="/"><Image src={logo} alt="Логотип"/></a>
 			<ul class="nav__links">
-				<HeaderLink href="/catalog-novostroek">Каталог новостроек</HeaderLink>
+				<HeaderLink href="/catalog">Каталог новостроек</HeaderLink>
 				<HeaderLink href="/nashi-uslugi">Наши услуги</HeaderLink>
 				<HeaderLink href="/novosti">Новости</HeaderLink>
 				<HeaderLink href="/contacts">Контакты</HeaderLink>
@@ -64,7 +64,7 @@ import logo from '../assets/logo.jpg'
 
 <nav class="burger-menu" aria-label="Раскрывающееся меню">
 	<ul itemscope itemtype="https://schema.org/SiteNavigationElement">
-		<HeaderLink href="/catalog-novostroek">Каталог новостроек</HeaderLink>
+		<HeaderLink href="/catalog">Каталог новостроек</HeaderLink>
 		<HeaderLink href="/nashi-uslugi">Наши услуги</HeaderLink>
 		<HeaderLink href="/novosti">Новости</HeaderLink>
 		<HeaderLink href="/contacts">Контакты</HeaderLink>
@@ -114,7 +114,7 @@ import logo from '../assets/logo.jpg'
 </nav>
 <style lang="scss">
 	header {
-		padding: 20px 0;
+		padding: 15px 0;
 	}
 	.logo {
 		width: 175px;
@@ -167,7 +167,7 @@ import logo from '../assets/logo.jpg'
 			padding: 100px 20px;
 			align-items: unset;
 			flex-direction: column;
-
+			overflow-y: auto;
 			ul {
 				display: flex;
 				flex-direction: column;
@@ -177,10 +177,10 @@ import logo from '../assets/logo.jpg'
 				
 
 				a {
-					color: var(--headers-primary);
+				
 					font-weight: normal;
 
-					@media(max-width: 767px) {
+					@media(max-width: 992px) {
 						font-size: 22px;
 					}
 				}
@@ -239,7 +239,7 @@ import logo from '../assets/logo.jpg'
 	a {
 		color: var(--headers-primary);
 		font-weight: 500;
-		font-size: 18px;
+		font-size: 16px;
 	}
 
 	address {
@@ -247,7 +247,7 @@ import logo from '../assets/logo.jpg'
 		align-items: center;
 		ul {
 			display: flex;
-			gap: 15px;
+			gap: 8px;
 			flex-direction: column-reverse;
 
 			div {

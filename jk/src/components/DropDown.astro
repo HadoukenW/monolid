@@ -6,19 +6,19 @@
 <div class="dropdown__menu">
     <ul>
         <li>
-            <a href="">Оценка недвижимости</a>
+            <a class="dropdown__link" href="/#ourServices">Оценка недвижимости</a>
         </li>
         <li>
-            <a href="">Ипотека</a>
+            <a class="dropdown__link" href="/#ourServices">Ипотека</a>
         </li>
         <li>
-            <a href="">Продажа квартиры</a>
+            <a class="dropdown__link" href="/#ourServices">Продажа квартиры</a>
         </li>
         <li>
-            <a href="">Рефинансирование</a>
+            <a class="dropdown__link" href="/#ourServices">Рефинансирование</a>
         </li>
         <li>
-            <a href="">Аренда</a>
+            <a class="dropdown__link" href="/#ourServices">Аренда</a>
         </li>
     </ul>
 </div>
@@ -28,10 +28,20 @@
     .dropdown {
         padding-right: 20px;
 
+        
+
         @media(max-width: 992px) { 
             display: flex;
             flex-direction: column;
             
+        }
+        &:hover {
+                .prevent {
+                    color: var(--btn-primary) !important;    
+                }
+        }
+        .prevent {      
+            transition: .3s ease all;  
         }
     }
 
@@ -89,7 +99,7 @@
             }
         }
         a {
-            
+            font-size: 16px;
             color: var(--primary);
             padding: 20px 10px;
             width: 100%;
@@ -100,7 +110,16 @@
             }
 
             @media(max-width: 992px) {
-                color: var(--headers-primary)  
+                color: var(--headers-primary);
+                font-size: 18px;  
+                padding: 10px;
+            }
+        }
+
+        .dropdown__link {
+            transition: .3s ease color;
+            &:hover {
+                color: var(--btn-primary);
             }
         }
     }

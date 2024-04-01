@@ -8,7 +8,7 @@ import img5 from '../assets/ourservices-5.jpg'
 import img6 from '../assets/ourservices-6.jpg'
 ---
 
-<section aria-labeledby="ourservices__title">
+<section id="ourServices" aria-labeledby="ourservices__title">
     <div class="container">
         <h2 id="ourservices__title">Наши услуги</h2>
 
@@ -21,7 +21,7 @@ import img6 from '../assets/ourservices-6.jpg'
                         <li>Подробные видеообзоры</li>
                         <li>Бесплатные экскурсии</li>
                     </ul>
-                    <a class="card__btn" href="#">Смотреть</a>
+                    <a class="card__btn" href="/catalog">Смотреть</a>
                 
                 <Image alt="Новостройки" src={img1}/>
             </li>
@@ -194,6 +194,11 @@ import img6 from '../assets/ourservices-6.jpg'
         display: flex;
         align-items: center;
         justify-content: center;
+
+        transition: .3s ease background;
+        &:hover {
+            background: #0b1099;
+        }
     }
 
 </style>
