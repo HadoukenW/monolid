@@ -6,9 +6,8 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
-const posts = await getCollection('catalog');
 const { title, description, pubDate, updatedDate, heroImage, aboutImages, aboutTitles, aboutTexts } = Astro.props;
-
+const posts = await Astro.glob('../content/catalog/*.mdx')
 
 ---
 
@@ -50,26 +49,14 @@ const { title, description, pubDate, updatedDate, heroImage, aboutImages, aboutT
 							<h2>О проекте</h2>
 
 							<ul class="about__wrapper">
-								<!-- <li>
-									{posts.map((post) => (
-										<div>
-										{post.data?.aboutTitles?.map((aboutTitle) => (
-											<div>
-												{post.data?.aboutTexts?.map((aboutText) => (
-													<div> {
-														post.data?.aboutImages?.map((aboutImage) => (
-														<h3>{[...new Set(aboutTitle)]}</h3>
-														<p>{aboutText}</p>
-														<Image src={aboutImage} alt={aboutTitle}/>
-														))
-													}
-													</div>
-												))}	
-											</div>
-										))}
-										</div>
+								<li>
+									{posts.map((item: any) => (
+										item.aboutSectionData?.map((secData) => (
+											<h3>{secData.title}</h3>
+											<p>{secData.text}</p>
+										))
 									))}
-								</li> -->
+								</li>
 							</ul>
 						</div>
 					</section>

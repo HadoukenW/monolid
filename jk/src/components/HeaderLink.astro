@@ -80,15 +80,38 @@ const isServices = href === '/nashi-uslugi'
 	const dropdownMenu = document.querySelectorAll('.dropdown__menu')
 	const dropdownLinks = document.querySelectorAll('.dropdown__link')
 	const body = document.querySelector('body')
+	const widgetIcon = document?.querySelector('.widget')
 		dropdown?.forEach((item, idx) => {
 			
+			document.addEventListener('click', (evt) => {
+			const { target } = evt;
+			if (target instanceof HTMLElement) {
+				if (!target?.classList.contains('dropdown')) {
+					item.classList.remove('active')
+					dropdownMenu[idx]?.classList.remove('active')
+				}
+			}
+			})
+
+			widgetIcon?.addEventListener('click', e => {
+				item.classList.remove('active')
+				dropdownMenu[idx]?.classList.remove('active')
+			})
+
 			item.addEventListener('click', e => {			
-			e.stopPropagation()
-			item.classList.toggle('active')
-			dropdownMenu[idx]?.classList.toggle('active')
 			
+			if (!item.classList.contains('active')) {
+				item.classList.add('active')
+				dropdownMenu[idx]?.classList.add('active')
+			}
+			else {
+				item.classList.remove('active')
+				dropdownMenu[idx]?.classList.remove('active')
+			}
 			
-		})
+			})
+
+			
 		})
 		
 		dropdownLinks.forEach((link) => {
