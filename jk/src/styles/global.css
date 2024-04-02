@@ -10,6 +10,7 @@
 	--btn-primary: #353BD7;	
 	--secondary: #03283C;
 	--section-padding: clamp(3.75rem, 2.083rem + 5.56vw, 6.25rem);
+	--header-clamp: clamp(1.5rem, 0.797rem + 2.34vw, 2.25rem);
 }
 @font-face {
 	font-family: 'Inter';
@@ -116,8 +117,8 @@ main {
 	clip: rect(0 0 0 0);
   }
 
-.c-breadcrumbs {
-	padding: 30px 0;
+nav.c-breadcrumbs {
+	padding-bottom: 15px;
 } 
 
 .c-breadcrumbs__crumb {

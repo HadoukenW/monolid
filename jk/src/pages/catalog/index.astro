@@ -8,7 +8,7 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
 
-const posts = (await getCollection('catalog')).sort(
+const posts = await getCollection('catalog')).sort(
 	(a, b) => a.data.year.valueOf() - b.data.year.valueOf()
 );
 ---

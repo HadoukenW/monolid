@@ -1,49 +1,21 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
+import { Image } from 'astro:assets';
+const posts = await getCollection('catalog');
+const { title, description, pubDate, updatedDate, heroImage, aboutImages, aboutTitles, aboutTexts } = Astro.props;
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
 ---
 
 <html lang="ru">
 	<head>
 		<BaseHead title={title} description={description} />
-		<!-- <style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style> -->
+		
 	</head>
 
 	<body>
@@ -68,16 +40,40 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			</div>
 			<main>
 				<article>
-					<div class="hero-image container">
-						{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
-					</div>
-					<div class="prose container">
-						<div class="title">
-							<h1>{title}</h1>
-							<hr />
+					<section class="section__hero" aria-label={title}>
+						<div class="image__wrapper">{heroImage && <Image src={heroImage} alt={title} />}</div>
+						<h1>{title}</h1>
+					</section>
+					
+					<section class="section__about">
+						<div class="container">
+							<h2>О проекте</h2>
+
+							<ul class="about__wrapper">
+								<!-- <li>
+									{posts.map((post) => (
+										<div>
+										{post.data?.aboutTitles?.map((aboutTitle) => (
+											<div>
+												{post.data?.aboutTexts?.map((aboutText) => (
+													<div> {
+														post.data?.aboutImages?.map((aboutImage) => (
+														<h3>{[...new Set(aboutTitle)]}</h3>
+														<p>{aboutText}</p>
+														<Image src={aboutImage} alt={aboutTitle}/>
+														))
+													}
+													</div>
+												))}	
+											</div>
+										))}
+										</div>
+									))}
+								</li> -->
+							</ul>
 						</div>
-						<slot />
-					</div>
+					</section>
+					
 				</article>
 			</main>
 			<Footer />
@@ -85,4 +81,66 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	</body>
 </html>
 
+
+<style lang="scss">
+	.section__hero {
+		position: relative;
+		.image__wrapper {
+			&:after {
+				content: '';
+				background-color: black;
+				position: absolute;
+				inset: 0;
+				z-index: 0;
+				opacity: .5;
+			}
+		}
+		h1 {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-weight: 500;
+			font-size: clamp(2rem, 0.333rem + 5.56vw, 4.5rem);
+			text-align: center;
+			color: var(--primary);
+			background-color: rgba(56, 60, 62, 0.719);
+			padding: 5px;
+		}
+
+		img {
+			width: 100%;
+			max-height: 850px;
+			height: 599px;
+			object-fit: cover;
+			object-position: center;
+			min-height: 350px;
+			// position: absolute;
+			// inset: 0;
+			@media(max-width:992px) {
+				height: 50vh;
+			}
+			@media(max-width:550px) {
+				height: 25vh;
+				
+				
+			}
+
+			@media(max-height: 800px) {
+				height: 80vh;
+			}
+			
+		}
+	}
+
+	.section__about {
+		padding: var(--section-padding) 0;
+		h2 {
+			color: var(--headers-primary);
+			font-weight: 500;
+			text-align: center;
+			font-size: var(--header-clamp);
+		}
+	}
+</style>
 
