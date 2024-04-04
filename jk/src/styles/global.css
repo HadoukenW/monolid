@@ -118,7 +118,9 @@ main {
   }
 
 nav.c-breadcrumbs {
-	padding-bottom: 15px;
+	padding: 10px;
+	background-color: #00000077;
+	color: var(--primary);
 } 
 
 .c-breadcrumbs__crumb {
@@ -133,5 +135,13 @@ nav.c-breadcrumbs {
 	
 }
 
+.c-breadcrumbs__link {
+	color: var(--primary);
+}
 
 
+input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus {
+	transition: 200ms ease all;
+	border: 1px solid var(--btn-primary) !important;
+	outline: none;
+}

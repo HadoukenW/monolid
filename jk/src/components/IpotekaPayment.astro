@@ -1,0 +1,125 @@
+---
+
+---
+
+<section>
+    <div class="container">
+        <h2>Купить в ипотеку</h2>
+
+        <ul>
+            <li>Ставка от 5,1% до 30 лет</li>
+            <li>Подберем ипотеку на выгодных условиях</li>
+        </ul>
+
+        <p class="preform__title">Получите расчет ежемесячного платежа по ипотеке</p>
+
+        <form action="">
+            <label>Количество комнат
+                <select>
+                    <option value="1 комната">1 комната</option>
+                    <option value="2 комнаты">2 комнаты</option>
+                    <option value="3 комнаты">3 комнаты</option>
+                    <option value="4 комнаты+">4 комнаты+</option>
+                  </select>
+            </label>
+            <label >Первоначальный взнос
+                <input min="0" type="number" placeholder="100000" />
+            </label>
+            <label >Срок, лет
+                <input min="0" type="number" placeholder="8 лет" />
+            </label>
+            <label >Имя
+                <input required type="text" placeholder="Ваше имя" />
+            </label>
+            <label >Телефон
+                <input required type="tel" placeholder="Ваш телефон" />
+            </label>
+            <button>Рассчитать ипотеку</button>
+        </form>
+        <p class="personalData">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</p>
+    </div>
+</section>
+
+<style lang="scss">
+    section {
+        padding: var(--section-padding) 0;
+        background-color: var(--secondary);
+        color: var(--primary);
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            
+            li {
+                position: relative;
+                display: flex;
+                gap: 10px;
+                &::before {
+                    content: '—';
+                }
+            }
+        }
+            h2 {
+                font-weight: 500;
+                text-align: center;
+                font-size: var(--header-clamp);
+                margin-bottom: 40px;
+            }
+            p {
+                margin: 20px 0;
+            }
+            form {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+
+                @media(max-width: 992px) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                label {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                select, input {
+                    padding: 16px 20px;
+                    border: 1px solid #d3dad7;
+                    font-weight: 400;
+                    font-size: 16px;
+                    text-transform: capitalize;
+
+                    &::placeholder {
+                        font-weight: 400;
+                        font-size: 16px;
+                        text-transform: capitalize;
+                    }
+                }
+
+                button {
+                    padding: 17px;
+                    background: var(--btn-primary);
+                    font-weight: 700;
+                    font-size: 18px;
+                    color: var(--primary);
+                    max-height: 52px;
+                    height: 100%;
+                    transition: .3s ease background;
+                    align-self: end;
+                    // @media(max-width: 992px) {
+                    //     align-self: unset;
+                    //     margin-top: 15px;
+                    // }
+
+                    &:hover {
+                        background: #0b1099;
+                    }
+                }
+            }
+            .personalData {
+                font-size: 12px;
+            }
+            
+    }
+</style>

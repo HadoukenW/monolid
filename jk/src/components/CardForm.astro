@@ -1,0 +1,129 @@
+---
+import { Image } from "astro:assets";
+import cardFormImg from '../assets/cardForm.jpg'
+
+---
+
+
+<section>
+    <div class="container">
+       <div class="cardform__wrapper">
+            <Image src={cardFormImg} alt="Картинка здания"/>
+            <div class="cardform-right">
+                <h2>Запишитесь на бесплатную консультацию</h2>
+        
+                <p>На экскурсии мы расскажем, как выстроить стратегию продвижения клиники еще до ее открытия, какие инструменты необходимо задействовать, и покажем на примере КАК это должно работать.</p>
+                <p>В результате вы получите практические рекомендации и весь путь к увеличению потока пациентов.</p>
+        
+        
+                <form action="">
+                    <div class="input__wrapper">
+                        <label class="visually-hidden" for="">Ваше имя</label>
+                        <input placeholder="Ваше имя" type="text">
+                        <label class="visually-hidden" for="">Телефон</label>
+                        <input placeholder="Телефон" type="tel">
+                    </div>
+                    <span>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</span>
+        
+                    <button>Записаться</button>
+                </form>
+            </div>
+       </div>
+    </div>
+</section>
+
+<style lang="scss">
+    section {
+        padding: var(--section-padding) 0;
+    }
+
+    .cardform__wrapper {
+        display: flex;
+
+        @media(max-width: 992px) {
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        img {
+            max-width: 500px;
+            width: 100%;
+            object-fit: cover;
+            object-position: left;
+            height: auto;
+
+            @media(max-width: 992px) {
+                max-width: unset;
+            }
+        }
+    }
+
+    .cardform-right {
+        background-color: var(--primary);
+        padding: clamp(1.563rem, 0.994rem + 2.84vw, 3.125rem);
+        max-width: 700px;
+        width: 100%;
+
+        @media(max-width: 992px) {
+            max-width: unset;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+
+            @media(max-width: 767px) {
+                font-size: 22px;
+                text-align: center;
+            }
+        }
+
+        p {
+            margin: clamp(1.5rem, 1.167rem + 1.11vw, 2rem) 0;   
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 140%;
+            color: #0d0d0d;
+        }
+
+        form {
+            
+            .input__wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+            }
+
+            input {
+                padding: 16px 20px;
+                border: 1px solid #d3dad7;
+            }
+
+            span {
+                font-size: 14px;
+                margin-top: 20px;
+                display: inline-block;
+            }
+
+            button {
+                font-weight: 500;
+                font-size: 18px;
+                padding: 7px 23px;
+                background-color: var(--btn-primary);
+                border-radius: 20px;
+                color: var(--primary);
+                margin-top: 20px;
+                line-height: 160%;
+                width: 100%;
+                text-align: center;
+                @media(max-width: 600px) {
+                }
+
+                transition: .3s ease background;
+                &:hover {
+                    background: #0b1099;
+                }
+            }
+        }
+    }
+</style>

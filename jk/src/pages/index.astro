@@ -10,6 +10,7 @@ import NewBuildings from '../components/NewBuildings.astro';
 import OurPartners from '../components/OurPartners.astro';
 import Maps from '../components/Maps.astro';
 import { Breadcrumbs } from "astro-breadcrumbs";
+import CardForm from '../components/CardForm.astro';
 ---
 
 <!doctype html>
@@ -24,7 +25,7 @@ import { Breadcrumbs } from "astro-breadcrumbs";
 				<main>
 					<Hero />
 					<About />
-					<OurServices />
+					<CardForm />
 					<NewBuildings />
 					<OurPartners />
 					<Maps />
@@ -96,17 +97,6 @@ import { Breadcrumbs } from "astro-breadcrumbs";
 		stagger: .4,
 	})
 
-	import IMask from 'imask';
-
-	const elements = document.querySelectorAll('.phoneMask');
-	const maskOptions = {
-	mask: '+{7}(000)000-00-00'
-	};
-
-	elements.forEach((element) => {
-
-		const mask = IMask(element, maskOptions);
-	})
 
 	
 </script>

@@ -24,9 +24,17 @@ const catalog = defineCollection({
     year: z.string(),
     buildingType: z.string(),
     heroImage: image().optional(),
-    aboutTitles: z.array(z.string()).optional(),
-    aboutImages: z.array(image()).optional(),
-    aboutTexts: z.array(z.string()).optional(),
+    aboutSectionData: z.array(z.object({
+      title: z.string(),
+      text: z.string(),
+      image: z.string(),
+    })).optional(),
+    layoutsSectionData: z.array(z.object({
+      title: z.string(),
+      image: z.string(),
+    })).optional(),
+    galleryImages: z.array(z.string()).optional(),
+    mapLocation: z.string().optional(),
   }),
 });
 export const collections = {

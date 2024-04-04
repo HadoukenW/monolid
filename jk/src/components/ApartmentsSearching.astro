@@ -1,0 +1,128 @@
+---
+
+---
+
+<section>
+    <div class="container">
+        <h2>Поиск квартиры в комплексе по вашим параметрам</h2>
+
+        <p>Выберите параметры квартиры и получите подходящие планировки с актуальными ценами</p>
+
+        <div>Какая отделка Вас интересует?</div>
+        <form>
+
+            <div class="checkboxes">
+                <label>Чистовая <input type="checkbox" value="Чистовая"/></label>
+                <label>Предчистовая <input type="checkbox" value="Предчистовая"/></label>
+                <label>Черновая <input type="checkbox" value="Черновая"/></label>
+            </div>
+
+            <div class="inputs__wrapper">
+                <label>Имя
+                    <input type="text" placeholder="Ваше имя"/>
+                </label>
+                
+                <label>Телефон
+                    <input type="tel" class="phoneMask" placeholder="Ваш телефон"/>
+                </label>
+                
+                <button>Записаться</button>
+            </div>
+        </form>
+        <p class="personalData">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</p>
+
+    </div>
+</section>
+
+<style lang="scss">
+    section {
+        padding: var(--section-padding) 0;
+		color: var(--headers-primary);
+
+        .personalData {
+                font-size: 12px;
+        }
+
+        h2 {
+            font-weight: 500;
+			font-size: var(--header-clamp);
+			text-align: center;
+			margin-bottom: 40px;
+            color: var(--headers-primary);
+
+        }
+
+        p {
+            margin: 20px 0;
+        }
+
+        form {
+            margin-top: 10px;
+
+            .checkboxes {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                flex-wrap: wrap;
+                
+                label {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+
+            .inputs__wrapper {
+                display: flex;
+                gap: 10px;
+                margin-top: 20px;
+
+                @media(max-width: 992px) {
+                    flex-direction: column;
+                }
+                label {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    input {
+                        width: 100%;
+                        padding: 16px 20px;
+                        border: 1px solid #d3dad7;
+                        font-weight: 400;
+                        font-size: 16px;
+                        text-transform: capitalize;
+
+                        &::placeholder {
+                            font-weight: 400;
+                            font-size: 16px;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+                button {
+                    flex: 1;
+                    padding: 17px;
+                    background: var(--btn-primary);
+                    font-weight: 700;
+                    font-size: 18px;
+                    color: var(--primary);
+                    max-height: 52px;
+                    height: 100%;
+                    transition: .3s ease background;
+                    align-self: end;
+                    @media(max-width: 992px) {
+                        align-self: unset;
+                        margin-top: 15px;
+                    }
+
+                    &:hover {
+                        background: #0b1099;
+                    }
+                }
+            }
+            
+        }
+
+    }
+</style>

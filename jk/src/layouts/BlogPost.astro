@@ -6,7 +6,9 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
-const { title, description, pubDate, updatedDate, heroImage, aboutImages, aboutTitles, aboutTexts } = Astro.props;
+import ApartmentSearching from '../components/ApartmentsSearching.astro'
+import IpotekaPayment from '../components/IpotekaPayment.astro'
+const { title, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapLocation} = Astro.props;
 const posts = await Astro.glob('../content/catalog/*.mdx')
 
 ---
@@ -20,28 +22,31 @@ const posts = await Astro.glob('../content/catalog/*.mdx')
 	<body>
 		<div class="wrapper">
 			<Header />
-			<div class="container">
-				<div class="c-breadcrumbs"><Breadcrumbs indexText="Главная">
-					<svg
-					slot="separator"
-					xmlns="http://www.w3.org/2000/svg"
-					width="20"
-					height="20"
-					viewBox="0 0 20 20"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					><polyline points="9 18 15 12 9 6"></polyline>
-			  </svg>
-				</Breadcrumbs></div>
-			</div>
+			
 			<main>
 				<article>
 					<section class="section__hero" aria-label={title}>
+
+
 						<div class="image__wrapper">{heroImage && <Image src={heroImage} alt={title} />}</div>
 						<h1>{title}</h1>
+
+						<div class="c-breadcrumbs"><Breadcrumbs indexText="Главная">
+							<svg
+							slot="separator"
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							viewBox="0 0 20 20"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+								><polyline points="9 18 15 12 9 6"></polyline>
+					  		</svg>
+								</Breadcrumbs>
+						</div>
 					</section>
 					
 					<section class="section__about">
@@ -49,18 +54,82 @@ const posts = await Astro.glob('../content/catalog/*.mdx')
 							<h2>О проекте</h2>
 
 							<ul class="about__wrapper">
-								<li>
-									{posts.map((item: any) => (
-										item.aboutSectionData?.map((secData) => (
-											<h3>{secData.title}</h3>
-											<p>{secData.text}</p>
-										))
+								{aboutSectionData?.map((item: any) => (
+									<li>
+										<div class="about__texts">
+											<h3>{item.title}</h3>
+											<p>{item.text}</p>
+										</div>
+										<img src={item.image}/>
+									</li>
 									))}
-								</li>
 							</ul>
 						</div>
 					</section>
 					
+					<section class="section__layouts">
+						<div class="container">
+							<h2>Планировки</h2>
+
+							<ul>
+								{layoutsSectionData?.map((item: any) => (
+									<li>
+										<img src={item.image} alt={item.title}>
+										<div class="layouts__texts">
+											<p>{item.title}</p>
+											<button>Забронировать</button>
+										</div>
+									</li>
+								))}
+							</ul>
+						</div>
+					</section>
+
+					
+						<div class="maps__wrapper">
+							<div>
+								<h2>Расположение комплекса</h2>
+							</div>
+    						<iframe src={mapLocation} width="100%" height="500" frameborder="0"></iframe>
+						</div>
+					
+
+					<section class="section__gallery">
+						<div class="container">
+							<h2>Галерея</h2>
+
+							<ul>
+								{galleryImages?.map((item: any) => (
+									<li>
+										<div>
+											<img tabindex="0" src={item} alt="Фото галлерии" />
+										</div>
+									</li>
+								))}
+							</ul>
+						</div>
+					</section>
+
+					<ApartmentSearching />
+
+					<IpotekaPayment />
+					<section class="section__form">
+						<div class="container">
+							<div class="form__wrapper">
+								<h2>Получить консультацию</h2>
+
+								<form>
+									<label class="visually-hidden" for="formName">Ваше имя</label>
+									<input type="text" id="formName" placeholder="Ваше имя"/>
+									<label class="visually-hidden" for="formPhone">Ваш телефон</label>
+									<input type="tel" class="phoneMask" id="formPhone" placeholder="Ваш телефон"/>
+									<button>Записаться</button>
+								</form>
+								<p>«Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности»</p>
+							</div>
+						</div>
+					</section>
+
 				</article>
 			</main>
 			<Footer />
@@ -70,6 +139,13 @@ const posts = await Astro.glob('../content/catalog/*.mdx')
 
 
 <style lang="scss">
+
+	.c-breadcrumbs {
+		position: absolute;
+		top: 15px;
+		left: 15px;
+	}
+	
 	.section__hero {
 		position: relative;
 		.image__wrapper {
@@ -97,8 +173,8 @@ const posts = await Astro.glob('../content/catalog/*.mdx')
 
 		img {
 			width: 100%;
-			max-height: 850px;
-			height: 599px;
+			max-height: 1500px;
+			height: 100vh;
 			object-fit: cover;
 			object-position: center;
 			min-height: 350px;
@@ -122,11 +198,270 @@ const posts = await Astro.glob('../content/catalog/*.mdx')
 
 	.section__about {
 		padding: var(--section-padding) 0;
+		background-color: var(--secondary);
+		color: var(--primary);
 		h2 {
-			color: var(--headers-primary);
 			font-weight: 500;
 			text-align: center;
 			font-size: var(--header-clamp);
+		}
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 100px;
+			margin-top: clamp(2.5rem, 1.328rem + 3.91vw, 3.75rem);
+
+			@media(max-width: 1167px) {
+				gap: 50px;
+			}
+
+
+			li {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: clamp(3.125rem, -1.328rem + 14.84vw, 7.875rem);
+
+				@media(max-width: 1167px) {
+					flex-wrap: wrap;
+					justify-content: center;
+					text-align: center;
+					gap: 20px;
+				}
+
+				&:nth-child(even) {
+					flex-direction: row-reverse;
+
+					img {
+						mask-image: url(/public/mask-image.svg);
+					}
+					
+				}
+				
+				&:nth-child(odd) {
+					img {
+						mask-image: url(/public/mask-image-alternative.svg);
+					}
+				}
+				h3 {
+					font-weight: 400;
+					font-size: 22px;
+				}
+				p {
+					margin-top: 25px;
+					font-size: 18px;
+					line-height: 1.6;
+				}
+				img {
+					max-width: 550px;
+					width: 100%;
+					object-fit: cover;
+					mask-repeat: no-repeat;
+					mask-size: cover;
+					max-height: 371px;
+					height: 371px;
+					@media(max-width: 650px) {
+						height: auto;
+					}
+				}
+			}
+		}
+	}
+
+	.section__layouts {
+		padding: var(--section-padding) 0;
+		color: var(--headers-primary);
+		h2 {
+			font-weight: 500;
+			text-align: center;
+			font-size: var(--header-clamp)
+		}
+		ul {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			margin-top: clamp(2.5rem, 1.328rem + 3.91vw, 3.75rem);
+			gap: 24px;
+
+			@media(max-width: 992px) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+			@media(max-width: 767px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@media(max-width: 550px) {
+				grid-template-columns: repeat(1, 1fr);
+			}
+		}
+		li {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			
+			img {
+				border-top-left-radius: 20px;
+				border-top-right-radius: 20px;
+				width: 100%;
+				height: auto;
+			}
+			.layouts__texts {
+				padding: 15px 10px;
+				background-color: var(--primary);
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				border-bottom-left-radius: 20px;
+				border-bottom-right-radius: 20px;
+				box-shadow: 0px 9px 15px 1px rgba(34, 60, 80, 0.2);
+			}
+			p {
+				font-size: 18px;
+				font-weight: 500;
+			}
+			button {
+				font-weight: 500;
+                font-size: 18px;
+                padding: 7px 23px;
+                background-color: var(--btn-primary);
+                border-radius: 20px;
+                color: var(--primary);
+                margin-top: 20px;
+                line-height: 160%;
+                @media(max-width: 600px) {
+                    width: 100%;
+                    text-align: center;
+                }
+
+				transition: .3s ease background;
+                &:hover {
+                    background: #0b1099;
+                }
+			}
+		}
+
+	}
+
+	.section__gallery {
+		padding: var(--section-padding) 0;
+		background-color: var(--secondary);
+		color: var(--primary);
+
+		h2 {
+			font-weight: 500;
+			text-align: center;
+			font-size: var(--header-clamp);
+		}
+		ul {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			margin-top: clamp(2.5rem, 1.328rem + 3.91vw, 3.75rem);
+			gap: 24px;
+
+			@media(max-width: 992px) {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 18px;
+			}
+			
+			@media(max-width: 550px) {
+				grid-template-columns: repeat(1, 1fr);
+				gap: 10px;
+			}
+
+			div {
+				height: 100%;
+
+			}
+			img {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+				max-height: 223px;
+			}
+		}
+	}
+
+	.section__form {
+		padding: clamp(6.25rem, 1.792rem + 14.86vw, 12.938rem) 0;
+		background: url('/public/form__background.webp') no-repeat center;
+		background-size: cover;
+		.form__wrapper {
+			background-color: var(--primary);
+			padding: 33px;
+			max-width: 590px;
+			margin: 0 auto;
+
+			@media(max-width: 767px) {
+				padding: 20px;
+			}
+		}
+		h2 {
+			font-weight: 500;
+			font-size: clamp(1.75rem, 1.583rem + 0.56vw, 2rem);
+			text-align: center;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			max-width:450px;
+			width: 100%;
+			margin: 0 auto;
+			gap: 13px;
+			margin-top: 25px;
+
+			input {
+				padding: 16px 20px;
+				border: 1px solid #d3dad7;
+				font-weight: 400;
+				font-size: 16px;
+				text-transform: capitalize;
+
+				&::placeholder {
+					font-weight: 400;
+					font-size: 16px;
+					text-transform: capitalize;
+				}
+			}
+
+			button {
+				padding: 19px;
+				border-radius: 20px;
+				max-width: 450px;
+				width: 100%;
+				background: var(--btn-primary);
+				margin-top: 12px;
+				font-weight: 700;
+				font-size: 18px;
+				color: var(--primary);
+
+				transition: .3s ease background;
+                &:hover {
+                    background: #0b1099;
+                }
+			}
+		}
+
+		p {
+			font-weight: 600;
+			font-size: 12px;
+			line-height: 133%;
+			letter-spacing: 0.02em;
+			text-align: center;
+			color: #303934;
+			margin-top: 25px;
+		}
+	}
+
+	.maps__wrapper {
+		h2 {
+			font-weight: 500;
+			font-size: var(--header-clamp);
+			text-align: center;
+			margin-bottom: 60px;
+
+			@media(max-width: 992px) {
+				margin-bottom: 45px;
+			}
 		}
 	}
 </style>
