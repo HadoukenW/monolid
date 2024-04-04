@@ -32,7 +32,7 @@
                 <input required type="text" placeholder="Ваше имя" />
             </label>
             <label >Телефон
-                <input required type="tel" placeholder="Ваш телефон" />
+                <input class="phoneMask" required type="tel" placeholder="Ваш телефон" />
             </label>
             <button>Рассчитать ипотеку</button>
         </form>
@@ -75,6 +75,10 @@
 
                 @media(max-width: 992px) {
                     grid-template-columns: repeat(2, 1fr);
+                }
+                @media(max-width: 600px) {
+                    grid-template-columns: repeat(1, 1fr);
+                    gap: 20px;
                 }
 
                 label {

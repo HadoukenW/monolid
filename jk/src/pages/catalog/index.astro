@@ -11,6 +11,18 @@ import { Image } from 'astro:assets';
 const posts = (await getCollection('catalog')).sort(
 	(a, b) => a.data.year.valueOf() - b.data.year.valueOf()
 );
+
+
+const customCrumbs = [
+ {
+    text: "Главная",
+    href: "/",
+  },
+  {
+    text: "Каталог",
+    href: "/catalog",
+  }
+]
 ---
 
 <!doctype html>
@@ -22,7 +34,7 @@ const posts = (await getCollection('catalog')).sort(
 	<body>
 		<div class="wrapper">
 			<Header />
-			<div class="container"><Breadcrumbs indexText="Главная">
+			<div class="container"><Breadcrumbs crumbs={customCrumbs}>
 				<svg
 				slot="separator"
 				xmlns="http://www.w3.org/2000/svg"

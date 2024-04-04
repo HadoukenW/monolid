@@ -11,6 +11,17 @@ import BaseHead from '../components/BaseHead.astro'
 import { Breadcrumbs } from "astro-breadcrumbs";
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Footer from '../components/Footer.astro'
+
+const customCrumbs = [
+ {
+    text: "Главная",
+    href: "/",
+  },
+  {
+    text: "Наши услуги",
+    href: "/nashi-uslugi",
+  }
+]
 ---
 
 <!doctype html>
@@ -22,7 +33,7 @@ import Footer from '../components/Footer.astro'
 		<div class="wrapper">
 			<Header />
 			<div class="container">
-			    <div class="c-breadcrumbs"><Breadcrumbs indexText="Главная">
+			    <div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
                     <svg
                         slot="separator"
                         xmlns="http://www.w3.org/2000/svg"

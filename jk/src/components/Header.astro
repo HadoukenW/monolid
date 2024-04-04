@@ -9,7 +9,11 @@ import logo from '../assets/logo.jpg'
 	<div class="container">
 		<div class="header__wrapper">
 			<div class="upper-header">
-				<a class="logo" href="/"><Image quality={100} src={logo} alt="Логотип"/></a>
+				<a itemscope itemtype="https://schema.org/Organization" class="logo" href="/">
+					<link itemprop="url" href="https://example.com/">
+					<Image itemprop="logo" quality={100} src={logo} alt="Логотип"/>
+					<meta itemprop="name" content="Монолид - компания по недвижимости">
+				</a>
 
 				<div class="header__phone-wrapper">
 					<div>Звонок по России бесплатный</div>

@@ -11,6 +11,23 @@ import IpotekaPayment from '../components/IpotekaPayment.astro'
 const { title, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapLocation} = Astro.props;
 const posts = await Astro.glob('../content/catalog/*.mdx')
 
+
+
+const customCrumbs = [
+ {
+    text: "Главная",
+    href: "/",
+  },
+  {
+    text: "Каталог",
+    href: "/catalog",
+  },
+  {
+    text: title,
+    href: `${Astro.url.pathname}`,
+    "data-custom": "custom data attribute",
+  },
+]
 ---
 
 <html lang="ru">
@@ -23,7 +40,9 @@ const posts = await Astro.glob('../content/catalog/*.mdx')
 		<div class="wrapper">
 			<Header />
 			
-			<main>
+			<main itemtype="https://schema.org/Product" itemscope>
+				<link itemprop="mainEntityOfPage" href={Astro.url.pathname}>
+				<meta itemprop="name" content={title}>
 				<article>
 					<section class="section__hero" aria-label={title}>
 
@@ -31,7 +50,7 @@ const posts = await Astro.glob('../content/catalog/*.mdx')
 						<div class="image__wrapper">{heroImage && <Image src={heroImage} alt={title} />}</div>
 						<h1>{title}</h1>
 
-						<div class="c-breadcrumbs"><Breadcrumbs indexText="Главная">
+						<div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
 							<svg
 							slot="separator"
 							xmlns="http://www.w3.org/2000/svg"
@@ -144,6 +163,11 @@ const posts = await Astro.glob('../content/catalog/*.mdx')
 		position: absolute;
 		top: 15px;
 		left: 15px;
+
+		@media(max-width: 450px) {
+			left: 0;
+			width: 100%;
+		}
 	}
 	
 	.section__hero {
