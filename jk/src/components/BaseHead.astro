@@ -7,17 +7,18 @@ interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	websiteType?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'website' } = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/jpg" sizes="16x16" href="/public/head-icon.jpg" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Font preloads -->
@@ -31,14 +32,22 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="robots" content="index, follow">
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={websiteType} />
 <meta property="og:url" content={Astro.url} />
+<meta property="og:locale" content="ru_RU">
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image:type" content="image/webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Новостройки" />
+<meta property="og:site_name" content="Monolid">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
@@ -46,7 +55,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
-
+<meta name="twitter:image:alt" content="Новостройки">
 <script >
 	import IMask from 'imask';
 
@@ -55,7 +64,7 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 	mask: '+{7}(000)000-00-00'
 	};
 
-	elements.forEach((element) => {
+	elements.forEach((element: any) => {
 
 		const mask = IMask(element, maskOptions);
 	})

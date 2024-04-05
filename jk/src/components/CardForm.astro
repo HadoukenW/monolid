@@ -5,12 +5,12 @@ import cardFormImg from '../assets/cardForm.jpg'
 ---
 
 
-<section>
+<section aria-labelledby="consultancy__title">
     <div class="container">
        <div class="cardform__wrapper">
             <Image src={cardFormImg} alt="Картинка здания"/>
             <div class="cardform-right">
-                <h2>Запишитесь на бесплатную консультацию</h2>
+                <h2 id="consultancy__title">Запишитесь на бесплатную консультацию</h2>
         
                 <p>На экскурсии мы расскажем, как выстроить стратегию продвижения клиники еще до ее открытия, какие инструменты необходимо задействовать, и покажем на примере КАК это должно работать.</p>
                 <p>В результате вы получите практические рекомендации и весь путь к увеличению потока пациентов.</p>
@@ -21,7 +21,7 @@ import cardFormImg from '../assets/cardForm.jpg'
                         <label class="visually-hidden" for="">Ваше имя</label>
                         <input placeholder="Ваше имя" type="text">
                         <label class="visually-hidden" for="">Телефон</label>
-                        <input placeholder="Телефон" type="tel">
+                        <input class="phoneMask" placeholder="Телефон" type="tel">
                     </div>
                     <span>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</span>
         

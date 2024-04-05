@@ -9,7 +9,7 @@ import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
 
 const posts = (await getCollection('catalog')).sort(
-	(a, b) => a.data.year.valueOf() - b.data.year.valueOf()
+	(a: any, b: any) => a.data.year.valueOf() - b.data.year.valueOf()
 );
 
 
@@ -26,15 +26,15 @@ const customCrumbs = [
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} websiteType="article"/>
 		
 	</head>
 	<body>
 		<div class="wrapper">
 			<Header />
-			<div class="container"><Breadcrumbs crumbs={customCrumbs}>
+			<div class="breadcrumbs__container"><Breadcrumbs crumbs={customCrumbs}>
 				<svg
 				slot="separator"
 				xmlns="http://www.w3.org/2000/svg"
@@ -49,42 +49,48 @@ const customCrumbs = [
 				><polyline points="9 18 15 12 9 6"></polyline>
 			  </svg> </Breadcrumbs></div>
 			<main>
-				<section>
+				<section aria-labelledby="catalog__title">
+					<h2 id="catalog__title">Каталог новостроек</h2>
 					<div class="container">
 						<ul>
 							{
-								posts?.map((post) => (
-									<li itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title}>
-										<Image itemprop="photo" src={post.data.heroImage} alt={post.data.title} />
-										<div class="text__box">
-											<h3 itemprop="name">{post.data.title}</h3>
-											<div class="newBuildings__wrapper">
-												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M7.70538 0C4.67267 0 2.20538 2.59944 2.20538 5.79456C2.20538 9.75981 7.12734 15.581 7.3369 15.8269C7.53373 16.0579 7.87739 16.0575 8.07387 15.8269C8.28342 15.581 13.2054 9.75981 13.2054 5.79456C13.2053 2.59944 10.7381 0 7.70538 0ZM7.70538 8.70997C6.17955 8.70997 4.93822 7.40212 4.93822 5.79456C4.93822 4.187 6.17958 2.87919 7.70538 2.87919C9.23119 2.87919 10.4725 4.18703 10.4725 5.79459C10.4725 7.40216 9.23119 8.70997 7.70538 8.70997Z" fill="#1C244B" />
-												</svg>
-												<p>{post.data.location}</p>
-												<div class="visually-hidden" itemscope itemtype="https://schema.org/PostalAddress"> 
-													<meta itemprop="addressLocality" content="Челябинск"/>
-													<meta itemprop="addressRegion" content="Челябинская область"/>
-													<meta itemprop="telephone" content="89642409046"/>
+								posts?.map((post: any) => (
+									<div itemscope itemtype="https://schema.org/Accommodation">
+										<meta itemprop="yearBuilt" content={post.data.year}>
+										<li itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title}>
+											<article>
+												<Image loading="eager" itemprop="photo" src={post.data.heroImage} alt={post.data.title} />
+												<div class="text__box">
+													<h3 itemprop="name">{post.data.title}</h3>
+													<div class="newBuildings__wrapper">
+														<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M7.70538 0C4.67267 0 2.20538 2.59944 2.20538 5.79456C2.20538 9.75981 7.12734 15.581 7.3369 15.8269C7.53373 16.0579 7.87739 16.0575 8.07387 15.8269C8.28342 15.581 13.2054 9.75981 13.2054 5.79456C13.2053 2.59944 10.7381 0 7.70538 0ZM7.70538 8.70997C6.17955 8.70997 4.93822 7.40212 4.93822 5.79456C4.93822 4.187 6.17958 2.87919 7.70538 2.87919C9.23119 2.87919 10.4725 4.18703 10.4725 5.79459C10.4725 7.40216 9.23119 8.70997 7.70538 8.70997Z" fill="#1C244B" />
+														</svg>
+														<p>{post.data.location}</p>
+														<div class="visually-hidden" itemscope itemtype="https://schema.org/PostalAddress"> 
+															<meta itemprop="addressLocality" content="Челябинск"/>
+															<meta itemprop="addressRegion" content="Челябинская область"/>
+															<meta itemprop="telephone" content="89642409046"/>
+														</div>
+													</div>
+													<div class="newBuildings__wrapper">
+														<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M8 0C3.58888 0 0 3.58888 0 8C0 12.4111 3.58888 16 8 16C12.4111 16 16 12.4111 16 8C16 3.58888 12.4111 0 8 0ZM8 15C4.14013 15 1 11.8599 1 8C1 4.14013 4.14013 1 8 1C11.8599 1 15 4.14013 15 8C15 11.8599 11.8599 15 8 15Z" fill="#1C244B" />
+															<path d="M8.5 3H7.5V8.20702L10.6465 11.3535L11.3535 10.6465L8.5 7.79295V3Z" fill="#1C244B" />
+														</svg>
+														<p>{post.data.year}</p>
+													</div>
+													<div class="newBuildings__wrapper">
+														<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path d="M13.6 14.4V0H2.4V14.4H0.799988V16H15.2V14.4H13.6ZM7.2 1.60001H8.80001V3.20002H7.2V1.60001ZM7.2 4.8H8.80001V6.40001H7.2V4.8ZM7.2 7.99998H8.80001V9.59999H7.2V7.99998ZM5.59998 9.59999H3.99997V7.99998H5.59998V9.59999ZM5.59998 6.40001H3.99997V4.8H5.59998V6.40001ZM5.59998 3.19999H3.99997V1.60001H5.59998V3.19999ZM9.59999 14.4H6.40001V12.8C6.40001 11.92 7.12001 11.2 8.00002 11.2C8.88003 11.2 9.59999 11.92 9.59999 12.8V14.4ZM12 9.59999H10.4V7.99998H12V9.59999ZM12 6.40001H10.4V4.8H12V6.40001ZM12 3.19999H10.4V1.60001H12V3.19999Z" fill="#1C244B" />
+														</svg>
+														<p>{post.data.buildingType}</p>
+													</div>
+													<a itemprop="url" href={`/catalog/${post.slug}`}>Подробнее</a>
 												</div>
-											</div>
-											<div class="newBuildings__wrapper">
-												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M8 0C3.58888 0 0 3.58888 0 8C0 12.4111 3.58888 16 8 16C12.4111 16 16 12.4111 16 8C16 3.58888 12.4111 0 8 0ZM8 15C4.14013 15 1 11.8599 1 8C1 4.14013 4.14013 1 8 1C11.8599 1 15 4.14013 15 8C15 11.8599 11.8599 15 8 15Z" fill="#1C244B" />
-													<path d="M8.5 3H7.5V8.20702L10.6465 11.3535L11.3535 10.6465L8.5 7.79295V3Z" fill="#1C244B" />
-												</svg>
-												<p itemprop="yearBuilt">{post.data.year}</p>
-											</div>
-											<div class="newBuildings__wrapper">
-												<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<path d="M13.6 14.4V0H2.4V14.4H0.799988V16H15.2V14.4H13.6ZM7.2 1.60001H8.80001V3.20002H7.2V1.60001ZM7.2 4.8H8.80001V6.40001H7.2V4.8ZM7.2 7.99998H8.80001V9.59999H7.2V7.99998ZM5.59998 9.59999H3.99997V7.99998H5.59998V9.59999ZM5.59998 6.40001H3.99997V4.8H5.59998V6.40001ZM5.59998 3.19999H3.99997V1.60001H5.59998V3.19999ZM9.59999 14.4H6.40001V12.8C6.40001 11.92 7.12001 11.2 8.00002 11.2C8.88003 11.2 9.59999 11.92 9.59999 12.8V14.4ZM12 9.59999H10.4V7.99998H12V9.59999ZM12 6.40001H10.4V4.8H12V6.40001ZM12 3.19999H10.4V1.60001H12V3.19999Z" fill="#1C244B" />
-												</svg>
-												<p>{post.data.buildingType}</p>
-											</div>
-											<a itemprop="url" href={`/catalog/${post.slug}`}>Подробнее</a>
-										</div>
-									</li>
+											</article>
+										</li>
+									</div>
 								))
 							}
 						</ul>
@@ -97,12 +103,21 @@ const customCrumbs = [
 </html>
 
 <style lang="scss">
+
+		.breadcrumbs__container {
+			max-width: 1330px;
+			margin: 0 auto;
+			padding: 0 15px;
+			width: 100%;
+
+		}
+
 		h2 {
 			font-weight: 700;
 			font-size: clamp(1.5rem, 0.797rem + 2.34vw, 2.25rem);
-			color: var(--primary);
+			color: var(--headers-primary);
 			text-align: center;
-			margin-bottom: clamp(1.25rem, 0.664rem + 1.95vw, 1.875rem);
+			margin-top: 30px;
 		}
 
 		.newBuildings__wrapper {
@@ -115,7 +130,7 @@ const customCrumbs = [
         display: grid;
         justify-content: center;
         gap: 24px;
-        margin-top: clamp(0.938rem, -0.521rem + 4.86vw, 3.125rem);
+        margin-top: clamp(2.188rem, 1.309rem + 2.93vw, 3.125rem);
         grid-template-columns: repeat(4, 1fr);
 
 		@media(max-width: 1167px) {

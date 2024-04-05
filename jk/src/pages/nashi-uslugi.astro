@@ -32,7 +32,7 @@ const customCrumbs = [
 	<body>
 		<div class="wrapper">
 			<Header />
-			<div class="container">
+			<div class="breadcrumbs__container">
 			    <div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
                     <svg
                         slot="separator"
@@ -138,6 +138,15 @@ const customCrumbs = [
 
 
 <style lang="scss">
+
+        .breadcrumbs__container {
+			max-width: 1330px;
+			margin: 0 auto;
+			padding: 0 15px;
+			width: 100%;
+
+		}
+
     section {
         padding: var(--section-padding) 0;
         
@@ -225,6 +234,7 @@ const customCrumbs = [
                 height: 100%;
                 z-index: -2;
                 border-radius: 20px;
+                object-fit: cover;
             }
 
             

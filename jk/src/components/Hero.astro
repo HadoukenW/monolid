@@ -23,7 +23,7 @@ const posts = await getCollection('homepage');
                             </div>
 
                         </div>
-                        <Image class="slide__img" src={post.data.image} alt={post.data.title}/>
+                        <Image loading="eager" class="slide__img" src={post.data.image} alt={post.data.title}/>
                     </div>
                 ))}
 
