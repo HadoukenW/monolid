@@ -10,6 +10,9 @@ import ApartmentSearching from '../components/ApartmentsSearching.astro'
 import IpotekaPayment from '../components/IpotekaPayment.astro'
 const { title, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapLocation} = Astro.props;
 const posts = await Astro.glob('../content/catalog/*.mdx')
+import "../../astro-breadcrumbs-config.scss";
+
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 
 
@@ -47,7 +50,7 @@ const customCrumbs = [
 					<section class="section__hero" aria-label={title}>
 
 
-						<div class="image__wrapper">{heroImage && <Image src={heroImage} alt={title} />}</div>
+						<div itemtype="http://schema.org/ImageObject" itemscope class="image__wrapper">{heroImage && <Image itemprop="contentUrl" src={heroImage} alt={title} />}</div>
 						<h1>{title}</h1>
 
 						<div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
@@ -93,7 +96,7 @@ const customCrumbs = [
 							<ul>
 								{layoutsSectionData?.map((item: any) => (
 									<li>
-										<img src={item.image} alt={item.title}>
+										<div itemscope itemtype="https://schema.org/ImageObject"><img itemprop="contentUrl" src={item.image} alt={item.title}></div>
 										<div class="layouts__texts">
 											<p>{item.title}</p>
 											<button class="apartment__booking">Забронировать</button>
@@ -119,7 +122,7 @@ const customCrumbs = [
 								</label>
 								<label for="">
 									Телефон
-									<input placeholder="Ваш телефон"/>
+									<input class="phoneMask" placeholder="Ваш телефон"/>
 								</label>
 							</div>
 							<button class="consultancyGetting">Получить консультацию</button>
@@ -142,13 +145,15 @@ const customCrumbs = [
 							<ul>
 								{galleryImages?.map((item: any) => (
 									<li>
-										<div>
-											<img tabindex="0" src={item} alt="Фото галлерии" />
-										</div>
+										<a data-src={item} data-fancybox="gallery" itemscope itemtype="https://schema.org/ImageObject">
+											<img itemprop="contentUrl" tabindex="0" src={item} alt="Фото галлерии" />
+										</a>
 									</li>
 								))}
 							</ul>
 						</div>
+
+						
 					</section>
 
 					<ApartmentSearching />
@@ -173,6 +178,8 @@ const customCrumbs = [
 
 				</article>
 			</main>
+
+			<div itemprop="author" itemtype="http://schema.org/Person" itemscope=""><meta itemprop="name" content="Монолид" itemscope=""></div>
 			<Footer />
 		</div>
 	</body>
@@ -204,13 +211,20 @@ const customCrumbs = [
 		left: 50%;
 		transform: translate(-50%, -50%);
 		justify-content: center;
-		padding: 0;
 		z-index: 60;
 		background-color: var(--primary);
 		color: var(--headers-primary);
 		padding: 30px;
-		height: min-content;
+		height: max-content;
 		flex-direction: column;
+		overflow-y: auto;
+
+		@media(max-width: 330px) {
+			height: 90%;
+			padding: 40px 10px;
+
+			
+		}
 
 		&.active {
 			display: flex;
@@ -306,7 +320,10 @@ const customCrumbs = [
 		position: absolute;
 		top: 15px;
 		left: 15px;
-		
+		padding: 10px;
+		background-color: #00000077;
+		color: var(--primary);
+	
 
 		@media(max-width: 450px) {
 			left: 0;
@@ -333,34 +350,33 @@ const customCrumbs = [
 			left: 50%;
 			transform: translate(-50%, -50%);
 			font-weight: 500;
-			font-size: clamp(2rem, 0.333rem + 5.56vw, 4.5rem);
+			font-size: clamp(1.625rem, 0.542rem + 3.61vw, 3.25rem);
 			text-align: center;
 			color: var(--primary);
 			background-color: rgba(56, 60, 62, 0.719);
 			padding: 5px;
+			backdrop-filter: blur(4px);
 		}
-
+		
 		img {
 			width: 100%;
-			max-height: 1500px;
-			height: 100vh;
-			object-fit: cover;
-			object-position: center;
-			min-height: 350px;
+			height: 70vh;
+			min-height: 400px;
 			// position: absolute;
 			// inset: 0;
 			@media(max-width:992px) {
-				height: 50vh;
+				height: 40vh;
+				min-height: none;
 			}
-			@media(max-width:550px) {
-				height: 25vh;
+			// @media(max-width:550px) {
+			// 	height: 25vh;
 				
 				
-			}
+			// }
 
-			@media(max-height: 800px) {
-				height: 80vh;
-			}
+			// @media(max-height: 800px) {
+			// 	height: 80vh;
+			// }
 			
 		}
 	}
@@ -659,4 +675,18 @@ const customCrumbs = [
 			apartmentModal?.classList.remove('active')
 			body?.classList.remove('locked')
 	})
+
+	import { Fancybox } from "@fancyapps/ui";
+
+	Fancybox.bind('[data-fancybox="gallery"]', {
+		Carousel: {
+			transition: "slide",
+		},
+
+		hideScrollbar: false,
+
+		Thumbs: {
+			type: "classic",
+		},
+	});
 </script>

@@ -39,10 +39,11 @@ import cardFormImg from '../assets/cardForm.jpg'
 
     .cardform__wrapper {
         display: flex;
-
+        
         @media(max-width: 992px) {
             flex-wrap: wrap;
             width: 100%;
+            box-shadow: 0px 9px 15px 1px rgba(34, 60, 80, 0.356);
         }
 
         img {
@@ -97,6 +98,15 @@ import cardFormImg from '../assets/cardForm.jpg'
             input {
                 padding: 16px 20px;
                 border: 1px solid #d3dad7;
+                padding: 13px;
+                border-radius: 5px;
+                outline: none;
+                border: 0;
+                font-weight: 400;
+                color: var(--headers-primary);
+                font-size: 18px;
+                border: 1px solid #d3dad7;
+                width: 100%;
             }
 
             span {

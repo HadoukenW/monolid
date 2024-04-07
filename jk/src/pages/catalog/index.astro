@@ -7,6 +7,7 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
+import "../../../astro-breadcrumbs-config.scss";
 
 const posts = (await getCollection('catalog')).sort(
 	(a: any, b: any) => a.data.year.valueOf() - b.data.year.valueOf()
@@ -50,7 +51,7 @@ const customCrumbs = [
 			  </svg> </Breadcrumbs></div>
 			<main>
 				<section aria-labelledby="catalog__title">
-					<h2 id="catalog__title">Каталог новостроек</h2>
+					<h1 id="catalog__title">Каталог новостроек</h1>
 					<div class="container">
 						<ul>
 							{
@@ -59,7 +60,7 @@ const customCrumbs = [
 										<meta itemprop="yearBuilt" content={post.data.year}>
 										<li itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title}>
 											<article>
-												<Image loading="eager" itemprop="photo" src={post.data.heroImage} alt={post.data.title} />
+												<Image loading="eager" itemprop="image" src={post.data.heroImage} alt={post.data.title} />
 												<div class="text__box">
 													<h3 itemprop="name">{post.data.title}</h3>
 													<div class="newBuildings__wrapper">
@@ -108,13 +109,13 @@ const customCrumbs = [
 			max-width: 1330px;
 			margin: 0 auto;
 			padding: 0 15px;
-			width: 100%;
+			justify-self: start;
 
 		}
 
-		h2 {
+		h1 {
 			font-weight: 700;
-			font-size: clamp(1.5rem, 0.797rem + 2.34vw, 2.25rem);
+			font-size: var(--header-clamp);
 			color: var(--headers-primary);
 			text-align: center;
 			margin-top: 30px;
@@ -166,7 +167,7 @@ const customCrumbs = [
 				}
 
 				@media(max-width: 600px) {
-					max-height: 350px
+					max-height: 250px
 				}
             }
 

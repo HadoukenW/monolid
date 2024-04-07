@@ -11,7 +11,7 @@ import BaseHead from '../components/BaseHead.astro'
 import { Breadcrumbs } from "astro-breadcrumbs";
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Footer from '../components/Footer.astro'
-
+import "../../astro-breadcrumbs-config.scss";
 const customCrumbs = [
  {
     text: "Главная",
@@ -53,7 +53,7 @@ const customCrumbs = [
 				<main>
 					<section id="ourServices" aria-labeledby="ourservices__title">
                         <div class="container">
-                            <h2 id="ourservices__title">Наши услуги</h2>
+                            <h1 id="ourservices__title">Наши услуги</h1>
                     
                             <ul class="ourservives__wrapper">
                                 <li class="card">
@@ -143,8 +143,7 @@ const customCrumbs = [
 			max-width: 1330px;
 			margin: 0 auto;
 			padding: 0 15px;
-			width: 100%;
-
+            
 		}
 
     section {
@@ -153,9 +152,9 @@ const customCrumbs = [
     }
 
 
-    h2 {
+    h1 {
         font-weight: 700;
-        font-size: clamp(1.5rem, 0.797rem + 2.34vw, 2.25rem);
+        font-size: var(--header-clamp);
         color: var(--headers-primary);
         text-align: center; 
     }

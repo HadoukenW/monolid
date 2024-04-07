@@ -9,19 +9,41 @@ import logo from '../assets/logo.jpg'
 	<div class="container">
 		<div class="header__wrapper">
 			<div class="upper-header">
-				<a itemscope itemtype="https://schema.org/Organization" class="logo" href="/">
+				<a itemscope itemtype="https://schema.org/HomeAndConstructionBusiness" class="logo" href="/">
+					<meta itemprop="telephone" content="8 964 240-90-46">
+					<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+						<meta itemprop="streetAddress" content="Университетская Набережная, 97А">
+						<meta itemprop="postalCode" content="454136">
+						<meta itemprop="addressLocality" content="Челябинск">
+					</div>
+					<meta itemprop="openingHours" content="Mo-Fr 10:00-20:00"/>
+					<!-- <meta itemprop="email" content=""> -->
 					<link itemprop="url" href="https://example.com/">
 					<Image itemprop="logo" quality={100} src={logo} alt="Логотип"/>
 					<meta itemprop="name" content="Монолид — Компания по продаже недвижимости">
 				</a>
 
-				<address>
-					<div class="header__phone-wrapper">
-						<div>Звонок по России бесплатный</div>
-						<a href="tel: +73517778812">+7 (351) 777-88-12</a>
+				
+				<div class="header__workingHours">
+					<div class="location-wrapper">
+						<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-jog7lwvv=""> <path d="M7.70538 0C4.67267 0 2.20538 2.59944 2.20538 5.79456C2.20538 9.75981 7.12734 15.581 7.3369 15.8269C7.53373 16.0579 7.87739 16.0575 8.07387 15.8269C8.28342 15.581 13.2054 9.75981 13.2054 5.79456C13.2053 2.59944 10.7381 0 7.70538 0ZM7.70538 8.70997C6.17955 8.70997 4.93822 7.40212 4.93822 5.79456C4.93822 4.187 6.17958 2.87919 7.70538 2.87919C9.23119 2.87919 10.4725 4.18703 10.4725 5.79459C10.4725 7.40216 9.23119 8.70997 7.70538 8.70997Z" fill="#1C244B" data-astro-cid-jog7lwvv=""></path> </svg>
+						<div>Университетская Набережная, 97А</div>
 					</div>
-				</address>
-
+					<div class="hours__wrapper">
+						<b>ПН-ПТ: <span>10:00 – 20:00</span></b>
+						<b>СБ-ВС: <span>Выходной</span></b>
+					</div>
+				</div>
+				
+				
+				<div class="header__call-wrapper">
+					<button class="header__callback">Заказать звонок</button>
+					<address>
+						<div class="header__phone-wrapper">
+							<a href="tel: +73517778812">+7 (351) 777-88-12</a>
+						</div>
+					</address>
+				</div>
 				<address class="main-nav__address">
 					<ul>
 						
@@ -45,9 +67,6 @@ import logo from '../assets/logo.jpg'
 						
 					</ul>
 				</address>
-				
-				<button class="header__callback">Заказать звонок</button>
-
 				<button aria-label="Открыть меню" class="burger">
 					<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 64 64" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M53 21H11c-1.7 0-3-1.3-3-3s1.3-3 3-3h42c1.7 0 3 1.3 3 3s-1.3 3-3 3zM53 35H11c-1.7 0-3-1.3-3-3s1.3-3 3-3h42c1.7 0 3 1.3 3 3s-1.3 3-3 3zM53 49H11c-1.7 0-3-1.3-3-3s1.3-3 3-3h42c1.7 0 3 1.3 3 3s-1.3 3-3 3z"></path></g></svg>
 				</button>
@@ -72,6 +91,18 @@ import logo from '../assets/logo.jpg'
 		<HeaderLink href="/novosti">Новости</HeaderLink>
 		<HeaderLink href="/contacts">Контакты</HeaderLink>
 	</ul>
+
+	<div class="menu__orgInfo">
+		<div class="menu__org-wrapper">
+			<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-jog7lwvv=""> <path d="M7.70538 0C4.67267 0 2.20538 2.59944 2.20538 5.79456C2.20538 9.75981 7.12734 15.581 7.3369 15.8269C7.53373 16.0579 7.87739 16.0575 8.07387 15.8269C8.28342 15.581 13.2054 9.75981 13.2054 5.79456C13.2053 2.59944 10.7381 0 7.70538 0ZM7.70538 8.70997C6.17955 8.70997 4.93822 7.40212 4.93822 5.79456C4.93822 4.187 6.17958 2.87919 7.70538 2.87919C9.23119 2.87919 10.4725 4.18703 10.4725 5.79459C10.4725 7.40216 9.23119 8.70997 7.70538 8.70997Z" fill="#1C244B" data-astro-cid-jog7lwvv=""></path> </svg>
+			<div>Университетская Набережная, 97А</div>
+		</div>
+		<div class="menu__org-hours">
+			<b>ПН-ПТ: <span>10:00 – 20:00</span></b>
+			
+			<b>СБ-ВС: <span>Выходной</span></b>
+		</div>
+	</div>
 
 	<address class="secondary-nav__address">
 		<div class="secondary-nav__wrapper">
@@ -110,7 +141,7 @@ import logo from '../assets/logo.jpg'
 	<button aria-label="Закрыть форму" class="menu-close-form">
 		<svg aria-hidden="true"  xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 320.591 320.591" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z" fill="#000000" opacity="1" data-original="#000000"></path><path d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"></path></g></svg>
 	</button>
-	<h2>Бесплатная консультация</h2>
+	<p class="form__title">Бесплатная консультация</p>
 
 	<div class="input-box">
 		<label for="hero__name"><input placeholder="Введите ваше имя" type="text" /></label>
@@ -118,6 +149,8 @@ import logo from '../assets/logo.jpg'
 	</div>
 
 	<button class="input-box-btn">Записаться</button>
+
+	<p style="font-size: 14px; margin-top: 10px;">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</p>
 </form>
 
 <div class="widget">
@@ -241,9 +274,6 @@ import logo from '../assets/logo.jpg'
 		flex-direction: column;
 		gap: 5px;
 
-		@media(max-width: 992px) {
-			display: none;		
-		}
 
 		div {
 			font-weight: 400;
@@ -253,7 +283,7 @@ import logo from '../assets/logo.jpg'
 		}
 		a {
 			font-weight: 700;
-			font-size: 24px;
+			font-size: 18px;
 			line-height: 130%;
 			color: #1e1e1e;
 		}
@@ -270,14 +300,9 @@ import logo from '../assets/logo.jpg'
 
 		transition: .3s ease background;
 
-		@media(max-width: 992px) {
-				margin-left: auto;
-				margin-right: 15px;
-		}
+		
 
-		@media(max-width: 650px) {
-				display: none;
-		}
+		
 
 		&:hover {
 			background: #0b1099;
@@ -326,7 +351,7 @@ import logo from '../assets/logo.jpg'
 			display: flex;
 			justify-content: unset;
 			right: 0px;
-			padding: 100px 20px;
+			padding: 100px 10px;
 			align-items: unset;
 			flex-direction: column;
 			overflow-y: auto;
@@ -347,14 +372,10 @@ import logo from '../assets/logo.jpg'
 					}
 				}
 
-				@media(max-width: 767px) {
-					gap: 30px;
-            	}
+				
 			}
 
-			@media(max-width: 480px) {
-				width: 100%;
-			}
+			
 		}
 	}
 
@@ -449,6 +470,7 @@ import logo from '../assets/logo.jpg'
 
 
 		.main-nav__address {
+			
 			@media(max-width: 992px) {
 				display: none;
 			}
@@ -497,7 +519,7 @@ import logo from '../assets/logo.jpg'
 
 	form {
 
-            h2 {
+            .form__title {
                 font-weight: 400;
                 font-size: 1.5rem;
                 text-align: center;
@@ -705,6 +727,78 @@ import logo from '../assets/logo.jpg'
     
             
         }
+
+		.header__workingHours {
+			
+			@media(max-width: 992px) {
+				display: none;
+        	}
+			
+			.hours__wrapper {
+				display: flex;
+				gap: 5px;
+				margin-top: 10px;
+
+				
+
+				b {
+					font-weight: normal;
+				}
+				span {
+					font-weight: bold;
+				}
+			}
+		}
+
+		.location-wrapper {
+			display: flex;
+			gap: 5px;
+			align-items: center;
+		}
+
+		.header__call-wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 10px;
+
+			@media(max-width: 992px) {
+				margin-left: auto;
+				margin-right: 15px;
+			}
+
+			@media(max-width: 650px) {
+				display: none;
+			}
+		}
+
+		.menu__orgInfo {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			margin-top: 40px;
+
+			.menu__org-wrapper {
+				display: flex;
+				gap: 5px;
+				align-items: center;
+				font-size: 14px;
+			}
+
+			.menu__org-hours {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				b {
+					font-weight:normal;
+					
+					span {
+						font-weight: bold;
+						margin-left: 10px;
+					}
+				}
+			}
+		}
 </style>
 
 <script>
@@ -779,7 +873,11 @@ import logo from '../assets/logo.jpg'
 
     
     blurry?.addEventListener('click', e => {
-		
+		if (blurry.classList.contains('callback')) {
+			callbackModal?.classList.remove('active')
+			blurry?.classList.remove('callback')
+			return
+		}
         form?.classList.remove('active')
         form?.classList.remove('specific')
         blurry?.classList.remove('active')
@@ -799,7 +897,4 @@ import logo from '../assets/logo.jpg'
         body?.classList.remove('locked')
         
     })
-
-
-	
 </script>

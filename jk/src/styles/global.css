@@ -10,7 +10,7 @@
 	--btn-primary: #353BD7;	
 	--secondary: #03283C;
 	--section-padding: clamp(3.75rem, 2.083rem + 5.56vw, 6.25rem);
-	--header-clamp: clamp(1.5rem, 0.797rem + 2.34vw, 2.25rem);
+	--header-clamp: clamp(1.5rem, 1.167rem + 1.11vw, 2rem);
 }
 @font-face {
 	font-family: 'Inter';
@@ -116,33 +116,12 @@ main {
 	border: 0;
 	clip: rect(0 0 0 0);
   }
+ 
 
-nav.c-breadcrumbs {
-	padding: 10px;
-	background-color: #00000077;
-	color: var(--primary);
-	width: max-content;
-	display: flex;
-	flex-wrap: wrap;
-	
-} 
-
-
-.c-breadcrumbs__crumb {
-	display: flex;
-	align-items: center;
-	gap: 5px;
-}
-.c-breadcrumbs ol {
-	display: flex;
-	gap: 15px;
-	list-style: none;
-	
-}
 
 @media(max-width: 600px) {
 	.c-breadcrumbs ol {
-		gap: 5px;
+		row-gap: 10px;
 
 	}
 }
@@ -152,21 +131,6 @@ nav.c-breadcrumbs {
 
 }
 
-@media(max-width: 600px) {
-	.c-breadcrumbs__link  {
-		font-size: 14px;
-	}  
-}
-@media(max-width: 450px) {
-	.c-breadcrumbs__link  {
-		font-size: 12px;
-	}  
-}
-@media(max-width: 360px) {
-	.c-breadcrumbs__link  {
-		font-size: 9px;
-	}  
-}
 
 input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus {
 	transition: 200ms ease all;
