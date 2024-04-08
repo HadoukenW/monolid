@@ -138,7 +138,6 @@ const customCrumbs = [
 
 
 <style lang="scss">
-
         .breadcrumbs__container {
 			max-width: 1330px;
 			margin: 0 auto;
@@ -262,4 +261,20 @@ const customCrumbs = [
 
 </style>
 
+<script>
 
+    import { gsap } from "gsap";
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.ourservives__wrapper li', {
+		scrollTrigger: {
+			trigger: '.ourservives__wrapper li',
+			start: 'center 90%'
+
+		},
+
+		y: 10,
+		opacity: 0,
+		stagger: .05,
+	})
+</script>

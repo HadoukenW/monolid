@@ -3,6 +3,10 @@ import HeaderLink from './HeaderLink.astro';
 // import { SITE_TITLE } from '../consts';
 import { Image } from 'astro:assets';
 import logo from '../assets/logo.jpg'
+
+
+
+	
 ---
 
 <header itemtype="https://schema.org/WPHeader" itemscope>
@@ -76,6 +80,7 @@ import logo from '../assets/logo.jpg'
 				<ul class="nav__links">
 					<HeaderLink href="/catalog">Каталог новостроек</HeaderLink>
 					<HeaderLink href="/nashi-uslugi">Наши услуги</HeaderLink>
+					<HeaderLink href="/calc">Ипотечный калькулятор</HeaderLink>
 					<HeaderLink href="/novosti">Новости</HeaderLink>
 					<HeaderLink href="/contacts">Контакты</HeaderLink>
 				</ul>
@@ -88,6 +93,7 @@ import logo from '../assets/logo.jpg'
 	<ul itemscope itemtype="https://schema.org/SiteNavigationElement">
 		<HeaderLink href="/catalog">Каталог новостроек</HeaderLink>
 		<HeaderLink href="/nashi-uslugi">Наши услуги</HeaderLink>
+		<HeaderLink href="/calc">Ипотечный калькулятор</HeaderLink>
 		<HeaderLink href="/novosti">Новости</HeaderLink>
 		<HeaderLink href="/contacts">Контакты</HeaderLink>
 	</ul>
@@ -161,10 +167,10 @@ import logo from '../assets/logo.jpg'
 <div class="callback__modal">
 	<div>Заказать звонок</div>
 
-	<form>
+		<form action="https://monolid.yucrm.ru/api/orders/post?&phone=7999999999&oauth_token=afd0bcd4ee3a219f27812dd4d20a550c" class="callback__form">
 		<label class="visually-hidden">Телефон</label>
-		<input class="phoneMask" placeholder="Телефон" type="tel"/>
-		<button>Жду звонка</button>
+		<input class="phoneMask callback__phoneInput" placeholder="Телефон" name="phone" type="tel"/>
+		<button type="submit" class="callback__btn">Жду звонка</button>
 		<p>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</p>
 	</form>
 	<button aria-label="Закрыть форму" class="callback-form__close">
@@ -897,4 +903,28 @@ import logo from '../assets/logo.jpg'
         body?.classList.remove('locked')
         
     })
+
+
+	const callbackBtnform = document.querySelector('.callback__btn')
+	
+	
+
+	
+
+	
+
+// 	const callbackForm: any = document.querySelector('.callback__form')
+// 	callbackForm.onsubmit = async (e) => {
+//     e.preventDefault();
+
+//     let response = await fetch(``, {
+//       method: 'POST',
+//       body: new FormData(callbackForm)
+//     });
+
+//     let result = await response.json();
+
+//     alert(result.message);
+//   };
+	
 </script>

@@ -1,0 +1,121 @@
+---
+import { Image } from 'astro:assets'
+import img1 from '../assets/ourservices-1.jpg'
+import img2 from '../assets/ourservices-2.png'
+import img3 from '../assets/ourservices-3.jpg'
+import img4 from '../assets/ourservices-4.jpg'
+import img5 from '../assets/ourservices-5.jpg'
+import img6 from '../assets/ourservices-6.jpg'
+import Header from '../components/Header.astro'
+import BaseHead from '../components/BaseHead.astro'
+import { Breadcrumbs } from "astro-breadcrumbs";
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Footer from '../components/Footer.astro'
+import "../../astro-breadcrumbs-config.scss";
+const customCrumbs = [
+ {
+    text: "Главная",
+    href: "/",
+  },
+  {
+    text: "Ипотечный калькулятор",
+    href: "/calc",
+  }
+]
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <script defer src="https://calcus.ru/dist/widget.js"></script>
+
+        
+	</head>
+	<body>
+		<div class="wrapper">
+			<Header />
+			<div class="breadcrumbs__container">
+			    <div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
+                    <svg
+                        slot="separator"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                            ><polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                            </Breadcrumbs>
+                </div>
+			</div>
+				<main>
+					<section id="ourServices" aria-labeledby="calc__title">
+                        <div class="container">
+                            <h1 id="calc__title">Ипотечный калькулятор</h1>
+                            
+                            <div id="calcus-container"></div>
+
+                            
+                            <script>
+                                
+                                CalcusWidget.show('Credit')
+                                
+                            </script>
+
+                            
+                           
+                        </div>
+                    </section>
+				</main>
+			<Footer />
+		</div>
+	</body>
+</html>
+
+
+
+<style lang="scss">
+
+    
+
+        .breadcrumbs__container {
+			max-width: 1330px;
+			margin: 0 auto;
+			padding: 0 15px;
+            
+		}
+
+    section {
+        padding: var(--section-padding) 0;
+        
+
+        
+    }
+
+
+    h1 {
+        font-weight: 700;
+        font-size: var(--header-clamp);
+        color: var(--headers-primary);
+        text-align: center;
+    }
+    
+
+</style>
+
+<script>
+    setTimeout(() => {
+        const monthlyPayment: any = document.querySelectorAll('.calc-inp')
+
+        monthlyPayment.forEach((item: any) => {
+        
+            item.disabled = false
+            item.parentElement.parentElement.parentElement.classList.add('calc_type-x')
+        })
+    }, 500);
+</script>

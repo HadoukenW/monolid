@@ -17,12 +17,14 @@ import CardForm from '../components/CardForm.astro';
 <html lang="ru">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		
 	</head>
 	<body>
 		<div class="wrapper">
 			<Header />
 			<div class="visually-hidden"><Breadcrumbs indexText="Главная"/></div>
 				<main>
+					
 					<Hero />
 					<About />
 					<CardForm />
@@ -73,17 +75,7 @@ import CardForm from '../components/CardForm.astro';
 		stagger: .2,
 	})
 
-	gsap.from('.ourservives__wrapper li', {
-		scrollTrigger: {
-			trigger: '.ourservives__wrapper li',
-			start: 'center 90%'
-
-		},
-
-		y: 10,
-		opacity: 0,
-		stagger: .05,
-	})
+	
 
 	gsap.from('.newBuildings__ul li', {
 		scrollTrigger: {
