@@ -1,5 +1,5 @@
 ---
-
+ const {title} = Astro.props
 ---
 
 <section aria-labelledby="ipoteka__title">
@@ -13,9 +13,9 @@
 
         <p class="preform__title">Получите расчет ежемесячного платежа по ипотеке</p>
 
-        <form action="">
+        <form class="ipoteka__form" data-sd={title}>
             <label>Количество комнат
-                <select>
+                <select id="ipotekaFormSelect">
                     <option value="1 комната">1 комната</option>
                     <option value="2 комнаты">2 комнаты</option>
                     <option value="3 комнаты">3 комнаты</option>
@@ -23,16 +23,16 @@
                   </select>
             </label>
             <label >Первоначальный взнос
-                <input min="0" type="number" placeholder="100000" />
+                <input id="ipotekaFormPayment" min="0" type="number" placeholder="100000" required/>
             </label>
             <label >Срок, лет
-                <input min="0" type="number" placeholder="8 лет" />
+                <input id="ipotekaFormPeriod" min="0" type="text" placeholder="8 лет" required/>
             </label>
             <label >Имя
-                <input required type="text" placeholder="Ваше имя" />
+                <input id="ipotekaFormName" name="name"  type="text" placeholder="Ваше имя" required/>
             </label>
             <label >Телефон
-                <input class="phoneMask" required type="tel" placeholder="Ваш телефон" />
+                <input id="ipotekaFormPhone" name="phone" class="phoneMask" type="tel" placeholder="Ваш телефон" required/>
             </label>
             <button>Рассчитать ипотеку</button>
         </form>
@@ -127,3 +127,40 @@
             
     }
 </style>
+
+
+<script>
+    const ipotekaForm: any = document.querySelector(".ipoteka__form");
+    const ipotekasd = ipotekaForm.dataset.sd
+    const ipotekaFormSelect = document.querySelector("#ipotekaFormSelect")
+    const ipotekaFormPayment = document.querySelector("#ipotekaFormPayment")
+    const ipotekaFormPeriod = document.querySelector("#ipotekaFormPeriod")
+	const ipotekaPhone = document.querySelector('#ipotekaFormPhone')
+	const ipotekaName = document.querySelector('#ipotekaFormName')
+	async function sendData() {
+	// Associate the FormData object with the form element
+	const formData = new FormData(ipotekaForm);
+
+	try {
+		const response = await fetch(`https://monolid.yucrm.ru/api/orders/post?&phone=9999999999&name=name&object_name=${ipotekasd}&message=Расчитать ипотеку: Количество комнат - ${ipotekaFormSelect.value}, Первоначальный взнос - ${ipotekaFormPayment.value}, Срок/лет - ${ipotekaFormPeriod.value}&oauth_token=afd0bcd4ee3a219f27812dd4d20a550c`, {
+		method: "POST",
+		// Set the FormData instance as the request body
+		body: formData,
+		});
+		console.log(await response.json());
+	} catch (e) {
+		console.error(e);
+	}
+	}
+
+	// Take over form submission
+	ipotekaForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+	sendData();
+    ipotekaFormSelect.value = '1 комната'
+    ipotekaFormPayment.value = ''
+    ipotekaFormPeriod.value = ''
+	ipotekaPhone.value = ''
+	ipotekaName.value = ''
+	});
+</script>

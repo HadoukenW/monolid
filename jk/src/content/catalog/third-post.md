@@ -1,5 +1,5 @@
 ---
-title: '18 ЖК "Академ Риверсайд"'
+title: '18 ЖК Академ Риверсайд'
 description: 'Lorem ipsum dolor sit amet'
 year: '2027'
 heroImage: '/public/18 дом/MBxOAVByGW8.webp'

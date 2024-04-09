@@ -16,16 +16,16 @@ import cardFormImg from '../assets/cardForm.jpg'
                 <p>В результате вы получите практические рекомендации и весь путь к увеличению потока пациентов.</p>
         
         
-                <form action="">
+                <form class="consultancyForm">
                     <div class="input__wrapper">
                         <label class="visually-hidden" for="">Ваше имя</label>
-                        <input placeholder="Ваше имя" type="text">
+                        <input required id="consultancyName" placeholder="Ваше имя" type="text" name="name">
                         <label class="visually-hidden" for="">Телефон</label>
-                        <input class="phoneMask" placeholder="Телефон" type="tel">
+                        <input required id="consultancyPhone" class="phoneMask" placeholder="Телефон" type="tel" name="phone">
                     </div>
                     <span>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</span>
         
-                    <button>Записаться</button>
+                    <button type="submit">Записаться</button>
                 </form>
             </div>
        </div>
@@ -137,3 +137,32 @@ import cardFormImg from '../assets/cardForm.jpg'
         }
     }
 </style>
+
+<script>
+    const consultancyForm: any = document.querySelector(".consultancyForm");
+	const consultancyPhone = document.querySelector('#consultancyPhone')
+	const consultancyName = document.querySelector('#consultancyName')
+	async function sendData() {
+	// Associate the FormData object with the form element
+	const formData = new FormData(consultancyForm);
+
+	try {
+		const response = await fetch(`https://monolid.yucrm.ru/api/orders/post?&phone=9999999999&name=name&message=Консультация&oauth_token=afd0bcd4ee3a219f27812dd4d20a550c`, {
+		method: "POST",
+		// Set the FormData instance as the request body
+		body: formData,
+		});
+		console.log(await response.json());
+	} catch (e) {
+		console.error(e);
+	}
+	}
+
+	// Take over form submission
+	consultancyForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+	sendData();
+	consultancyPhone.value = ''
+	consultancyName.value = ''
+	});
+</script>

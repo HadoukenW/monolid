@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
 import ApartmentSearching from '../components/ApartmentsSearching.astro'
@@ -114,18 +113,18 @@ const customCrumbs = [
 						<p class="booking__title">Получите информацию о квартире в {title}</p>
 						<p class="booking__text">Расскажем о способах приобретения, об акциях и скидках</p>
 
-						<form action="">
+						<form id="apartmentInfo" data-objectName={title}>
 							<div class="input__wrapper">
 								<label for="">
 									Имя
-									<input placeholder="Ваше имя"/>
+									<input required  placeholder="Ваше имя" name="name" id="apartmentName">
 								</label>
 								<label for="">
 									Телефон
-									<input class="phoneMask" placeholder="Ваш телефон"/>
+									<input required  class="phoneMask" placeholder="Ваш телефон" name="phone" id="apartmentPhone"/>
 								</label>
 							</div>
-							<button class="consultancyGetting">Получить консультацию</button>
+							<button type="submit" class="consultancyGetting">Получить консультацию</button>
 							<p class="agreement">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</p>
 						</form>
 					</div>
@@ -156,19 +155,19 @@ const customCrumbs = [
 						
 					</section>
 
-					<ApartmentSearching />
+					<ApartmentSearching title={title}/>
 
-					<IpotekaPayment />
+					<IpotekaPayment title={title}/>
 					<section aria-labelledby="indCons__title" class="section__form">
 						<div class="container">
 							<div class="form__wrapper">
 								<h2 id="indCons__title">Получить консультацию</h2>
 
-								<form>
-									<label class="visually-hidden" for="formName">Ваше имя</label>
-									<input type="text" id="formName" placeholder="Ваше имя"/>
-									<label class="visually-hidden" for="formPhone">Ваш телефон</label>
-									<input type="tel" class="phoneMask" id="formPhone" placeholder="Ваш телефон"/>
+								<form class="indCons__form" data-gu={title}>
+									<label class="visually-hidden" for="indConsName">Ваше имя</label>
+									<input required name="name"type="text" id="indConsName" placeholder="Ваше имя"/>
+									<label class="visually-hidden" for="indConsPhone">Ваш телефон</label>
+									<input required name="phone" type="tel" class="phoneMask" id="indConsPhone" placeholder="Ваш телефон"/>
 									<button>Записаться</button>
 								</form>
 								<p>«Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности»</p>
@@ -666,12 +665,12 @@ const customCrumbs = [
 		})
 	})
 
-	apartmentClose.addEventListener('click', e => {
+	apartmentClose?.addEventListener('click', e => {
 			apartmentBg?.classList.remove('active')
 			apartmentModal?.classList.remove('active')
 			body?.classList.remove('locked')
 	})
-	apartmentBg.addEventListener('click', e => {
+	apartmentBg?.addEventListener('click', e => {
 			apartmentBg?.classList.remove('active')
 			apartmentModal?.classList.remove('active')
 			body?.classList.remove('locked')
@@ -692,6 +691,72 @@ const customCrumbs = [
 	});
 
 
+	window.addEventListener('click', e => {
+		if (e.target.classList.contains('apartment__booking')) {
+			const apartmentType = e.target.closest('.layouts__texts').querySelector('p').textContent
+			
+			const apartmentForm = document.querySelector("#apartmentInfo");
+			let apartmentFormPhone = document.querySelector('#apartmentPhone')
+			let apartmentFormName = document.querySelector('#apartmentName')
+			const apartmentComplexName = apartmentForm.dataset.objectname
+			
+			console.log(apartmentType);
+			
+
+			async function sendData() {
+			// Associate the FormData object with the form element
+			const formData = new FormData(apartmentForm);
+
+			try {
+				const response = await fetch(`https://monolid.yucrm.ru/api/orders/post?&phone=${apartmentFormPhone.value}&name=${apartmentFormName.value}&object_name=${apartmentComplexName + ' ' + apartmentType}&oauth_token=afd0bcd4ee3a219f27812dd4d20a550c`, {
+				method: "POST",
+				// Set the FormData instance as the request body
+				body: formData,
+				});
+				console.log(await response.json());
+			} catch (e) {
+				console.error(e);
+			}
+			}
+
+			// Take over form submission
+			apartmentForm.addEventListener("submit", (event) => {
+			event.preventDefault();
+			sendData();
+			apartmentFormName.value = ''
+			apartmentFormPhone.value = ''
+	});
+		}
+	})
+
+	
+	const indConsForm: any = document.querySelector(".indCons__form");
+	const indConsFormGu = indConsForm.dataset.gu;
+	const indConsPhone = document.querySelector('#indConsPhone')
+	const indConsName = document.querySelector('#indConsName')
+	async function sendData() {
+	// Associate the FormData object with the form element
+	const formData = new FormData(indConsForm);
+
+	try {
+		const response = await fetch(`https://monolid.yucrm.ru/api/orders/post?&phone=9999999999&name=name&message=Получить консультацию&object_name=${indConsFormGu}&oauth_token=afd0bcd4ee3a219f27812dd4d20a550c`, {
+		method: "POST",
+		// Set the FormData instance as the request body
+		body: formData,
+		});
+		console.log(await response.json());
+	} catch (e) {
+		console.error(e);
+	}
+	}
+
+	// Take over form submission
+	indConsForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+	sendData();
+	indConsPhone.value = ''
+	indConsName.value = ''
+	});
 
 				
 </script>
