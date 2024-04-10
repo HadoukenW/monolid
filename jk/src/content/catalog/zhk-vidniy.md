@@ -1,0 +1,59 @@
+---
+title: 'ЖК Видный'
+description: 'Lorem ipsum dolor sit amet'
+year: '2025'
+heroImage: '/public/ЖК Видный/RU_-Lk7t8dc.webp'
+location: 'Калининский'
+buildingType: 'Монолитный'
+
+aboutSectionData: [
+    {
+        title: 'Игровые площадки',
+        text: 'Откройте дверь в свою идеальную жизнь! Новый стильный жилой комплекс — ваш личный рай! Комфорт, уют, и безграничные возможности ждут вас здесь! Наши улицы — путь к счастью, наши дворы — оазис умиротворения! Инфраструктура, которая удовлетворит все ваши потребности! Выберите комфортное место проживания, выберите наш жилой комплекс!»',
+        image: '/public/ЖК Видный/j_8EAYYU0VU.webp',
+    },
+    {
+        title: 'Безопасный двор',
+        text: 'В жилом комплексе представлено более 10 видов планировок, некоторые из них, предусматривают большие панорамные окна.',
+        image: '/public/ЖК Видный/QYDnP9QCpyg.webp',
+    }
+]
+
+layoutsSectionData: [
+    {
+        title: 'студия',
+        image: '/public/ЖК Видный/layout-1.webp',
+    },
+    {
+        title: 'студия',
+        image: '/public/ЖК Видный/layout-2.webp',
+    },
+    {
+        title: 'студия',
+        image: '/public/ЖК Видный/layout-3.webp',
+    },
+    {
+        title: 'студия',
+        image: '/public/ЖК Видный/layout-4.webp',
+    },
+    {
+        title: 'студия',
+        image: '/public/ЖК Видный/layout-5.webp',
+    },
+    {
+        title: 'студия',
+        image: '/public/ЖК Видный/layout-6.webp',
+    },
+    {
+        title: 'студия',
+        image: '/public/ЖК Видный/layout-7.webp',
+    },
+    {
+        title: 'студия',
+        image: '/public/ЖК Видный/layout-8.webp',
+    },
+]
+
+galleryImages: ['/public/ЖК Видный/j_8EAYYU0VU.webp', '/public/ЖК Видный/QYDnP9QCpyg.webp', '/public/ЖК Видный/RU_-Lk7t8dc.webp', '/public/ЖК Видный/-DoMQhYsHYI.webp', '/public/ЖК Видный/jiPBentvc8w.webp', '/public/ЖК Видный/MjxPsqLPIZs 1.webp']
+mapLocation: 'https://yandex.ru/map-widget/v1/?um=constructor%3Adf02feb9367aa3f00acd4eb43927e9c8959875ab48f3185f19d6ecf0148a63c5&amp;source=constructor'
+---

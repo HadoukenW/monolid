@@ -5,7 +5,6 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
-import ApartmentSearching from '../components/ApartmentsSearching.astro'
 import IpotekaPayment from '../components/IpotekaPayment.astro'
 const { title, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapLocation} = Astro.props;
 const posts = await Astro.glob('../content/catalog/*.mdx')
@@ -154,8 +153,6 @@ const customCrumbs = [
 
 						
 					</section>
-
-					<ApartmentSearching title={title}/>
 
 					<IpotekaPayment title={title}/>
 					<section aria-labelledby="indCons__title" class="section__form">
@@ -325,6 +322,7 @@ const customCrumbs = [
 	
 
 		@media(max-width: 450px) {
+			top: 0;
 			left: 0;
 			width: 100%;
 
@@ -355,17 +353,20 @@ const customCrumbs = [
 			background-color: rgba(56, 60, 62, 0.719);
 			padding: 5px;
 			backdrop-filter: blur(4px);
+			text-wrap: balance;
 		}
 		
 		img {
 			width: 100%;
-			height: 70vh;
+			height: 100vh;
 			min-height: 400px;
+			object-fit: cover;
 			// position: absolute;
 			// inset: 0;
-			@media(max-width:992px) {
+			@media(max-width:767px) {
 				height: 40vh;
 				min-height: none;
+				object-fit: cover;
 			}
 			// @media(max-width:550px) {
 			// 	height: 25vh;
@@ -442,7 +443,6 @@ const customCrumbs = [
 					width: 100%;
 					object-fit: cover;
 					mask-repeat: no-repeat;
-					mask-size: cover;
 					max-height: 371px;
 					height: 371px;
 					@media(max-width: 650px) {
@@ -481,7 +481,8 @@ const customCrumbs = [
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			
+			background-color: var(--primary);
+			align-self:self-start;
 			img {
 				border-top-left-radius: 20px;
 				border-top-right-radius: 20px;

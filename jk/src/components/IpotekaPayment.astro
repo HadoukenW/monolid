@@ -7,7 +7,7 @@
         <h2 id="ipoteka__title">Купить в ипотеку</h2>
 
         <ul>
-            <li>Ставка от 5,1% до 30 лет</li>
+            <li>Ставка от 4,6 % до 30 лет</li>
             <li>Подберем ипотеку на выгодных условиях</li>
         </ul>
 
@@ -26,7 +26,7 @@
                 <input id="ipotekaFormPayment" min="0" type="number" placeholder="100000" required/>
             </label>
             <label >Срок, лет
-                <input id="ipotekaFormPeriod" min="0" type="text" placeholder="8 лет" required/>
+                <input id="ipotekaFormPeriod" min="0" max="30" type="text" placeholder="0 лет" required/>
             </label>
             <label >Имя
                 <input id="ipotekaFormName" name="name"  type="text" placeholder="Ваше имя" required/>
@@ -43,7 +43,7 @@
 <style lang="scss">
     section {
         padding: var(--section-padding) 0;
-        background-color: var(--secondary);
+        background-color: var(--primary);
         color: var(--primary);
         ul {
             display: flex;
@@ -54,6 +54,7 @@
                 position: relative;
                 display: flex;
                 gap: 10px;
+                color: var(--headers-primary);
                 &::before {
                     content: '—';
                 }
@@ -64,9 +65,11 @@
                 text-align: center;
                 font-size: var(--header-clamp);
                 margin-bottom: 40px;
+                color: var(--headers-primary);
             }
             p {
                 margin: 20px 0;
+                color: var(--headers-primary);
             }
             form {
                 display: grid;
@@ -85,6 +88,7 @@
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
+                    color: var(--headers-primary);
                 }
 
                 select, input {

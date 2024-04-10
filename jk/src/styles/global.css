@@ -43,6 +43,12 @@ html {
 	scrollbar-gutter: stable;
 	scroll-behavior: smooth;
 }
+
+*::selection {
+	background-color: var(--headers-primary);
+    color: var(--primary);
+}
+
 body {
 	min-height: 100dvh;
 	font-family: 'Inter';
@@ -174,6 +180,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus {
 	width: 100% !important;
 	margin-right: 20px !important;
 	max-width: 250px !important;
+	text-align: left;
 }
 
 .calc-input {
@@ -280,4 +287,8 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus {
 	100% {
 		opacity: 1;
 	}
+}
+
+.c-breadcrumbs__link {
+	line-height: unset !important;
 }

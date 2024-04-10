@@ -57,7 +57,10 @@ const customCrumbs = [
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.85657 6.5879C9.37468 5.88969 9.56046 5.15384 8.9745 4.50431C7.65955 2.66433 6.77521 1.52649 6.22051 0.978537C5.16595 -0.063196 3.43118 0.0777148 2.51785 0.977647C2.0273 1.46101 1.86122 1.627 1.35753 2.13861C-1.44812 4.94577 0.262908 10.88 4.81145 15.433C9.35896 19.985 15.2926 21.6969 18.1042 18.8838C18.569 18.4358 18.9625 18.042 19.2729 17.714C20.1679 16.768 20.3038 15.1097 19.267 14.0324C18.7354 13.4801 17.6504 12.6385 15.733 11.2669C15.1457 10.7418 14.4495 10.8556 13.8111 11.2744C13.504 11.4759 13.2806 11.6797 12.8586 12.1021L12.0924 12.8687C11.9914 12.9697 10.621 12.2834 9.29077 10.9518C7.95978 9.61953 7.27396 8.24906 7.37441 8.14862L8.14118 7.38142C8.27506 7.24742 8.33906 7.18254 8.42114 7.09627C8.59215 6.91654 8.73374 6.75344 8.85657 6.5879ZM13.5058 14.2829L14.2722 13.5161C14.5044 13.2837 14.6549 13.1407 14.7774 13.0422C16.457 14.2484 17.4298 15.0068 17.8271 15.4197C18.0657 15.6676 18.0286 16.1199 17.8212 16.339C17.5342 16.6424 17.1614 17.0155 16.7038 17.4568C14.8858 19.2756 10.096 17.8937 6.22519 14.0191C2.35321 10.1433 0.971944 5.35279 2.77626 3.54748C3.27792 3.03798 3.43686 2.87912 3.92042 2.40265C4.10172 2.22401 4.59558 2.18389 4.81614 2.40176C5.2432 2.82364 6.0354 3.83799 7.20077 5.46133C7.14044 5.53623 7.06509 5.62087 6.97339 5.71724C6.90609 5.78798 6.85002 5.84481 6.72744 5.96751L5.96142 6.73396C4.65827 8.037 5.76808 10.2547 7.87703 12.3657C9.98454 14.4753 12.2031 15.5864 13.5058 14.2829Z" fill="#11263A"/>
                                         </svg>
                                     </div>
-                                    <a href="tel:84996476467">8 (499) 647-64-67</a>
+                                    <div class="contacts__phones">
+                                        <a href="tel:+79227405800">+ 7 (922) 740-58-00</a>
+                                        <a href="tel:+79227301700">+ 7 (922) 730-17-00</a>
+                                    </div>
                                 </li>
                                 <li>
                                     <div class="icon__wrapper">
@@ -65,7 +68,7 @@ const customCrumbs = [
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M2 0.75H20C21.1046 0.75 22 1.64543 22 2.75V16.75C22 17.8546 21.1046 18.75 20 18.75H2C0.89543 18.75 0 17.8546 0 16.75V2.75C0 1.64543 0.89543 0.75 2 0.75ZM2 7.36811V16.75H20V7.36853L11 11.8685L2 7.36811ZM2 5.13199L11 9.63245L20 5.13247V2.75H2V5.13199Z" fill="#11263A"/>
                                         </svg>
                                     </div>
-                                    <a href="mailto:cridopt@yandex.ru">cridopt@yandex.ru</a>
+                                    <a href="mailto:monolid2024@yandex.ru">monolid2024@yandex.ru</a>
                                 </li>
                                 <li>
                                     <div class="icon__wrapper">
@@ -116,6 +119,10 @@ const customCrumbs = [
 </html>
 
 <style lang="scss">
+    main {
+		padding-bottom: 50px;
+	}
+
     .breadcrumbs__container {
 			max-width: 1330px;
 			margin: 0 auto;
@@ -124,7 +131,7 @@ const customCrumbs = [
 		}
 
     section {
-        padding: var(--section-padding) 0;
+        
         
     }
 
@@ -135,12 +142,15 @@ const customCrumbs = [
         color: var(--headers-primary);
         text-align: center; 
         margin-bottom: 3.5rem;
-
+        margin-top: 30px;
         @media(max-width: 767px) {
             margin-bottom: 1.5rem;
         }
     }
-
+    .contacts__phones {
+        display: flex;
+        flex-direction: column;
+    }
     .ourContacts__wrapper {
         display: flex;
         gap: 1.5rem;
@@ -166,12 +176,14 @@ const customCrumbs = [
                 font-weight: 500;
                 font-size: 20px;
                 line-height: 150%;
-                padding: 30px 50px;
+                padding: 30px clamp(0.938rem, -0.521rem + 4.86vw, 3.125rem);
                 gap: 20px;
                 border: 1px solid black;
                 .icon__wrapper {
-                    // width: 54px;
-                    // height: 54px;
+                    max-width: 60px;
+                    width: 100%;
+                    max-height: 60px;
+                    height: auto;
                     background: var(--btn-primary);
                     border-radius: 100%;
                     display: flex;
