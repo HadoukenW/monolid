@@ -1,0 +1,253 @@
+---
+import { Image } from 'astro:assets'
+import Header from '../components/Header.astro'
+import BaseHead from '../components/BaseHead.astro'
+import { Breadcrumbs } from "astro-breadcrumbs";
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Footer from '../components/Footer.astro'
+import "../../astro-breadcrumbs-config.scss";
+const customCrumbs = [
+ {
+    text: "Главная",
+    href: "/",
+  },
+  {
+    text: "Ответы на часто задаваемые вопросы",
+    href: "/faq",
+  }
+]
+---
+
+<!doctype html>
+<html lang="ru">
+	<head>
+		<BaseHead title="Ответы на вопросы – Monolid - агентство недвижимости" description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<div class="wrapper">
+			<Header />
+			<div class="breadcrumbs__container">
+			    <div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
+                    <svg
+                        slot="separator"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                            ><polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                            </Breadcrumbs>
+                </div>
+			</div>
+				<main>
+					<section aria-labeledby="faq__title">
+                        <div class="container">
+                            <h1 id="faq__title">Ответы на часто задаваемые вопросы</h1>
+                            
+                            <ul class="accordion">
+                                <li class="accordion__item">
+                                    <div class="accordion__trigger">
+                                        <div class="accordion__title">Как узнать максимальную сумму кредита, на которую я могу рассчитывать?</div>
+                                        <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#000000" stroke-width="3" stroke-linecap="round"/></svg></div>
+                                    </div>
+                                    <div class="accordion__content">
+                                        <p>Первым делом, зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. После этого, с вами свяжется наш консультант, вы обговорите все моменты, обстоятельства, после чего уже можно будет сделать наиболее точный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна! Первым делом, зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. После этого, с вами свяжется наш консультант, вы обговорите все моменты, обстоятельства, после чего уже можно будет сделать наиболее точный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна! Первым делом, зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. После этого, с вами свяжется наш консультант, вы обговорите все моменты, обстоятельства, после чего уже можно будет сделать наиболее точный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна!</p>
+                                    </div>
+                                </li>
+                                <li class="accordion__item">
+                                    <div class="accordion__trigger">
+                                        <div class="accordion__title">Как узнать максимальную сумму кредита, на которую я могу рассчитывать?</div>
+                                        <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#000000" stroke-width="3" stroke-linecap="round"/></svg></div>
+                                    </div>
+                                    <div class="accordion__content">
+                                        <p>Первым делом, зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. После этого, с вами свяжется наш консультант, вы обговорите все моменты, обстоятельства, после чего уже можно будет сделать наиболее точный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна! Первым делом, зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. После этого, с вами свяжется наш консультант, вы обговорите все моменты, обстоятельства, после чего уже можно будет сделать наиболее точный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна! Первым делом, зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. После этого, с вами свяжется наш консультант, вы обговорите все моменты, обстоятельства, после чего уже можно будет сделать наиболее точный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна!</p>
+                                    </div>
+                                </li>
+                                <li class="accordion__item">
+                                    <div class="accordion__trigger">
+                                        <div class="accordion__title">Как узнать максимальную сумму кредита, на которую я могу рассчитывать?</div>
+                                        <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#000000" stroke-width="3" stroke-linecap="round"/></svg></div>
+                                    </div>
+                                    <div class="accordion__content">
+                                        <p>Первым делом, зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. После этого, с вами свяжется наш консультант, вы обговорите все моменты, обстоятельства, после чего уже можно будет сделать наиболее точный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна! Первым делом, зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. После этого, с вами свяжется наш консультант, вы обговорите все моменты, обстоятельства, после чего уже можно будет сделать наиболее точный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна! Первым делом, зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. После этого, с вами свяжется наш консультант, вы обговорите все моменты, обстоятельства, после чего уже можно будет сделать наиболее точный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна!</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+				</main>
+			<Footer />
+		</div>
+	</body>
+</html>
+
+
+
+<style lang="scss">
+
+        main {
+            padding-bottom: 50px;
+        }
+        .breadcrumbs__container {
+			max-width: 1330px;
+			margin: 0 auto;
+			padding: 0 15px;
+            
+		}
+
+    section {
+        h1 {
+            font-weight: 700;
+            font-size: var(--header-clamp);
+            color: var(--headers-primary);
+            text-align: center; 
+            margin-top: 30px;
+        }
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            margin-top: 3.5rem;
+            .accordion__item {
+                border: 1px solid black;
+                border-radius: .35rem;
+                
+                &.active {
+                    svg {
+                        rotate: 180deg;
+                    }
+                }
+                
+                .accordion__trigger {
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 20px;
+                    .accordion__title {
+                        
+                    }
+                }
+
+                .accordion__content {
+                    padding: 0 20px 20px;
+                    display: none;
+                }
+            }
+        }
+    }
+
+
+    h1 {
+        font-weight: 700;
+        font-size: var(--header-clamp);
+        color: var(--headers-primary);
+        text-align: center; 
+        margin-top: 30px;
+    }
+
+
+</style>
+
+
+<script>
+    /* SLIDE UP */
+let slideUp = (target, duration = 300) => {
+	target.style.transitionProperty = 'height, margin, padding'
+	target.style.transitionDuration = duration + 'ms'
+	target.style.boxSizing = 'border-box'
+	target.style.height = target.offsetHeight + 'px'
+	target.offsetHeight
+	target.style.overflow = 'hidden'
+	target.style.height = 0
+	target.style.paddingTop = 0
+	target.style.paddingBottom = 0
+	target.style.marginTop = 0
+	target.style.marginBottom = 0
+	target.style.border = 'none'
+
+	window.setTimeout(() => {
+		target.style.display = 'none'
+		target.style.removeProperty('height')
+		target.style.removeProperty('padding-top')
+		target.style.removeProperty('padding-bottom')
+		target.style.removeProperty('margin-top')
+		target.style.removeProperty('margin-bottom')
+		target.style.removeProperty('overflow')
+		target.style.removeProperty('transition-duration')
+		target.style.removeProperty('transition-property')
+		target.style.removeProperty('border')
+	}, duration)
+}
+/* SLIDE DOWN */
+let slideDown = (target, duration = 300) => {
+	target.style.removeProperty('display')
+	let display = window.getComputedStyle(target).display
+	if (display === 'none') display = 'grid'
+	target.style.display = display
+	let height = target.offsetHeight
+	target.style.overflow = 'hidden'
+	target.style.height = 0
+	target.style.paddingTop = 0
+	target.style.paddingBottom = 0
+	target.style.marginTop = 0
+	target.style.marginBottom = 0
+	target.offsetHeight
+	target.style.boxSizing = 'border-box'
+	target.style.transitionProperty = 'height, margin, padding'
+	target.style.transitionDuration = duration + 'ms'
+	target.style.height = height + 'px'
+	target.style.border = 'none'
+
+	target.style.removeProperty('padding-top')
+	target.style.removeProperty('padding-bottom')
+	target.style.removeProperty('margin-top')
+	target.style.removeProperty('margin-bottom')
+	target.style.removeProperty('border')
+
+	window.setTimeout(() => {
+		target.style.removeProperty('height')
+		target.style.removeProperty('overflow')
+		target.style.removeProperty('transition-duration')
+		target.style.removeProperty('transition-property')
+		target.style.removeProperty('border')
+	}, duration)
+}
+
+function smoothening() {
+    const items = document.querySelectorAll('.accordion__item')
+    const summaries = document.querySelectorAll('.accordion__trigger')
+    const itemBody = document.querySelectorAll('.accordion__content')
+
+    summaries.forEach((summary, idx) => {
+        summary?.addEventListener('click', e => {
+            // @ts-ignore
+            if (!summary.parentNode?.classList.contains('active')) {
+                // @ts-ignore
+                summary.parentNode.classList.add('active')
+                slideDown(itemBody[idx])
+
+                items.forEach((item, i) => {
+                    if (i !== idx && item.classList.contains('active')) {
+                        slideUp(itemBody[i])
+                        // @ts-ignore
+                        item.classList.remove('active')
+                    }
+                })
+            }
+            else {
+                // @ts-ignore
+                summary.parentNode.classList.remove('active')
+                slideUp(itemBody[idx])
+            }
+        })
+    })
+}
+
+smoothening()
+</script>
