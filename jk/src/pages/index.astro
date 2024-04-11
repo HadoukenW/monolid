@@ -56,9 +56,9 @@ import CardForm from '../components/CardForm.astro';
 	const tl = gsap.timeline()
 
 	tl.from('header', {
-		opacity: 0,
+		autoAlpha: 0,
 	}).from('.swiper', {
-		opacity: 0,
+		autoAlpha: 0,
 	})
 
 	gsap.from('.about__wrapper li', {

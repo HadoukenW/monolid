@@ -22,9 +22,9 @@ import cardFormImg from '../assets/cardForm.jpg'
                         <label class="visually-hidden" for="">Телефон</label>
                         <input required id="consultancyPhone" class="phoneMask" placeholder="Телефон" type="tel" name="phone">
                     </div>
-                    <span>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</span>
-        
+                    
                     <button type="submit">Записаться</button>
+                    <span>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</span>
                 </form>
             </div>
        </div>
@@ -68,8 +68,9 @@ import cardFormImg from '../assets/cardForm.jpg'
             max-width: unset;
         }
         h2 {
-            font-size: 24px;
+            font-size: var(--header-clamp);
             font-weight: 700;
+            text-wrap: balance;
 
             @media(max-width: 767px) {
                 font-size: 22px;

@@ -14,6 +14,7 @@ const newBuildings = defineCollection({
     year: z.string(),
     buildingType: z.string(),
     image: image(),
+    urlPath: z.string().optional(),
   }),
 });
 const catalog = defineCollection({

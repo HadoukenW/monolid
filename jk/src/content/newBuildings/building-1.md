@@ -1,7 +1,8 @@
 ---
-image: '../../assets/newBuildings__1.jpg'
-title: 'ЖК «Симфония»'
-location: 'Амз'
-year: '2025'
+image: '/public/Бр Кашириных/iuUW9StK_5Q.webp'
+title: 'ЖК Бр Кашириных 102 / 98 А'
+location: 'Калининский'
+year: '2024'
 buildingType: 'Монолитный'
+urlPath: '/catalog/zhk-bratiev-kashirinyh'
 ---
