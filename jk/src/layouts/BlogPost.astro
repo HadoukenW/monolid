@@ -48,7 +48,7 @@ const customCrumbs = [
 					<section class="section__hero" aria-label={title}>
 
 
-						<div itemtype="http://schema.org/ImageObject" itemscope class="image__wrapper">{heroImage && <Image itemprop="contentUrl" src={heroImage} alt={title} />}</div>
+						<div itemtype="http://schema.org/ImageObject" itemscope class="image__wrapper">{heroImage && <Image loading="eager" itemprop="contentUrl" src={heroImage} alt={title} />}</div>
 						<h1>{title}</h1>
 
 						<div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
@@ -94,7 +94,7 @@ const customCrumbs = [
 							<ul>
 								{layoutsSectionData?.map((item: any) => (
 									<li>
-										<div itemscope itemtype="https://schema.org/ImageObject"><img itemprop="contentUrl" src={item.image} alt={item.title}></div>
+										<div itemscope itemtype="https://schema.org/ImageObject"><a  data-src={item.image} data-fancybox="layouts"><img itemprop="contentUrl" src={item.image} alt={item.title}></a></div>
 										<div class="layouts__texts">
 											<p>{item.title}</p>
 											<button class="apartment__booking">Забронировать</button>
@@ -332,6 +332,7 @@ const customCrumbs = [
 	.section__hero {
 		position: relative;
 		.image__wrapper {
+			overflow: hidden;
 			&:after {
 				content: '';
 				background-color: black;
@@ -361,6 +362,7 @@ const customCrumbs = [
 			height: 100vh;
 			min-height: 400px;
 			object-fit: cover;
+			visibility: hidden;
 			// position: absolute;
 			// inset: 0;
 			@media(max-width:767px) {
@@ -412,7 +414,7 @@ const customCrumbs = [
 					flex-wrap: wrap;
 					justify-content: center;
 					text-align: center;
-					gap: 20px;
+					gap: 25px;
 				}
 
 				&:nth-child(even) {
@@ -430,13 +432,14 @@ const customCrumbs = [
 					}
 				}
 				h3 {
-					font-weight: 400;
+					font-weight: 500;
 					font-size: 22px;
 				}
 				p {
 					margin-top: 25px;
 					font-size: 18px;
 					line-height: 1.6;
+					text-wrap: balance;
 				}
 				img {
 					max-width: 550px;
@@ -488,6 +491,7 @@ const customCrumbs = [
 				border-top-right-radius: 20px;
 				width: 100%;
 				height: auto;
+				cursor: pointer;
 			}
 			.layouts__texts {
 				padding: 15px 10px;
@@ -653,6 +657,15 @@ const customCrumbs = [
 </style>
 
 <script>
+
+	import { gsap } from "gsap";
+
+	gsap.from('.image__wrapper img', {
+		scale: 1.2,
+		autoAlpha: 0,
+		duration: 2,
+	})
+
 	const apartmentBtn = document.querySelectorAll('.apartment__booking')	
 	const apartmentBg = document.querySelector('.booking__bg') 
 	const apartmentModal = document.querySelector('.booking__modal')
@@ -680,6 +693,17 @@ const customCrumbs = [
 	import { Fancybox } from "@fancyapps/ui";
 
 	Fancybox.bind('[data-fancybox="gallery"]', {
+		Carousel: {
+			transition: "slide",
+		},
+
+		hideScrollbar: false,
+
+		Thumbs: {
+			type: "classic",
+		},
+	});
+	Fancybox.bind('[data-fancybox="layouts"]', {
 		Carousel: {
 			transition: "slide",
 		},

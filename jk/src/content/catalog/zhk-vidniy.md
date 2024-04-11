@@ -55,5 +55,5 @@ layoutsSectionData: [
 ]
 
 galleryImages: ['/public/ЖК Видный/j_8EAYYU0VU.webp', '/public/ЖК Видный/QYDnP9QCpyg.webp', '/public/ЖК Видный/RU_-Lk7t8dc.webp', '/public/ЖК Видный/-DoMQhYsHYI.webp', '/public/ЖК Видный/jiPBentvc8w.webp', '/public/ЖК Видный/MjxPsqLPIZs 1.webp']
-mapLocation: 'https://yandex.ru/map-widget/v1/?um=constructor%3Adf02feb9367aa3f00acd4eb43927e9c8959875ab48f3185f19d6ecf0148a63c5&amp;source=constructor'
+mapLocation: 'https://yandex.ru/map-widget/v1/?um=constructor%3A99bfa1eb05cb51a7b232ff0c70919b7ef93b38a69c58524f96e0b92906f4582f&amp;source=constructor'
 ---

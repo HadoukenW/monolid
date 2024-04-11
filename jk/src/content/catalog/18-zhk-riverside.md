@@ -22,22 +22,22 @@ aboutSectionData: [
 layoutsSectionData: [
     {
         title: 'студия',
-        image: '/public/18 дом/2q-kSbu4ZSY.webp',
+        image: '/public/18 дом/18 zhk-1.webp',
     },
     {
         title: 'ст+1',
-        image: '/public/18 дом/65XcOxJJ1Tg.webp',
+        image: '/public/18 дом/18 zhk-2.webp',
     },
     {
         title: 'ст+1 (44.6)',
-        image: '/public/18 дом/KAwPODQuXiA.webp',
+        image: '/public/18 дом/18 zhk-3.webp',
     },
     {
         title: '2ка',
-        image: '/public/18 дом/z1be5RthX2M.webp',
+        image: '/public/18 дом/18 zhk-4.webp',
     },
 ]
 
 galleryImages: ['/public/18 дом/y-1ujjAP65A.webp', '/public/18 дом/Tf8fOmr_T80.webp', '/public/18 дом/Q2NLPH0yKXY.webp', '/public/18 дом/2cN9xoOjWb8.webp']
-mapLocation: "https://yandex.ru/map-widget/v1/?um=constructor%3Adf02feb9367aa3f00acd4eb43927e9c8959875ab48f3185f19d6ecf0148a63c5&amp;source=constructor"
+mapLocation: "https://yandex.ru/map-widget/v1/?um=constructor%3A292c80783eb0a5bc087414db0d088987697cab40d819fa810fa405d2300c948f&amp;source=constructor"
 ---

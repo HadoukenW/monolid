@@ -27,14 +27,15 @@ aboutSectionData: [
 layoutsSectionData: [
     {
         title: 'студия',
-        image: '/public/81 дом/5  _81.2.webp',
+        image: '/public/81 дом/5  _81 1.webp',
     },
     {
         title: 'ст+1',
-        image: '/public/81 дом/5 _81.1 (3 ).webp',
+        image: '/public/81 дом/5 _81 1.webp',
     },
     
 ]
 
 galleryImages: ['/public/81 дом/81  10.webp', '/public/81 дом/7V6-B3M7-8Q (1).webp', '/public/81 дом/81  1.webp', '/public/81 дом/81  8.webp', '/public/81 дом/PfMPjmS37-g.webp']
+mapLocation: 'https://yandex.ru/map-widget/v1/?um=constructor%3Af0a79c4f9a4ad16a274b42415a928d35ab83bf34f18c5cd579ecde35225f3cd2&amp;source=constructor'
 ---

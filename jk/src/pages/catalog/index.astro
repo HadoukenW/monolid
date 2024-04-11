@@ -56,12 +56,12 @@ const customCrumbs = [
 						<ul>
 							{
 								posts?.map((post: any) => (
-									<div itemscope itemtype="https://schema.org/Accommodation">
+									<div itemscope itemtype="https://schema.org/Accommodation" class="div_anim">
 										<meta itemprop="yearBuilt" content={post.data.year}>
 										<li itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title}>
 											<article>
 												<Image loading="eager" itemprop="image" src={post.data.heroImage} alt={post.data.title} />
-												<div class="text__box">
+												<div class="text__box div_anim">
 													<h3 itemprop="name">{post.data.title}</h3>
 													<div class="newBuildings__wrapper">
 														<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,4 +220,17 @@ const customCrumbs = [
 	main {
 		padding-bottom: 50px;
 	}
+	.div_anim {
+		visibility: hidden;
+	}
 </style>
+
+<script>
+	import { gsap } from "gsap";
+
+	gsap.from('.div_anim', {
+		y: 10,
+		autoAlpha: 0,
+		stagger: .1,
+	})
+</script>
