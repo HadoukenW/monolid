@@ -1,5 +1,5 @@
 ---
-title: '81 ЖК Академ Риверсайд'
+title: '81.1 дом ЖК Академ Риверсайд'
 description: 'Lorem ipsum dolor sit amet'
 year: '2027'
 heroImage: '/public/81 дом/7V6-B3M7-8Q (1).webp'
@@ -33,6 +33,67 @@ layoutsSectionData: [
         title: 'ст+1',
         image: '/public/81 дом/5 _81 1.webp',
     },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-1.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-2.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-3.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-4.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-5.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-6.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-7.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-8.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-9.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-10.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-11.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-12.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-13.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-14.webp',
+    },
+    {
+        title: 'ст+1',
+        image: '/public/81 дом/layouts-15.webp',
+    },
+    
     
 ]
 
