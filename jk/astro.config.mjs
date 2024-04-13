@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import netlify from '@astrojs/netlify'
+export const prerender = true;
 // import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
