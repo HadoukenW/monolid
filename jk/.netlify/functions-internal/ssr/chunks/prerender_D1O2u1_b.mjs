@@ -1,6 +1,6 @@
 import { e as createAstro, f as createComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, j as renderComponent, k as renderHead } from './astro_7hprNihR.mjs';
 import 'kleur/colors';
-import { g as getCollection } from './pages/index_CaqGSnW7.mjs';
+import { g as getCollection } from './pages/index_DoDLYwma.mjs';
 import { c as $$Image, b as $$BaseHead, a as $$Header, $ as $$Footer } from './pages/404_CVa8gnHI.mjs';
 import { $ as $$Breadcrumbs } from './pages/calc_Bi4FVV0f.mjs';
 import 'clsx';
@@ -25,7 +25,7 @@ const $$BlogPost = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$BlogPost;
   const { title, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapLocation } = Astro2.props;
-  await Astro2.glob(/* #__PURE__ */ Object.assign({"../content/catalog/14-zhk-riverside.mdx": () => import('./14-zhk-riverside_CSq4tR6n.mjs'),"../content/catalog/zhk-bratiev-kashirinyh.mdx": () => import('./zhk-bratiev-kashirinyh_C77ixdFo.mjs'),"../content/catalog/zhk-sportivniy.mdx": () => import('./zhk-sportivniy_BJo4YyJF.mjs')}), () => "../content/catalog/*.mdx");
+  await Astro2.glob(/* #__PURE__ */ Object.assign({"../content/catalog/14-zhk-riverside.mdx": () => import('./14-zhk-riverside_CSq4tR6n.mjs'),"../content/catalog/zhk-bratiev-kashirinyh.mdx": () => import('./zhk-bratiev-kashirinyh_Dfv6TCbw.mjs'),"../content/catalog/zhk-sportivniy.mdx": () => import('./zhk-sportivniy_Cqv9w6sO.mjs')}), () => "../content/catalog/*.mdx");
   const customCrumbs = [
     {
       text: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
