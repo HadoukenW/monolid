@@ -1,5 +1,6 @@
 ---
 title: '81.1 дом ЖК Академ Риверсайд'
+titleForLayots: '81.1 доме ЖК Акадам Риверсайд'
 description: 'Lorem ipsum dolor sit amet'
 year: '2027'
 heroImage: '/public/81 дом/7V6-B3M7-8Q (1).webp'

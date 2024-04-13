@@ -20,6 +20,7 @@ const newBuildings = defineCollection({
 const catalog = defineCollection({
   schema: ({ image }) => z.object({
     title: z.string(),
+    titleForLayots: z.string(),
     description: z.string().optional(),
     location: z.string(),
     year: z.string(),

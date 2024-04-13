@@ -1,5 +1,6 @@
 ---
 title: 'ЖК Видный'
+titleForLayots: 'ЖК Видный'
 description: 'Lorem ipsum dolor sit amet'
 year: '2025'
 heroImage: '/public/ЖК Видный/RU_-Lk7t8dc.webp'

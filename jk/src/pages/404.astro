@@ -1,0 +1,55 @@
+---
+import Header from '../components/Header.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Footer from '../components/Footer.astro'
+import BaseHead from '../components/BaseHead.astro';
+---
+<head>
+    <BaseHead title="Страница не найдена - Агентство недвижимости Челябинск - MonoliD недвижимость" description='' robots="noindex, nofollow"/>
+</head>
+<body>
+    <div class="wrapper">
+        <Header/>
+        
+        <main>
+            <h1>Похоже, данная страница не существует.</h1>
+            <a href="/">На главную</a>
+        </main>
+        
+        
+        <Footer />
+    </div>
+</body>
+
+<style lang="scss">
+
+    main {
+        padding-bottom: 50px;
+    }
+
+    h1 {
+        margin-top: 2rem;
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    a {
+        color: var(--primary);
+        padding: 10px 21px;
+        background: var(--btn-primary);
+        border-radius: 20px;
+        display: flex;
+        width: max-content;
+        margin-top: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        transition: .3s ease background;
+        margin: 30px auto 0;
+        &:hover {
+            background: #0b1099;
+        }
+    }
+</style>
