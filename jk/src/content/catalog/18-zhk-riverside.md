@@ -3,7 +3,7 @@ title: '18 дом ЖК Академ Риверсайд'
 titleForLayots: '18 доме ЖК Акадам Риверсайд'
 description: 'Lorem ipsum dolor sit amet'
 year: '2026'
-heroImage: '/18 дом/Tf8fOmr_T80.webp'
+heroImage: '/public/18 дом/Tf8fOmr_T80.webp'
 location: 'Калининский'
 buildingType: 'Монолитный'
 
