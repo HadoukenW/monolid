@@ -187,7 +187,7 @@ createCollectionToGlobResultMap({
 });
 
 let lookupMap = {};
-lookupMap = {"catalog":{"type":"content","entries":{"14-zhk-riverside":"/src/content/catalog/14-zhk-riverside.mdx","18-zhk-riverside":"/src/content/catalog/18-zhk-riverside.md","81-zhk-riverside":"/src/content/catalog/81-zhk-riverside.md","zhk-bratiev-kashirinyh":"/src/content/catalog/zhk-bratiev-kashirinyh.mdx","zhk-sportivniy":"/src/content/catalog/zhk-sportivniy.mdx","zhk-vidniy":"/src/content/catalog/zhk-vidniy.md"}},"homepage":{"type":"content","entries":{"hero-1":"/src/content/homepage/hero-1.md","hero-2":"/src/content/homepage/hero-2.md","hero-3":"/src/content/homepage/hero-3.md"}},"newBuildings":{"type":"content","entries":{"building-1":"/src/content/newBuildings/building-1.md","building-2":"/src/content/newBuildings/building-2.md","building-3":"/src/content/newBuildings/building-3.md"}}};
+lookupMap = {"catalog":{"type":"content","entries":{"14-zhk-riverside":"/src/content/catalog/14-zhk-riverside.mdx","81-zhk-riverside":"/src/content/catalog/81-zhk-riverside.md","18-zhk-riverside":"/src/content/catalog/18-zhk-riverside.md","zhk-bratiev-kashirinyh":"/src/content/catalog/zhk-bratiev-kashirinyh.mdx","zhk-sportivniy":"/src/content/catalog/zhk-sportivniy.mdx","zhk-vidniy":"/src/content/catalog/zhk-vidniy.md"}},"homepage":{"type":"content","entries":{"hero-1":"/src/content/homepage/hero-1.md","hero-2":"/src/content/homepage/hero-2.md","hero-3":"/src/content/homepage/hero-3.md"}},"newBuildings":{"type":"content","entries":{"building-1":"/src/content/newBuildings/building-1.md","building-2":"/src/content/newBuildings/building-2.md","building-3":"/src/content/newBuildings/building-3.md"}}};
 
 function createGlobLookup(glob) {
 	return async (collection, lookupId) => {
