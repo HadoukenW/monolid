@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./14-zhk-riverside_CZ-KH8Mz.mjs');
+						return import('./zhk-bratiev-kashirinyh_FWtq3g65.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

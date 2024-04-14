@@ -1,18 +1,18 @@
 import { renderers } from './renderers.mjs';
-import { manifest } from './manifest_CJ2dxds_.mjs';
+import { manifest } from './manifest_BJ751rLl.mjs';
 import * as serverEntrypointModule from '@astrojs/netlify/ssr-function.js';
 import { onRequest } from './_noop-middleware.mjs';
 
-const _page0 = () => import('./chunks/generic_DO-mPcSl.mjs');
-const _page1 = () => import('./chunks/404_CQ-n3g-X.mjs');
-const _page2 = () => import('./chunks/calc_wNd0IfHt.mjs');
-const _page3 = () => import('./chunks/index_DSNecFOG.mjs');
-const _page4 = () => import('./chunks/_.._CK9bv0q2.mjs');
-const _page5 = () => import('./chunks/contacts_Cfn3g9cE.mjs');
-const _page6 = () => import('./chunks/faq_B4eG_X65.mjs');
-const _page7 = () => import('./chunks/nashi-uslugi_OgddWxT0.mjs');
-const _page8 = () => import('./chunks/rss_CafBpawK.mjs');
-const _page9 = () => import('./chunks/index_kOjMtnT8.mjs');
+const _page0 = () => import('./chunks/generic_BthwHjFX.mjs');
+const _page1 = () => import('./chunks/404_CCMaYgQU.mjs');
+const _page2 = () => import('./chunks/calc_B-D-tcLv.mjs');
+const _page3 = () => import('./chunks/index_BqbgCV5S.mjs');
+const _page4 = () => import('./chunks/_.._BUQnZOgg.mjs');
+const _page5 = () => import('./chunks/contacts_B2CrmIbU.mjs');
+const _page6 = () => import('./chunks/faq_8YFPoK7z.mjs');
+const _page7 = () => import('./chunks/nashi-uslugi_t2NUKWDP.mjs');
+const _page8 = () => import('./chunks/rss_C6bka8NH.mjs');
+const _page9 = () => import('./chunks/index_BACJ9flU.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/404.astro", _page1],
@@ -32,7 +32,7 @@ const _manifest = Object.assign(manifest, {
     middleware: onRequest
 });
 const _args = {
-    "middlewareSecret": "d289f1aa-7021-4819-8793-f311803fd940"
+    "middlewareSecret": "43b1b8e5-b0be-4f9d-badc-5990e979d93d"
 };
 const _exports = serverEntrypointModule.createExports(_manifest, _args);
 const __astrojsSsrVirtualEntry = _exports.default;
