@@ -1,6 +1,6 @@
 import { e as createAstro, f as createComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, j as renderComponent, k as renderHead } from './astro_7hprNihR.mjs';
 import 'kleur/colors';
-import { g as getCollection } from './pages/index_DLiTspCI.mjs';
+import { g as getCollection } from './pages/index_KI5vaTlr.mjs';
 import { c as $$Image, b as $$BaseHead, a as $$Header, $ as $$Footer } from './pages/404_B482zE8q.mjs';
 import { $ as $$Breadcrumbs } from './pages/calc_DWMMsiLd.mjs';
 import 'clsx';

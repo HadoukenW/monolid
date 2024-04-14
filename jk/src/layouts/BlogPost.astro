@@ -427,7 +427,26 @@ const customCrumbs = [
 					gap: 25px;
 				}
 
+				&:nth-child(even) {
+					flex-direction: row-reverse;
+
+					img {
+						mask-image: url(mask-image.svg);
+						
+						
+					}
+
+					
+				}
 				
+				&:nth-child(odd) {
+					img {
+						mask-image: url(mask-image-alternative.svg);
+						
+						
+					}
+
+				}
 				h3 {
 					font-weight: 500;
 					font-size: 22px;
@@ -489,10 +508,11 @@ const customCrumbs = [
 			background-color: var(--primary);
 			align-self:self-start;
 			img {
-				width: 100%;
+				width: 75%;
 				height: auto;
 				cursor: pointer;
-				max-height: 275px;
+				max-height: 300px;
+				object-fit: cover;
 			}
 			.layouts__texts {
 				padding: 15px 10px;
