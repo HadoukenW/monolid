@@ -40,7 +40,19 @@ const customCrumbs = [
 	<body>
 		<div class="wrapper">
 			<Header />
-			
+			<svg width="auto" height="auto" viewBox="0 0 660 371" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill="#D9D9D9">
+					<mask id="mask-image">
+						<animate attributeName="d" dur="7000ms" repeatCount="indefinite" values=
+						"
+						M0 264.696C0 118.509 118.509 0 264.696 0H553.696C612.406 0 660 47.5938 660 106.304V106.304C660 252.491 541.491 371 395.304 371H106.304C47.5938 371 0 323.406 0 264.696V264.696Z;
+						M0 106.304C0 47.5938 47.5938 0 106.304 0H395.304C541.491 0 660 118.509 660 264.696V264.696C660 323.406 612.406 371 553.696 371H264.696C118.509 371 0 252.491 0 106.304V106.304Z;
+						M0 264.696C0 118.509 118.509 0 264.696 0H553.696C612.406 0 660 47.5938 660 106.304V106.304C660 252.491 541.491 371 395.304 371H106.304C47.5938 371 0 323.406 0 264.696V264.696Z;
+						"
+						></animate>
+					</mask>
+				</path>
+			</svg>
 			<main itemtype="https://schema.org/Product" itemscope>
 				<link itemprop="mainEntityOfPage" href={Astro.url.pathname}>
 				<meta itemprop="name" content={title}>
@@ -431,7 +443,7 @@ const customCrumbs = [
 					flex-direction: row-reverse;
 
 					img {
-						mask-image: url(/masks/mask-image.svg);
+						mask-image: url(#mask-image);
 						
 						
 					}
