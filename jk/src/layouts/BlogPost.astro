@@ -431,14 +431,14 @@ const customCrumbs = [
 					flex-direction: row-reverse;
 
 					img {
-						mask-image: url(/public/mask-image.svg);
+						mask-image: url(/mask-image.svg);
 					}
 					
 				}
 				
 				&:nth-child(odd) {
 					img {
-						mask-image: url(/public/mask-image-alternative.svg);
+						mask-image: url(/mask-image-alternative.svg);
 					}
 				}
 				h3 {
@@ -636,12 +636,10 @@ const customCrumbs = [
 
 			button {
 				padding: 19px;
-				border-radius: 20px;
 				max-width: 450px;
 				width: 100%;
 				background: var(--btn-primary);
 				margin-top: 12px;
-				font-weight: 700;
 				font-size: 18px;
 				color: var(--primary);
 
@@ -653,13 +651,10 @@ const customCrumbs = [
 		}
 
 		p {
-			font-weight: 600;
 			font-size: 12px;
-			line-height: 133%;
-			letter-spacing: 0.02em;
 			text-align: center;
-			color: #303934;
-			margin-top: 25px;
+			color: var(--headers-primary);
+			margin-top: 20px;
 		}
 	}
 
