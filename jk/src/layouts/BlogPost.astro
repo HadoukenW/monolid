@@ -563,10 +563,9 @@ const customCrumbs = [
 				// object-fit: cover;
 				max-height: 300px;
 
-				// @media(max-width: 550px) {
-				// 	width: 80%;
-				// 	max-height: 375px;
-				// }
+				@media(max-width: 550px) {
+					max-height: 450px;
+				}
 
 			}
 			.layouts__texts {
@@ -681,7 +680,7 @@ const customCrumbs = [
 			margin-top: 25px;
 
 			input {
-				padding: 16px 20px;
+				padding: clamp(0.813rem, 0.637rem + 0.59vw, 1rem);
 				border: 1px solid #d3dad7;
 				font-weight: 400;
 				font-size: 16px;
