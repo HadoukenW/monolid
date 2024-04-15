@@ -92,11 +92,11 @@ import logo from '../assets/logo.jpg'
 
 <nav class="burger-menu" aria-label="Раскрывающееся меню">
 	<ul itemscope itemtype="https://schema.org/SiteNavigationElement">
-		<HeaderLink href="/catalog">Каталог новостроек</HeaderLink>
-		<HeaderLink href="/nashi-uslugi">Наши услуги</HeaderLink>
-		<HeaderLink href="/calc">Ипотечный калькулятор</HeaderLink>
-		<HeaderLink href="/faq">Ответы на вопросы</HeaderLink>
-		<HeaderLink href="/contacts">Контакты</HeaderLink>
+		<HeaderLink href="/catalog/">Каталог новостроек</HeaderLink>
+		<HeaderLink href="/nashi-uslugi/">Наши услуги</HeaderLink>
+		<HeaderLink href="/calc/">Ипотечный калькулятор</HeaderLink>
+		<HeaderLink href="/faq/">Ответы на вопросы</HeaderLink>
+		<HeaderLink href="/contacts/">Контакты</HeaderLink>
 	</ul>
 
 	<div class="menu__orgInfo">
@@ -195,11 +195,11 @@ import logo from '../assets/logo.jpg'
 	
 			<nav aria-label="Липкое меню">
 				<ul class="sticky__header-links">
-					<HeaderLink href="/catalog">Каталог новостроек</HeaderLink>
-					<HeaderLink href="/nashi-uslugi">Наши услуги</HeaderLink>
-					<HeaderLink href="/calc">Ипотечный калькулятор</HeaderLink>
-					<HeaderLink href="/faq">Ответы на вопросы</HeaderLink>
-					<HeaderLink href="/contacts">Контакты</HeaderLink>
+					<HeaderLink href="/catalog/">Каталог новостроек</HeaderLink>
+					<HeaderLink href="/nashi-uslugi/">Наши услуги</HeaderLink>
+					<HeaderLink href="/calc/">Ипотечный калькулятор</HeaderLink>
+					<HeaderLink href="/faq/">Ответы на вопросы</HeaderLink>
+					<HeaderLink href="/contacts/">Контакты</HeaderLink>
 				</ul>
 			</nav>
 	
@@ -922,6 +922,15 @@ import logo from '../assets/logo.jpg'
 </style>
 
 <script>
+
+
+	let url = location.pathname
+
+	if (url[url.length - 1] != "/") {
+	url += "/";
+	window.location.replace(url);
+	}
+
 	const burgers = document.querySelectorAll('.burger')
 	const menu = document.querySelector('.burger-menu')
 	const close = document.querySelector('.menu-close')

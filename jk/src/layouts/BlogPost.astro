@@ -22,7 +22,7 @@ const customCrumbs = [
   },
   {
     text: "Каталог",
-    href: "/catalog",
+    href: "/catalog/",
   },
   {
     text: title,
@@ -79,7 +79,7 @@ const customCrumbs = [
 											<h3>{item.title}</h3>
 											<p>{item.text}</p>
 										</div>
-										<Image src={item.image} alt={item.title}/>
+										<img src={item.image} alt={item.title}/>
 									</li>
 									))}
 							</ul>
@@ -93,13 +93,12 @@ const customCrumbs = [
 							<ul class="masonry__grid">
 								{layoutsSectionData?.map((item: any) => (
 									<li class="masonry-item">
-										<div itemscope itemtype="https://schema.org/ImageObject"><a  data-src={item.image} data-caption={item.title} data-fancybox="layouts"><img itemprop="contentUrl" src={item.image} alt={item.title}></a></div>
+										<div class="prewrapper" itemscope itemtype="https://schema.org/ImageObject"><a  data-src={item.image} data-caption={item.title} data-fancybox="layouts"><img itemprop="contentUrl" src={item.image} alt={item.title}></a></div>
 										<div class="layouts__texts">
 											<p>{item.title}</p>
 											<button class="apartment__booking">Забронировать</button>
 										</div>
 									</li>
-									<div class="grid-sizer"></div>
 								))}
 							</ul>
 						</div>
@@ -466,6 +465,7 @@ const customCrumbs = [
 					font-size: 18px;
 					line-height: 1.6;
 					text-wrap: balance;
+					max-width: 624px;
 				}
 				img {
 					max-width: 550px;
@@ -491,44 +491,44 @@ const customCrumbs = [
 			font-size: var(--header-clamp)
 		}
 		ul {
-			// display: grid;
-			// grid-template-columns: repeat(4, 1fr);
-			// gap: 24px;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 24px;
 			
 			
-			// @media(max-width: 992px) {
-			// 	grid-template-columns: repeat(3, 1fr);
-			// }
-			// @media(max-width: 767px) {
-			// 	grid-template-columns: repeat(2, 1fr);
-			// }
-			// @media(max-width: 550px) {
-			// 	grid-template-columns: repeat(1, 1fr);
-			// }
+			@media(max-width: 992px) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+			@media(max-width: 767px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@media(max-width: 550px) {
+				grid-template-columns: repeat(1, 1fr);
+			}
 		}
 		.masonry__grid {
 			margin: 0 auto;
 			margin-top: clamp(2.5rem, 1.328rem + 3.91vw, 3.75rem);
 		}
-		.grid-sizer,
-		.masonry-item { 
-			width: 23%; 
-			margin-bottom: 20px;
+		// .grid-sizer,
+		// .masonry-item { 
+		// 	width: 23%; 
+		// 	margin-bottom: 20px;
 			
-			@media(max-width: 992px) {
-				width: 30%; 
-				margin-bottom: 24px;
-        	}
-			@media(max-width: 650px) {
-				width: 47%; 
-				margin-bottom: 24px;
-        	}
-			@media(max-width: 480px) {
-				width: 100%; 
-				margin-bottom: 24px;
-        	}
+		// 	@media(max-width: 992px) {
+		// 		width: 30%; 
+		// 		margin-bottom: 24px;
+        // 	}
+		// 	@media(max-width: 650px) {
+		// 		width: 47%; 
+		// 		margin-bottom: 24px;
+        // 	}
+		// 	@media(max-width: 480px) {
+		// 		width: 100%; 
+		// 		margin-bottom: 24px;
+        // 	}
 
-		 }
+		//  }
 
 		li {
 			display: flex;
@@ -536,8 +536,13 @@ const customCrumbs = [
 			align-items: center;
 			background-color: var(--primary);
 			transition: .3s ease transform;
+			align-self: stretch;
 			&:hover {
 				transform: translateY(-5px);
+			}
+
+			.prewrapper {
+				margin: auto 0;
 			}
 
 			// align-self:self-start;
@@ -546,6 +551,7 @@ const customCrumbs = [
 				height: auto;
 				cursor: pointer;
 				object-fit: cover;
+				max-height: 300px;
 			}
 			.layouts__texts {
 				padding: 15px 10px;
@@ -849,16 +855,6 @@ const customCrumbs = [
 	indConsName.value = ''
 	});
 
-		import Masonry from 'masonry-layout';
-
-		// vanilla JS
-		var msnry = new Masonry( '.masonry__grid', {
-		columnWidth: '.grid-sizer',
-		itemSelector: '.masonry-item',
-		percentPosition: true,
-		gutter: 20,
-		horizontalOrder: true,
-		});
-
+		
 
 </script>

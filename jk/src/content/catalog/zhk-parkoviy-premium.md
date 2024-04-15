@@ -4,8 +4,8 @@ titleForLayots: 'ЖК Парковый Премиум'
 description: 'Lorem ipsum dolor sit amet'
 year: '2027'
 heroImage: '/public/ЖК Парковый Премиум/image-1.jpg'
-location: 'Калининский'
-buildingType: 'Монолитный'
+location: 'Сосновский'
+buildingType: 'Панельный'
 
 aboutSectionData: [
     {
