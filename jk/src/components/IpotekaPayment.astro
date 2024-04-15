@@ -87,7 +87,7 @@
                 }
                 @media(max-width: 600px) {
                     grid-template-columns: repeat(1, 1fr);
-                    gap: 20px;
+                    gap: 15px;
                 }
 
                 label {
@@ -105,11 +105,18 @@
                     font-size: 16px;
                     text-transform: capitalize;
                     min-height: 52px;
+                    color: var(--headers-primary);
+                    border-radius: 5px;
                     &::placeholder {
                         font-weight: 400;
                         font-size: 16px;
                         text-transform: capitalize;
                     }
+                }
+
+                select {
+                    background-color: var(--primary);
+                    color: var(--headers-primary);
                 }
 
                 button {
@@ -121,6 +128,7 @@
                     height: 100%;
                     transition: .3s ease background;
                     align-self: end;
+                    border-radius: 5px;
                     // @media(max-width: 992px) {
                     //     align-self: unset;
                     //     margin-top: 15px;

@@ -3,7 +3,7 @@ title: 'ЖК Клевер'
 titleForLayots: 'ЖК Клевер'
 description: 'Lorem ipsum dolor sit amet'
 year: '2027'
-heroImage: '/public/ЖК Клевер/image-1.jpg'
+heroImage: '/public/ЖК Клевер/квартал 3.1/image-2.webp'
 location: 'Калининский'
 buildingType: 'Монолитный'
 
@@ -11,89 +11,35 @@ aboutSectionData: [
     {
         title: 'Игровые площадки',
         text: 'Откройте дверь в свою идеальную жизнь! Новый стильный жилой комплекс — ваш личный рай! Комфорт, уют, и безграничные возможности ждут вас здесь! Наши улицы — путь к счастью, наши дворы — оазис умиротворения! Инфраструктура, которая удовлетворит все ваши потребности! Выберите комфортное место проживания, выберите наш жилой комплекс!»',
-        image: '/81 дом/81  1.webp',
+        image: '/ЖК Клевер/квартал 2.1/image-1.webp'
     },
     {
         title: 'Безопасный двор',
         text: 'В жилом комплексе представлено более 10 видов планировок, некоторые из них, предусматривают большие панорамные окна.',
-        image: '/81 дом/PfMPjmS37-g.webp',
+        image: '/ЖК Клевер/квартал 2.1/image-2.webp'
     },
     {
         title: 'Безопасный двор',
         text: 'В жилом комплексе представлено более 10 видов планировок, некоторые из них, предусматривают большие панорамные окна.',
-        image: '/81 дом/81  8.webp',
+        image: '/ЖК Клевер/квартал 2.1/image-3.webp'
     }
 ]
 
 layoutsSectionData: [
     {
         title: 'студия',
-        image: '/81 дом/5  _81 1.webp',
+        image: '/ЖК Клевер/layouts-1.webp',
     },
     {
-        title: 'ст+1',
-        image: '/81 дом/5 _81 1.webp',
+        title: 'студия',
+        image: '/ЖК Клевер/layouts-2.webp',
     },
     {
-        title: 'ст+1',
-        image: '/81 дом/layouts-1.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-2.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-3.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-4.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-5.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-6.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-7.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-8.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-9.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-10.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-11.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-12.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-13.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-14.webp',
-    },
-    {
-        title: 'ст+1',
-        image: '/81 дом/layouts-15.webp',
-    },
+        title: 'студия',
+        image: '/ЖК Клевер/layouts-3.webp',
+    }
+    
+    
     
     
 ]
