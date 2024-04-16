@@ -94,7 +94,7 @@ const customCrumbs = [
 							<ul class="masonry__grid">
 								{layoutsSectionData?.map((item: any) => (
 									<li class="masonry-item">
-										<div class="prewrapper" itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={item.image} data-caption={item.title} data-fancybox="layouts"><img itemprop="contentUrl" src={item.image} alt={item.title}></a></div>
+										<div class="prewrapper" itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={item.image} data-caption={item.title} data-fancybox="layouts"><img loading="lazy" itemprop="contentUrl" src={item.image} alt={item.title}></a></div>
 										<div class="layouts__texts">
 											<p>{item.title}</p>
 											<button class="apartment__booking">Забронировать</button>
