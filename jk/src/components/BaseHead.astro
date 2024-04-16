@@ -30,6 +30,7 @@ const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'w
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
@@ -39,6 +40,18 @@ const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'w
 <meta name="keywords" content="Новостройки Челябинска, Новые новостройки, Новые новостройки Челябинска, Агенство недвижимости, Агенство недвижимости Челябинск, Челябинск недвижимость, Жилой комплекс, Жилой комплекс челябинск, Жилые комплексы Челябинск">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
+
+<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "Агентство недвижимости Челябинск – Monolid",
+		"alternateName": "Недвижиость Челябинск - Monolid",
+		"url": "https://monolid-agency.com/"
+	}
+</script>
+
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={websiteType} />
 <meta property="og:url" content={Astro.url} />
@@ -60,12 +73,12 @@ const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'w
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 <meta name="twitter:image:alt" content="Новостройки">
 
-<meta name="theme-color" content="#ff0000" />
+<meta name="theme-color" content="#03283C" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="My Web App">
+<meta name="application-name" content="Монолид - Агентство недвижимости Челябинск">
 <meta name="apple-mobile-web-app-title" content="Mobile rules">
-<meta name="apple-mobile-web-app-status-bar-style" content="red">
+<meta name="apple-mobile-web-app-status-bar-style" content="#03283C">
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
