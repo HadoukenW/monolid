@@ -35,6 +35,11 @@ const catalog = defineCollection({
       title: z.string(),
       image: z.string(),
     })).optional(),
+    kvartal2N1: z.array(z.string()).optional(),
+    kvartal3N1: z.array(z.string()).optional(),
+    kvartal5N1: z.array(z.string()).optional(),
+    kvartalParkovka: z.array(z.string()).optional(),
+    
     galleryImages: z.array(z.string()).optional(),
     mapLocation: z.string().optional(),
   }),

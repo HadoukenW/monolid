@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
 import IpotekaPayment from '../components/IpotekaPayment.astro'
-const { title, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapLocation} = Astro.props;
+const { title, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapLocation, kvartal2N1, kvartal3N1, kvartal5N1, kvartalParkovka} = Astro.props;
 const posts = await Astro.glob('../content/catalog/*.mdx')
 import "../../astro-breadcrumbs-config.scss";
 
@@ -86,7 +86,8 @@ const customCrumbs = [
 						</div>
 					</section>
 					
-					<section aria-labelledby="layouts__title" class="section__layouts">
+					{layoutsSectionData?.length && (
+						<section aria-labelledby="layouts__title" class="section__layouts">
 						<div class="container">
 							<h2 id="layouts__title">Планировки</h2>
 
@@ -103,6 +104,7 @@ const customCrumbs = [
 							</ul>
 						</div>
 					</section>
+					)}
 
 					<div class="booking__bg"></div>
 
@@ -130,6 +132,75 @@ const customCrumbs = [
 							</div>
 						</form>
 					</div>
+
+					{kvartal2N1?.length && (
+					<section aria-labelledby="gallery__title" class="kvartal2N1 kvartals">
+						<div class="container">
+							<h2 id="kvartal2N1">Квартал 2.1</h2>
+
+							<ul>
+								{kvartal2N1?.map((item: any) => (
+									<li>
+										<a data-src={item} data-fancybox="kvartal2N1" itemscope itemtype="https://schema.org/ImageObject">
+											<img itemprop="contentUrl" tabindex="0" src={item} alt="Фото галлерии" />
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					</section>
+					)}
+					{kvartal3N1?.length && (
+					<section aria-labelledby="gallery__title" class="kvartal3N1 kvartals">
+						<div class="container">
+							<h2 id="kvartal3N1">Квартал 3.1</h2>
+
+							<ul>
+								{kvartal3N1?.map((item: any) => (
+									<li>
+										<a data-src={item} data-fancybox="kvartal3N1" itemscope itemtype="https://schema.org/ImageObject">
+											<img itemprop="contentUrl" tabindex="0" src={item} alt="Фото галлерии" />
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					</section>
+					)}
+					{kvartal5N1?.length && (
+					<section aria-labelledby="gallery__title" class="kvartal5N1 kvartals">
+						<div class="container">
+							<h2 id="kvartal3N1">Квартал 5.1</h2>
+
+							<ul>
+								{kvartal5N1?.map((item: any) => (
+									<li>
+										<a data-src={item} data-fancybox="kvartal5N1" itemscope itemtype="https://schema.org/ImageObject">
+											<img itemprop="contentUrl" tabindex="0" src={item} alt="Фото галлерии" />
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					</section>
+					)}
+					{kvartalParkovka?.length && (
+					<section aria-labelledby="gallery__title" class="kvartalParkovka kvartals">
+						<div class="container">
+							<h2 id="kvartal3N1">Здание парковки</h2>
+
+							<ul>
+								{kvartalParkovka?.map((item: any) => (
+									<li>
+										<a data-src={item} data-fancybox="kvartalParkovka" itemscope itemtype="https://schema.org/ImageObject">
+											<img itemprop="contentUrl" tabindex="0" src={item} alt="Фото галлерии" />
+										</a>
+									</li>
+								))}
+							</ul>
+						</div>
+					</section>
+					)}
 
 					<section aria-labelledby="gallery__title" class="section__gallery">
 						<div class="container">
@@ -319,9 +390,6 @@ const customCrumbs = [
 		}
 	}
 
-	.c-breadcrumbs__crumb {
-		
-	}
 
 	.c-breadcrumbs {
 		position: absolute;
@@ -350,7 +418,7 @@ const customCrumbs = [
 				position: absolute;
 				inset: 0;
 				z-index: 0;
-				opacity: .5;
+				opacity: .15;
 			}
 		}
 		h1 {
@@ -433,9 +501,9 @@ const customCrumbs = [
 					img {
 						mask-image: url(/public/mask-image.svg);
 						
-						@media(max-width: 1200px) {
-							mask-image: none;
-						}
+						// @media(max-width: 1200px) {
+						// 	mask-image: none;
+						// }
 					}
 
 					
@@ -445,9 +513,9 @@ const customCrumbs = [
 					img {
 						mask-image: url(/public/mask-image-alternative.svg);
 						
-						@media(max-width: 1200px) {
-							mask-image: none;
-						}
+						// @media(max-width: 1200px) {
+						// 	mask-image: none;
+						// }
 					}
 
 				}
@@ -472,8 +540,7 @@ const customCrumbs = [
 					width: 100%;
 					object-fit: cover;
 					mask-repeat: no-repeat;
-					max-height: 371px;
-					height: 371px;
+					max-height: 325px;
 					@media(max-width: 650px) {
 						height: auto;
 					}
@@ -628,13 +695,13 @@ const customCrumbs = [
 			margin-top: clamp(2.5rem, 1.328rem + 3.91vw, 3.75rem);
 			gap: 24px;
 
-			@media(max-width: 992px) {
+			@media(max-width: 767px) {
 				grid-template-columns: repeat(2, 1fr);
 				gap: 18px;
 			}
 			
-			@media(max-width: 550px) {
-				grid-template-columns: repeat(1, 1fr);
+			@media(max-width: 480px) {
+				// grid-template-columns: repeat(1, 1fr);
 				gap: 10px;
 			}
 			li {
@@ -737,6 +804,52 @@ const customCrumbs = [
 			}
 		}
 	}
+
+	.kvartals {
+		padding: clamp(2.5rem, 0.449rem + 6.84vw, 4.688rem) 0 0;
+		background-color: var(--secondary);
+		color: var(--primary);
+
+		h2 {
+			font-weight: 500;
+			text-align: center;
+			font-size: var(--header-clamp);
+		}
+		ul {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			margin-top: clamp(2.5rem, 0.449rem + 6.84vw, 4.688rem);
+			gap: 24px;
+
+			@media(max-width: 992px) {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 18px;
+			}
+			
+			@media(max-width: 550px) {
+				grid-template-columns: repeat(1, 1fr);
+				gap: 10px;
+			}
+			li {
+				overflow: hidden
+			}
+			div {
+				height: 100%;
+
+			}
+			img {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+				max-height: 223px;
+				cursor: pointer;
+				transition: .3s ease all;
+				&:hover {
+					scale: 1.07;
+				}
+			}
+		}
+	}
 </style>
 
 <script>
@@ -775,6 +888,8 @@ const customCrumbs = [
 
 	import { Fancybox } from "@fancyapps/ui";
 
+
+	
 	Fancybox.bind('[data-fancybox="gallery"]', {
 		Carousel: {
 			transition: "slide",
@@ -797,6 +912,51 @@ const customCrumbs = [
 			type: "classic",
 		},
 	});
+	Fancybox.bind('[data-fancybox="kvartal2N1"]', {
+		Carousel: {
+			transition: "slide",
+		},
+
+		hideScrollbar: false,
+
+		Thumbs: {
+			type: "classic",
+		},
+	});
+	Fancybox.bind('[data-fancybox="kvartal3N1"]', {
+		Carousel: {
+			transition: "slide",
+		},
+
+		hideScrollbar: false,
+
+		Thumbs: {
+			type: "classic",
+		},
+	});
+	Fancybox.bind('[data-fancybox="kvartal5N1"]', {
+		Carousel: {
+			transition: "slide",
+		},
+
+		hideScrollbar: false,
+
+		Thumbs: {
+			type: "classic",
+		},
+	});
+	Fancybox.bind('[data-fancybox="kvartalParkovka"]', {
+		Carousel: {
+			transition: "slide",
+		},
+
+		hideScrollbar: false,
+
+		Thumbs: {
+			type: "classic",
+		},
+	});
+	
 
 
 	window.addEventListener('click', e => {
