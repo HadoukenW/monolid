@@ -1,7 +1,7 @@
 ---
 title: 'ЖК Притяжение'
 titleForLayots: 'ЖК Притяжение'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Новый жилой комплекс совмещающий современные решений и плюсы загородной жизни · Чистый воздух. Панорамные окна. Чистовая отделка. С мебелью и техникой'
 year: '2027'
 heroImage: '/public/ЖК Притяжение/4LW5xt6UU3I.webp'
 location: 'Сосновский'
