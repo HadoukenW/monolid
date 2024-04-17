@@ -32,8 +32,10 @@ const catalog = defineCollection({
       image: z.string(),
     })).optional(),
     layoutsSectionData: z.array(z.object({
-      title: z.string(),
+      title: z.string().optional(),
       image: z.string(),
+      rooms: z.string().optional(),
+      price: z.string().optional(),
     })).optional(),
     kvartal2N1: z.array(z.string()).optional(),
     kvartal3N1: z.array(z.string()).optional(),

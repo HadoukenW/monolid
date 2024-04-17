@@ -24,34 +24,50 @@ layoutsSectionData: [
     {
         title: 'студия',
         image: '/ЖК Видный/layout-1.webp',
+        rooms: '2-комнатная',
+        price: '9 965 340'
     },
     {
         title: 'студия',
         image: '/ЖК Видный/layout-2.webp',
+        rooms: 'студия',
+        price: '6 113 160'
     },
     {
         title: 'студия',
         image: '/ЖК Видный/layout-3.webp',
+        rooms: '1-комнатная',
+        price: '8 892 180'
     },
     {
         title: 'студия',
         image: '/ЖК Видный/layout-4.webp',
+        rooms: 'студия',
+        price: '6 130 800'
     },
     {
         title: 'студия',
         image: '/ЖК Видный/layout-5.webp',
+        rooms: '2-комнатная',
+        price: '10 444 000'
     },
     {
         title: 'студия',
         image: '/ЖК Видный/layout-6.webp',
+        rooms: '2-комнатная',
+        price: '8 886 240'
     },
     {
         title: 'студия',
         image: '/ЖК Видный/layout-7.webp',
+        rooms: 'студия',
+        price: '6 217 920'
     },
     {
         title: 'студия',
         image: '/ЖК Видный/layout-8.webp',
+        rooms: '3-комнатная',
+        price: '14 287 680'
     },
 ]
 
