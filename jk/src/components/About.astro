@@ -88,7 +88,10 @@
             flex-direction: column;
             gap: 15px;
             max-width: 300px;
-
+            transition: .3s ease transform;
+            &:hover {
+                transform: translateY(-5px);
+            }
             @media(max-width: 1250px) {
                 max-width: none;
             }
