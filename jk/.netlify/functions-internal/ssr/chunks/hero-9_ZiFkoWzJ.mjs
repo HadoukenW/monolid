@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./81-2-zhk-riverside_DV0gAWSe.mjs');
+						return import('./hero-9_DeKRAIEI.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

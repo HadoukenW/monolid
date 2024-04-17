@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./zhk-sportivniy_CSkouVXU.mjs');
+						return import('./81-1-zhk-riverside_Co7-H_uF.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];
