@@ -7,9 +7,19 @@
     <a href="https://yandex.ru/maps/?um=constructor%3A594de6463742a647c998d7dcfe2db792e09cfa7efd769402a53cf6421dd0079f&amp;source=constructorStatic" target="_blank"><img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A594de6463742a647c998d7dcfe2db792e09cfa7efd769402a53cf6421dd0079f&amp;width=600&amp;height=450&amp;lang=ru_RU" alt="" style="border: 0;" /></a>
 </div>
 
-<style>
+<style lang="scss">
     .maps__wrapper {
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+
+        h2 {
+            font-weight: 700;
+            font-size: var(--header-clamp);
+            color: var(--headers-primary);
+            text-align: center;
+        }
     }
 </style>
