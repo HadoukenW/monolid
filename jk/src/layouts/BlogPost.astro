@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
 import IpotekaPayment from '../components/IpotekaPayment.astro'
-const { title, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapLocation, kvartal2N1, kvartal3N1, kvartal5N1, kvartalParkovka} = Astro.props;
+const { title, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapStatic, kvartal2N1, kvartal3N1, kvartal5N1, kvartalParkovka} = Astro.props;
 const posts = await Astro.glob('../content/catalog/*.mdx')
 import "../../astro-breadcrumbs-config.scss";
 
@@ -222,7 +222,11 @@ const customCrumbs = [
 							<div>
 								<h2>Расположение комплекса</h2>
 							</div>
-    						<iframe src={mapLocation} width="100%" height="500" frameborder="0"></iframe>
+    						
+								<div class="mapStatic__wrapper">
+									<a href={mapStatic.mapLink} target="_blank"><img src={mapStatic.mapPath} alt="" style="border: 0;" /></a>
+								</div>
+							
 						</div>
 					
 
@@ -804,15 +808,25 @@ const customCrumbs = [
 	}
 
 	.maps__wrapper {
-		padding: var(--section-padding) 0 0;
+		padding: var(--section-padding) 0;
 		h2 {
 			font-weight: 700;
 			font-size: var(--header-clamp);
 			text-align: center;
-			margin-bottom: 60px;
+			margin-bottom: var(--header-clamp);
 
-			@media(max-width: 992px) {
-				margin-bottom: 45px;
+			
+		}
+
+		.mapStatic__wrapper {
+			display: flex;
+			justify-content: center;
+			max-width: 600px;
+			margin: 0 auto;
+			
+
+			img {
+				width: 100%;
 			}
 		}
 	}

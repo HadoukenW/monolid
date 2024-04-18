@@ -174,5 +174,8 @@ layoutsSectionData: [
 ]
 
 galleryImages: ['/18 дом/y-1ujjAP65A.webp', '/18 дом/Tf8fOmr_T80.webp', '/18 дом/MBxOAVByGW8.webp', '/18 дом/Q2NLPH0yKXY.webp', '/18 дом/2cN9xoOjWb8.webp', '/18 дом/FfjZO2ujrOY.webp', '/18 дом/Rnn9NVRK9aE.webp', '/18 дом/SNjq8tGZ378.webp']
-mapLocation: "https://yandex.ru/map-widget/v1/?um=constructor%3A292c80783eb0a5bc087414db0d088987697cab40d819fa810fa405d2300c948f&amp;source=constructor"
+mapStatic: {
+    mapLink: 'https://yandex.ru/maps/?um=constructor%3A292c80783eb0a5bc087414db0d088987697cab40d819fa810fa405d2300c948f&amp;source=constructorStatic',
+    mapPath: 'https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A292c80783eb0a5bc087414db0d088987697cab40d819fa810fa405d2300c948f&amp;width=600&amp;height=450&amp;lang=ru_RU',
+}
 ---

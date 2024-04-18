@@ -19,12 +19,12 @@ const newBuildings = defineCollection({
 });
 const catalog = defineCollection({
   schema: ({ image }) => z.object({
-    title: z.string(),
-    titleForLayots: z.string(),
+    title: z.string().optional(),
+    titleForLayots: z.string().optional(),
     description: z.string().optional(),
-    location: z.string(),
-    year: z.string(),
-    buildingType: z.string(),
+    location: z.string().optional(),
+    year: z.string().optional(),
+    buildingType: z.string().optional(),
     heroImage: image().optional(),
     aboutSectionData: z.array(z.object({
       title: z.string(),
@@ -43,7 +43,10 @@ const catalog = defineCollection({
     kvartalParkovka: z.array(z.string()).optional(),
     
     galleryImages: z.array(z.string()).optional(),
-    mapLocation: z.string().optional(),
+    mapStatic: z.object({
+      mapLink: z.string().optional(),
+      mapPath: z.string().optional(),
+    }).optional(),
   }),
 });
 export const collections = {

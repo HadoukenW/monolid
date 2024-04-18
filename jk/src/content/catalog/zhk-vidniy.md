@@ -72,5 +72,8 @@ layoutsSectionData: [
 ]
 
 galleryImages: ['/ЖК Видный/j_8EAYYU0VU.webp', '/ЖК Видный/QYDnP9QCpyg.webp', '/ЖК Видный/RU_-Lk7t8dc.webp', '/ЖК Видный/-DoMQhYsHYI.webp', '/ЖК Видный/jiPBentvc8w.webp', '/ЖК Видный/MjxPsqLPIZs 1.webp']
-mapLocation: 'https://yandex.ru/map-widget/v1/?um=constructor%3A99bfa1eb05cb51a7b232ff0c70919b7ef93b38a69c58524f96e0b92906f4582f&amp;source=constructor'
+mapStatic: {
+    mapLink: 'https://yandex.ru/maps/?um=constructor%3A99bfa1eb05cb51a7b232ff0c70919b7ef93b38a69c58524f96e0b92906f4582f&amp;source=constructorStatic',
+    mapPath: 'https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A99bfa1eb05cb51a7b232ff0c70919b7ef93b38a69c58524f96e0b92906f4582f&amp;width=600&amp;height=450&amp;lang=ru_RU',
+}
 ---

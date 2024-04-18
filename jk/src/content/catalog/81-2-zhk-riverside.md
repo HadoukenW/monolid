@@ -54,5 +54,8 @@ layoutsSectionData: [
 ]
 
 galleryImages: ['/81 2 дом/PfMPjmS37-g.webp', '/81 2 дом/81  1.webp', '/81 2 дом/7V6-B3M7-8Q (1).webp']
-mapLocation: 'https://yandex.ru/map-widget/v1/?um=constructor%3Af0a79c4f9a4ad16a274b42415a928d35ab83bf34f18c5cd579ecde35225f3cd2&amp;source=constructor'
+mapStatic: {
+    mapLink: 'https://yandex.ru/maps/?um=constructor%3Af0a79c4f9a4ad16a274b42415a928d35ab83bf34f18c5cd579ecde35225f3cd2&amp;source=constructorStatic',
+    mapPath: 'https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Af0a79c4f9a4ad16a274b42415a928d35ab83bf34f18c5cd579ecde35225f3cd2&amp;width=600&amp;height=450&amp;lang=ru_RU',
+}
 ---

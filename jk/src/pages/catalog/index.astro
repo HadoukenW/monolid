@@ -10,7 +10,7 @@ import { Image } from 'astro:assets';
 import "../../../astro-breadcrumbs-config.scss";
 
 const posts = (await getCollection('catalog')).sort(
-	(a: any, b: any) => a.data.year.valueOf() - b.data.year.valueOf()
+	(a: any, b: any) => a?.data?.year?.valueOf() - b?.data?.year?.valueOf()
 );
 
 

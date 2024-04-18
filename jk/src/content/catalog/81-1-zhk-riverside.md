@@ -68,5 +68,8 @@ layoutsSectionData: [
 ]
 
 galleryImages: ['/81 1 дом/w9I0HO3ryCY.webp', '/81 1 дом/81  10.webp', '/81 1 дом/81  8.webp']
-mapLocation: 'https://yandex.ru/map-widget/v1/?um=constructor%3Af0a79c4f9a4ad16a274b42415a928d35ab83bf34f18c5cd579ecde35225f3cd2&amp;source=constructor'
+mapStatic: {
+    mapLink: 'https://yandex.ru/maps/?um=constructor%3Af0a79c4f9a4ad16a274b42415a928d35ab83bf34f18c5cd579ecde35225f3cd2&amp;source=constructorStatic',
+    mapPath: 'https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Af0a79c4f9a4ad16a274b42415a928d35ab83bf34f18c5cd579ecde35225f3cd2&amp;width=600&amp;height=450&amp;lang=ru_RU',
+}
 ---

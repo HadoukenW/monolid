@@ -31,5 +31,8 @@ kvartalParkovka: ['/ЖК Клевер/здание парковки/image-1.webp
 
 
 galleryImages: ['/ЖК Клевер/image-1.webp', '/ЖК Клевер/klever-1.webp']
-mapLocation: 'https://yandex.ru/map-widget/v1/?um=constructor%3A62f6cad65625e6353ab9bf77cf0eb2922b2f7a5bd5caea85056d84f17775987c&amp;source=constructor'
+mapStatic: {
+    mapLink: 'https://yandex.ru/maps/?um=constructor%3A62f6cad65625e6353ab9bf77cf0eb2922b2f7a5bd5caea85056d84f17775987c&amp;source=constructorStatic',
+    mapPath: 'https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A62f6cad65625e6353ab9bf77cf0eb2922b2f7a5bd5caea85056d84f17775987c&amp;width=600&amp;height=450&amp;lang=ru_RU',
+}
 ---
