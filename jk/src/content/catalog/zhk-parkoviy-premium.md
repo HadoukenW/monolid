@@ -25,6 +25,119 @@ aboutSectionData: [
     }
 ]
 
+layoutsSectionData: [
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-1.webp',
+        rooms: '3-комнатная',
+        price: '8 531 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-2.webp',
+        rooms: '1-комнатная',
+        price: '6 559 000   '
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-3.webp',
+        rooms: 'студия',
+        price: '5 250 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-4.webp',
+        rooms: '1-комнатная',
+        price: '6 462 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-5.webp',
+        rooms: '3-комнатная',
+        price: '8 588 000'
+
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-6.webp',
+        rooms: '2-комнатная',
+        price: '7 010 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-7.webp',
+        rooms: 'студия',
+        price: '4 473 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-8.webp',
+        rooms: '1-комнатная',
+        price: '5 622 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-9.webp',
+        rooms: '1-комнатная',
+        price: '5 397 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-10.webp',
+        rooms: '1-комнатная',
+        price: '5 663 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-11.webp',
+        rooms: '1-комнатная',
+        price: '5 406 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-12.webp',
+        rooms: '3-комнатная',
+        price: '8 749 500'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-13.webp',
+        rooms: '3-комнатная',
+        price: '8 559 500'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-14.webp',
+        rooms: '1-комнатная',
+        price: '5 622 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-15.webp',
+        rooms: '1-комнатная',
+        price: '5 411 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-16.webp',
+        rooms: '1-комнатная',
+        price: '5 383 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-17.webp',
+        rooms: '1-комнатная',
+        price: '5 622 000'
+    },
+    {
+        title: 'студия',
+        image: '/ЖК Парковый Премиум/layouts-18.webp',
+        rooms: '1-комнатная',
+        price: '5 622 000'
+    },
+    
+]
+
 
 galleryImages: ['/ЖК Парковый Премиум/jDpb4QSArQ0.webp', '/ЖК Парковый Премиум/yj-jFAA3XdQ.webp', '/ЖК Парковый Премиум/ou0g4sOeHH0.webp', '/ЖК Парковый Премиум/HV4KkvE9UE0.webp', '/ЖК Парковый Премиум/R7Jq9z-KHO8.webp', '/ЖК Парковый Премиум/BjTweF8i8wk.webp', '/ЖК Парковый Премиум/Sc0iE2FGGSs.webp', '/ЖК Парковый Премиум/th_Z8UCcIIQ.webp', '/ЖК Парковый Премиум/xvi4iF8ZKQY.webp', '/ЖК Парковый Премиум/pqZ9RJsDHVk.webp', '/ЖК Парковый Премиум/661yzEhg4rk.webp', '/ЖК Парковый Премиум/5XjFrTdebwQ.webp', '/ЖК Парковый Премиум/E5CAboHjE5E.webp', '/ЖК Парковый Премиум/7GNW9S9ccvM.webp', '/ЖК Парковый Премиум/jWgW8ODjvjQ.webp', '/ЖК Парковый Премиум/X8bczZWL2gs.webp', '/ЖК Парковый Премиум/z1uOfhUxQjU.webp', '/ЖК Парковый Премиум/UzDpe0whXKQ.webp', '/ЖК Парковый Премиум/IBu-1qlDWXI.webp', '/ЖК Парковый Премиум/rctEWBsRhtI.webp', '/ЖК Парковый Премиум/xWNcURG5S7o.webp', '/ЖК Парковый Премиум/FuXkiVEgX4w.webp', '/ЖК Парковый Премиум/KbHVyVRGw2o.webp',]
 mapLocation: 'https://yandex.ru/map-widget/v1/?um=constructor%3A771567a8241efb011e4b49389e608698d4edb6da09f0aabd8b1dd87eb5826e90&amp;source=constructor'

@@ -97,7 +97,7 @@ const customCrumbs = [
 										<div class="prewrapper" itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={item.image} data-caption={item.rooms} data-fancybox="layouts"><img loading="lazy" itemprop="contentUrl" src={item.image} alt={item.rooms}></a></div>
 										<div class="layouts__texts">
 											<p class="rooms">{item.rooms}</p>
-											<p>от {item.price} руб.</p>
+											<p class="price">от {item.price} руб.</p>
 											<button class="apartment__booking">Забронировать</button>
 										</div>
 									</li>
@@ -651,7 +651,18 @@ const customCrumbs = [
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				box-shadow: 0px 9px 15px 1px rgba(34, 60, 80, 0.2);
+				box-shadow: 0px 8px 8px 0px rgba(34,60,80,0.2);
+
+				.rooms {
+					font-size: 20px;
+				}
+
+				.price {
+					margin-top: 10px;
+					font-size: clamp(1.125rem, 0.875rem + 0.83vw, 1.5rem);
+					color: #011032;
+					font-weight: 600;
+				}
 			}
 			p {
 				font-size: 18px;

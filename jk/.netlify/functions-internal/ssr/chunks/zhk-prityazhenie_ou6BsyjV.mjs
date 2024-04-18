@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./zhk-parkoviy-premium_DBljtJTP.mjs');
+						return import('./zhk-prityazhenie_BNLkpM45.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];
