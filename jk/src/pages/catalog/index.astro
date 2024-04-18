@@ -90,6 +90,7 @@ const customCrumbs = [
 													<a itemprop="url" href={`/catalog/${post.slug}/`}>Подробнее</a>
 												</div>
 											</article>
+											{post.data.isInProgress && <div class="inProgress">{post.data.isInProgress}</div>}
 										</li>
 									</div>
 								))
@@ -156,6 +157,18 @@ const customCrumbs = [
             border-radius: 25px;
             transition: .3s ease box-shadow;
 			align-self: baseline;
+			position: relative;
+
+			.inProgress {
+				position: absolute;
+				right: 0;
+				top: 0;
+				background-color: #ff0000;
+				padding: 5px 10px;
+				color: var(--primary);
+				font-weight: 700;
+			}
+
             &:hover {
                 box-shadow: 0px 0px 11px 7px rgba(255, 255, 255, 0.2);
             }

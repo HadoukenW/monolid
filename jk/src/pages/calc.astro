@@ -61,12 +61,13 @@ const customCrumbs = [
                             <div id="calcus-container"></div>
 
                             
-                            <script>
-                                
-                                CalcusWidget.show('Credit')
-                                
-                            </script>
-
+                            
+                                <script>
+                                    
+                                    CalcusWidget.show('Credit')
+                                    
+                                </script>
+                            
                             
                            
                         </div>
@@ -111,13 +112,5 @@ const customCrumbs = [
 </style>
 
 <script>
-    setTimeout(() => {
-        const monthlyPayment: any = document.querySelectorAll('.calc-inp')
-
-        monthlyPayment.forEach((item: any) => {
-        
-            item.disabled = false
-            item.parentElement.parentElement.parentElement.classList.add('calc_type-x')
-        })
-    }, 500);
+    
 </script>

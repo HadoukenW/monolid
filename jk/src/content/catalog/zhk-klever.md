@@ -35,4 +35,5 @@ mapStatic: {
     mapLink: 'https://yandex.ru/maps/?um=constructor%3A62f6cad65625e6353ab9bf77cf0eb2922b2f7a5bd5caea85056d84f17775987c&amp;source=constructorStatic',
     mapPath: 'https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A62f6cad65625e6353ab9bf77cf0eb2922b2f7a5bd5caea85056d84f17775987c&amp;width=600&amp;height=450&amp;lang=ru_RU',
 }
+isInProgress: 'Скоро старт продаж'
 ---

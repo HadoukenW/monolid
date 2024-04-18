@@ -147,90 +147,28 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 	outline: none;
 }
 
+#calcus-container {
+	max-width: 850px;
 
-.calc-form {
-	display: flex !important;
-	flex-direction: column !important;
-	align-items: center !important;
+	margin: 0 auto;
 }
 
 
-/* .calc_type-3 {
-    display: flex !important;
-    justify-content: center !important;
-	gap: 1rem;
-} */
-.calc_type-x {
-	display: flex !important; 
-	justify-content: space-between;
-	max-width: 600px;
-	width: 100%;
+.calc-frow {
+	margin-left: 20%;
+}
+@media(max-width: 992px) {
+	.calc-frow {
+		margin-left: unset;
+	}
 }
 
-.calc-fright {
-	display: flex !important;
-	margin-left: unset !important;
-	gap: 1rem;
-	width: 100%;
-	
-}
 
 
 .calc-fleft {
-	width: 100% !important;
-	margin-right: 20px !important;
-	max-width: 250px !important;
-	text-align: left;
-}
+	width: unset !important;
+	margin-right: 25px;
 
-.calc-input {
-	width: 100% !important;
-}
-
-.calc-footer .calc-fright {
-	align-items: center !important;
-}
-
-@media(max-width: 575px) {
-
-	.calc-form  {
-		display: flex !important;
-		justify-content: center;
-	}
-
-	.calc-fleft {
-		width: 100% !important;
-		max-width: unset !important;
-	}
-
-	.calc_type-x {
-		flex-direction: column;
-		max-width: 400px;
-		width: 100%;
-		justify-content: center;
-	}
-
-	.calc-fright {
-		justify-content: center;
-		justify-content: start;
-	}
-
-	.calc-input {
-		width: 100% !important;
-	}
-
-	.period_type {
-		width: calc(100% - 28px) !important;
-	}
-
-	
-}
-
-@media(max-width: 767px) {
-	
-	.calc-result-split {
-		justify-content: center;
-	}
 }
 
 .calc-submit  {
@@ -255,39 +193,6 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 	background: #0b1099 !important;
 }
 
-.calc-result-col {
-	flex-basis: unset !important;
-}
-
-.tooltip-icon {
-	display: none !important;
-}
-
-.top-padding-normal {
-	flex-wrap: wrap;
-}
-
-.calc-result-value {
-	font-size: unset !important;
-}
-
-.calc-radio:not(checked) + label:after {
-	background-color: var(--btn-primary) !important;
-}
-
-#calcus-container {
-	animation: fade .5s step-end !important;
-}
-
-@keyframes fade {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
 
 .c-breadcrumbs__link {
 	line-height: unset !important;

@@ -5,7 +5,7 @@ import netlify from '@astrojs/netlify'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://monolidtest.netlify.app/',
+  site: 'https://monolid74.com/',
   integrations: [mdx(), sitemap()],
   devToolbar: {
     enabled: false

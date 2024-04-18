@@ -24,30 +24,45 @@ layoutsSectionData: [
     {
         title: 'ст+1',
         image: '/81 2 дом/layouts-1.webp',
+        rooms: '2-комнатная',
+        price: '5 965 000'
     },
     {
         title: 'ст+1',
         image: '/81 2 дом/layouts-2.webp',
+        rooms: '1-комнатная',
+        price: '4 233 990'
+        
     },
     {
         title: 'ст+1',
         image: '/81 2 дом/layouts-3.webp',
+        rooms: 'студия',
+        price: '2 948 400'
     },
     {
         title: 'ст+1',
         image: '/81 2 дом/layouts-4.webp',
+        rooms: 'студия',
+        price: '2 948 400'
     },
     {
         title: 'ст+1',
         image: '/81 2 дом/layouts-5.webp',
+        rooms: '1-комнатная',
+        price: '4 233 990'
     },
     {
         title: 'ст+1',
         image: '/81 2 дом/layouts-6.webp',
+        rooms: '1-комнатная',
+        price: '4 250 000'
     },
     {
         title: 'ст+1',
         image: '/81 2 дом/layouts-7.webp',
+        rooms: '1-комнатная',
+        price: '3 680 250'
     }
     
     

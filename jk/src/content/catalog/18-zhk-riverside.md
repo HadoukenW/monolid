@@ -24,150 +24,225 @@ layoutsSectionData: [
     {
         title: 'студия',
         image: '/18 дом/layout-1.webp',
+        rooms: '2-комнатная',
+        price: '6 925 500'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-2.webp',
+        rooms: '2-комнатная',
+        price: '5 358 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-3.webp',
+        rooms: '2-комнатная',
+        price: '6 402 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-4.webp',
+        rooms: '1-комнатная',
+        price: '3 322 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-5.webp',
+        rooms: 'студия',
+        price: '3 333 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-6.webp',
+        rooms: 'студия',
+        price: '3 505 500'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-7.webp',
+        rooms: '1-комнатная',
+        price: '4 560 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-8.webp',
+        rooms: '2-комнатная',
+        price: '6 146 500'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-9.webp',
+        rooms: '2-комнатная',
+        price: '5 947 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-10.webp',
+        rooms: 'студия',
+        price: '3 150 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-11.webp',
+        rooms: '2-комнатная',
+        price: '6 245 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-12.webp',
+        rooms: 'студия',
+        price: '3 213 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-13.webp',
+        rooms: '2-комнатная',
+        price: '6 867 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-14.webp',
+        rooms: '1-комнатная',
+        price: '5 104 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-15.webp',
+        rooms: 'студия',
+        price: '4 771 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-16.webp',
+        rooms: 'студия',
+        price: '4 642 500'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-17.webp',
+        rooms: 'студия',
+        price: '4 575 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-18.webp',
+        rooms: '2-комнатная',
+        price: '6 512 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-19.webp',
+        rooms: '2-комнатная',
+        price: '7 280 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-20.webp',
+        rooms: '2-комнатная',
+        price: '5 716 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-21.webp',
+        rooms: '3-комнатная',
+        price: '9 540 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-22.webp',
+        rooms: '2-комнатная',
+        price: '5 617 500'
+
     },
     {
         title: 'студия',
         image: '/18 дом/layout-23.webp',
+        rooms: '1 комнатная',
+        price: '5 324 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-24.webp',
+        rooms: 'студия',
+        price: '4 235 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-25.webp',
+        rooms: 'студия',
+        price: '4 235 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-26.webp',
+        rooms: '1-комнатная',
+        price: '5 324 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-27.webp',
+        rooms: '2-комнатная',
+        price: '5 896 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-28.webp',
+        rooms: '3-комнатная',
+        price: '9 540 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-29.webp',
+        rooms: '1-комнатная',
+        price: '4 323 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-30.webp',
+        rooms: '2-комнатная',
+        price: '7 200 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-31.webp',
+        rooms: 'студия',
+        price: '4 888 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-32.webp',
+        rooms: 'студия',
+        price: '4 953 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-33.webp',
+        rooms: 'студия',
+        price: '4 927 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-34.webp',
+        rooms: 'студия',
+        price: '4 380 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-35.webp',
+        rooms: '2-комнатная',
+        price: '6 413 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-36.webp',
+        rooms: '2-комнатная',
+        price: '7 280 000'
     },
     {
         title: 'студия',
         image: '/18 дом/layout-37.webp',
+        rooms: '1-комнатная',
+        price: '4 334 000'
     },
     
     

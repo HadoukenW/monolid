@@ -37,6 +37,8 @@ layoutsSectionData: [
     {
         title: 'ст+1',
         image: '/81 1 дом/layouts-3.webp',
+        rooms: '2-комнатная',
+        price: '6 757 500'
     },
     {
         title: 'ст+1',

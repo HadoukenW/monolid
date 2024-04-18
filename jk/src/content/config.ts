@@ -47,6 +47,7 @@ const catalog = defineCollection({
       mapLink: z.string().optional(),
       mapPath: z.string().optional(),
     }).optional(),
+    isInProgress: z.string().optional(),
   }),
 });
 export const collections = {
