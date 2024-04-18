@@ -1,7 +1,7 @@
 import { e as createAstro, f as createComponent, r as renderTemplate, j as renderComponent, k as renderHead } from '../astro_7hprNihR.mjs';
 import 'kleur/colors';
-import { b as $$BaseHead, a as $$Header, c as $$Image, $ as $$Footer } from './404_BDVAi-BL.mjs';
-import { $ as $$Breadcrumbs, S as SITE_DESCRIPTION } from './calc_BotHI643.mjs';
+import { b as $$BaseHead, a as $$Header, c as $$Image, $ as $$Footer } from './404_B84scf1j.mjs';
+import { $ as $$Breadcrumbs, S as SITE_DESCRIPTION } from './calc_BUQel0cC.mjs';
 /* empty css                           */
 /* empty css                                 */
 
