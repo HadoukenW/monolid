@@ -60,7 +60,7 @@ const customCrumbs = [
 										<meta itemprop="yearBuilt" content={post.data.year}>
 										<li itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title}>
 											<article>
-												<Image loading="eager" itemprop="image" src={post.data.heroImage} alt={post.data.title} />
+												<Image loading="eager" itemprop="image" src={post?.data?.heroImage} alt={post?.data?.title} />
 												<div class="text__box div_anim">
 													<h3 itemprop="name">{post.data.title}</h3>
 													<div class="newBuildings__wrapper">
