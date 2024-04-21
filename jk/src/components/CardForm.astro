@@ -144,6 +144,8 @@ import cardFormImg from '../assets/cardForm.jpg'
 </style>
 
 <script>
+    //@ts-ignore
+    const apiKey = import.meta.env.API_KEY;
     const consultancyForm: any = document.querySelector(".consultancyForm");
 	const consultancyPhone = document.querySelector('#consultancyPhone')
 	const consultancyName = document.querySelector('#consultancyName')
@@ -152,7 +154,7 @@ import cardFormImg from '../assets/cardForm.jpg'
 	const formData = new FormData(consultancyForm);
 
 	try {
-		const response = await fetch(`https://monolid.yucrm.ru/api/orders/post?&phone=9999999999&name=name&message=Консультация&oauth_token=afd0bcd4ee3a219f27812dd4d20a550c`, {
+		const response = await fetch(`https://monolid.yucrm.ru/api/orders/post?&phone=9999999999&name=name&message=Консультация&oauth_token=${apiKey}`, {
 		method: "POST",
 		// Set the FormData instance as the request body
 		body: formData,
