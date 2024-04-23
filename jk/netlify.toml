@@ -1,6 +1,3 @@
 [build]
   command = "npm run build"
   publish = "dist"
-
-[context.environment]
-API_KEY = "afd0bcd4ee3a219f27812dd4d20a550c"
