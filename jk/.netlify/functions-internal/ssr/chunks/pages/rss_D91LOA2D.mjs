@@ -1,5 +1,5 @@
 import rss from '@astrojs/rss';
-import { g as getCollection } from './index_ptL6jdcK.mjs';
+import { g as getCollection } from './index_CrntUGS1.mjs';
 import { a as SITE_TITLE, S as SITE_DESCRIPTION } from './contacts_DQ8EcUo6.mjs';
 
 async function GET(context) {

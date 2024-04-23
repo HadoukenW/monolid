@@ -5,6 +5,8 @@ import netlify from '@astrojs/netlify'
 import dotenv from 'dotenv';
 dotenv.config();
 // https://astro.build/config
+
+
 export default defineConfig({
   site: 'https://monolid74.com/',
   integrations: [mdx(), sitemap()],
