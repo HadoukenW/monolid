@@ -42,8 +42,6 @@ const customCrumbs = [
 	<body>
 		<div class="wrapper">
 			<Header />
-		
-			
 			<main itemtype="https://schema.org/Product" itemscope>
 				<link itemprop="mainEntityOfPage" href={Astro.url.pathname}>
 				<meta itemprop="name" content={title}>
@@ -1127,7 +1125,7 @@ const customCrumbs = [
 			// Associate the FormData object with the form element
 			const formData = new FormData(apartmentForm);
 			try {
-				const response = await fetch(`https://monolid.yucrm.ru/api/orders/post?&phone=${apartmentFormPhone.value}&name=${apartmentFormName.value}&object_name=${apartmentComplexName + ' ' + apartmentType}&oauth_token=${import.meta.env.ASTRO_API_KEY}`, {
+				const response = await fetch(`https://monolid.yucrm.ru/api/orders/post?&phone=${apartmentFormPhone.value}&name=${apartmentFormName.value}&object_name=${apartmentComplexName + ' ' + apartmentType}&oauth_token=${import.meta.env.API_KEY}`, {
 				method: "POST",
 				// Set the FormData instance as the request body
 				body: formData,
