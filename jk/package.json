@@ -17,7 +17,7 @@
     "@fancyapps/ui": "^5.0.35",
     "astro": "^4.5.9",
     "astro-breadcrumbs": "^2.2.0",
-    "astro-env": "^0.0.5",
+    "astro-robots-txt": "^1.0.0",
     "dotenv": "^16.4.5",
     "gsap": "^3.12.5",
     "imask": "^7.5.0",

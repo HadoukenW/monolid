@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
 import IpotekaPayment from '../components/IpotekaPayment.astro'
-const { title, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapStatic, kvartal2N1, kvartal3N1, kvartal5N1, kvartalParkovka} = Astro.props;
+const { title, city, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapStatic, kvartal2N1, kvartal3N1, kvartal5N1, kvartalParkovka} = Astro.props;
 const posts = await Astro.glob('../content/catalog/*.mdx')
 import "../../astro-breadcrumbs-config.scss";
 
@@ -36,7 +36,7 @@ const customCrumbs = [
 
 <html lang="ru">
 	<head>
-		<BaseHead title={title + ' | Цены и планировки | Купить квартиру'} description={description} websiteType="article"/>
+		<BaseHead title={title + ' ' + city + ' | Цены и планировки | Купить квартиру'} description={description} websiteType="article"/>
 		
 	</head>
 	
@@ -83,7 +83,8 @@ const customCrumbs = [
 											<h3>{item.title}</h3>
 											<p>{item.text}</p>
 										</div>
-										<img src={item.image} alt={item.title}/>
+										{item.image && <img src={item.image} alt={item.title}/>}
+										{item.video && <video autoplay muted loop src={item.video}></video>}
 									</li>
 									))}
 							</ul>
@@ -559,7 +560,7 @@ const customCrumbs = [
 				&:nth-child(even) {
 					flex-direction: row-reverse;
 
-					img {
+					img, video {
 						mask-image: url(/public/mask-image.svg);
 						
 						@media(max-width: 1200px) {
@@ -571,7 +572,7 @@ const customCrumbs = [
 				}
 				
 				&:nth-child(odd) {
-					img {
+					img, video {
 						mask-image: url(/public/mask-image-alternative.svg);
 						
 						@media(max-width: 1200px) {
@@ -596,7 +597,7 @@ const customCrumbs = [
 					text-wrap: balance;
 					max-width: 624px;
 				}
-				img {
+				img, video {
 					max-width: 550px;
 					width: 100%;
 					object-fit: cover;
@@ -777,7 +778,8 @@ const customCrumbs = [
 				gap: 10px;
 			}
 			li {
-				overflow: hidden
+				overflow: hidden;
+
 			}
 			div {
 				height: 100%;
@@ -1003,7 +1005,7 @@ const customCrumbs = [
 			document.querySelector('.no-match').style.display = 'none'
 		}
 	}
-	filter.addEventListener('change', filterFn)
+	filter?.addEventListener('change', filterFn)
 	
 
 	import { gsap } from "gsap";
