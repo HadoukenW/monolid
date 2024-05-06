@@ -1,0 +1,6 @@
+#!/bin/bash
+
+npm install webpack
+npm install webpack-cli
+
+./node_modules/.bin/webpack path/to/entry.js -o js/output.js
