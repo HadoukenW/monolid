@@ -15,8 +15,8 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), robotsTxt(), sanity({
     projectId: "5d4cymjm",
     dataset: "production",
-    useCdn: false,
-    apiVersion: "2023-02-08",
+    useCdn: true,
+    apiVersion: "2023-05-03",
     token: "sktKeI484klyfjDlWpRuJI9VD3MCiTMKBCSS8pdINTaE3zfY5IAmfqegAhy2QnRYOxrdMLAvJbrrONxD1EVd7f0Pu675M4lmiFNBdFkbQIW15TvSodpS9TVrNXCE5vhUuAXH21qvWMspJvsCxzCVpvUen3rqB640pOti8I5EkVATAMtBXEip"
   }), react()],
   devToolbar: {
