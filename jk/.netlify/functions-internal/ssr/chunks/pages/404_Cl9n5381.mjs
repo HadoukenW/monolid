@@ -978,7 +978,7 @@ const imageConfig = {"service":{"entrypoint":"astro/assets/services/sharp","conf
 					const getImage = async (options) => await getImage$1(options, imageConfig);
 
 const sanityClient = createClient(
-            {"apiVersion":"2023-02-08","projectId":"5d4cymjm","dataset":"production","useCdn":false}
+            {"apiVersion":"2023-02-08","projectId":"5d4cymjm","dataset":"production","useCdn":false,"token":"sktKeI484klyfjDlWpRuJI9VD3MCiTMKBCSS8pdINTaE3zfY5IAmfqegAhy2QnRYOxrdMLAvJbrrONxD1EVd7f0Pu675M4lmiFNBdFkbQIW15TvSodpS9TVrNXCE5vhUuAXH21qvWMspJvsCxzCVpvUen3rqB640pOti8I5EkVATAMtBXEip"}
           );
 
 globalThis.sanityClient = sanityClient;

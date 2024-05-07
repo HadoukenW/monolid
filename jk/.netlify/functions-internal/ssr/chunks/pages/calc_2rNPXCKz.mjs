@@ -1,4 +1,4 @@
-import { $ as $$Footer, a as $$Header, b as $$BaseHead } from './404_B-oc_h8q.mjs';
+import { $ as $$Footer, a as $$Header, b as $$BaseHead } from './404_Cl9n5381.mjs';
 import { e as createAstro, f as createComponent, r as renderTemplate, m as maybeRenderHead, s as spreadAttributes, h as addAttribute, i as renderSlot, j as renderComponent, u as unescapeHTML, l as Fragment, k as renderHead } from '../astro_7hprNihR.mjs';
 import 'kleur/colors';
 import 'clsx';
