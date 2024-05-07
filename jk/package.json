@@ -12,19 +12,27 @@
   "dependencies": {
     "@astrojs/mdx": "^2.2.1",
     "@astrojs/netlify": "^5.2.0",
+    "@astrojs/react": "^3.3.2",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
     "@fancyapps/ui": "^5.0.35",
+    "@sanity/astro": "^3.0.0",
+    "@sanity/client": "^6.17.2",
+    "@sanity/image-url": "^1.0.2",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
     "astro": "^4.5.9",
     "astro-breadcrumbs": "^2.2.0",
     "astro-robots-txt": "^1.0.0",
     "dotenv": "^16.4.5",
     "gsap": "^3.12.5",
     "imask": "^7.5.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.40.0",
     "sass": "^1.72.0",
     "scss": "^0.2.4",
-    "swiper": "^11.0.7",
-    "vite": "^5.2.8"
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "dotenv-webpack": "^8.1.0"

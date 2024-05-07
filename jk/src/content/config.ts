@@ -19,6 +19,7 @@ const newBuildings = defineCollection({
 });
 const catalog = defineCollection({
   schema: ({ image }) => z.object({
+    url: z.string().optional(),
     title: z.string().optional(),
     city: z.string(),
     titleForLayots: z.string().optional(),

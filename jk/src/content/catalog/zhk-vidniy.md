@@ -1,4 +1,5 @@
 ---
+url: 'zhk-vidniy'
 title: 'ЖК Видный'
 city: 'в городе Челябинск'
 titleForLayots: 'ЖК Видный'

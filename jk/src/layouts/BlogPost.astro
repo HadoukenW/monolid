@@ -7,13 +7,11 @@ import Footer from '../components/Footer.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
 import IpotekaPayment from '../components/IpotekaPayment.astro'
-const { title, city, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapStatic, kvartal2N1, kvartal3N1, kvartal5N1, kvartalParkovka} = Astro.props;
-const posts = await Astro.glob('../content/catalog/*.mdx')
+const { url, title, city, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapStatic, kvartal2N1, kvartal3N1, kvartal5N1, kvartalParkovka} = Astro.props;
+// const posts = await Astro.glob('../content/catalog/*.mdx')
 import "../../astro-breadcrumbs-config.scss";
 
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-
-
 
 const customCrumbs = [
  {
@@ -30,6 +28,9 @@ const customCrumbs = [
   },
 ]
 
+import { getSanity } from '../lib/api'
+import { urlForImage } from '../lib/urlForImage'
+const sanityLayouts = await getSanity([`*[_type == '${url}']`])
 
 
 ---
@@ -93,7 +94,7 @@ const customCrumbs = [
 			
 					
 					
-					{layoutsSectionData?.length && (
+					{sanityLayouts?.length > 0 && (
 						<section aria-labelledby="layouts__title" class="section__layouts">
 						<div class="container">
 							<h2 id="layouts__title">Планировки</h2>
@@ -110,11 +111,11 @@ const customCrumbs = [
 										</select>
 									</form>
 							</section>
-							<div class="no-match">Кажется, ничего не найдено</div>
+							<div class={`no-match ${sanityLayouts.length === 0 ? 'zero-length' : ''}`}>{sanityLayouts.length === 0 ? 'Нет планировок' : 'Кажется, ничего не найдено'}</div>
 							<ul class="masonry__grid">
-								{layoutsSectionData?.map((item: any) => (
+								{sanityLayouts?.map((item: any) => (
 									<li class="masonry-item">
-										<div class="prewrapper" itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={item.image} data-caption={item.rooms} data-fancybox="layouts"><img loading="lazy" itemprop="contentUrl" src={item.image} alt={item.rooms}></a></div>
+										<div class="prewrapper" itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={urlForImage(item.photo).url()} data-caption={item.rooms} data-fancybox="layouts"><img loading="lazy" itemprop="contentUrl" src={urlForImage(item.photo).url()}  alt={item.rooms}></a></div>
 										<div class="layouts__texts">
 											<p class="rooms">{item.rooms}</p>
 											<p class="price">от {item.price} руб.</p>
