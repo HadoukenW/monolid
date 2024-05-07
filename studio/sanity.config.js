@@ -9,7 +9,7 @@ export default defineConfig({
 
   projectId: '5d4cymjm',
   dataset: 'production',
-  token: "sktKeI484klyfjDlWpRuJI9VD3MCiTMKBCSS8pdINTaE3zfY5IAmfqegAhy2QnRYOxrdMLAvJbrrONxD1EVd7f0Pu675M4lmiFNBdFkbQIW15TvSodpS9TVrNXCE5vhUuAXH21qvWMspJvsCxzCVpvUen3rqB640pOti8I5EkVATAMtBXEip",
+  token: "skY7izzp3PcLqi1Szbo0AAUjOiuPtAO9SMDNwobHPgQuQuwkDfMsVfLlYQUN6ADiT4hOcvCve2RW2GMMVoByLVbd4IcrzvLm1YlxEZHXTWvmhYQ4AoT7ayNC8UYl1CDobnXJB1yLsR05EyCOIgUdrRjmQ13xcAxEZfKMN43kVVDON7spSBtv",
 
   plugins: [structureTool(), visionTool()],
 
