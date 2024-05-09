@@ -30,7 +30,10 @@ const customCrumbs = [
 
 import { getSanity } from '../lib/api'
 import { urlForImage } from '../lib/urlForImage'
-const sanityLayouts = await getSanity([`*[_type == '${url}']`])
+const sanityLayouts = await getSanity([`*[_type == '${url}'] | order(orderRank asc)`])
+
+// console.log(sanityLayouts.forEach(item => console.log(item._rev)));
+
 
 
 ---

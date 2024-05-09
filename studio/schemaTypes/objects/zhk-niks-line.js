@@ -1,10 +1,12 @@
 import {defineField, defineType} from 'sanity'
-
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list'
 export const zhkniksline = defineType({
     name: 'zhk-niks-line',
     title: 'ЖК Никс Лайн',
     type: 'document',
+    orderings: [orderRankOrdering],
     fields: [
+        orderRankField({type: 'zhk-niks-line'}),
         {
             name: 'photo',
             title: 'Фото планировки',
@@ -29,5 +31,11 @@ export const zhkniksline = defineType({
             title: 'Цена',
             type: 'string'
         }
-    ]
+    ],
+    preview: {
+        select: {
+            title: 'rooms',
+            media: 'photo'
+        }
+    }
 })
