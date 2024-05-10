@@ -2,7 +2,7 @@ const id = "14-zhk-riverside.mdx";
 						const collection = "catalog";
 						const slug = "14-zhk-riverside";
 						const body = "\r\n";
-						const data = {url:"14-zhk-riverside",title:"14 дом ЖК Академ Риверсайд",city:"в городе Челябинск",titleForLayots:"14 доме ЖК Академ Риверсайд",description:"ЖК Академ-Riverside | 26-этажный дом по адресу г. Челябинск, район Калининский р-н, ул Университетская Набережная, д. 14 от застройщика СЗ ТРЕСТ-14, ввод в эксплуатацию: 31.03.2027",location:"Калининский",year:"2027",buildingType:"Монолитный",heroImage:
+						const data = {url:"14-zhk-riverside",title:"ЖК Академ Риверсайд дом 14",city:"в городе Челябинск",titleForLayots:"14 доме ЖК Академ Риверсайд",description:"ЖК Академ-Riverside | 26-этажный дом по адресу г. Челябинск, район Калининский р-н, ул Университетская Набережная, д. 14 от застройщика СЗ ТРЕСТ-14, ввод в эксплуатацию: 31.03.2027",location:"Калининский",year:"2027",buildingType:"Монолитный",heroImage:
 						new Proxy({"src":"/_astro/MBxOAVByGW8.rFp9OaW3.webp","width":1280,"height":831,"format":"webp","fsPath":"C:/Users/Егор/Desktop/projects/сайт/monolid/monolid/jk/public/14 дом/MBxOAVByGW8.webp"}, {
 						get(target, name, receiver) {
 							if (name === 'clone') {

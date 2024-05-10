@@ -11,9 +11,9 @@ import { Image } from "astro:assets";
         <ul class="newBuildings__ul">
             
             {posts.map(post => (
-                <div itemscope itemtype="https://schema.org/Accommodation">
+                <li itemscope itemtype="https://schema.org/Accommodation">
                     <meta itemprop="yearBuilt" content={post.data.year}>
-                    <li itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title} >
+                    <div itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title} >
                         <article>
                             <Image itemprop="image" src={post.data.image} alt={post.data.title} />
                             <div class="text__box">
@@ -45,8 +45,8 @@ import { Image } from "astro:assets";
                                 <a itemprop="url" href={post.data.urlPath + '/'}>Подробнее</a>
                             </div>
                         </article>
-                    </li>
-                </div>
+                    </div>
+                </li>
             ))}
 
         </ul>

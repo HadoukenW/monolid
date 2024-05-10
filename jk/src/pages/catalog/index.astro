@@ -56,13 +56,13 @@ const customCrumbs = [
 						<ul>
 							{
 								posts?.map((post: any) => (
-									<div itemscope itemtype="https://schema.org/Accommodation" class="div_anim">
+									<li itemscope itemtype="https://schema.org/Accommodation" class="div_anim">
 										<meta itemprop="yearBuilt" content={post.data.year}>
-										<li itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title}>
+										<div class="card__item" itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title}>
 											<article>
 												<Image loading="eager" itemprop="image" src={post?.data?.heroImage} alt={post?.data?.title} />
 												<div class="text__box div_anim">
-													<h3 itemprop="name">{post.data.title}</h3>
+													<h2 itemprop="name">{post.data.title}</h2>
 													<div class="newBuildings__wrapper">
 														<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 															<path d="M7.70538 0C4.67267 0 2.20538 2.59944 2.20538 5.79456C2.20538 9.75981 7.12734 15.581 7.3369 15.8269C7.53373 16.0579 7.87739 16.0575 8.07387 15.8269C8.28342 15.581 13.2054 9.75981 13.2054 5.79456C13.2053 2.59944 10.7381 0 7.70538 0ZM7.70538 8.70997C6.17955 8.70997 4.93822 7.40212 4.93822 5.79456C4.93822 4.187 6.17958 2.87919 7.70538 2.87919C9.23119 2.87919 10.4725 4.18703 10.4725 5.79459C10.4725 7.40216 9.23119 8.70997 7.70538 8.70997Z" fill="#1C244B" />
@@ -91,8 +91,8 @@ const customCrumbs = [
 												</div>
 											</article>
 											{post.data.isInProgress && <div class="inProgress">{post.data.isInProgress}</div>}
-										</li>
-									</div>
+										</div>
+									</li>
 								))
 							}
 						</ul>
@@ -152,7 +152,7 @@ const customCrumbs = [
             grid-template-columns: repeat(1, minmax(150px, 1fr));
         }
 
-        li {
+        .card__item {
             background-color: var(--primary);
             border-radius: 25px;
             transition: .3s ease box-shadow;
@@ -228,10 +228,11 @@ const customCrumbs = [
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         
-        h3 {
+        h2 {
             font-size: 22px;
             font-weight: 500;
 			text-align: center;
+			text-wrap: balance;
         }
     }
 	

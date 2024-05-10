@@ -2,7 +2,7 @@ const id = "18-zhk-riverside.md";
 						const collection = "catalog";
 						const slug = "18-zhk-riverside";
 						const body = "";
-						const data = {url:"18-zhk-riverside",title:"18 дом ЖК Академ Риверсайд",city:"в городе Челябинск",titleForLayots:"18 доме ЖК Академ Риверсайд",description:"Откройте для себя комфорт и современность в ЖК Академ Риверсайд 81.2 в Челябинске. Панельные апартаменты на 20 этажах, с планировками от студий до 4-комнатных. Уникальные возможности для первых владельцев в III квартале 2026. Забронируйте ваш идеальный дом прямо сейчас и станьте частью центральной части города!",location:"Калининский",year:"2026",buildingType:"Монолитный",heroImage:
+						const data = {url:"18-zhk-riverside",title:"ЖК Академ Риверсайд дом 18",city:"в городе Челябинск",titleForLayots:"18 доме ЖК Академ Риверсайд",description:"Откройте для себя комфорт и современность в ЖК Академ Риверсайд 81.2 в Челябинске. Панельные апартаменты на 20 этажах, с планировками от студий до 4-комнатных. Уникальные возможности для первых владельцев в III квартале 2026. Забронируйте ваш идеальный дом прямо сейчас и станьте частью центральной части города!",location:"Калининский",year:"2026",buildingType:"Монолитный",heroImage:
 						new Proxy({"src":"/_astro/Tf8fOmr_T80.B6cC_fqT.webp","width":1280,"height":719,"format":"webp","fsPath":"C:/Users/Егор/Desktop/projects/сайт/monolid/monolid/jk/public/18 дом/Tf8fOmr_T80.webp"}, {
 						get(target, name, receiver) {
 							if (name === 'clone') {

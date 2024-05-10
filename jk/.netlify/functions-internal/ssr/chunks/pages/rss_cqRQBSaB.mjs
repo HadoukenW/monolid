@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
-import { g as getCollection } from './index_CRqBHEB1.mjs';
-import { a as SITE_TITLE, S as SITE_DESCRIPTION } from './contacts_CFWgPLUe.mjs';
+import { g as getCollection } from './index_CYqoyqAO.mjs';
+import { a as SITE_TITLE, S as SITE_DESCRIPTION } from './contacts_BI_aY5nX.mjs';
 
 async function GET(context) {
 	const posts = await getCollection('catalog');

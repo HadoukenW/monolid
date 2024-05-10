@@ -61,10 +61,12 @@ import CardForm from '../components/CardForm.astro';
 	gsap.registerPlugin(ScrollTrigger);
 	const tl = gsap.timeline()
 
-	tl.from('header', {
+	tl.from('header .upper-header', {
 		autoAlpha: 0,
-	}).from('.swiper', {
+		y: -15,
+	}).from('header .nav__links', {
 		autoAlpha: 0,
+		x: 15,
 	})
 
 	gsap.from('.about__wrapper li', {
