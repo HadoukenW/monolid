@@ -1,5 +1,6 @@
 ---
 url: 'zhk-klever'
+vtorichkaUrl: 'vtorichka-zhk-klever'
 title: 'ЖК Клевер'
 city: 'в городе Челябинск'
 titleForLayots: 'ЖК Клевер'

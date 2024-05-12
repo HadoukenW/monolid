@@ -1,5 +1,6 @@
 ---
 url: '18-zhk-riverside'
+vtorichkaUrl: 'vtorichka-18-zhk-riverside'
 title: 'ЖК Академ Риверсайд дом 18'
 city: 'в городе Челябинск'
 titleForLayots: '18 доме ЖК Академ Риверсайд'

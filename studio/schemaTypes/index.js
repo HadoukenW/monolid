@@ -15,5 +15,22 @@ import { zhknovil } from "./objects/zhk-novil";
 import { zhkparkoviypremium } from "./objects/zhk-parkoviy-premium";
 import { zhkprityazhenie } from "./objects/zhk-prityazhenie";
 import { zhkhugeeitown } from "./objects/zhk-hugee-itown";
+import { vtorichkazhk14 } from "./objects/vtorichka/vtorichka-14-zhk-riverside";
+import { vtorichkazhk18 } from "./objects/vtorichka/vtorichka-18-zhk-riverside";
+import { vtorichkazhk81riverside } from "./objects/vtorichka/vtorichka-81-1-zhk-riverside";
+import { vtorichkazhk82riverside } from "./objects/vtorichka/vtorichka-81-2-zhk-riverside";
+import { vtorichkazhk4lenina } from "./objects/vtorichka/vtorichka-zhk-4-lenina";
+import { vtorichkazhkBratievKashirinyh } from "./objects/vtorichka/vtorichka-zhk-bratiev-kashirinyh";
+import { vtorichkazhkgoloskashirinyx } from "./objects/vtorichka/vtorichka-zhk-golos-kashirinyx";
+import { vtorichkazhkhugeeitown } from "./objects/vtorichka/vtorichka-zhk-hugee-itown";
+import { vtorichkazhkklever } from "./objects/vtorichka/vtorichka-zhk-klever";
+import { vtorichkazhkkonfetti } from "./objects/vtorichka/vtorichka-zhk-konfetti";
+import { vtorichkazhknikscity } from "./objects/vtorichka/vtorichka-zhk-niks-city";
+import { vtorichkazhkniksline } from "./objects/vtorichka/vtorichka-zhk-niks-line";
+import { vtorichkazhknovil } from "./objects/vtorichka/vtorichka-zhk-novil";
+import { vtorichkazhkparkoviypremium } from "./objects/vtorichka/vtorichka-zhk-parkoviy-premium";
+import { vtorichkazhkprityazhenie } from "./objects/vtorichka/vtorichka-zhk-prityazhenie";
+import { vtorichkazhksportivniy } from "./objects/vtorichka/vtorichka-zhk-sportivniy";
+import { vtorichkazhkvidniy } from "./objects/vtorichka/vtorichka-zhk-vidniy";
 
-export const schemaTypes = [zhkBratievKashirinyh, zhk81riverside, zhk82riverside, zhksportivniy, zhkvidniy, zhk18, zhk14, zhkklever, zhk4lenina, zhkgoloskashirinyx, zhkkonfetti, zhkniksline, zhknikscity, zhknovil, zhkparkoviypremium, zhkprityazhenie, zhkhugeeitown]
+export const schemaTypes = [zhkBratievKashirinyh, zhk81riverside, zhk82riverside, zhksportivniy, zhkvidniy, zhk18, zhk14, zhkklever, zhk4lenina, zhkgoloskashirinyx, zhkkonfetti, zhkniksline, zhknikscity, zhknovil, zhkparkoviypremium, zhkprityazhenie, zhkhugeeitown, vtorichkazhk14, vtorichkazhk18, vtorichkazhk81riverside, vtorichkazhk82riverside, vtorichkazhk4lenina, vtorichkazhkBratievKashirinyh, vtorichkazhkgoloskashirinyx, vtorichkazhkhugeeitown, vtorichkazhkklever, vtorichkazhkkonfetti, vtorichkazhknikscity, vtorichkazhkniksline, vtorichkazhknovil, vtorichkazhkparkoviypremium, vtorichkazhkprityazhenie, vtorichkazhksportivniy, vtorichkazhkvidniy]
