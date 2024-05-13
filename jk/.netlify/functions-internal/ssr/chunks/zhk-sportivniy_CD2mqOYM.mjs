@@ -2,7 +2,7 @@ const id = "zhk-sportivniy.mdx";
 						const collection = "catalog";
 						const slug = "zhk-sportivniy";
 						const body = "\r\n";
-						const data = {url:"zhk-sportivniy",vtorichkaUrl:"vtorichka-zhk-sportivniy",title:"ЖК Спортивный",city:"в городе Челябинск",titleForLayots:"ЖК Спортивном",description:"ЖК Спортивный – ваш дом, созданный для активного образа жизни. Современная архитектура, спортивные площадки, фитнес-зоны и близость к спортивной инфраструктуре делают его идеальным местом для тех, кто ценит здоровый образ жизни и динамичные возможности.",location:"Калининский",year:"2025",buildingType:"Монолитный",heroImage:
+						const data = {url:"zhk-sportivniy",vtorichkaUrl:"vtorichka-zhk-sportivniy",title:"ЖК Спортивный",city:"в городе Челябинск",titleForLayots:"ЖК Спортивном",description:"ЖК Спортивный – ваш дом, созданный для активного образа жизни. Современная архитектура, спортивные площадки, фитнес-зоны и близость к спортивной инфраструктуре делают его идеальным местом для тех, кто ценит здоровый образ жизни и динамичные возможности. Проект \"Академ Риверсайд\"",location:"Калининский",year:"2025",buildingType:"Монолитный",heroImage:
 						new Proxy({"src":"/_astro/wNzBieHrnP8.DwF_2O9k.webp","width":1280,"height":745,"format":"webp","fsPath":"C:/Users/Егор/Desktop/projects/сайт/monolid/monolid/jk/public/ЖК СПОРТИВНЫЙ/wNzBieHrnP8.webp"}, {
 						get(target, name, receiver) {
 							if (name === 'clone') {

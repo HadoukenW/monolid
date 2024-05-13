@@ -1,8 +1,8 @@
-import { b as $$BaseHead, a as $$Header, c as $$Image, $ as $$Footer } from './404_fllcT1fe.mjs';
+import { b as $$BaseHead, a as $$Header, c as $$Image, $ as $$Footer } from './404_BYoijYWp.mjs';
 import { e as createAstro, f as createComponent, r as renderTemplate, j as renderComponent, k as renderHead } from '../astro_7hprNihR.mjs';
 import 'kleur/colors';
-import { $ as $$Breadcrumbs } from './calc_CZm6kTU6.mjs';
-import { S as SITE_DESCRIPTION } from './contacts_D4rbhIac.mjs';
+import { $ as $$Breadcrumbs } from './calc_iaoQqVgR.mjs';
+import { S as SITE_DESCRIPTION } from './contacts_Drx6HXnK.mjs';
 /* empty css                           */
 /* empty css                                 */
 

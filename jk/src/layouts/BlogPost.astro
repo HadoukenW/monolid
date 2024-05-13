@@ -78,7 +78,7 @@ const sanityVtorichka = await getSanity([`*[_type == '${vtorichkaUrl}'] | order(
 					
 					<section aria-labelledby="about__title" class="section__about">
 						<div class="container">
-							<h2 id="about__title">О проекте</h2>
+							<h2 id="about__title">О проекте "{title}"</h2>
 
 							<ul class="about__wrapper">
 								{aboutSectionData?.map((item: any) => (
@@ -566,6 +566,7 @@ const sanityVtorichka = await getSanity([`*[_type == '${vtorichkaUrl}'] | order(
 		padding: var(--section-padding) 0;
 		background-color: var(--secondary);
 		color: var(--primary);
+		text-wrap: balance;
 		h2 {
 			font-weight: 700;
 			text-align: center;
@@ -576,7 +577,7 @@ const sanityVtorichka = await getSanity([`*[_type == '${vtorichkaUrl}'] | order(
 			display: flex;
 			flex-direction: column;
 			gap: 100px;
-			margin-top: clamp(2.5rem, 1.328rem + 3.91vw, 3.75rem);
+			margin-top: clamp(3.75rem, 1.172rem + 8.59vw, 6.5rem);
 
 			@media(max-width: 1167px) {
 				gap: 50px;
@@ -712,11 +713,15 @@ const sanityVtorichka = await getSanity([`*[_type == '${vtorichkaUrl}'] | order(
 			.prewrapper {
 				margin: auto 0;
 				padding: 10px 10px 0;
-
+				min-height: 228px;
+				display: inline-flex;
+				align-items: center;
 				@media(max-width: 550px) {
 				}
 
 				.prewrapper__link {
+					margin-top: auto;
+					margin-bottom: auto;
 					display: flex;
 					justify-content: center;
 				}
