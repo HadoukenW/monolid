@@ -305,10 +305,10 @@ import logo from '../assets/logo.jpg'
 	}
 
 	.callback__modal {
-		display: none;
-		position: relative;
+		opacity: 0;
+		pointer-events: none;
+		position: fixed;
 		&.active {
-			position: fixed;
 			max-width: 600px;
 			width: 90%;
 			display: flex;
@@ -324,7 +324,9 @@ import logo from '../assets/logo.jpg'
 			padding: 25px;
 			height:min-content;
 			flex-direction: column;
-			
+			transition: opacity 1s ease-in-out;
+			opacity: 1;
+			pointer-events: all;
 		}
 
 		div {
@@ -473,10 +475,12 @@ import logo from '../assets/logo.jpg'
 	}
 
 	.burger-menu {
-		display: none;
-		position: relative;
+		transform: translateX(300px);
+		display: unset !important;
+		opacity: 0;
+		position: fixed;
+		pointer-events: none;
 		&.active {
-			position: fixed;
 			width: 300px;
 			height: 100dvh;
 			background-color: var(--primary);
@@ -488,6 +492,10 @@ import logo from '../assets/logo.jpg'
 			align-items: unset;
 			flex-direction: column;
 			overflow-y: auto;
+			transform: translateX(0);
+			transition: transform .5s ease-in-out;
+			opacity: 1;
+			pointer-events: all;
 			ul {
 				display: flex;
 				flex-direction: column;
@@ -702,10 +710,11 @@ import logo from '../assets/logo.jpg'
         }
 
 		.widget__form {
-			display: none;
+			opacity: 0;
+			pointer-events: none;
+			position: fixed;
 
 		&.active {
-			position: fixed;
 			max-width: 600px;
 			width: 90%;
 			display: flex;
@@ -722,6 +731,9 @@ import logo from '../assets/logo.jpg'
 			padding: 30px;
 			height:min-content;
 			flex-direction: column;
+			opacity: 1;
+			transition: opacity 1s ease-in-out;
+			pointer-events: all;
 		}
 
 
@@ -745,6 +757,9 @@ import logo from '../assets/logo.jpg'
 			height:min-content;
 			border: 1px solid var(--headers-primary);
 			flex-direction: column;
+			opacity: 1;
+			pointer-events: all;
+			transition: opacity 1s ease-in-out;
 		}
 		}
 
@@ -753,19 +768,21 @@ import logo from '../assets/logo.jpg'
 		width: 100%;
 		height: 100dvh;
 		background-color: #0b0b0b;
-		opacity: .8;
 		inset: 0;
 		z-index: 14;
-		display: none;
-
+		opacity: 0;
+		pointer-events: none;
 		&.active {
-			display: block;
-			
+			pointer-events: all;
+			opacity: .8;
+			transition: opacity 1s ease-in-out;
 		}
 
 		&.callback {
-			display: block;
 			z-index: 16;
+			opacity: .8;
+			pointer-events: all;
+			transition: opacity 1s ease-in-out;
 		}
 
 	}
@@ -990,6 +1007,7 @@ import logo from '../assets/logo.jpg'
 		callbackModal?.classList.add('active')
 		blurry?.classList.add('callback')
 		callbackClose?.classList.add('active')
+		
 	})
 	})
 
@@ -997,6 +1015,7 @@ import logo from '../assets/logo.jpg'
 		callbackModal?.classList.remove('active')
 		blurry?.classList.remove('callback')
 		callbackClose?.classList.remove('active')
+		
 	})
 
 
