@@ -132,5 +132,21 @@ export const desckStructure = (S, context) =>
                             }),
 
                             ])
-                )
+                ),
+            S.divider(),
+            S.listItem()
+                .title('Вторичка')
+                .child(
+                    S.list()
+                        .title('Вторичка')
+                        .items([
+                            orderableDocumentListDeskItem({
+                                title: 'Вторичка',
+                                type: 'vtorichka',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+                        ])
+                ),
         ])
