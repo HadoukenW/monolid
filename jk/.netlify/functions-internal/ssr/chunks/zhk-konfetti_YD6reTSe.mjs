@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./hero-1_6-xIrh7w.mjs');
+						return import('./zhk-konfetti_fC1oq6QP.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

@@ -4,8 +4,8 @@ import 'clsx';
 
 const html = "";
 
-				const frontmatter = {"title":"Жилой Комплекс Клевер","description":"Ведутся работы по строительству комплекса, успевайте купить квартиру по выгодным ценам.","image":"/public/ЖК Клевер/квартал 5.1/image-2.webp"};
-				const file = "C:/Users/Acer/Desktop/сайт/monolid/jk/src/content/homepage/hero-1.md";
+				const frontmatter = {"title":"ЖК Никс Лайн","description":"Ведутся работы по строительству комплекса, успевайте купить квартиру по выгодным ценам.","image":"/public/никс лайн/banner.webp"};
+				const file = "C:/Users/Acer/Desktop/сайт/monolid/jk/src/content/homepage/hero-9.md";
 				const url = undefined;
 				function rawContent() {
 					return "";

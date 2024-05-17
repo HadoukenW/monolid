@@ -4,8 +4,8 @@ import 'clsx';
 
 const html = "";
 
-				const frontmatter = {"title":"Жилой Комплекс Парковый Премиум","description":"Ведутся работы по строительству комплекса, успевайте купить квартиру по выгодным ценам.","image":"/public/ЖК Парковый Премиум/UzDpe0whXKQ.webp"};
-				const file = "C:/Users/Acer/Desktop/сайт/monolid/jk/src/content/homepage/hero-9.md";
+				const frontmatter = {"title":"Жилой Комплекс Спортивный","description":"Ведутся работы по строительству комплекса, успевайте купить квартиру по выгодным ценам.","image":"/public/ЖК СПОРТИВНЫЙ/wNzBieHrnP8.webp"};
+				const file = "C:/Users/Acer/Desktop/сайт/monolid/jk/src/content/homepage/hero-1.md";
 				const url = undefined;
 				function rawContent() {
 					return "";

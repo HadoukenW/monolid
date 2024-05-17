@@ -1,6 +1,6 @@
-const id = "hero-5.md";
+const id = "hero-1.md";
 						const collection = "homepage";
-						const slug = "hero-5";
+						const slug = "hero-1";
 						const body = "";
 						const data = {title:"Жилой Комплекс Спортивный",description:"Ведутся работы по строительству комплекса, успевайте купить квартиру по выгодным ценам.",image:
 						new Proxy({"src":"/_astro/wNzBieHrnP8.DwF_2O9k.webp","width":1280,"height":745,"format":"webp","fsPath":"C:/Users/Acer/Desktop/сайт/monolid/jk/public/ЖК СПОРТИВНЫЙ/wNzBieHrnP8.webp"}, {
@@ -18,7 +18,7 @@ const id = "hero-5.md";
 					};
 						const _internal = {
 							type: 'content',
-							filePath: "C:/Users/Acer/Desktop/сайт/monolid/jk/src/content/homepage/hero-5.md",
+							filePath: "C:/Users/Acer/Desktop/сайт/monolid/jk/src/content/homepage/hero-1.md",
 							rawData: undefined,
 						};
 

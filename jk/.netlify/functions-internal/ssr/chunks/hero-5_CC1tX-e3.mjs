@@ -1,6 +1,6 @@
-const id = "hero-1.md";
+const id = "hero-5.md";
 						const collection = "homepage";
-						const slug = "hero-1";
+						const slug = "hero-5";
 						const body = "";
 						const data = {title:"Жилой Комплекс Клевер",description:"Ведутся работы по строительству комплекса, успевайте купить квартиру по выгодным ценам.",image:
 						new Proxy({"src":"/_astro/image-2.CNPcA0Wg.webp","width":768,"height":549,"format":"webp","fsPath":"C:/Users/Acer/Desktop/сайт/monolid/jk/public/ЖК Клевер/квартал 5.1/image-2.webp"}, {
@@ -18,7 +18,7 @@ const id = "hero-1.md";
 					};
 						const _internal = {
 							type: 'content',
-							filePath: "C:/Users/Acer/Desktop/сайт/monolid/jk/src/content/homepage/hero-1.md",
+							filePath: "C:/Users/Acer/Desktop/сайт/monolid/jk/src/content/homepage/hero-5.md",
 							rawData: undefined,
 						};
 
