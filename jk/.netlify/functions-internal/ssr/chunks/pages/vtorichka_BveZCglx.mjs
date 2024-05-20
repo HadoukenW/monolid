@@ -1,10 +1,13 @@
 import { s as sanityClient, $ as $$Footer, a as $$Header, b as $$BaseHead } from './404_CdorIU_e.mjs';
-import { e as createAstro, f as createComponent, r as renderTemplate, j as renderComponent, h as addAttribute, k as renderHead } from '../astro_7hprNihR.mjs';
+import { e as createAstro, f as createComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, j as renderComponent, k as renderHead } from '../astro_7hprNihR.mjs';
 import 'kleur/colors';
 import { $ as $$Breadcrumbs } from './calc_Bb5EESYt.mjs';
 /* empty css                           */
 /* empty css                          */
 import imageUrlBuilder from '@sanity/image-url';
+import { PortableText } from '@portabletext/react';
+import { jsx } from 'react/jsx-runtime';
+import 'react';
 /* empty css                              */
 
 async function getSanity(query) {
@@ -18,6 +21,35 @@ const imageBuilder = imageUrlBuilder(sanityClient);
 function urlForImage(source) {
     return imageBuilder.image(source)
 }
+
+const $$Astro$1 = createAstro("https://monolid74.com/");
+const $$PortableTextBody = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
+  Astro2.self = $$PortableTextBody;
+  const { body, components } = Astro2.props;
+  return renderTemplate`${maybeRenderHead()}<div${addAttribute(`body`, "class")}> ${renderComponent($$result, "PortableText", PortableText, { "value": body, "components": components })} </div>`;
+}, "C:/Users/Acer/Desktop/\u0441\u0430\u0439\u0442/monolid/jk/src/components/PortableTextBody.astro", void 0);
+
+const myPortableTextComponents = {
+  types: {
+    image: ({ value }) => {
+      const imageUrl = urlForImage(value).format("webp").url();
+      return /* @__PURE__ */ jsx("img", { src: `${imageUrl}`, alt: "test alt" });
+    },
+    list: (node) => {
+      return /* @__PURE__ */ jsx("ul", { children: node.children.map((child, index) => /* @__PURE__ */ jsx("li", { children: child }, index)) });
+    },
+    divider: ({ value }) => {
+      return /* @__PURE__ */ jsx("div", { style: { height: `${value.height}px` } });
+    }
+  },
+  marks: {
+    span: ({ children }) => /* @__PURE__ */ jsx("sup", { className: "sup", children }),
+    link: (node) => {
+      return /* @__PURE__ */ jsx("a", { href: node.value.link, target: node.value._blank ? "_blank" : null, children: node.children });
+    }
+  }
+};
 
 var __freeze = Object.freeze;
 var __defProp = Object.defineProperty;
@@ -79,6 +111,12 @@ swiperElements.forEach((swiperElement, index) => {
       clickable: true,
       dynamicBullets: true,
     },
+
+    navigation: {
+      nextEl:  swiperElement.querySelector('.swiper-next'),
+      prevEl:  swiperElement.querySelector('.swiper-prev'),
+    },
+
     watchSlidesProgress: true,
     thumbs: {
         swiper: swiper2,
@@ -90,7 +128,7 @@ swiperElements.forEach((swiperElement, index) => {
 
 
 
-<\/script></body></html>`])), renderComponent($$result, "BaseHead", $$BaseHead, { "title": "\u041A\u0443\u043F\u0438\u0442\u044C \u0432\u0442\u043E\u0440\u0438\u0447\u043D\u043E\u0435 \u0436\u0438\u043B\u044C\u0435 \u2013 Monolid - \u0410\u0433\u0435\u043D\u0442\u0441\u0442\u0432\u043E \u043D\u0435\u0434\u0432\u0438\u0436\u0438\u043C\u043E\u0441\u0442\u0438 \u0427\u0435\u043B\u044F\u0431\u0438\u043D\u0441\u043A", "description": "\u041A\u0443\u043F\u0438\u0442\u0435 \u041A\u0432\u0430\u0440\u0442\u0438\u0440\u0443 \u043D\u0430 \u0412\u0442\u043E\u0440\u0438\u0447\u043D\u043E\u043C \u0420\u044B\u043D\u043A\u0435 \u0432 \u0427\u0435\u043B\u044F\u0431\u0438\u043D\u0441\u043A\u0435 \u041F\u043E \u0421\u0430\u043C\u044B\u043C \u0412\u044B\u0433\u043E\u0434\u043D\u044B\u043C \u0426\u0435\u043D\u0430\u043C", "data-astro-cid-65bwhtiv": true }), renderHead(), renderComponent($$result, "Header", $$Header, { "data-astro-cid-65bwhtiv": true }), renderComponent($$result, "Breadcrumbs", $$Breadcrumbs, { "crumbs": customCrumbs, "data-astro-cid-65bwhtiv": true }, { "separator": ($$result2) => renderTemplate`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-65bwhtiv><polyline points="9 18 15 12 9 6" data-astro-cid-65bwhtiv></polyline> </svg>` }), sanityVtorichka?.length > 0 && renderTemplate`<section aria-labelledby="layouts__title" class="section__layouts" data-astro-cid-65bwhtiv> <div class="container" data-astro-cid-65bwhtiv> <ul class="masonry__grid" data-astro-cid-65bwhtiv> ${sanityVtorichka?.map((item) => renderTemplate`<div class="grid__item" data-astro-cid-65bwhtiv> <div class="swiper" data-astro-cid-65bwhtiv> <div class="swiper-wrapper" data-astro-cid-65bwhtiv> ${item.photo?.map((image) => renderTemplate`<div class="swiper-slide" data-astro-cid-65bwhtiv> <img loading="lazy" class="slide__img"${addAttribute(urlForImage(image).url(), "src")}${addAttribute(sanityVtorichka.rooms, "alt")} data-astro-cid-65bwhtiv> </div>`)} </div> <div class="swiper-pagination" data-astro-cid-65bwhtiv></div> </div> <div class="swiper2-container" data-astro-cid-65bwhtiv> <div class="swiper2" data-astro-cid-65bwhtiv> <div class="swiper-wrapper" data-astro-cid-65bwhtiv> ${item.photo?.map((image) => renderTemplate`<div class="swiper-slide" data-astro-cid-65bwhtiv> <img loading="lazy" class="slide__img"${addAttribute(urlForImage(image).url(), "src")}${addAttribute(sanityVtorichka.rooms, "alt")} data-astro-cid-65bwhtiv> </div>`)} </div> </div> </div> <div class="layouts__texts" data-astro-cid-65bwhtiv> <p class="rooms" data-astro-cid-65bwhtiv>${item.rooms} квартира</p> <div class="description__wrapper" data-astro-cid-65bwhtiv> <div class="description" data-astro-cid-65bwhtiv>${item.description}</div></div> <p class="price" data-astro-cid-65bwhtiv>от ${item.price} руб.</p> <button${addAttribute(item.rooms, "data-objectName")}${addAttribute(item.price + " \u0440\u0443\u0431.", "data-objectPrice")} class="apartment__booking" data-astro-cid-65bwhtiv>Подробнее</button> </div> </div>
+<\/script></body></html>`])), renderComponent($$result, "BaseHead", $$BaseHead, { "title": "\u041A\u0443\u043F\u0438\u0442\u044C \u0432\u0442\u043E\u0440\u0438\u0447\u043D\u043E\u0435 \u0436\u0438\u043B\u044C\u0435 \u2013 Monolid - \u0410\u0433\u0435\u043D\u0442\u0441\u0442\u0432\u043E \u043D\u0435\u0434\u0432\u0438\u0436\u0438\u043C\u043E\u0441\u0442\u0438 \u0427\u0435\u043B\u044F\u0431\u0438\u043D\u0441\u043A", "description": "\u041A\u0443\u043F\u0438\u0442\u0435 \u041A\u0432\u0430\u0440\u0442\u0438\u0440\u0443 \u043D\u0430 \u0412\u0442\u043E\u0440\u0438\u0447\u043D\u043E\u043C \u0420\u044B\u043D\u043A\u0435 \u0432 \u0427\u0435\u043B\u044F\u0431\u0438\u043D\u0441\u043A\u0435 \u041F\u043E \u0421\u0430\u043C\u044B\u043C \u0412\u044B\u0433\u043E\u0434\u043D\u044B\u043C \u0426\u0435\u043D\u0430\u043C", "data-astro-cid-65bwhtiv": true }), renderHead(), renderComponent($$result, "Header", $$Header, { "data-astro-cid-65bwhtiv": true }), renderComponent($$result, "Breadcrumbs", $$Breadcrumbs, { "crumbs": customCrumbs, "data-astro-cid-65bwhtiv": true }, { "separator": ($$result2) => renderTemplate`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-65bwhtiv><polyline points="9 18 15 12 9 6" data-astro-cid-65bwhtiv></polyline> </svg>` }), sanityVtorichka?.length > 0 && renderTemplate`<section aria-labelledby="layouts__title" class="section__layouts" data-astro-cid-65bwhtiv> <div class="container" data-astro-cid-65bwhtiv> <ul class="masonry__grid" data-astro-cid-65bwhtiv> ${sanityVtorichka?.map((item) => renderTemplate`<div class="grid__item" data-astro-cid-65bwhtiv> <div class="swiper" data-astro-cid-65bwhtiv> <div class="swiper-wrapper" data-astro-cid-65bwhtiv> ${item.photo?.map((image) => renderTemplate`<div class="swiper-slide" data-astro-cid-65bwhtiv> <img width="300" height="300" loading="lazy" class="slide__img"${addAttribute(urlForImage(image).format("webp").width(300).height(300).url(), "src")} alt="квартира" data-astro-cid-65bwhtiv> <div class="swiper-lazy-preloader" data-astro-cid-65bwhtiv></div> </div>`)} </div> <button class="swiper-prev" data-astro-cid-bbe6dxrz="" tabindex="0" aria-label="Previous slide" aria-controls="swiper-wrapper-101036693d872da023" data-astro-cid-65bwhtiv><svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-bbe6dxrz="" data-astro-cid-65bwhtiv><path d="M3.36609 9.11615L7.79492 4.68732C8.03902 4.44322 8.35891 4.32119 8.67883 4.32119C8.99875 4.32119 9.31863 4.44322 9.56273 4.68732C10.0509 5.17548 10.0509 5.96693 9.56273 6.45509L7.26777 8.75001L21.75 8.75001C22.4404 8.75001 23 9.30966 23 10C23 10.6904 22.4404 11.25 21.75 11.25L7.26777 11.25L9.56273 13.5449C10.0509 14.0331 10.0509 14.8245 9.56273 15.3127C9.07453 15.8009 8.28312 15.8009 7.79492 15.3127L3.36609 10.8839C2.87797 10.3958 2.87797 9.60427 3.36609 9.11615Z" fill="white" data-astro-cid-bbe6dxrz="" data-astro-cid-65bwhtiv></path></svg></button> <button class="swiper-next" data-astro-cid-bbe6dxrz="" tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-8fe5a295cce209f6" data-astro-cid-65bwhtiv><svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-bbe6dxrz="" data-astro-cid-65bwhtiv><path d="M20.6339 10.8839L16.2051 15.3127C15.961 15.5568 15.6411 15.6788 15.3212 15.6788C15.0013 15.6788 14.6814 15.5568 14.4373 15.3127C13.9491 14.8245 13.9491 14.0331 14.4373 13.5449L16.7322 11.25H2.25C1.55965 11.25 1 10.6903 1 9.99999C1 9.30963 1.55965 8.74999 2.25 8.74999H16.7322L14.4373 6.45506C13.9491 5.9669 13.9491 5.17545 14.4373 4.68729C14.9255 4.19913 15.7169 4.19913 16.2051 4.68729L20.6339 9.11612C21.122 9.60424 21.122 10.3957 20.6339 10.8839Z" fill="white" data-astro-cid-bbe6dxrz="" data-astro-cid-65bwhtiv></path></svg></button> <div class="swiper-pagination" data-astro-cid-65bwhtiv></div> </div> <div class="swiper2-container" data-astro-cid-65bwhtiv> <div class="swiper2" data-astro-cid-65bwhtiv> <div class="swiper-wrapper" data-astro-cid-65bwhtiv> ${item.photo?.map((image) => renderTemplate`<div class="swiper-slide" data-astro-cid-65bwhtiv> <img loading="lazy" class="slide__img"${addAttribute(urlForImage(image).format("webp").width(100).height(100).url(), "src")} alt="квартира" data-astro-cid-65bwhtiv> <div class="swiper-lazy-preloader" data-astro-cid-65bwhtiv></div> </div>`)} </div> </div> </div> <div class="layouts__texts" data-astro-cid-65bwhtiv> <p class="rooms" data-astro-cid-65bwhtiv>${item.rooms} квартира</p> <div class="description__wrapper" data-astro-cid-65bwhtiv> <div class="description" data-astro-cid-65bwhtiv> ${renderComponent($$result, "PortableTextBody", $$PortableTextBody, { "body": item.description, "components": myPortableTextComponents, "data-astro-cid-65bwhtiv": true })} </div> </div> <p class="price" data-astro-cid-65bwhtiv>${item.price} руб.</p> <button${addAttribute(item.rooms, "data-objectName")}${addAttribute(item.price + " \u0440\u0443\u0431.", "data-objectPrice")} class="apartment__booking" data-astro-cid-65bwhtiv>Подробнее</button> </div> </div>
                                             <div class="vtorichka-modal" data-astro-cid-65bwhtiv></div>`)} </ul> <button id="show-more-btn" data-astro-cid-65bwhtiv>Показать больше</button> </div> </section>`, renderComponent($$result, "Footer", $$Footer, { "data-astro-cid-65bwhtiv": true }));
 }, "C:/Users/Acer/Desktop/\u0441\u0430\u0439\u0442/monolid/jk/src/pages/vtorichka.astro", void 0);
 

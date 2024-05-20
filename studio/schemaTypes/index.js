@@ -16,6 +16,7 @@ import { zhkparkoviypremium } from "./objects/zhk-parkoviy-premium";
 import { zhkprityazhenie } from "./objects/zhk-prityazhenie";
 import { zhkhugeeitown } from "./objects/zhk-hugee-itown";
 import { vtorichka } from "./objects/vtorichka/vtorichka";
+import normalText from "./objects/normalText";
 
 
-export const schemaTypes = [zhkBratievKashirinyh, zhk81riverside, zhk82riverside, zhksportivniy, zhkvidniy, zhk18, zhk14, zhkklever, zhk4lenina, zhkgoloskashirinyx, zhkkonfetti, zhkniksline, zhknikscity, zhknovil, zhkparkoviypremium, zhkprityazhenie, zhkhugeeitown, vtorichka]
+export const schemaTypes = [normalText, zhkBratievKashirinyh, zhk81riverside, zhk82riverside, zhksportivniy, zhkvidniy, zhk18, zhk14, zhkklever, zhk4lenina, zhkgoloskashirinyx, zhkkonfetti, zhkniksline, zhknikscity, zhknovil, zhkparkoviypremium, zhkprityazhenie, zhkhugeeitown, vtorichka]

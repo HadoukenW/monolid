@@ -21,7 +21,9 @@ const customCrumbs = [
 
 import { getSanity } from '../lib/api'
 import { urlForImage } from '../lib/urlForImage'
-
+import { Image } from 'astro:assets';
+import PortableTextBody from '../components/PortableTextBody.astro';
+import { myPortableTextComponents } from '../components/PortableTextComponents'
 const sanityVtorichka = await getSanity([`*[_type == 'vtorichka'] | order(orderRank asc)`])
 console.log(sanityVtorichka)
 ---
@@ -68,10 +70,13 @@ console.log(sanityVtorichka)
                                                     <div class="swiper-wrapper">
                                                         {item.photo?.map((image: any) => (
                                                             <div class="swiper-slide">
-                                                                <img loading="lazy" class="slide__img" src={urlForImage(image).url()} alt={sanityVtorichka.rooms}/>
+                                                                <img width="300" height="300" loading="lazy" class="slide__img" src={urlForImage(image).format("webp").width(300).height(300).url()} alt="квартира"/>
+                                                                <div class="swiper-lazy-preloader"></div>
                                                             </div>
                                                         ))}
                                                     </div>  
+                                                    <button class="swiper-prev" data-astro-cid-bbe6dxrz="" tabindex="0" aria-label="Previous slide" aria-controls="swiper-wrapper-101036693d872da023"><svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-bbe6dxrz=""><path d="M3.36609 9.11615L7.79492 4.68732C8.03902 4.44322 8.35891 4.32119 8.67883 4.32119C8.99875 4.32119 9.31863 4.44322 9.56273 4.68732C10.0509 5.17548 10.0509 5.96693 9.56273 6.45509L7.26777 8.75001L21.75 8.75001C22.4404 8.75001 23 9.30966 23 10C23 10.6904 22.4404 11.25 21.75 11.25L7.26777 11.25L9.56273 13.5449C10.0509 14.0331 10.0509 14.8245 9.56273 15.3127C9.07453 15.8009 8.28312 15.8009 7.79492 15.3127L3.36609 10.8839C2.87797 10.3958 2.87797 9.60427 3.36609 9.11615Z" fill="white" data-astro-cid-bbe6dxrz=""></path></svg></button>
+                                                    <button class="swiper-next" data-astro-cid-bbe6dxrz="" tabindex="0" aria-label="Next slide" aria-controls="swiper-wrapper-8fe5a295cce209f6"><svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-bbe6dxrz=""><path d="M20.6339 10.8839L16.2051 15.3127C15.961 15.5568 15.6411 15.6788 15.3212 15.6788C15.0013 15.6788 14.6814 15.5568 14.4373 15.3127C13.9491 14.8245 13.9491 14.0331 14.4373 13.5449L16.7322 11.25H2.25C1.55965 11.25 1 10.6903 1 9.99999C1 9.30963 1.55965 8.74999 2.25 8.74999H16.7322L14.4373 6.45506C13.9491 5.9669 13.9491 5.17545 14.4373 4.68729C14.9255 4.19913 15.7169 4.19913 16.2051 4.68729L20.6339 9.11612C21.122 9.60424 21.122 10.3957 20.6339 10.8839Z" fill="white" data-astro-cid-bbe6dxrz=""></path></svg></button>
                                                 <div class="swiper-pagination"></div>
                                                
                                                 </div>
@@ -81,7 +86,8 @@ console.log(sanityVtorichka)
                                                         <div class="swiper-wrapper">
                                                             {item.photo?.map((image: any) => (
                                                                 <div class="swiper-slide">
-                                                                    <img loading="lazy" class="slide__img" src={urlForImage(image).url()} alt={sanityVtorichka.rooms}/>
+                                                                    <img loading="lazy" class="slide__img" src={urlForImage(image).format("webp").width(100).height(100).url()} alt="квартира"/>
+                                                                    <div class="swiper-lazy-preloader"></div>
                                                                 </div>
                                                             ))}
                                                         </div>  
@@ -90,8 +96,12 @@ console.log(sanityVtorichka)
 
                                                 <div class="layouts__texts">
                                                     <p class="rooms">{item.rooms} квартира</p>
-                                                    <div class="description__wrapper"> <div class="description">{item.description}</div></div>
-                                                    <p class="price">от {item.price} руб.</p>
+                                                    <div class="description__wrapper"> 
+                                                        <div class="description">
+                                                            <PortableTextBody body={item.description} components={myPortableTextComponents}/>
+                                                        </div>
+                                                    </div>
+                                                    <p class="price">{item.price} руб.</p>
 
                                                     <button data-objectName={item.rooms} data-objectPrice={item.price + ' руб.'} class="apartment__booking">Подробнее</button>
                                                 </div>
@@ -256,19 +266,18 @@ console.log(sanityVtorichka)
                 }
 
                 .description__wrapper {
-                    height: 200px;
+                    height: 250px;
                     overflow: auto;
                     margin-bottom: 15px;
                     margin-top: 15px;
                     padding: 0 10px;
                     width: 100%;
-
+                    overscroll-behavior: contain;
                 }
 
                 .description {
                     font-size: 18px;
-                    text-align: center;
-                    line-height: 160%;
+                    line-height: 1.8;
                     @media(max-width: 992px) {
                         font-size: 16px;
                     }
@@ -278,7 +287,7 @@ console.log(sanityVtorichka)
                 font-size: 18px;
                 font-weight: 500;
             }
-            button {
+            .apartment__booking {
                 font-weight: 500;
                 font-size: 18px;
                 padding: 7px 23px;
@@ -344,11 +353,33 @@ console.log(sanityVtorichka)
    
 
     .swiper {
-        max-height: 395px;
+        max-height: 420px;
         height: auto;
         max-width: 400px;
         width: 100%;
         margin-right: 10px;
+        position: relative;
+
+        .swiper-prev, .swiper-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            background-color: #353ad7de;
+            padding: 10px;
+            border-radius: 100%;
+            transition: 0.3s ease all;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper-prev {
+            left: 10px;
+        }
+        .swiper-next {
+            right: 10px;
+        }
 
         @media(max-width: 767px) {
             max-width: unset;
@@ -744,6 +775,12 @@ swiperElements.forEach((swiperElement, index) => {
       clickable: true,
       dynamicBullets: true,
     },
+
+    navigation: {
+      nextEl:  swiperElement.querySelector('.swiper-next'),
+      prevEl:  swiperElement.querySelector('.swiper-prev'),
+    },
+
     watchSlidesProgress: true,
     thumbs: {
         swiper: swiper2,
