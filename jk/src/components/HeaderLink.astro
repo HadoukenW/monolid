@@ -12,14 +12,14 @@ const isVtorichkaUrl = href === '/vtorichka/'
 ---
 
 <li class="header__li" itemprop="name" class:list={[className]}>
-	<a itemprop="url" href={href} class:list={[className, { active: isActive, }]} {...props}>	
-		<slot />
-	</a>
 	{
 		isVtorichkaUrl && (
 			<span class="vtorichka__badge">В продаже</span>
 		)
 	}
+	<a itemprop="url" href={href} class:list={[className, { active: isActive, }]} {...props}>	
+		<slot />
+	</a>
 </li>
 <style lang="scss">
 	a {
@@ -57,7 +57,7 @@ const isVtorichkaUrl = href === '/vtorichka/'
 
 	.header__li {
 		position: relative;
-
+		width: max-content;
 		.vtorichka__badge {
 			position: absolute;
 			pointer-events: none;
@@ -70,6 +70,12 @@ const isVtorichkaUrl = href === '/vtorichka/'
 			padding: 2px;
 			color: var(--primary);
 			font-weight: 500;
+
+
+			@media(max-width: 992px) {
+				position: static;
+				display: block;
+			}
 		}
 	}
 </style>

@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./zhk-sportivniy_DHsIsX3v.mjs');
+						return import('./zhk-sportivniy_DK3KXGxS.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];
