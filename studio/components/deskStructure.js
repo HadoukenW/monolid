@@ -123,6 +123,13 @@ export const desckStructure = (S, context) =>
                                 S,
                                 context,
                             }),
+                            orderableDocumentListDeskItem({
+                                title: 'ЖК Хюгге',
+                                type: 'zhk-hugee-itown',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
                             
                             orderableDocumentListDeskItem({
                                 title: 'ЖК Привилегия',

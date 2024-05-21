@@ -44,6 +44,7 @@ export const zhkBratievKashirinyh = defineType({
     preview: {
         select: {
             title: 'rooms',
+            subtitle: 'price',
             media: 'photo'
         }
     }
