@@ -138,7 +138,13 @@ export const desckStructure = (S, context) =>
                                 S,
                                 context,
                             }),
-
+                            orderableDocumentListDeskItem({
+                                title: 'ЖК Шишкин',
+                                type: 'zhk-shishkin',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
                             ])
                 ),
             S.divider(),
