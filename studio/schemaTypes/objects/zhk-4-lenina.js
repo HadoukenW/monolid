@@ -35,6 +35,7 @@ export const zhk4lenina = defineType({
     preview: {
         select: {
             title: 'rooms',
+            subtitle: 'price',
             media: 'photo'
         }
     }

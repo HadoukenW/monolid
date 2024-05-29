@@ -36,6 +36,7 @@ export const zhkhugeeitown = defineType({
     preview: {
         select: {
             title: 'rooms',
+            subtitle: 'price',
             media: 'photo'
         }
     }

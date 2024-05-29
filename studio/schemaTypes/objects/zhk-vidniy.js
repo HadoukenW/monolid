@@ -35,6 +35,7 @@ export const zhkvidniy = defineType({
     preview: {
         select: {
             title: 'rooms',
+            subtitle: 'price',
             media: 'photo'
         }
     }

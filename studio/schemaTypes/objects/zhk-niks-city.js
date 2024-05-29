@@ -35,6 +35,7 @@ export const zhknikscity = defineType({
     preview: {
         select: {
             title: 'rooms',
+            subtitle: 'price',
             media: 'photo'
         }
     }

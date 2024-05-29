@@ -35,6 +35,7 @@ export const zhkgoloskashirinyx = defineType({
     preview: {
         select: {
             title: 'rooms',
+            subtitle: 'price',
             media: 'photo'
         }
     }

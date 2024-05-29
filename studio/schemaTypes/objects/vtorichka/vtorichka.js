@@ -39,7 +39,9 @@ export const vtorichka = defineType({
         {
             name: 'description',
             title: 'Описание',
-            type: 'text',
+            type: 'normalText',
+            
+
             
         }
     ],
