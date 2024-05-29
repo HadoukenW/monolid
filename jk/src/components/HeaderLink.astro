@@ -8,10 +8,15 @@ const { href, class: className, ...props } = Astro.props;
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === '/' + subpath?.[0];
-
+const isVtorichkaUrl = href === '/vtorichka/'
 ---
 
-<li itemprop="name" class:list={[className]}>
+<li class="header__li" itemprop="name" class:list={[className]}>
+	{
+		isVtorichkaUrl && (
+			<span class="vtorichka__badge">В продаже</span>
+		)
+	}
 	<a itemprop="url" href={href} class:list={[className, { active: isActive, }]} {...props}>	
 		<slot />
 	</a>
@@ -46,6 +51,30 @@ const isActive = href === pathname || href === '/' + subpath?.[0];
 				height: 3px;
 				border-bottom: 2px solid var(--btn-primary);
 				left: 0;
+			}
+		}
+	}
+
+	.header__li {
+		position: relative;
+		max-width: fit-content;
+		.vtorichka__badge {
+			position: absolute;
+			pointer-events: none;
+			top: -25px;
+			width: 100%;
+			text-align: center;
+			left: 0;
+			background-color: red;
+			padding: 2px;
+			color: var(--primary);
+			font-weight: 500;
+			font-size: 14px;
+
+			@media(max-width: 992px) {
+				position: static;
+				display: flex;
+				justify-content: center;
 			}
 		}
 	}
