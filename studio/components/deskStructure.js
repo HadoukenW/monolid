@@ -145,6 +145,20 @@ export const desckStructure = (S, context) =>
                                 S,
                                 context,
                             }),
+                            orderableDocumentListDeskItem({
+                                title: 'ЖК Малевич',
+                                type: 'zhk-malevich',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+                            orderableDocumentListDeskItem({
+                                title: 'ЖК Эстетика',
+                                type: 'zhk-estetika',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
                             ])
                 ),
             S.divider(),
