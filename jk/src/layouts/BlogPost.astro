@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
 import { Image } from 'astro:assets';
 import IpotekaPayment from '../components/IpotekaPayment.astro'
-const { url, title, city, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapStatic, kvartal2N1, kvartal3N1, kvartal5N1, kvartalParkovka} = Astro.props;
+const { url, cottageUrl, title, city, titleForLayots, description, pubDate, updatedDate, heroImage, aboutSectionData, layoutsSectionData, galleryImages, mapStatic, kvartal2N1, kvartal3N1, kvartal5N1, kvartalParkovka} = Astro.props;
 // const posts = await Astro.glob('../content/catalog/*.mdx')
 import "../../astro-breadcrumbs-config.scss";
 
@@ -30,7 +30,14 @@ const customCrumbs = [
 
 import { getSanity } from '../lib/api'
 import { urlForImage } from '../lib/urlForImage'
-const sanityLayouts = await getSanity([`*[_type == '${url}'] | order(orderRank asc)`])
+
+
+
+const sanityLayouts = url && await getSanity([`*[_type == '${url}'] | order(orderRank asc)`]);
+
+const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cottageUrl}'] | order(orderRank asc)`]);
+
+console.log(sanityCottageLayouts);
 
 
 ---
@@ -129,6 +136,32 @@ const sanityLayouts = await getSanity([`*[_type == '${url}'] | order(orderRank a
 					</section>
 					)}
 
+					{sanityCottageLayouts?.length > 0 && (
+						<section class="section__cottages" aria-label="Дома">
+							<ul class="masonry__grid">
+								{sanityCottageLayouts?.map((item: any, index: number) => (
+									<li class="masonry-item cottage__count">
+										<div class="cottage-item layouts__texts">
+											<h3 class="rooms">{item.title}</h3>
+											<div class="cottage__images">
+												{item.photos?.map((image: any, ind: number) => (
+													<img data-fancybox=`cottages${index}` class={`${ind === 0 ? 'first' : 'hidden'}`} src={urlForImage(image).format('webp').url()} alt={item.title} />
+												))}
+											</div>
+											<button class="apartment__booking">Забронировать</button>
+										</div>
+										<div class="properties cottage-item">
+											<p>Площадь участка домовладения - {item.properties.ploshaduchastkadomovladenia}</p>
+											<p>Общая площадь - {item.properties.ploshaduchastka}</p>
+											<p>Высота потолков - {item.properties.visotaPotolkov}</p>
+											<p>Площадь террасы - {item.properties.ploshadTerrasy}</p>
+											<p>Кухня-столовая-гостиная - {item.properties.kitchenStolovayaGostinaya}</p>
+										</div>
+									</li>
+								))}
+							</ul>
+						</section>
+					)}
 
 					<div class="booking__bg"></div>
 
@@ -952,6 +985,42 @@ const sanityLayouts = await getSanity([`*[_type == '${url}'] | order(orderRank a
 			}
 		}
 	}
+
+	.section__cottages {
+		padding: var(--section-padding) 0;
+		.masonry__grid {
+			display: flex;
+			flex-direction: column;
+			gap: 50px;
+		}
+
+		.masonry-item {
+			display: flex;
+			justify-content: center;
+			gap: 50px;
+			max-width: 1200px;
+
+			.cottage__images {
+				img {
+					max-width:450px;
+					height: auto;
+					width: 100%;
+					cursor: pointer;
+					&.first {
+						display: block;
+					}
+
+					&.hidden {
+						display: none;
+					}
+				}
+			}
+
+			button {
+				margin-top:25px;
+			}
+		}
+	}
 </style>
 
 <script>
@@ -1129,12 +1198,17 @@ const sanityLayouts = await getSanity([`*[_type == '${url}'] | order(orderRank a
 		},
 	});
 	
-	
+	const cottageCount = document.querySelectorAll('.cottage__count')
+
+	cottageCount.forEach((item, index) => {
+		Fancybox.bind(`[data-fancybox="cottages${index}"]`)
+	})
 
 	window.addEventListener('click', e => {
 		if (e.target.classList.contains('apartment__booking')) {
 			const apartmentType = e.target.closest('.layouts__texts').querySelector('.rooms').textContent
 			
+			console.log(apartmentType);
 			
 			
 

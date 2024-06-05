@@ -96,6 +96,13 @@ export const desckStructure = (S, context) =>
                                 context,
                             }),
                             orderableDocumentListDeskItem({
+                                title: 'ЖК Никс Про',
+                                type: 'zhk-niks-pro',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+                            orderableDocumentListDeskItem({
                                 title: 'ЖК Никс Сити',
                                 type: 'zhk-niks-city',
                                 icon: FaBuilding,
@@ -159,6 +166,28 @@ export const desckStructure = (S, context) =>
                                 S,
                                 context,
                             }),
+                            orderableDocumentListDeskItem({
+                                title: 'Фанпарк',
+                                type: 'fanpark',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+                            orderableDocumentListDeskItem({
+                                title: 'ЖК Короленко',
+                                type: 'zhk-korolenko',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+                            orderableDocumentListDeskItem({
+                                title: 'ЖК Европейский',
+                                type: 'zhk-evropeiskii',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+
                             ])
                 ),
             S.divider(),

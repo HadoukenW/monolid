@@ -20,6 +20,7 @@ const newBuildings = defineCollection({
 const catalog = defineCollection({
   schema: ({ image }) => z.object({
     url: z.string().optional(),
+    cottageUrl: z.string().optional(),
     title: z.string().optional(),
     city: z.string(),
     titleForLayots: z.string().optional(),
@@ -51,6 +52,7 @@ const catalog = defineCollection({
       mapPath: z.string().optional(),
     }).optional(),
     isInProgress: z.string().optional(),
+    isCottage: z.boolean().optional(),
   }),
 });
 export const collections = {
