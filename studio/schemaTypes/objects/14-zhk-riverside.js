@@ -32,6 +32,15 @@ export const zhk14 = defineType({
             title: 'Цена',
             type: 'string',
         },
+        {
+            name: 'isAvailable',
+            title: 'В наличии?',
+            type: 'boolean',
+            options: {
+                layout: 'checkbox'
+            },
+            initialValue: true
+        }
     ],
     preview: {
         select: {

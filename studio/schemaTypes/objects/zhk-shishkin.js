@@ -30,6 +30,15 @@ export const zhkshishkin = defineType({
             name: 'price',
             title: 'Цена',
             type: 'string'
+        },
+        {
+            name: 'isAvailable',
+            title: 'В наличии?',
+            type: 'boolean',
+            options: {
+                layout: 'checkbox'
+            },
+            initialValue: true
         }
     ],
     preview: {

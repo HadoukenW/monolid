@@ -34,6 +34,11 @@ export const zhkevropeiskii = defineType({
                     type: 'string'
                 },
                 {
+                    name: 'ploshadparkovkinadnavesom',
+                    title: 'Площадь парковки над навесом (Если есть)',
+                    type: 'string'
+                },
+                {
                     name: 'visotaPotolkov',
                     title: 'Высота потолков',
                     type: 'string'
@@ -55,6 +60,15 @@ export const zhkevropeiskii = defineType({
             title: 'Цена',
             description: '(Если есть)',
             type: 'string'
+        },
+        {
+            name: 'isAvailable',
+            title: 'В наличии?',
+            type: 'boolean',
+            options: {
+                layout: 'checkbox'
+            },
+            initialValue: true
         }
     ],
     preview: {

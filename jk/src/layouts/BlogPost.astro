@@ -122,11 +122,12 @@ console.log(sanityCottageLayouts);
 							<ul class="masonry__grid">
 								{sanityLayouts?.map((item: any) => (
 									<li class="masonry-item">
-										<div class="prewrapper" itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={urlForImage(item.photo).url()} data-caption={item.rooms} data-fancybox="layouts"><img loading="lazy" itemprop="contentUrl" src={urlForImage(item.photo).url()}  alt={item.rooms}></a></div>
+										{item.isAvailable === false && <div class="isAvailable">Нет в наличии</div>}
+										<div class=`prewrapper ${item.isAvailable === false ? 'unavailable' : ''}` itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={urlForImage(item.photo).url()} data-caption={item.rooms} data-fancybox="layouts"><img loading="lazy" itemprop="contentUrl" src={urlForImage(item.photo).format('webp').url()}  alt={item.rooms}></a></div>
 										<div class="layouts__texts">
 											<p class="rooms">{item.rooms}</p>
 											<p class="price">от {item.price} руб.</p>
-											<button class="apartment__booking">Забронировать</button>
+											<button class="apartment__booking" disabled={item.isAvailable === false}>Забронировать</button>
 										</div>
 									</li>
 								))}
@@ -138,28 +139,39 @@ console.log(sanityCottageLayouts);
 
 					{sanityCottageLayouts?.length > 0 && (
 						<section class="section__cottages" aria-label="Дома">
-							<ul class="masonry__grid">
-								{sanityCottageLayouts?.map((item: any, index: number) => (
-									<li class="masonry-item cottage__count">
-										<div class="cottage-item layouts__texts">
-											<h3 class="rooms">{item.title}</h3>
-											<div class="cottage__images">
-												{item.photos?.map((image: any, ind: number) => (
-													<img data-fancybox=`cottages${index}` class={`${ind === 0 ? 'first' : 'hidden'}`} src={urlForImage(image).format('webp').url()} alt={item.title} />
-												))}
+							<div class="container">
+								<ul class="masonry__grid">
+									{sanityCottageLayouts?.map((item: any, index: number) => (
+										<li class="cottage__count">
+											<div class="cottage-item layouts__texts">
+												<h3 class="rooms">{item.title}</h3>
+												<div class="cottage__images">
+													{item.photos?.map((image: any, ind: number) => (
+														<img data-fancybox=`cottages${index}` class={`${ind === 0 ? 'first' : 'hidden'}`} src={urlForImage(image).format('webp').url()} alt={item.title} />
+													))}
+												</div>
+												<div class="properties-mobile cottage-item">
+													{item?.properties?.ploshaduchastkadomovladenia?.length > 0 && <p>Площадь участка домовладения - {item.properties.ploshaduchastkadomovladenia}</p>}
+													{item.properties.ploshaduchastka && <p>Общая площадь - {item.properties.ploshaduchastka}</p>}
+													{item.properties.visotaPotolkov && <p>Высота потолков - {item.properties.visotaPotolkov}</p>}
+													{item.properties.ploshadTerrasy && <p>Площадь террасы - {item.properties.ploshadTerrasy}</p>}
+													{item.properties.kitchenStolovayaGostinaya && <p>Кухня-столовая-гостиная - {item.properties.kitchenStolovayaGostinaya}</p>}
+													{item.price && <p>Цена - {item.price} руб.</p>}
+												</div>
+												<button class="apartment__booking">Забронировать</button>
 											</div>
-											<button class="apartment__booking">Забронировать</button>
-										</div>
-										<div class="properties cottage-item">
-											<p>Площадь участка домовладения - {item.properties.ploshaduchastkadomovladenia}</p>
-											<p>Общая площадь - {item.properties.ploshaduchastka}</p>
-											<p>Высота потолков - {item.properties.visotaPotolkov}</p>
-											<p>Площадь террасы - {item.properties.ploshadTerrasy}</p>
-											<p>Кухня-столовая-гостиная - {item.properties.kitchenStolovayaGostinaya}</p>
-										</div>
-									</li>
-								))}
-							</ul>
+											<div class="properties cottage-item">
+												{item?.properties?.ploshaduchastkadomovladenia?.length > 0 && <p>Площадь участка домовладения - {item.properties.ploshaduchastkadomovladenia}</p>}
+												{item.properties.ploshaduchastka && <p>Общая площадь - {item.properties.ploshaduchastka}</p>}
+												{item.properties.visotaPotolkov && <p>Высота потолков - {item.properties.visotaPotolkov}</p>}
+												{item.properties.ploshadTerrasy && <p>Площадь террасы - {item.properties.ploshadTerrasy}</p>}
+												{item.properties.kitchenStolovayaGostinaya && <p>Кухня-столовая-гостиная - {item.properties.kitchenStolovayaGostinaya}</p>}
+												{item.price && <p>Цена - {item.price} руб.</p>}
+											</div>
+										</li>
+									))}
+								</ul>
+							</div>
 						</section>
 					)}
 
@@ -708,9 +720,21 @@ console.log(sanityCottageLayouts);
 			background-color: var(--primary);
 			transition: .3s ease transform;
 			align-self: stretch;
+			position: relative;
 			&:hover {
 				transform: translateY(-5px);
 			}
+
+			.isAvailable {
+			position: absolute;
+			right: 0;
+			top: 0;
+			background-color: #ff0000;
+			padding: 5px 15px;
+			color: var(--primary);
+			font-weight: 500;
+			z-index: 2;
+		}
 
 			.prewrapper {
 				margin: auto 0;
@@ -718,6 +742,11 @@ console.log(sanityCottageLayouts);
 				min-height: 228px;
 				display: inline-flex;
 				align-items: center;
+
+				&.unavailable {
+					opacity: 0.3;
+				}
+
 				@media(max-width: 550px) {
 				}
 
@@ -783,15 +812,22 @@ console.log(sanityCottageLayouts);
                 color: var(--primary);
                 margin-top: 20px;
                 line-height: 160%;
+
+				
                 @media(max-width: 600px) {
-                    width: 100%;
+					width: 100%;
                     text-align: center;
                 }
-
+				
 				transition: .3s ease background;
                 &:hover {
-                    background: #0b1099;
+					background: #0b1099;
                 }
+				&:disabled {
+					background-color: #d3dad7;
+					cursor: not-allowed;
+					
+				}
 			}
 		}
 
@@ -991,14 +1027,55 @@ console.log(sanityCottageLayouts);
 		.masonry__grid {
 			display: flex;
 			flex-direction: column;
-			gap: 50px;
+			gap: 20px;
+			align-items: center;
+
 		}
 
-		.masonry-item {
+		.cottage__count {
 			display: flex;
 			justify-content: center;
 			gap: 50px;
-			max-width: 1200px;
+			max-width: 1000px;
+			border: 1px solid #d3dad7;
+			border-radius: 20px;
+			padding: 20px 15px;
+			width: 100%;
+
+			@media(max-width: 767px) {
+				gap: 25px;
+			}
+
+			@media(max-width: 650px) {
+				flex-direction: column;
+			}
+
+
+			h3 {
+				margin-bottom: 10px;
+				font-size: clamp(1.125rem,0.875rem + 0.83vw,1.5rem);
+				color: #011032;
+				font-weight: 600;
+				text-align: center;
+			}
+
+			.properties-mobile {
+				display: none;
+
+				@media(max-width: 650px) {
+					display: flex;
+					flex-direction: column;
+					gap: 15px;
+					text-align: center;
+					margin: 25px 0 5px;
+					font-size: 18px;
+
+				}
+
+				@media(max-width: 480px) {
+					font-size: 16px;
+				}
+			}
 
 			.cottage__images {
 				img {
@@ -1013,14 +1090,56 @@ console.log(sanityCottageLayouts);
 					&.hidden {
 						display: none;
 					}
+
+					@media(max-width: 650px) {
+						max-width: 100%;
+					}
 				}
 			}
 
 			button {
 				margin-top:25px;
+				font-weight: 500;
+				font-size: 18px;
+				padding: 7px 23px;
+				background-color: var(--btn-primary);
+				border-radius: 20px;
+				color: var(--primary);
+				margin-top: 20px;
+				line-height: 160%;
+				transition: 0.3s ease background;
+				width: 100%;
+				&:hover {
+					background: #0b1099;
+				}
+			}
+		}
+
+		.properties {
+			margin-top: 36px;
+			max-width: 450px;
+			width: 100%;
+			font-size: 18px;
+			border-radius: 5px;
+			transition: 0.3s ease background;
+			display: flex;
+			gap: 20px;
+			flex-direction: column;
+
+			@media(max-width: 767px) {
+				gap: 10px;
+			}
+			@media(max-width: 650px) {
+				display: none;
+			}
+
+			p {
+				line-height: 1.4;
 			}
 		}
 	}
+
+	
 </style>
 
 <script>
@@ -1201,7 +1320,9 @@ console.log(sanityCottageLayouts);
 	const cottageCount = document.querySelectorAll('.cottage__count')
 
 	cottageCount.forEach((item, index) => {
-		Fancybox.bind(`[data-fancybox="cottages${index}"]`)
+		Fancybox.bind(`[data-fancybox="cottages${index}"]`, {
+			hideScrollbar: false
+		})
 	})
 
 	window.addEventListener('click', e => {
