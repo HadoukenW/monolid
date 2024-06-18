@@ -37,6 +37,15 @@ export const vtorichka = defineType({
             type: 'string',
         },
         {
+            name: 'isAvailable',
+            title: 'В наличии?',
+            type: 'boolean',
+            options: {
+                layout: 'checkbox'
+            },
+            initialValue: true
+        },
+        {
             name: 'description',
             title: 'Описание',
             type: 'normalText',

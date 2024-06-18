@@ -1,19 +1,19 @@
 import { renderers } from './renderers.mjs';
-import { manifest } from './manifest_Q_DH4P6T.mjs';
+import { manifest } from './manifest_BKt99B2t.mjs';
 import * as serverEntrypointModule from '@astrojs/netlify/ssr-function.js';
 import { onRequest } from './_noop-middleware.mjs';
 
-const _page0 = () => import('./chunks/generic_DLHCg4if.mjs');
-const _page1 = () => import('./chunks/404_KeQBi-jU.mjs');
-const _page2 = () => import('./chunks/calc_Cswb7mUt.mjs');
-const _page3 = () => import('./chunks/index_C8xt9SAw.mjs');
-const _page4 = () => import('./chunks/_.._Blcg9bls.mjs');
-const _page5 = () => import('./chunks/contacts_DbwZ6bE-.mjs');
-const _page6 = () => import('./chunks/faq_BVpnDCwC.mjs');
-const _page7 = () => import('./chunks/nashi-uslugi_BP0HsaiA.mjs');
-const _page8 = () => import('./chunks/rss_CiWC4Auf.mjs');
-const _page9 = () => import('./chunks/vtorichka_CexwB1eb.mjs');
-const _page10 = () => import('./chunks/index_BtCL8e8X.mjs');
+const _page0 = () => import('./chunks/generic_DodInQKa.mjs');
+const _page1 = () => import('./chunks/404_BHsfYFV0.mjs');
+const _page2 = () => import('./chunks/calc_B_bMqx_w.mjs');
+const _page3 = () => import('./chunks/index_BvjbCrfW.mjs');
+const _page4 = () => import('./chunks/_.._BkNLOuee.mjs');
+const _page5 = () => import('./chunks/contacts_B5BGcLrP.mjs');
+const _page6 = () => import('./chunks/faq_geAX_xl_.mjs');
+const _page7 = () => import('./chunks/nashi-uslugi_Dl2S34bb.mjs');
+const _page8 = () => import('./chunks/rss_C2OdVi6C.mjs');
+const _page9 = () => import('./chunks/vtorichka_DL0rq0pr.mjs');
+const _page10 = () => import('./chunks/index_DAXtaAP6.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/404.astro", _page1],
@@ -34,7 +34,7 @@ const _manifest = Object.assign(manifest, {
     middleware: onRequest
 });
 const _args = {
-    "middlewareSecret": "d8ef2ed3-cee7-42e1-bc80-d09f0b7029be"
+    "middlewareSecret": "383bf07e-001b-4537-b8ba-276e5631b0f1"
 };
 const _exports = serverEntrypointModule.createExports(_manifest, _args);
 const __astrojsSsrVirtualEntry = _exports.default;

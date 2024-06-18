@@ -1,0 +1,28 @@
+import { f as createComponent, r as renderTemplate, m as maybeRenderHead, u as unescapeHTML } from './astro_7hprNihR.mjs';
+import 'kleur/colors';
+import 'clsx';
+
+const html = "";
+
+				const frontmatter = {"url":"fanpark","title":"Фанпарк","city":"Челябинск","titleForLayots":"данном доме в Фанпарк","description":"Всесезонный мультикурорт в Челябинске в Сосновском районе","year":"2026","heroImage":"/public/фанпарк/001-1.webp","location":"Сосновский","buildingType":"Монолитно-каркасный","aboutSectionData":[{"title":"Гармония Между Городом и Природой","text":"Откройте дверь в свою идеальную жизнь! Новый стильный жилой комплекс — ваш личный рай! Комфорт, уют, и безграничные возможности ждут вас здесь! Наши улицы — путь к счастью, наши дворы — оазис умиротворения! Инфраструктура, которая удовлетворит все ваши потребности! Выберите комфортное место проживания, выберите наш жилой комплекс!»","image":"/фанпарк/002.webp"},{"title":"Идеальное Жилье для Стильных Гурманов","text":"Для тех, кто ценит роскошь и стиль, наш жилой комплекс предлагает идеальное жилье. Особенности включают современную архитектуру с уникальным и и и элегантным дизайном, который добавляет шарма и индивидуальности вашему пространству.","image":"/фанпарк/5-1.webp"},{"title":"Развитая инфраструктура","text":"Мы гордимся разнообразием инфраструктуры, которая создана и продолжает развиваться вокруг нашего комплекса. Рестораны, кафе, фитнес-центры и парки - здесь есть все, чтобы удовлетворить ваши потребности и желания.","image":"/фанпарк/1.webp"}],"galleryImages":["/фанпарк/001-1.webp","/фанпарк/1.webp","/фанпарк/002.webp","/фанпарк/2.webp","/фанпарк/004.webp","/фанпарк/4 1.webp","/фанпарк/5-1.webp","/фанпарк/007-1.webp","/фанпарк/i5SQSlSeR7I.webp","/фанпарк/image_bg_1920x1140.webp","/фанпарк/sfg2 1.webp","/фанпарк/UHG2Ktw1GFU.webp","/фанпарк/plan 1.webp","/фанпарк/2024-05-03_10-39-27-1 1.webp"],"mapStatic":{"mapLink":"https://yandex.ru/maps/?um=constructor%3A4e3c6623062985ed9694d529333efb31d58bd7dc547e81c9c2d95aaf959fbe22&amp;source=constructorStatic","mapPath":"https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A4e3c6623062985ed9694d529333efb31d58bd7dc547e81c9c2d95aaf959fbe22&amp;width=600&amp;height=450&amp;lang=ru_RU"}};
+				const file = "C:/Users/Acer/Desktop/сайт/monolid/jk/src/content/catalog/fanpark.md";
+				const url = undefined;
+				function rawContent() {
+					return "";
+				}
+				function compiledContent() {
+					return html;
+				}
+				function getHeadings() {
+					return [];
+				}
+
+				const Content = createComponent((result, _props, slots) => {
+					const { layout, ...content } = frontmatter;
+					content.file = file;
+					content.url = url;
+
+					return renderTemplate`${maybeRenderHead()}${unescapeHTML(html)}`;
+				});
+
+export { Content, compiledContent, Content as default, file, frontmatter, getHeadings, rawContent, url };

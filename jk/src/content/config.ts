@@ -53,6 +53,7 @@ const catalog = defineCollection({
     }).optional(),
     isInProgress: z.string().optional(),
     isCottage: z.boolean().optional(),
+    buildingProcess: z.array(z.string()).optional(),
   }),
 });
 export const collections = {

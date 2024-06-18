@@ -68,6 +68,7 @@ console.log(sanityVtorichka)
                                             <div class="grid__item">
                                                 <div class="swiper">
                                                     <div class="swiper-wrapper">
+                                                        
                                                         {item.photo?.map((image: any) => (
                                                             <div class="swiper-slide">
                                                                 <img width="300" height="300" loading="lazy" class="slide__img" src={urlForImage(image).format("webp").width(300).height(300).url()} alt="квартира"/>
@@ -95,7 +96,10 @@ console.log(sanityVtorichka)
                                                 </div>
 
                                                 <div class="layouts__texts">
-                                                    <p class="rooms">{item.rooms} квартира</p>
+                                                    {item.isAvailable == false && (
+                                                            <img class="soldout" src="/9OAAAgOqL-A-1920.webp" alt="Продана квартира"/>
+                                                        )}
+                                                    <p class="rooms">{item.rooms} {item.rooms ? 'квартира' : 'Земля'}</p>
                                                     <div class="description__wrapper"> 
                                                         <div class="description">
                                                             <PortableTextBody body={item.description} components={myPortableTextComponents}/>
@@ -103,7 +107,7 @@ console.log(sanityVtorichka)
                                                     </div>
                                                     <p class="price">{item.price} руб.</p>
 
-                                                    <button data-objectName={item.rooms} data-objectPrice={item.price + ' руб.'} class="apartment__booking">Подробнее</button>
+                                                    <button disabled={item.isAvailable == false ? true : false} data-objectName={item.rooms} data-objectPrice={item.price + ' руб.'} class="apartment__booking">Подробнее</button>
                                                 </div>
                                                
                                                
@@ -249,12 +253,36 @@ console.log(sanityVtorichka)
                 height: auto;
                 margin-left: 10px;
 
+
+                position: relative;
+                .soldout {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    
+                    width: 170px;
+                    height: 63px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #000000b7;
+                    color: white;
+                    font-weight: 700;
+                    
+                    @media(max-width: 1167px) {
+                        position: static;
+                        transform: none;
+                        margin-bottom: 15px;
+                    }
+                }
+
                 @media(max-width: 767px) {
                     margin-left: 0;
                 }
 
                 .rooms {
                     font-size: 20px;
+                    font-weight: 700;
                 }
 
                 .price {
@@ -262,14 +290,14 @@ console.log(sanityVtorichka)
                     font-size: clamp(1.125rem, 0.875rem + 0.83vw, 1.5rem);
                     color: #011032;
                     font-weight: 600;
-                    margin-bottom: 10px;
+                    margin-bottom: 15px;
                 }
 
                 .description__wrapper {
-                    height: 250px;
+                    height: 225px;
                     overflow: auto;
-                    margin-bottom: 15px;
-                    margin-top: 15px;
+                    margin-bottom: 25px;
+                    margin-top: 25px;
                     padding: 0 10px;
                     width: 100%;
                     overscroll-behavior: contain;
@@ -303,6 +331,11 @@ console.log(sanityVtorichka)
                 transition: .3s ease background;
                 &:hover {
                     background: #0b1099;
+                }
+                &:disabled {
+                    background-color: #d3dad7;
+                    cursor: not-allowed;
+                    pointer-events: none;
                 }
             }
         }
@@ -360,6 +393,8 @@ console.log(sanityVtorichka)
         margin-right: 10px;
         position: relative;
 
+        
+
         .swiper-prev, .swiper-next {
             position: absolute;
             top: 50%;
@@ -389,10 +424,12 @@ console.log(sanityVtorichka)
         .swiper-slide {
             width: 100% !important;
             height: 100%;
-
+            
             @media(max-width: 767px) {
                 height: auto;
             }
+
+            
         }
 
     .swiper-wrapper {
