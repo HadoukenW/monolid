@@ -99,7 +99,7 @@ console.log(sanityVtorichka)
                                                     {item.isAvailable == false && (
                                                             <img class="soldout" src="/9OAAAgOqL-A-1920.webp" alt="Продана квартира"/>
                                                         )}
-                                                    <p class="rooms">{item.rooms} {item.rooms ? 'квартира' : 'Земля'}</p>
+                                                    <p class="rooms">{item.rooms !== 'Земля' ? item.rooms + ' квартира' : item.rooms}</p>
                                                     <div class="description__wrapper"> 
                                                         <div class="description">
                                                             <PortableTextBody body={item.description} components={myPortableTextComponents}/>
@@ -335,7 +335,7 @@ console.log(sanityVtorichka)
                 &:disabled {
                     background-color: #d3dad7;
                     cursor: not-allowed;
-                    pointer-events: none;
+                    
                 }
             }
         }
