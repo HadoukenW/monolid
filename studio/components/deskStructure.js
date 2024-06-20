@@ -206,4 +206,10 @@ export const desckStructure = (S, context) =>
                             }),
                         ])
                 ),
+
+             S.divider(),
+
+            S.listItem()
+                .title('Блог')
+                .child(S.documentTypeList('blog').title('Блог')),
         ])

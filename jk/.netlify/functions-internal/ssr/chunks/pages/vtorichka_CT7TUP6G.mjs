@@ -1,26 +1,14 @@
-import { s as sanityClient, $ as $$Footer, a as $$Header, b as $$BaseHead } from './404_5BpOlsOn.mjs';
+import { $ as $$Footer, a as $$Header, b as $$BaseHead } from './404_BhtdxE-O.mjs';
 import { e as createAstro, f as createComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, j as renderComponent, k as renderHead } from '../astro_7hprNihR.mjs';
 import 'kleur/colors';
-import { $ as $$Breadcrumbs } from './calc_Cu-H90tL.mjs';
+import { $ as $$Breadcrumbs } from './calc_8w-8Nmqw.mjs';
 /* empty css                           */
 /* empty css                          */
-import imageUrlBuilder from '@sanity/image-url';
+import { u as urlForImage, a as getSanity } from './index_63RjLOhF.mjs';
 import { PortableText } from '@portabletext/react';
 import { jsx } from 'react/jsx-runtime';
 import 'react';
 /* empty css                              */
-
-async function getSanity(query) {
-    const response = await sanityClient.fetch(query);
-    return response
-}
-
-const imageBuilder = imageUrlBuilder(sanityClient);
-
-
-function urlForImage(source) {
-    return imageBuilder.image(source)
-}
 
 const $$Astro$1 = createAstro("https://monolid74.com/");
 const $$PortableTextBody = createComponent(async ($$result, $$props, $$slots) => {
@@ -135,11 +123,4 @@ swiperElements.forEach((swiperElement, index) => {
 const $$file = "C:/Users/Acer/Desktop/сайт/monolid/jk/src/pages/vtorichka.astro";
 const $$url = "/vtorichka";
 
-const vtorichka = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-    __proto__: null,
-    default: $$Vtorichka,
-    file: $$file,
-    url: $$url
-}, Symbol.toStringTag, { value: 'Module' }));
-
-export { getSanity as g, urlForImage as u, vtorichka as v };
+export { $$Vtorichka as default, $$file as file, $$url as url };

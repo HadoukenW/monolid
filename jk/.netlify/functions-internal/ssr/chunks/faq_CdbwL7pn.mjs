@@ -1,5 +1,5 @@
 export { renderers } from '../renderers.mjs';
 
-const page = () => import('./prerender_DxB-CMU3.mjs');
+const page = () => import('./pages/faq_DMy0EZOP.mjs');
 
 export { page };

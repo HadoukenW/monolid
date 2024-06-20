@@ -1,0 +1,345 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "../../../astro-breadcrumbs-config.scss";
+
+import { myPortableTextComponents } from "../../components/PortableTextComponents";
+import { getSanity } from '../../lib/api';
+import { urlForImage } from '../../lib/urlForImage'
+import PortableTextBody from '../../components/PortableTextBody.astro';
+
+
+const blogs = await getSanity(`*[_type == "blog"]{
+    seo,
+    image,
+    blogTitle,
+    blogSlug,
+    blogDescription,
+    addedAt,
+}`)
+
+const blogsSorted = blogs.sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt))
+
+const customCrumbs = [
+ {
+    text: "Главная",
+    href: "/",
+  },
+  {
+    text: "Новости",
+    href: "/blog/",
+  }
+]
+---
+
+<!doctype html>
+<html lang="ru">
+    <head>
+        <BaseHead title="Новости недвижимости - Monolid - Агентство недвижимости Челябинск" description="" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <Header />
+            <div class="breadcrumbs__container">
+			    <div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
+                    <svg
+                        slot="separator"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                            ><polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                            </Breadcrumbs>
+                </div>
+			</div>
+            <main>
+
+                <div class="container">
+                    <h1 id="blog__title">Новости недвижимости</h1>
+    
+    
+                            <div class="blog__big-wrapper">
+                                <a class="blog__big-item" href={`/blog/${blogsSorted[0].blogSlug.current}`}>
+                                   <div class="blog__big-card">
+                                        <div class="blog__big-img">
+                                            <img src={urlForImage(blogsSorted[0].image).url()} alt="blog__img" />
+                                        </div>
+                                        <div class="blog__card-big-info">
+                                            <div>
+                                                <h3 class="blog__big-title">{blogsSorted[0].blogTitle}</h3>
+                                                <div class="blog__big-description">
+                                                    
+                                                        {blogsSorted[0].blogDescription[0].children.map((desc) => (
+                                                            <span>{desc.text}</span>
+                                                        ))}
+                                                    
+                                                </div>
+                                            </div>
+                                            <p class="blog__big-date">{new Date(blogsSorted[0].addedAt).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                        </div>
+                                   </div>
+                                </a>
+                            </div>
+    
+                            <div class="blog__wrapper">
+                                {blogsSorted && blogsSorted.slice(1).map((blog) => (
+                                    <a class="blog__item" href={`/blog/${blog.blogSlug.current}`}>
+                                            <div class="blog__card">
+                                                <div class="blog__img">
+                                                    <img src={urlForImage(blog.image).url()} alt="blog__img" />
+                                                </div>
+                                                <div class="blog__card-info">
+                                                    <h3 class="blog__title">{blog.blogTitle}</h3>
+                                                    <p class="blog__date">{new Date(blog.addedAt).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                                                </div>
+                                            </div>
+                                    </a>
+                                ))}
+                            </div> 
+                </div>
+            </main>
+    
+            <Footer />
+        </div>
+    </body>
+</html>
+
+<style lang="scss">
+    main {
+            padding-bottom: 50px;
+    }
+    .breadcrumbs__container {
+        max-width: 1330px;
+        margin: 30px auto 0;
+        padding: 0 15px;
+        
+    }
+
+    h1 {
+        font-weight: 700;
+        font-size: var(--header-clamp);
+        color: var(--headers-primary);
+        text-align: center;
+        margin-bottom: 4rem;
+        margin-top: 80px;
+        @media(max-width: 767px) {
+            margin-bottom: 2rem;
+            margin-top: 60px;
+        }
+    }
+    
+    .blog__categories {
+        margin-bottom: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+
+        .blog__category {
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            padding: 5px 15px;
+            display: block;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+            color: var(--textColor);
+            background: var(--secondary);
+            padding: 11px 30px 12px;
+            border-radius: 100px;
+            position: relative;
+            overflow: hidden;
+            -webkit-transition: .2s ease-in-out;
+            &:hover {
+                background: var(--primary);
+                color: #fff;
+            }
+        }
+    }
+
+    .blog__big-item {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        box-shadow: 0 4px 68px 10px rgba(0, 0, 0, .09);
+        border-radius: 15px;
+        padding: 20px 25px;
+        border: 5px solid transparent;
+        transition: .2s ease-in-out;
+        padding: 40px 45px;
+        margin-bottom: 2rem;
+
+        &:hover {
+            border-color: var(--btn-primary);
+            -webkit-box-shadow: unset;
+            box-shadow: unset;
+        }
+
+        @media (max-width: 992px) {
+            margin-bottom: 2rem;
+            padding: 18px;
+        }
+
+        .blog__big-card {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2.5rem;
+
+            @media (max-width: 992px) {
+                grid-template-columns: unset;
+            }
+
+            .blog__big-img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    border-radius: 10px;
+                    height: auto;
+                    width: 100%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    -o-object-position: center;
+                    object-position: center;
+
+                }
+            }
+
+            .blog__card-big-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+
+                .blog__big-title {
+                    font-weight: 700;
+                    letter-spacing: .0017em;
+                    color: #000;
+                    font-size: 32px;
+                    line-height: 120%;
+
+                    @media (max-width: 767px) {
+                        font-size: 20px;
+                    }
+                }
+
+                .blog__big-description {
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 160%;
+                    letter-spacing: .0017em;
+                    color: var(--descriptionColor);
+                    margin-top: 25px;
+
+                }
+
+                .blog__big-date {
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 30px;
+                    letter-spacing: .0017em;
+                    color: rgba(0, 0, 0, .5);
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    .blog__wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+        margin-bottom: 40px;
+
+        @media (max-width: 992px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        @media (max-width: 650px) {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        .blog__item {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            -webkit-box-shadow: 0 4px 68px 10px rgba(0, 0, 0, .09);
+            box-shadow: 0 4px 68px 10px rgba(0, 0, 0, .09);
+            border-radius: 15px;
+            padding: 20px 25px;
+            border: 5px solid transparent;
+            -webkit-transition: .2s ease-in-out;
+            -o-transition: .2s ease-in-out;
+            transition: .2s ease-in-out;
+
+            &:hover {
+                border-color: var(--secondary);
+                -webkit-box-shadow: unset;
+                box-shadow: unset;
+            }
+
+            .blog__img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 20px;
+
+                img {
+                    border-radius: 10px;
+                    height: 225px;
+                    width: 100%;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    -o-object-position: center;
+                    object-position: center;
+                }
+            }
+
+            .blog__card-info {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .blog__title {
+                    font-weight: 700;
+                    font-size: 20px;
+                    line-height: 130%;
+                    letter-spacing: .0017em;
+                    color: black;
+                }
+
+                .blog__date {
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 30px;
+                    letter-spacing: .0017em;
+                    color: rgba(0, 0, 0, .5);
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+</style>

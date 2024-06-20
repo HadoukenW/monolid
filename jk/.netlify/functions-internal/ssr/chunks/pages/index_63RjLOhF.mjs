@@ -1,14 +1,64 @@
-import { c as $$Image, b as $$BaseHead, a as $$Header, $ as $$Footer } from './404_5BpOlsOn.mjs';
-import { A as AstroError, n as UnknownContentCollectionError, f as createComponent, o as renderUniqueStylesheet, p as renderScriptElement, q as createHeadAndContent, r as renderTemplate, j as renderComponent, u as unescapeHTML, e as createAstro, k as renderHead, h as addAttribute, m as maybeRenderHead } from '../astro_7hprNihR.mjs';
+import { s as sanityClient, b as $$BaseHead, a as $$Header, $ as $$Footer, c as $$Image } from './404_BhtdxE-O.mjs';
+import { e as createAstro, f as createComponent, r as renderTemplate, j as renderComponent, k as renderHead, h as addAttribute, A as AstroError, n as UnknownContentCollectionError, o as renderUniqueStylesheet, p as renderScriptElement, q as createHeadAndContent, u as unescapeHTML, m as maybeRenderHead } from '../astro_7hprNihR.mjs';
 import 'kleur/colors';
-import { S as SITE_DESCRIPTION, a as SITE_TITLE } from './contacts_D3pzor8T.mjs';
-import { $ as $$Breadcrumbs } from './calc_Cu-H90tL.mjs';
+import { $ as $$Breadcrumbs } from './calc_8w-8Nmqw.mjs';
 /* empty css                           */
+import imageUrlBuilder from '@sanity/image-url';
+/* empty css                          */
+import { S as SITE_DESCRIPTION, a as SITE_TITLE } from './contacts_BhO2SoGm.mjs';
 /* empty css                          */
 /* empty css                          */
 import { prependForwardSlash } from '@astrojs/internal-helpers/path';
 /* empty css                          */
 import 'clsx';
+
+async function getSanity(query) {
+    const response = await sanityClient.fetch(query);
+    return response
+}
+
+const imageBuilder = imageUrlBuilder(sanityClient);
+
+
+function urlForImage(source) {
+    return imageBuilder.image(source)
+}
+
+const $$Astro$8 = createAstro("https://monolid74.com/");
+const $$Index$2 = createComponent(async ($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro$8, $$props, $$slots);
+  Astro2.self = $$Index$2;
+  const blogs = await getSanity(`*[_type == "blog"]{
+    seo,
+    image,
+    blogTitle,
+    blogSlug,
+    blogDescription,
+    addedAt,
+}`);
+  const blogsSorted = blogs.sort((a, b) => new Date(b.addedAt) - new Date(a.addedAt));
+  const customCrumbs = [
+    {
+      text: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F",
+      href: "/"
+    },
+    {
+      text: "\u041D\u043E\u0432\u043E\u0441\u0442\u0438",
+      href: "/blog/"
+    }
+  ];
+  return renderTemplate`<html lang="ru" data-astro-cid-5tznm7mj> <head>${renderComponent($$result, "BaseHead", $$BaseHead, { "title": "\u041D\u043E\u0432\u043E\u0441\u0442\u0438 \u043D\u0435\u0434\u0432\u0438\u0436\u0438\u043C\u043E\u0441\u0442\u0438 - Monolid - \u0410\u0433\u0435\u043D\u0442\u0441\u0442\u0432\u043E \u043D\u0435\u0434\u0432\u0438\u0436\u0438\u043C\u043E\u0441\u0442\u0438 \u0427\u0435\u043B\u044F\u0431\u0438\u043D\u0441\u043A", "description": "", "data-astro-cid-5tznm7mj": true })}${renderHead()}</head> <body data-astro-cid-5tznm7mj> <div class="wrapper" data-astro-cid-5tznm7mj> ${renderComponent($$result, "Header", $$Header, { "data-astro-cid-5tznm7mj": true })} <div class="breadcrumbs__container" data-astro-cid-5tznm7mj> <div class="c-breadcrumbs" data-astro-cid-5tznm7mj>${renderComponent($$result, "Breadcrumbs", $$Breadcrumbs, { "crumbs": customCrumbs, "data-astro-cid-5tznm7mj": true }, { "separator": ($$result2) => renderTemplate`<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-astro-cid-5tznm7mj><polyline points="9 18 15 12 9 6" data-astro-cid-5tznm7mj></polyline> </svg>` })} </div> </div> <main data-astro-cid-5tznm7mj> <div class="container" data-astro-cid-5tznm7mj> <h1 id="blog__title" data-astro-cid-5tznm7mj>Новости недвижимости</h1> <div class="blog__big-wrapper" data-astro-cid-5tznm7mj> <a class="blog__big-item"${addAttribute(`/blog/${blogsSorted[0].blogSlug.current}`, "href")} data-astro-cid-5tznm7mj> <div class="blog__big-card" data-astro-cid-5tznm7mj> <div class="blog__big-img" data-astro-cid-5tznm7mj> <img${addAttribute(urlForImage(blogsSorted[0].image).url(), "src")} alt="blog__img" data-astro-cid-5tznm7mj> </div> <div class="blog__card-big-info" data-astro-cid-5tznm7mj> <div data-astro-cid-5tznm7mj> <h3 class="blog__big-title" data-astro-cid-5tznm7mj>${blogsSorted[0].blogTitle}</h3> <div class="blog__big-description" data-astro-cid-5tznm7mj> ${blogsSorted[0].blogDescription[0].children.map((desc) => renderTemplate`<span data-astro-cid-5tznm7mj>${desc.text}</span>`)} </div> </div> <p class="blog__big-date" data-astro-cid-5tznm7mj>${new Date(blogsSorted[0].addedAt).toLocaleDateString("ru-RU", { year: "numeric", month: "long", day: "numeric" })}</p> </div> </div> </a> </div> <div class="blog__wrapper" data-astro-cid-5tznm7mj> ${blogsSorted && blogsSorted.slice(1).map((blog) => renderTemplate`<a class="blog__item"${addAttribute(`/blog/${blog.blogSlug.current}`, "href")} data-astro-cid-5tznm7mj> <div class="blog__card" data-astro-cid-5tznm7mj> <div class="blog__img" data-astro-cid-5tznm7mj> <img${addAttribute(urlForImage(blog.image).url(), "src")} alt="blog__img" data-astro-cid-5tznm7mj> </div> <div class="blog__card-info" data-astro-cid-5tznm7mj> <h3 class="blog__title" data-astro-cid-5tznm7mj>${blog.blogTitle}</h3> <p class="blog__date" data-astro-cid-5tznm7mj>${new Date(blog.addedAt).toLocaleDateString("ru-RU", { year: "numeric", month: "long", day: "numeric" })}</p> </div> </div> </a>`)} </div> </div> </main> ${renderComponent($$result, "Footer", $$Footer, { "data-astro-cid-5tznm7mj": true })} </div> </body></html>`;
+}, "C:/Users/Acer/Desktop/\u0441\u0430\u0439\u0442/monolid/jk/src/pages/blog/index.astro", void 0);
+
+const $$file$2 = "C:/Users/Acer/Desktop/сайт/monolid/jk/src/pages/blog/index.astro";
+const $$url$2 = "/blog";
+
+const index$2 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+    __proto__: null,
+    default: $$Index$2,
+    file: $$file$2,
+    url: $$url$2
+}, Symbol.toStringTag, { value: 'Module' }));
 
 function createCollectionToGlobResultMap({
   globResult,
@@ -189,7 +239,7 @@ createCollectionToGlobResultMap({
 });
 
 let lookupMap = {};
-lookupMap = {"catalog":{"type":"content","entries":{"fanpark":"/src/content/catalog/fanpark.md","zhk-akadem-riverside-14-dom":"/src/content/catalog/zhk-akadem-riverside-14-dom.mdx","zhk-akadem-riverside-18-dom":"/src/content/catalog/zhk-akadem-riverside-18-dom.md","zhk-akadem-riverside-81-1-dom":"/src/content/catalog/zhk-akadem-riverside-81-1-dom.md","zhk-akadem-riverside-81-2-dom":"/src/content/catalog/zhk-akadem-riverside-81-2-dom.md","zhk-bratiev-kashirinyh":"/src/content/catalog/zhk-bratiev-kashirinyh.mdx","zhk-estetika":"/src/content/catalog/zhk-estetika.md","zhk-evropeiskii2":"/src/content/catalog/zhk-evropeiskii2.md","zhk-klever":"/src/content/catalog/zhk-klever.md","zhk-konfetti":"/src/content/catalog/zhk-konfetti.md","zhk-korolenko":"/src/content/catalog/zhk-korolenko.md","zhk-malevich":"/src/content/catalog/zhk-malevich.md","zhk-niks-city":"/src/content/catalog/zhk-niks-city.md","zhk-niks-line":"/src/content/catalog/zhk-niks-line.md","zhk-niks-pro":"/src/content/catalog/zhk-niks-pro.md","zhk-novil":"/src/content/catalog/zhk-novil.md","zhk-otkrytyi-gorod":"/src/content/catalog/zhk-otkrytyi-gorod.md","zhk-shishkin":"/src/content/catalog/zhk-shishkin.md","zhk-sportivniy":"/src/content/catalog/zhk-sportivniy.mdx","zhk-vidniy":"/src/content/catalog/zhk-vidniy.md"}},"homepage":{"type":"content","entries":{"hero-1":"/src/content/homepage/hero-1.md","hero-10":"/src/content/homepage/hero-10.md","hero-11":"/src/content/homepage/hero-11.md","hero-12":"/src/content/homepage/hero-12.md","hero-2":"/src/content/homepage/hero-2.md","hero-3":"/src/content/homepage/hero-3.md","hero-4":"/src/content/homepage/hero-4.md","hero-5":"/src/content/homepage/hero-5.md","hero-6":"/src/content/homepage/hero-6.md","hero-7":"/src/content/homepage/hero-7.md","hero-8":"/src/content/homepage/hero-8.md","hero-9":"/src/content/homepage/hero-9.md"}},"newBuildings":{"type":"content","entries":{"building-2":"/src/content/newBuildings/building-2.md","building-1":"/src/content/newBuildings/building-1.md","building-3":"/src/content/newBuildings/building-3.md"}}};
+lookupMap = {"catalog":{"type":"content","entries":{"fanpark":"/src/content/catalog/fanpark.md","zhk-akadem-riverside-14-dom":"/src/content/catalog/zhk-akadem-riverside-14-dom.mdx","zhk-akadem-riverside-18-dom":"/src/content/catalog/zhk-akadem-riverside-18-dom.md","zhk-akadem-riverside-81-1-dom":"/src/content/catalog/zhk-akadem-riverside-81-1-dom.md","zhk-akadem-riverside-81-2-dom":"/src/content/catalog/zhk-akadem-riverside-81-2-dom.md","zhk-bratiev-kashirinyh":"/src/content/catalog/zhk-bratiev-kashirinyh.mdx","zhk-estetika":"/src/content/catalog/zhk-estetika.md","zhk-evropeiskii2":"/src/content/catalog/zhk-evropeiskii2.md","zhk-klever":"/src/content/catalog/zhk-klever.md","zhk-konfetti":"/src/content/catalog/zhk-konfetti.md","zhk-korolenko":"/src/content/catalog/zhk-korolenko.md","zhk-malevich":"/src/content/catalog/zhk-malevich.md","zhk-niks-city":"/src/content/catalog/zhk-niks-city.md","zhk-niks-line":"/src/content/catalog/zhk-niks-line.md","zhk-niks-pro":"/src/content/catalog/zhk-niks-pro.md","zhk-novil":"/src/content/catalog/zhk-novil.md","zhk-otkrytyi-gorod":"/src/content/catalog/zhk-otkrytyi-gorod.md","zhk-shishkin":"/src/content/catalog/zhk-shishkin.md","zhk-sportivniy":"/src/content/catalog/zhk-sportivniy.mdx","zhk-vidniy":"/src/content/catalog/zhk-vidniy.md"}},"homepage":{"type":"content","entries":{"hero-1":"/src/content/homepage/hero-1.md","hero-10":"/src/content/homepage/hero-10.md","hero-11":"/src/content/homepage/hero-11.md","hero-12":"/src/content/homepage/hero-12.md","hero-2":"/src/content/homepage/hero-2.md","hero-3":"/src/content/homepage/hero-3.md","hero-4":"/src/content/homepage/hero-4.md","hero-5":"/src/content/homepage/hero-5.md","hero-6":"/src/content/homepage/hero-6.md","hero-7":"/src/content/homepage/hero-7.md","hero-8":"/src/content/homepage/hero-8.md","hero-9":"/src/content/homepage/hero-9.md"}},"newBuildings":{"type":"content","entries":{"building-1":"/src/content/newBuildings/building-1.md","building-2":"/src/content/newBuildings/building-2.md","building-3":"/src/content/newBuildings/building-3.md"}}};
 
 function createGlobLookup(glob) {
 	return async (collection, lookupId) => {
@@ -200,7 +250,7 @@ function createGlobLookup(glob) {
 	};
 }
 
-const renderEntryGlob = /* #__PURE__ */ Object.assign({"/src/content/catalog/fanpark.md": () => import('../fanpark_BCjxJKSJ.mjs'),"/src/content/catalog/zhk-akadem-riverside-14-dom.mdx": () => import('../zhk-akadem-riverside-14-dom_DKmi1c0l.mjs'),"/src/content/catalog/zhk-akadem-riverside-18-dom.md": () => import('../zhk-akadem-riverside-18-dom_Cb9VVtF5.mjs'),"/src/content/catalog/zhk-akadem-riverside-81-1-dom.md": () => import('../zhk-akadem-riverside-81-1-dom_BGOJJY87.mjs'),"/src/content/catalog/zhk-akadem-riverside-81-2-dom.md": () => import('../zhk-akadem-riverside-81-2-dom_CE4tHr-g.mjs'),"/src/content/catalog/zhk-bratiev-kashirinyh.mdx": () => import('../zhk-bratiev-kashirinyh_BpBj_1fn.mjs'),"/src/content/catalog/zhk-estetika.md": () => import('../zhk-estetika_COMB-HG7.mjs'),"/src/content/catalog/zhk-evropeiskii2.md": () => import('../zhk-evropeiskii2_pWHIIlBU.mjs'),"/src/content/catalog/zhk-klever.md": () => import('../zhk-klever_CJBxHhAg.mjs'),"/src/content/catalog/zhk-konfetti.md": () => import('../zhk-konfetti_C3fvvHsY.mjs'),"/src/content/catalog/zhk-korolenko.md": () => import('../zhk-korolenko_C8Sgh9gp.mjs'),"/src/content/catalog/zhk-malevich.md": () => import('../zhk-malevich_DnmhDemJ.mjs'),"/src/content/catalog/zhk-niks-city.md": () => import('../zhk-niks-city_D6OUOHRi.mjs'),"/src/content/catalog/zhk-niks-line.md": () => import('../zhk-niks-line_IPL22pHF.mjs'),"/src/content/catalog/zhk-niks-pro.md": () => import('../zhk-niks-pro_ByPrwJT8.mjs'),"/src/content/catalog/zhk-novil.md": () => import('../zhk-novil_C1d38Sgt.mjs'),"/src/content/catalog/zhk-otkrytyi-gorod.md": () => import('../zhk-otkrytyi-gorod_BOO5cM6d.mjs'),"/src/content/catalog/zhk-shishkin.md": () => import('../zhk-shishkin_D2BKZCsu.mjs'),"/src/content/catalog/zhk-sportivniy.mdx": () => import('../zhk-sportivniy_Dfq2N9A5.mjs'),"/src/content/catalog/zhk-vidniy.md": () => import('../zhk-vidniy_BMxM0HKC.mjs'),"/src/content/homepage/hero-1.md": () => import('../hero-1_CUDISUB9.mjs'),"/src/content/homepage/hero-10.md": () => import('../hero-10_CAQfjHAC.mjs'),"/src/content/homepage/hero-11.md": () => import('../hero-11_eegKHWqG.mjs'),"/src/content/homepage/hero-12.md": () => import('../hero-12_DfshF9yY.mjs'),"/src/content/homepage/hero-2.md": () => import('../hero-2_1EcVG3VD.mjs'),"/src/content/homepage/hero-3.md": () => import('../hero-3_DJWd6zAq.mjs'),"/src/content/homepage/hero-4.md": () => import('../hero-4_BU0gRnS3.mjs'),"/src/content/homepage/hero-5.md": () => import('../hero-5_BWXcfU4H.mjs'),"/src/content/homepage/hero-6.md": () => import('../hero-6_DGfmp27P.mjs'),"/src/content/homepage/hero-7.md": () => import('../hero-7_Wg3SLyZH.mjs'),"/src/content/homepage/hero-8.md": () => import('../hero-8_DNflBygn.mjs'),"/src/content/homepage/hero-9.md": () => import('../hero-9_CvM7Q3e9.mjs'),"/src/content/newBuildings/building-1.md": () => import('../building-1_D9iB3QdT.mjs'),"/src/content/newBuildings/building-2.md": () => import('../building-2_DYt7mOK6.mjs'),"/src/content/newBuildings/building-3.md": () => import('../building-3_Br2tPUz_.mjs')});
+const renderEntryGlob = /* #__PURE__ */ Object.assign({"/src/content/catalog/fanpark.md": () => import('../fanpark_BCjxJKSJ.mjs'),"/src/content/catalog/zhk-akadem-riverside-14-dom.mdx": () => import('../zhk-akadem-riverside-14-dom_qHnpJWOo.mjs'),"/src/content/catalog/zhk-akadem-riverside-18-dom.md": () => import('../zhk-akadem-riverside-18-dom_Cb9VVtF5.mjs'),"/src/content/catalog/zhk-akadem-riverside-81-1-dom.md": () => import('../zhk-akadem-riverside-81-1-dom_BGOJJY87.mjs'),"/src/content/catalog/zhk-akadem-riverside-81-2-dom.md": () => import('../zhk-akadem-riverside-81-2-dom_CE4tHr-g.mjs'),"/src/content/catalog/zhk-bratiev-kashirinyh.mdx": () => import('../zhk-bratiev-kashirinyh_DsZ3dOi-.mjs'),"/src/content/catalog/zhk-estetika.md": () => import('../zhk-estetika_COMB-HG7.mjs'),"/src/content/catalog/zhk-evropeiskii2.md": () => import('../zhk-evropeiskii2_pWHIIlBU.mjs'),"/src/content/catalog/zhk-klever.md": () => import('../zhk-klever_CJBxHhAg.mjs'),"/src/content/catalog/zhk-konfetti.md": () => import('../zhk-konfetti_C3fvvHsY.mjs'),"/src/content/catalog/zhk-korolenko.md": () => import('../zhk-korolenko_C8Sgh9gp.mjs'),"/src/content/catalog/zhk-malevich.md": () => import('../zhk-malevich_DnmhDemJ.mjs'),"/src/content/catalog/zhk-niks-city.md": () => import('../zhk-niks-city_D6OUOHRi.mjs'),"/src/content/catalog/zhk-niks-line.md": () => import('../zhk-niks-line_IPL22pHF.mjs'),"/src/content/catalog/zhk-niks-pro.md": () => import('../zhk-niks-pro_ByPrwJT8.mjs'),"/src/content/catalog/zhk-novil.md": () => import('../zhk-novil_C1d38Sgt.mjs'),"/src/content/catalog/zhk-otkrytyi-gorod.md": () => import('../zhk-otkrytyi-gorod_BOO5cM6d.mjs'),"/src/content/catalog/zhk-shishkin.md": () => import('../zhk-shishkin_D2BKZCsu.mjs'),"/src/content/catalog/zhk-sportivniy.mdx": () => import('../zhk-sportivniy_NH_siQB9.mjs'),"/src/content/catalog/zhk-vidniy.md": () => import('../zhk-vidniy_BMxM0HKC.mjs'),"/src/content/homepage/hero-1.md": () => import('../hero-1_CUDISUB9.mjs'),"/src/content/homepage/hero-10.md": () => import('../hero-10_CAQfjHAC.mjs'),"/src/content/homepage/hero-11.md": () => import('../hero-11_eegKHWqG.mjs'),"/src/content/homepage/hero-12.md": () => import('../hero-12_DfshF9yY.mjs'),"/src/content/homepage/hero-2.md": () => import('../hero-2_1EcVG3VD.mjs'),"/src/content/homepage/hero-3.md": () => import('../hero-3_DJWd6zAq.mjs'),"/src/content/homepage/hero-4.md": () => import('../hero-4_BU0gRnS3.mjs'),"/src/content/homepage/hero-5.md": () => import('../hero-5_BWXcfU4H.mjs'),"/src/content/homepage/hero-6.md": () => import('../hero-6_DGfmp27P.mjs'),"/src/content/homepage/hero-7.md": () => import('../hero-7_Wg3SLyZH.mjs'),"/src/content/homepage/hero-8.md": () => import('../hero-8_DNflBygn.mjs'),"/src/content/homepage/hero-9.md": () => import('../hero-9_CvM7Q3e9.mjs'),"/src/content/newBuildings/building-1.md": () => import('../building-1_D9iB3QdT.mjs'),"/src/content/newBuildings/building-2.md": () => import('../building-2_DYt7mOK6.mjs'),"/src/content/newBuildings/building-3.md": () => import('../building-3_Br2tPUz_.mjs')});
 const collectionToRenderEntryMap = createCollectionToGlobResultMap({
 	globResult: renderEntryGlob,
 	contentDir,
@@ -236,10 +286,10 @@ const $$file$1 = "C:/Users/Acer/Desktop/сайт/monolid/jk/src/pages/catalog/in
 const $$url$1 = "/catalog";
 
 const index$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  default: $$Index$1,
-  file: $$file$1,
-  url: $$url$1
+    __proto__: null,
+    default: $$Index$1,
+    file: $$file$1,
+    url: $$url$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
 var __freeze = Object.freeze;
@@ -400,10 +450,10 @@ const $$file = "C:/Users/Acer/Desktop/сайт/monolid/jk/src/pages/index.astro"
 const $$url = "";
 
 const index = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null,
-  default: $$Index,
-  file: $$file,
-  url: $$url
+    __proto__: null,
+    default: $$Index,
+    file: $$file,
+    url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 
-export { index as a, getCollection as g, index$1 as i };
+export { getSanity as a, index$1 as b, index as c, getCollection as g, index$2 as i, urlForImage as u };
