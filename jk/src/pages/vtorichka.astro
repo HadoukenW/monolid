@@ -38,19 +38,9 @@ console.log(sanityVtorichka)
             <Header />
             <div class="breadcrumbs__container">
                 <div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
-                    <svg
-                        slot="separator"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                            ><polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
+                    <svg width="12" height="12" slot="separator" >
+                        <text x="3" y="12" fill="#6c757d" font-size="18" font-family="Arial" unicode-bidi="embed">•</text>
+                      </svg>
                             </Breadcrumbs>
                 </div>
             </div>
@@ -165,6 +155,7 @@ console.log(sanityVtorichka)
             max-width: 1330px;
             margin: 30px auto 0;
             padding: 0 15px;
+            width: 100%;
            
         }
 

@@ -1,0 +1,302 @@
+<section>
+    <div class="container">
+        <h2>Трейд-ин предложение</h2>
+        <div class="preform__wrapper">
+            <img src="/Group 57.webp" alt="Пример трейд-ина"/>
+            <div class="preform__content">
+                <p class="preform__text">Превратите свою недвижимость в ключ к новым возможностям с нашей программой трейд-ин! Обменяйте свое текущее жилище или даже коммерческую недвижимость, такие как магазины или офисы, на идеальный дом своей мечты без лишних хлопот. Оставьте за собой все заботы о продаже и переезде — мы возьмем на себя всю работу. Обновите свою жизнь, обменяйте старое на новое сегодня!</p>
+                <button class="preform__btn" type="submit">Получить консультацию</button>
+            </div>
+        </div>
+        <div class="tradeInBlurry"></div>
+        <div class="tradeIn__modal">
+            <div>Заказать звонок</div>
+        
+            <form class="tradeInForm">
+                <div class="input-box">
+                    <input required id="tradeInName" placeholder="Ваше имя" type="text" name="name">
+                    <input class="phoneMask" id="tradeInPhone" placeholder="Телефон" name="phone" type="tel" required/>
+                </div>
+                
+                <button type="submit" class="tradeIn__btn">Жду звонка</button>
+                <p>Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</p>
+            </form>
+            <button aria-label="Закрыть форму" class="tradeIn-form__close">
+                <svg aria-hidden="true"  xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0" viewBox="0 0 320.591 320.591" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><path d="M30.391 318.583a30.37 30.37 0 0 1-21.56-7.288c-11.774-11.844-11.774-30.973 0-42.817L266.643 10.665c12.246-11.459 31.462-10.822 42.921 1.424 10.362 11.074 10.966 28.095 1.414 39.875L51.647 311.295a30.366 30.366 0 0 1-21.256 7.288z" fill="#000000" opacity="1" data-original="#000000"></path><path d="M287.9 318.583a30.37 30.37 0 0 1-21.257-8.806L8.83 51.963C-2.078 39.225-.595 20.055 12.143 9.146c11.369-9.736 28.136-9.736 39.504 0l259.331 257.813c12.243 11.462 12.876 30.679 1.414 42.922-.456.487-.927.958-1.414 1.414a30.368 30.368 0 0 1-23.078 7.288z"></path></g></svg>
+            </button>
+            <div class="form-sent-message tradeInMessage">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="52" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><switch><g><g fill="#02bc7d"><path d="M9.7 11.3c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l3 3c.2.2.4.3.7.3s.5-.1.7-.3l7-8c.3-.5.3-1.1-.2-1.4-.4-.3-1-.3-1.3.1L12 13.5z" fill="#02bc7d" opacity="1" data-original="#02bc7d"></path><path d="M21 11c-.6 0-1 .4-1 1 0 4.4-3.6 8-8 8s-8-3.6-8-8c0-2.1.8-4.1 2.3-5.6C7.8 4.8 9.8 4 12 4c.6 0 1.3.1 1.9.2.5.2 1.1-.1 1.3-.7s-.2-1-.7-1.2h-.1c-.8-.2-1.6-.3-2.4-.3C6.5 2 2 6.5 2 12.1c0 2.6 1.1 5.2 2.9 7 1.9 1.9 4.4 2.9 7 2.9 5.5 0 10-4.5 10-10 .1-.6-.4-1-.9-1z" fill="#02bc7d" opacity="1" data-original="#02bc7d"></path></g></g></switch></g></svg>                                       
+                <p>Форма успешно отправлена</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    section {
+        padding: var(--section-padding) 0 0;
+        
+        .preform__wrapper {
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
+            background-color: var(--primary);
+            @media(max-width: 992px) {
+                max-width: unset;
+            }
+        }
+        .preform__content {
+            border-top: 3px solid var(--btn-primary);
+            padding: 10px 20px 25px;
+
+        }
+        .preform__text {
+            text-align: center;
+            font-weight: 400;
+            
+            color: #0d0d0d;
+            margin-top: 20px;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .preform__btn {
+            font-weight: 500;
+            font-size: 18px;
+            padding: 7px 23px;
+            background-color: var(--btn-primary);
+            border-radius: 20px;
+            color: var(--primary);
+            margin: 20px auto 0;
+            line-height: 160%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            
+
+            transition: .3s ease background;
+            &:hover {
+                background: #0b1099;
+            }
+        }
+
+        img {
+            
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            @media(max-width: 992px) {
+                max-width: unset;
+            }
+        }
+
+
+        .tradeInBlurry {
+            position: fixed;
+            width: 100%;
+            height: 100dvh;
+            background-color: #0b0b0b;
+            inset: 0;
+            z-index: 14;
+            opacity: 0;
+            pointer-events: none;
+
+            &.active {
+                z-index: 16;
+                opacity: 0.8;
+                pointer-events: all;
+                transition: opacity 1s ease-in-out;
+            }
+        }
+
+        .tradeIn__modal {
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        &.active {
+            max-width: 600px;
+            width: 90%;
+            display: flex;
+            inset: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            align-items: center;
+            justify-content: center;
+            z-index: 60;
+            background-color: var(--primary);
+            color: var(--headers-primary);
+            padding: 25px;
+            height:min-content;
+            flex-direction: column;
+            transition: opacity 1s ease-in-out;
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        div {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 25px;
+
+                button {
+                    color: var(--primary);
+                    padding: 7px 21px;
+                    background: var(--btn-primary);
+                    border-radius: 20px;
+                    display: flex;
+                    margin-top: 15px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 18px;
+                    line-height: 160%;
+                    transition: .3s ease background;
+                    font-weight: normal;
+                    &:hover {
+                        background: #0b1099;
+                    }
+                }
+
+            p {
+                font-size: 12px;
+                margin-top: 10px;
+                text-align: center;
+            }
+
+            .input-box {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                
+            }
+            input {
+                padding: 13px;
+                border-radius: 5px;
+                outline: none;
+                border: 0;
+                font-weight: 400;
+                color: var(--headers-primary);
+                font-size: 18px;
+                border: 1px solid #d3dad7;
+                width: 100%;
+            
+            }
+        }
+
+        .tradeIn-form__close {
+            display: none;
+    
+            &.active {
+                display: flex;
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+    
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: var(--primary);
+                
+                path {
+                    fill: var(--headers-primary);
+                }
+            }
+    
+        }
+
+    }
+    }
+
+    
+    
+    
+    
+    h2 {
+        font-weight: 700;
+        font-size: var(--header-clamp);
+        color: var(--headers-primary);
+        text-align: center; 
+        margin-bottom: 50px;
+    }
+    
+
+</style>
+
+
+<script>
+
+const tradeInBtn = document.querySelector('.preform__btn')
+    const tradeInModal = document.querySelector('.tradeIn__modal')
+    const tradeInClose = document.querySelector('.tradeIn-form__close')
+    const tradeInBlurry = document.querySelector('.tradeInBlurry')
+    tradeInBtn?.addEventListener('click', e => {
+        tradeInModal?.classList.add('active')
+        tradeInBlurry?.classList.add('active')
+        tradeInClose?.classList.add('active')
+        document.body.classList.add('locked')
+    })
+
+
+    tradeInClose?.addEventListener('click', e => {
+        tradeInModal?.classList.remove('active')
+        tradeInBlurry?.classList.remove('active')
+        tradeInClose?.classList.remove('active')
+        document.body.classList.remove('locked')
+        
+    })
+
+    tradeInBlurry?.addEventListener('click', e => {
+        tradeInModal?.classList.remove('active')
+        tradeInClose?.classList.remove('active')
+        document.body.classList.remove('locked')
+        tradeInBlurry?.classList.remove('active')
+        
+    })
+
+    const tradeInForm: any = document.querySelector(".tradeInForm");
+    const tradeInPhone = document.querySelector('#tradeInPhone')
+    const tradeInName = document.querySelector('#tradeInName')
+    async function sendData() {
+    // Associate the FormData object with the form element
+    const formData = new FormData(tradeInForm);
+
+    try {
+        const response = await fetch(`https://monolid.yucrm.ru/api/orders/post?&phone=9999999999&name=name&message=Трейд-ин&oauth_token=afd0bcd4ee3a219f27812dd4d20a550c`, {
+        method: "POST",
+        // Set the FormData instance as the request body
+        body: formData,
+        mode: 'no-cors',
+        });
+        console.log(await response.json());
+    } catch (e) {
+        console.error('2024');
+    }
+    }
+    const tradeInMessage = document.querySelector('.tradeInMessage')
+    // Take over form submission
+    tradeInForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    sendData();
+    tradeInMessage.classList.add('active')
+    setTimeout(() => {
+        tradeInMessage.classList.remove('active')
+    }, 5000);
+    tradeInPhone.value = ''
+    tradeInName.value = ''
+    });
+</script>

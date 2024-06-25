@@ -71,9 +71,8 @@ export const blog = defineType({
     ],
     preview: {
         select: {
-            title: 'rooms',
-            subtitle: 'price',
-            media: 'photo'
+            title: 'blogTitle',
+            media: 'image'
         }
     }
 })

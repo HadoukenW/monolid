@@ -8,7 +8,7 @@ import "../../../astro-breadcrumbs-config.scss";
 import { myPortableTextComponents } from "../../components/PortableTextComponents";
 import { getSanity } from '../../lib/api';
 import { urlForImage } from '../../lib/urlForImage'
-import PortableTextBody from '../../components/PortableTextBody.astro';
+
 
 
 const blogs = await getSanity(`*[_type == "blog"]{
@@ -44,19 +44,9 @@ const customCrumbs = [
             <Header />
             <div class="breadcrumbs__container">
 			    <div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
-                    <svg
-                        slot="separator"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                            ><polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
+                    <svg width="12" height="12" slot="separator" >
+                        <text x="3" y="12" fill="#6c757d" font-size="18" font-family="Arial" unicode-bidi="embed">•</text>
+                      </svg>
                             </Breadcrumbs>
                 </div>
 			</div>
@@ -67,7 +57,7 @@ const customCrumbs = [
     
     
                             <div class="blog__big-wrapper">
-                                <a class="blog__big-item" href={`/blog/${blogsSorted[0].blogSlug.current}`}>
+                                <a class="blog__big-item" href={`/blog/${blogsSorted[0].blogSlug.current}/`}>
                                    <div class="blog__big-card">
                                         <div class="blog__big-img">
                                             <img src={urlForImage(blogsSorted[0].image).url()} alt="blog__img" />
@@ -91,7 +81,7 @@ const customCrumbs = [
     
                             <div class="blog__wrapper">
                                 {blogsSorted && blogsSorted.slice(1).map((blog) => (
-                                    <a class="blog__item" href={`/blog/${blog.blogSlug.current}`}>
+                                    <a class="blog__item" href={`/blog/${blog.blogSlug.current}/`}>
                                             <div class="blog__card">
                                                 <div class="blog__img">
                                                     <img src={urlForImage(blog.image).url()} alt="blog__img" />
@@ -120,7 +110,7 @@ const customCrumbs = [
         max-width: 1330px;
         margin: 30px auto 0;
         padding: 0 15px;
-        
+        width: 100%;
     }
 
     h1 {
@@ -250,7 +240,7 @@ const customCrumbs = [
                     font-size: 16px;
                     line-height: 160%;
                     letter-spacing: .0017em;
-                    color: var(--descriptionColor);
+                    color: var(--headers-primary);
                     margin-top: 25px;
 
                 }

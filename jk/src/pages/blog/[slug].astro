@@ -1,0 +1,138 @@
+---
+export const prerender = true;
+
+import { getSanity } from '../../lib/api.js';
+import { urlForImage } from '../../lib/urlForImage.js'
+import PortableTextBody from '../../components/PortableTextBody.astro';
+import { myPortableTextComponents } from '../../components/PortableTextComponents.jsx';
+import { Breadcrumbs } from 'astro-breadcrumbs';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import "../../../astro-breadcrumbs-config.scss";
+
+export async function getStaticPaths() {
+    const blogs = await getSanity(`*[_type == "blog"]{
+        seo,
+        image,
+        blogTitle,
+        blogSlug,
+        blogDescription,
+        addedAt,
+    }`)
+    
+    
+    
+    return blogs.map(
+    ({
+        seo,
+        image,
+        blogTitle,
+        blogSlug,
+        blogDescription,
+        addedAt,
+                
+    }) => { 
+        return {
+            params: { slug: blogSlug.current },
+            props: {
+                seo,
+                image,
+                blogTitle,
+                blogDescription,
+                addedAt,
+                  
+            }
+        }
+     }
+ )
+}  
+
+
+
+
+const { blogSlug } = Astro.params;
+
+const {seo, image, blogTitle, blogDescription, addedAt} = Astro.props;
+
+const customCrumbs = [
+ {
+    text: "Главная",
+    href: "/",
+  },
+  {
+    text: "Новости",
+    href: "/blog/",
+  },
+  {
+    text: blogTitle,
+    href: `${Astro.url}`,
+  }
+]
+
+---
+
+<!doctype html>
+<html>
+    <head>
+        <BaseHead title={seo.title} description={seo.description} />
+    </head>
+    <body>
+        <div class="wrapper">
+            <Header />
+            <div class="breadcrumbs__container">
+			    <div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
+                    <svg width="12" height="12" slot="separator" >
+                        <text x="3" y="12" fill="#6c757d" font-size="18" font-family="Arial" unicode-bidi="embed">•</text>
+                      </svg>
+                            </Breadcrumbs>
+                </div>
+			</div>
+            <main>
+                <div class="container">
+                    <img itemscope itemprop="image" itemtype="http://schema.org/ImageObject" class="blog__img" src={urlForImage(image).format("webp").url()} />
+                    <h1 itemprop="headline" class="header__fz blog__title" id="blog__title">{blogTitle}</h1>
+                    <div class="blog__text" itemprop="articleBody">
+                        <PortableTextBody body={blogDescription} components={myPortableTextComponents} />
+                    </div>
+                </div>
+            </main>
+            <Footer />
+        </div>
+    </body>
+        
+    
+</html>
+        
+
+
+
+<style lang="scss">
+    main {
+            padding-bottom: 50px;
+    }
+    .breadcrumbs__container {
+        max-width: 1330px;
+        margin: 30px auto 0;
+        padding: 0 15px;
+        width: 100%;
+        
+    }
+    .blog__img {
+        margin-top: 3.5rem;
+        margin-bottom: 3.5rem;
+        max-width: 100%;
+        height: auto;
+        max-height: 700px;
+        @media (max-width: 992px) {
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .blog__title {
+        margin-bottom: 40px;
+        font-weight: 700;
+        color: #222;
+    }
+</style>
