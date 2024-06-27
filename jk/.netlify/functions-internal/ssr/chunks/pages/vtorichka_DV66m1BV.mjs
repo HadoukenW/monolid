@@ -1,10 +1,10 @@
-import { $ as $$Footer, a as $$Header, b as $$BaseHead } from './404_CV4jptkX.mjs';
+import { $ as $$Footer, a as $$Header, b as $$BaseHead } from './404_f_qztxJV.mjs';
 import { e as createAstro, f as createComponent, r as renderTemplate, m as maybeRenderHead, h as addAttribute, j as renderComponent, k as renderHead } from '../astro_7hprNihR.mjs';
 import 'kleur/colors';
-import { $ as $$Breadcrumbs } from './calc_LOdaf4o3.mjs';
+import { $ as $$Breadcrumbs } from './calc_DEgAdx2r.mjs';
 /* empty css                           */
 /* empty css                          */
-import { u as urlForImage, a as getSanity } from './index_JETe3-l7.mjs';
+import { u as urlForImage, a as getSanity } from './index_89UYJNJx.mjs';
 import { PortableText } from '@portabletext/react';
 import { jsx } from 'react/jsx-runtime';
 import 'react';
@@ -34,7 +34,7 @@ const myPortableTextComponents = {
   marks: {
     span: ({ children }) => /* @__PURE__ */ jsx("sup", { className: "sup", children }),
     link: (node) => {
-      return /* @__PURE__ */ jsx("a", { href: node.children, target: node.value._blank ? "_blank" : null, children: node.children });
+      return /* @__PURE__ */ jsx("a", { href: node.value.href, target: node.value._blank ? "_blank" : null, children: node.children });
     }
   }
 };

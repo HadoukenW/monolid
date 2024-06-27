@@ -7,7 +7,7 @@ export default {
   type: 'array',
   of: [
     {
-      title: 'Image',
+      title: 'Вставить изображение',
       type: 'image',
       options: {
         hotspot: true,

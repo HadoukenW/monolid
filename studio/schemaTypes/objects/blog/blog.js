@@ -12,6 +12,7 @@ export const blog = defineType({
             name: 'seo',
             title: 'SEO',
             type: 'object',
+            options: {collapsed: true},
             fields: [
                 {
                     name: 'title',

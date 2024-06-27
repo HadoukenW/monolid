@@ -1,21 +1,21 @@
 import { renderers } from './renderers.mjs';
-import { manifest } from './manifest_CFVh7-Ow.mjs';
+import { manifest } from './manifest_BPCvtTh_.mjs';
 import * as serverEntrypointModule from '@astrojs/netlify/ssr-function.js';
 import { onRequest } from './_noop-middleware.mjs';
 
-const _page0 = () => import('./chunks/generic_CSY1ATWu.mjs');
-const _page1 = () => import('./chunks/404_CbKXaT3M.mjs');
-const _page2 = () => import('./chunks/_slug__vsOph85K.mjs');
-const _page3 = () => import('./chunks/index_DYuNFh-7.mjs');
-const _page4 = () => import('./chunks/calc_BcLfNxjh.mjs');
-const _page5 = () => import('./chunks/index_CyrUcJZo.mjs');
-const _page6 = () => import('./chunks/_.._OMn4GEVY.mjs');
-const _page7 = () => import('./chunks/contacts_Sk1DSXGG.mjs');
-const _page8 = () => import('./chunks/faq_XMUv9f_D.mjs');
-const _page9 = () => import('./chunks/nashi-uslugi_h1nrun3y.mjs');
-const _page10 = () => import('./chunks/rss_DDlw5An9.mjs');
-const _page11 = () => import('./chunks/vtorichka_CbBGDO5T.mjs');
-const _page12 = () => import('./chunks/index_XsUfgHyo.mjs');
+const _page0 = () => import('./chunks/generic_D9Oi_huB.mjs');
+const _page1 = () => import('./chunks/404_CoBEyPzc.mjs');
+const _page2 = () => import('./chunks/_slug__CuGWI7WE.mjs');
+const _page3 = () => import('./chunks/index_nC9-9664.mjs');
+const _page4 = () => import('./chunks/calc_CSqBmnd1.mjs');
+const _page5 = () => import('./chunks/index_DgNbYDwz.mjs');
+const _page6 = () => import('./chunks/_.._DHOxpr5K.mjs');
+const _page7 = () => import('./chunks/contacts_vtNVx2io.mjs');
+const _page8 = () => import('./chunks/faq_C8lXjscZ.mjs');
+const _page9 = () => import('./chunks/nashi-uslugi_BCbte7Cw.mjs');
+const _page10 = () => import('./chunks/rss_DuuWdGB_.mjs');
+const _page11 = () => import('./chunks/vtorichka_Wi0qVVVt.mjs');
+const _page12 = () => import('./chunks/index_DSpfYrUU.mjs');
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/404.astro", _page1],
@@ -38,7 +38,7 @@ const _manifest = Object.assign(manifest, {
     middleware: onRequest
 });
 const _args = {
-    "middlewareSecret": "d5953996-a585-43df-a5e8-0b0736adc783"
+    "middlewareSecret": "3f73f9c0-2b6c-49e1-9cc9-bbde6560b399"
 };
 const _exports = serverEntrypointModule.createExports(_manifest, _args);
 const __astrojsSsrVirtualEntry = _exports.default;

@@ -52,7 +52,7 @@ const customCrumbs = [
 										<meta itemprop="yearBuilt" content={post.data.year}>
 										<div class="card__item" itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.data.title}>
 											<article>
-												<Image loading="lazy" itemprop="image" src={post?.data?.heroImage} alt={post?.data?.title} />
+												<div class="image__wrapper"><Image itemprop="image" src={post?.data?.heroImage} alt={post?.data?.title} /></div>
 												<div class="text__box div_anim">
 													<h2 itemprop="name">{post.data.title}</h2>
 													<div class="newBuildings__wrapper">
@@ -150,6 +150,7 @@ const customCrumbs = [
             transition: .3s ease box-shadow;
 			align-self: baseline;
 			position: relative;
+			height: 100%;
 
 			.inProgress {
 				position: absolute;
@@ -165,8 +166,7 @@ const customCrumbs = [
                 box-shadow: 0px 0px 11px 7px rgba(255, 255, 255, 0.2);
             }
             img {
-                border-top-left-radius: 20px;
-                border-top-right-radius: 20px;
+                
                 margin-top: -1px;
                 width: 100%;
 				object-fit: cover;
@@ -225,23 +225,47 @@ const customCrumbs = [
             font-weight: 500;
 			text-align: center;
 			text-wrap: balance;
+			min-height: 52px;
+			align-self: center;
+			justify-self: center;
+			text-align: center;
+			align-content: center;
+
+			@media(max-width: 600px) {
+				min-height: unset;
+			}
         }
     }
 	
 	main {
 		padding-bottom: 50px;
 	}
-	.div_anim {
+	li.div_anim {
 		visibility: hidden;
 	}
+	.image__wrapper {
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		overflow: hidden;
+	}
+
+	
 </style>
 
 <script>
 	import { gsap } from "gsap";
 
-	gsap.from('.div_anim', {
-		y: 10,
+	gsap.from('li.div_anim', {
+		x: -64,
 		autoAlpha: 0,
-		stagger: .1,
+        stagger: .1,
+        
+	})
+	gsap.from('li img', {
+        stagger: .05,
+        duration: 1,
+		autoAlpha: 0,
+		filter: "blur(4px)",
+		scale: 1.1
 	})
 </script>

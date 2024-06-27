@@ -26,10 +26,10 @@ export const myPortableTextComponents = {
 		span: ({ children }) => <sup className="sup">{children}</sup>,
 		link: (node) => {
 			return (
-				<a href={node.children} target={node.value._blank ? '_blank' : null}>
+				<a href={node.value.href} target={node.value._blank ? '_blank' : null}>
 					{node.children}
 				</a>
 			)
-		}
+		},
 	}
 }

@@ -4,7 +4,7 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-:root {
+ :root {
 	--headers-primary: #000000;
 	--primary: #FFFFFF;
 	--btn-primary: #353BD7;	
@@ -112,9 +112,7 @@ main {
 	padding: 0 15px !important;
 }
 
-ul {
-	padding-left: unset !important;
-}
+
 .visually-hidden {
 	position: absolute;
 	width: 1px;
@@ -246,7 +244,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 	p {
 		line-height: 1.62;
 		font-size: 16px;
-		margin: 0 0 1rem;
+		margin: 0 0 16px;
 
 	}
 	a {
@@ -262,17 +260,16 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 		margin: 0 0 1.5385rem;
 	}
 
-	h2 {
-		font-size: 24px;
+	h2, strong {
+		font-size: 22px;
 		font-weight: 700;
 		margin: 1rem 0;
+		line-height: 160%;
 		@media (max-width: 767px) {
-				font-size: 1.9rem;
+				font-size: 20px;
 		}
 
-		@media (max-width: 576px) {
-				font-size: 22px;
-		}
+		
 	}
 
 	h3 {
@@ -287,7 +284,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 	}
 
 	ol,ul {
-		padding: 1rem 0 2rem;
+		padding: 16px 0 32px;
 
 		li {
 			font-size: 16px;
@@ -346,7 +343,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 
 	img {
 		border-radius: 10px;
-    	margin-bottom: 10px;
+    	margin-bottom: 20px;
 		max-height: 500px;
 		width: 100%;
 		max-width: 800px;

@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./zhk-sportivniy_BpQa3KZn.mjs');
+						return import('./zhk-bratiev-kashirinyh_BuAP4JF0.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];
