@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./zhk-akadem-riverside-14-dom_BCevhLHf.mjs');
+						return import('./zhk-akadem-riverside-14-dom_C9pKvpgm.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

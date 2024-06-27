@@ -1,5 +1,5 @@
 export { renderers } from '../renderers.mjs';
 
-const page = () => import('./pages/nashi-uslugi_CB4YMQON.mjs');
+const page = () => import('./pages/nashi-uslugi_DolEEPmi.mjs');
 
 export { page };
