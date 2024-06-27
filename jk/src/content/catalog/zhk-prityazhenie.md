@@ -136,6 +136,7 @@ layoutsSectionData: [
     
 ]
 
+buildingProcess: ['/ЖК Притяжение/we-1.webp', '/ЖК Притяжение/we-2.webp', '/ЖК Притяжение/we-3.webp', '/ЖК Притяжение/we-4.webp', '/ЖК Притяжение/we-5.webp', '/ЖК Притяжение/we-6.webp', '/ЖК Притяжение/we-7.webp', '/ЖК Притяжение/we-8.webp', '/ЖК Притяжение/we-9.webp', '/ЖК Притяжение/we-10.webp',]
 
 galleryImages: ['/ЖК Притяжение/ge5t46gj.webp', '/ЖК Притяжение/image-1.webp', '/ЖК Притяжение/SaRT30oAQ.webp', '/ЖК Притяжение/U40g-5MSn9g.webp', '/ЖК Притяжение/funpark.webp', '/ЖК Притяжение/4LW5xt6UU3I.webp']
 mapStatic: {
