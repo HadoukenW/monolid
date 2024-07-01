@@ -29,7 +29,8 @@ export const vtorichka = defineType({
                     {title: '2-комнатная', value: '2-комнатная'},
                     {title: '3-комнатная', value: '3-комнатная'},
                     {title: '4-комнатная', value: '4-комнатная'},
-                    {title: 'Земля', value: 'Земля'},
+                    {title: 'Земельный учасок', value: 'Земельный учасок'},
+                    {title: 'Дом и земельный участок', value: 'Дом и земельный участок'},
                 ]
             },
             validation: (Rule) => Rule.required().error('Поле обязательно для заполнения'),

@@ -4,7 +4,7 @@ import 'kleur/colors';
 import { $ as $$Breadcrumbs } from './calc_D_QHDsiW.mjs';
 /* empty css                           */
 /* empty css                          */
-import { u as urlForImage, a as getSanity } from './index_DFCbNsP2.mjs';
+import { u as urlForImage, a as getSanity } from './index_CYbmVl4G.mjs';
 import { PortableText } from '@portabletext/react';
 import { jsx } from 'react/jsx-runtime';
 import 'react';
