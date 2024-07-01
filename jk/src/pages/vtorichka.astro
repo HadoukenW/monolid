@@ -25,7 +25,6 @@ import { Image } from 'astro:assets';
 import PortableTextBody from '../components/PortableTextBody.astro';
 import { myPortableTextComponents } from '../components/PortableTextComponents'
 const sanityVtorichka = await getSanity([`*[_type == 'vtorichka'] | order(orderRank asc)`])
-console.log(sanityVtorichka)
 ---
 
 <!doctype html>
@@ -89,7 +88,7 @@ console.log(sanityVtorichka)
                                                     {item.isAvailable == false && (
                                                             <img class="soldout" src="/9OAAAgOqL-A-1920.webp" alt="Продана квартира"/>
                                                         )}
-                                                    <p class="rooms">{item.rooms !== 'Земля' ? item.rooms + ' квартира' : item.rooms}</p>
+                                                    <p class="rooms">{item.rooms}</p>
                                                     <div class="description__wrapper"> 
                                                         <div class="description">
                                                             <PortableTextBody body={item.description} components={myPortableTextComponents}/>
