@@ -266,8 +266,8 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 								<ul>
 									{buildingProcess?.map((item: any) => (
 										<li>
-											<a data-src={item} data-fancybox="buildingProcess" itemscope itemtype="https://schema.org/ImageObject">
-												<img loading="lazy" itemprop="contentUrl" tabindex="0" src={item} alt="Фото хода строительства" />
+											<a data-src={item.image} data-fancybox="buildingProcess" itemscope itemtype="https://schema.org/ImageObject">
+												<img loading="lazy" itemprop="contentUrl" tabindex="0" src={item.image} alt="Фото хода строительства" />
 											</a>
 										</li>
 									))}

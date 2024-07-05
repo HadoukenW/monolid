@@ -187,6 +187,28 @@ export const desckStructure = (S, context) =>
                                 S,
                                 context,
                             }),
+                            orderableDocumentListDeskItem({
+                                title: 'ЖК Costura Town',
+                                type: 'zhk-costura-town',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+                            orderableDocumentListDeskItem({
+                                title: 'ЖК 1712',
+                                type: 'zhk-1712',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+                            orderableDocumentListDeskItem({
+                                title: 'ЖК Q',
+                                type: 'zhk-q',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+
 
                             ])
                 ),

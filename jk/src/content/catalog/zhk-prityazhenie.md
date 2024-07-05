@@ -22,121 +22,20 @@ aboutSectionData: [
     }
 ]
 
-layoutsSectionData: [
-    {
-       image: '/ЖК Притяжение/layouts-18.jpg',
-        rooms: 'студия',
-        price: '3 133 000' 
-    },
-    {
-        image: '/ЖК Притяжение/layouts-20.jpg',
-        rooms: 'студия',
-        price: '3 612 000'
-    },
-    {
-        image: '/ЖК Притяжение/layouts-21.jpg',
-        rooms: '1-комнатная',
-        price: '4 143 750'
-    },
-    {
-        title: '3',
-        image: '/ЖК Притяжение/layouts-4.webp',
-        rooms: '1-комнатная',
-        price: '4 212 000'
-    },
-    {
-        title: '4',
-        image: '/ЖК Притяжение/layouts-5.jpg',
-        rooms: '1-комнатная',
-        price: '4 320 000'
 
-    },
-    {
-        title: '4',
-        image: '/ЖК Притяжение/layouts-22.jpg',
-        rooms: '1-комнатная',
-        price: '4 860 000'
+buildingProcess: [
+{image: '/ЖК Притяжение/we-1.webp'}, 
+{image: '/ЖК Притяжение/we-2.webp'},
+{image: '/ЖК Притяжение/we-3.webp'},
+{image: '/ЖК Притяжение/we-4.webp'},
+{image: '/ЖК Притяжение/we-5.webp'},
+{image: '/ЖК Притяжение/we-6.webp'},
+{image: '/ЖК Притяжение/we-7.webp'},
+{image: '/ЖК Притяжение/we-8.webp'},
+{image: '/ЖК Притяжение/we-9.webp'}, 
+{image: '/ЖК Притяжение/we-10.webp'}
 
-    },
-    {
-        title: '4',
-        image: '/ЖК Притяжение/layouts-23.jpg',
-        rooms: '1-комнатная',
-        price: '5 025 000'
-
-    },
-    {
-        title: '4',
-        image: '/ЖК Притяжение/layouts-24.jpg',
-        rooms: '1-комнатная',
-        price: '5 051 651'
-
-    },
-    {
-        title: '7',
-        image: '/ЖК Притяжение/layouts-10.jpg',
-        rooms: '2-комнатная',
-        price: '5 878 000'
-    },
-    {
-        title: '8',
-        image: '/ЖК Притяжение/layouts-12.jpg',
-        rooms: '2-комнатная',
-        price: '6 384 300'
-    },
-    {
-        title: '10',
-        image: '/ЖК Притяжение/layouts-13.jpg',
-        rooms: '2-комнатная',
-        price: '6 792 000'
-    },
-    {
-        title: '11',
-        image: '/ЖК Притяжение/layouts-16.jpg',
-        rooms: '2-комнатная',
-        price: '6 842 850'
-    },
-    {
-        title: '11',
-        image: '/ЖК Притяжение/layouts-25.jpg',
-        rooms: '2-комнатная',
-        price: '6 960 000'
-    },
-    {
-        title: '11',
-        image: '/ЖК Притяжение/layouts-26.jpg',
-        rooms: '2-комнатная',
-        price: '7 007 000'
-    },
-    
-    {
-        title: '13',
-        image: '/ЖК Притяжение/layouts-27.jpg',
-        rooms: '3-комнатная',
-        price: '7 764 000'
-    },
-    {
-        title: '13',
-        image: '/ЖК Притяжение/layouts-28.jpg',
-        rooms: '3-комнатная',
-        price: '8 652 000'
-    },
-    {
-        title: '13',
-        image: '/ЖК Притяжение/layouts-17.jpg',
-        rooms: '3-комнатная',
-        price: '8 855 000'
-    },
-    {
-        title: '13',
-        image: '/ЖК Притяжение/prit-layouts-1.jpg',
-        rooms: '3-комнатная',
-        price: '8 855 000'
-    },
-    
 ]
-
-buildingProcess: ['/ЖК Притяжение/we-1.webp', '/ЖК Притяжение/we-2.webp', '/ЖК Притяжение/we-3.webp', '/ЖК Притяжение/we-4.webp', '/ЖК Притяжение/we-5.webp', '/ЖК Притяжение/we-6.webp', '/ЖК Притяжение/we-7.webp', '/ЖК Притяжение/we-8.webp', '/ЖК Притяжение/we-9.webp', '/ЖК Притяжение/we-10.webp',]
 
 galleryImages: ['/ЖК Притяжение/ge5t46gj.webp', '/ЖК Притяжение/image-1.webp', '/ЖК Притяжение/SaRT30oAQ.webp', '/ЖК Притяжение/U40g-5MSn9g.webp', '/ЖК Притяжение/funpark.webp', '/ЖК Притяжение/4LW5xt6UU3I.webp']
 mapStatic: {
