@@ -208,6 +208,14 @@ export const desckStructure = (S, context) =>
                                 S,
                                 context,
                             }),
+                            orderableDocumentListDeskItem({
+                                title: 'Баден Баден Тургояк',
+                                type: 'baden-baden-turgoyak',
+                                icon: FaBuilding,
+                                S,
+                                context,
+                            }),
+
 
 
                             ])

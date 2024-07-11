@@ -240,6 +240,8 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 		pointer-events: all;
 }
 .body {
+	
+	
 
 	p {
 		line-height: 1.62;
@@ -265,7 +267,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 	h2, strong {
 		font-size: 22px;
 		font-weight: 700;
-		margin: 1rem 0;
+		margin: 1.5rem 0;
 		line-height: 160%;
 		@media (max-width: 767px) {
 				font-size: 20px;
@@ -350,6 +352,10 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 		width: 100%;
 		max-width: 800px;
 		height: auto;
+
+		@media (max-width: 1000px) {
+			max-width: 100%;
+		}
 	}
 
 	i {
@@ -360,6 +366,11 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 		margin: 0 0 1rem;
 
 		
+	}
+
+	p:has(em)  {
+		margin-bottom: 24px;
+		font-size: 14px;
 	}
 
 	.highlight {

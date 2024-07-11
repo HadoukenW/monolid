@@ -29,6 +29,7 @@ import { blog } from "./objects/blog/blog";
 import { zhkcosturatown } from "./objects/zhk-costura-town";
 import { zhk1712 } from "./objects/zhk-1712";
 import { zhkq } from "./objects/zhk-q";
+import { badenbadenturgoyak } from "./objects/baden-baden-turgoyak";
 
 
-export const schemaTypes = [normalText, zhkBratievKashirinyh, zhk81riverside, zhk82riverside, zhksportivniy, zhkvidniy, zhk18, zhk14, zhkklever, zhk4lenina, zhkgoloskashirinyx, zhkkonfetti, zhkniksline, zhknikscity, zhknikspro, zhknovil, zhkparkoviypremium, zhkprityazhenie, vtorichka, zhkprivilegija, zhkhugeeitown, zhkshishkin, zhkmalevich, zhkestetika, fanpark, zhkkorolenko, zhkevropeiskii, zhkcosturatown, zhk1712, zhkq, blog]
+export const schemaTypes = [normalText, zhkBratievKashirinyh, zhk81riverside, zhk82riverside, zhksportivniy, zhkvidniy, zhk18, zhk14, zhkklever, zhk4lenina, zhkgoloskashirinyx, zhkkonfetti, zhkniksline, zhknikscity, zhknikspro, zhknovil, zhkparkoviypremium, zhkprityazhenie, vtorichka, zhkprivilegija, zhkhugeeitown, zhkshishkin, zhkmalevich, zhkestetika, fanpark, zhkkorolenko, zhkevropeiskii, zhkcosturatown, zhk1712, zhkq, badenbadenturgoyak, blog]

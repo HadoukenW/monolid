@@ -90,10 +90,12 @@ const customCrumbs = [
 			</div>
             <main>
                 <div class="container">
-                    <img itemscope itemprop="image" itemtype="http://schema.org/ImageObject" class="blog__img" src={urlForImage(image).format("webp").url()} />
-                    <h1 itemprop="headline" class="header__fz blog__title" id="blog__title">{blogTitle}</h1>
-                    <div class="blog__text" itemprop="articleBody">
-                        <PortableTextBody body={blogDescription} components={myPortableTextComponents} />
+                    <div class="blogWrap">
+                        <h1 itemprop="headline" class="header__fz blog__title" id="blog__title">{blogTitle}</h1>
+                        <img itemscope itemprop="image" itemtype="http://schema.org/ImageObject" class="blog__img" src={urlForImage(image).format("webp").url()} />
+                        <div class="blog__text" itemprop="articleBody">
+                            <PortableTextBody body={blogDescription} components={myPortableTextComponents} />
+                        </div>
                     </div>
                 </div>
             </main>
@@ -108,6 +110,14 @@ const customCrumbs = [
 
 
 <style lang="scss">
+
+    .blogWrap {
+        max-width: 800px;
+
+        @media (max-width: 1000px) {
+            max-width: 100%;
+        }
+    }
 
     .header__fz {
         font-size: clamp(1.75rem,1.281rem + 1.56vw,2.25rem);;
@@ -124,8 +134,7 @@ const customCrumbs = [
         
     }
     .blog__img {
-        margin-top: 3.5rem;
-        margin-bottom: 3.5rem;
+        margin-bottom: 2.5rem;
         max-width: 100%;
         height: auto;
         max-height: 700px;
@@ -136,6 +145,7 @@ const customCrumbs = [
     }
 
     .blog__title {
+        margin-top: 3.5rem;
         margin-bottom: 40px;
         font-weight: 700;
         color: #222;
