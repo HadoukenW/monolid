@@ -10,6 +10,7 @@ export async function GET(context) {
 		items: posts.map((post) => ({
 			...post.data,
 			link: `/catalog/${post.slug}`,
+			pubDate: '2024-07-07',
 		})),
 	});
 }

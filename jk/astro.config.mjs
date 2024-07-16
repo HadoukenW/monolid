@@ -12,6 +12,7 @@ dotenv.config();
 // https://astro.build/config
 export default defineConfig({
   site: 'https://monolid74.com/',
+  
   integrations: [mdx(), sitemap(), robotsTxt(), sanity({
     projectId: "5d4cymjm",
     dataset: "production",
@@ -22,8 +23,11 @@ export default defineConfig({
   devToolbar: {
     enabled: false
   },
-  output: 'server',
+  output: 'static',
   adapter: netlify({
     ssr: true
-  })
+  }),
+  // experimental: {
+  //   contentCollectionCache: true
+  // },
 });
