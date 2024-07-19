@@ -38,7 +38,7 @@ const sanityLayouts = url && await getSanity([`*[_type == '${url}'] | order(orde
 const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cottageUrl}'] | order(orderRank asc)`]);
 
 
-
+Astro.response.headers.set("Cache-Control", "public, max-age=300, s-maxage=3600");
 ---
 
 <html lang="ru">

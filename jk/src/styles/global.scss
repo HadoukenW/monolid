@@ -264,7 +264,7 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 		margin: 0 0 1.5385rem;
 	}
 
-	h2, strong {
+	h2 {
 		font-size: 22px;
 		font-weight: 700;
 		margin: 1.5rem 0;
@@ -380,6 +380,17 @@ input[type="text"]:focus, input[type="tel"]:focus, input[type="number"]:focus, s
 		color: var(--secondary);
 	}
 }
-// @view-transition {
-//   navigation: auto;
-// }
+
+.burger-menu {
+	&.active {
+		.vtorichka__badge {
+			position: static !important;
+			display: block;
+	}
+	}
+}
+
+@view-transition {
+  navigation: auto;
+}
+
