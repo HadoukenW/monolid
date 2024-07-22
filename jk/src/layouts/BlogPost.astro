@@ -59,7 +59,7 @@ Astro.response.headers.set("Cache-Control", "public, max-age=300, s-maxage=3600"
 
 
 						<div itemtype="http://schema.org/ImageObject" itemscope class="image__wrapper">{heroImage && <Image loading="eager" itemprop="contentUrl" src={heroImage} alt={title} />}</div>
-						<h1>{title}</h1>
+						<h1 class="title-h1">{title}</h1>
 
 						<div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
 							<svg width="12" height="12" slot="separator" >
