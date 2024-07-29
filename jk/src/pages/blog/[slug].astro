@@ -91,7 +91,7 @@ const customCrumbs = [
             <main>
                 <div class="container">
                     <div class="blogWrap">
-                        <h1  itemprop="headline" class="header__fz blog__title title-h1" id="blog__title">{blogTitle}</h1>
+                        <h1  itemprop="headline" class="blog__title title-h1" id="blog__title">{blogTitle}</h1>
                         <img itemscope itemprop="image" itemtype="http://schema.org/ImageObject" class="blog__img" src={urlForImage(image).format("webp").url()} />
                         <div class="blog__text" itemprop="articleBody">
                             <PortableTextBody body={blogDescription} components={myPortableTextComponents} />
@@ -149,5 +149,11 @@ const customCrumbs = [
         margin-bottom: 40px;
         font-weight: 700;
         color: #222;
+        font-size: 32px;
+
+        @media(max-width: 1024px) {
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
     }
 </style>
