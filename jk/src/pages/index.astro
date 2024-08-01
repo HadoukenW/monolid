@@ -12,12 +12,22 @@ import Maps from '../components/Maps.astro';
 import { Breadcrumbs } from "astro-breadcrumbs";
 import CardForm from '../components/CardForm.astro';
 import TradeIn from '../components/TradeIn.astro';
+
+
+import { getSanity } from '../lib/api'
+import { urlForImage } from '../lib/urlForImage'
+
+const mainPage = await getSanity(`*[_type == 'mainPage']{
+	seo,
+	mainPageSlider,
+	mainPageNewZhks[]->
+}`)
 ---
 
 <!doctype html>
 <html lang="ru">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image={mainPage[0]?.seo?.ogImage} />
 		
 	</head>
 	<body>
@@ -25,10 +35,10 @@ import TradeIn from '../components/TradeIn.astro';
 			<Header />
 			<div class="visually-hidden"><Breadcrumbs indexText="Главная"/></div>
 				<main>
-					<Hero />
+					<Hero slider={mainPage[0]?.mainPageSlider}/>
 					<About />
 					<CardForm />
-					<NewBuildings />
+					<NewBuildings newZhks={mainPage[0]?.mainPageNewZhks}/>
 					<TradeIn />
 					<OurPartners />
 					<Maps />
@@ -62,13 +72,7 @@ import TradeIn from '../components/TradeIn.astro';
 	gsap.registerPlugin(ScrollTrigger);
 	const tl = gsap.timeline()
 
-	tl.from('header .upper-header', {
-		autoAlpha: 0,
-		y: -15,
-	}).from('header .nav__links', {
-		autoAlpha: 0,
-		x: 15,
-	})
+	
 
 	gsap.from('.about__wrapper li', {
 		scrollTrigger: {

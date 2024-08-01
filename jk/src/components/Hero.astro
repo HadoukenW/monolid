@@ -2,19 +2,20 @@
 import { Image } from 'astro:assets';
 import 'swiper/css/bundle';
 import { getCollection } from "astro:content";
-const posts = await getCollection('homepage');
-
+// const posts = await getCollection('homepage');
+import { urlForImage } from '../lib/urlForImage'
+const { slider } = Astro.props
 ---
 
 <section>
         <h1 class="visually-hidden title-h1">Агентство недвижимости MonoliD</h1>
         <div class="swiper">
             <div class="swiper-wrapper">
-                {posts.map(post => (
+                {slider.map(post => (
                     <div class="swiper-slide">
                         <div class="slide__texts">
-                            <p class="slide__title">{post.data.title}</p>
-                            <p class="slide__text">{post.data.description}</p>
+                            <p class="slide__title">{post.title}</p>
+                            <p class="slide__text">{post.description}</p>
                             
                             <div class="slide__btns">
                                 <button class="swiper-prev"><svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.36609 9.11615L7.79492 4.68732C8.03902 4.44322 8.35891 4.32119 8.67883 4.32119C8.99875 4.32119 9.31863 4.44322 9.56273 4.68732C10.0509 5.17548 10.0509 5.96693 9.56273 6.45509L7.26777 8.75001L21.75 8.75001C22.4404 8.75001 23 9.30966 23 10C23 10.6904 22.4404 11.25 21.75 11.25L7.26777 11.25L9.56273 13.5449C10.0509 14.0331 10.0509 14.8245 9.56273 15.3127C9.07453 15.8009 8.28312 15.8009 7.79492 15.3127L3.36609 10.8839C2.87797 10.3958 2.87797 9.60427 3.36609 9.11615Z" fill="white"/></svg></button>
@@ -22,7 +23,7 @@ const posts = await getCollection('homepage');
                             </div>
 
                         </div>
-                        <Image loading="eager" class="slide__img" src={post.data.image} alt={post.data.title}/>
+                        <img loading="eager" class="slide__img" src={urlForImage(post.image).quality(75).url()} alt={post.title}/>
                     </div>
                 ))}
 

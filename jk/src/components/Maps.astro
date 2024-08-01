@@ -5,9 +5,8 @@
 <div class="maps__section">
     <h2>Расположение нашего офиса</h2>
     <div class="maps__wrapper">
-        <a href="https://yandex.ru/maps/?um=constructor%3A594de6463742a647c998d7dcfe2db792e09cfa7efd769402a53cf6421dd0079f&amp;source=constructorStatic" target="_blank"><img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A594de6463742a647c998d7dcfe2db792e09cfa7efd769402a53cf6421dd0079f&amp;width=600&amp;height=450&amp;lang=ru_RU" alt="" style="border: 0;" /></a>
+        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A594de6463742a647c998d7dcfe2db792e09cfa7efd769402a53cf6421dd0079f&amp;source=constructor" /> 
     </div>
-</div>
 
 <style lang="scss">
 
@@ -24,12 +23,14 @@
         margin-bottom: 40px;
     }
     .maps__wrapper {
-        max-width: 600px;
-        margin: 0 auto;
+        max-width: 1300px;
+        margin: 0 auto 50px;
         display: flex;
         justify-content: center;
-        img {
+        iframe {
             width: 100%;
+            height: 400px;
+            border: none;
         }
 
     }

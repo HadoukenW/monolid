@@ -3,17 +3,12 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.scss';
 
-interface Props {
-	title: string;
-	description: string;
-	image?: string;
-	websiteType?: string;
-	robots?: string;
-}
+
+import { urlForImage } from '../lib/urlForImage'
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'website', robots = 'index, follow' } = Astro.props;
+const { title, description, image, websiteType = 'website', robots = 'index, follow', keywords } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -28,9 +23,9 @@ const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'w
 <meta name="yandex-verification" content="8f984d910ec5e410" />
 <meta name="yandex-verification" content="c36214d2ab9fcd49" />
 <!-- Font preloads -->
-<link rel="preload" href="/fonts/Inter-Regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/Inter-Medium.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/Inter-Bold.woff" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="/fonts/Inter-Medium.woff2" as="font" type="font/woff" crossorigin />
+<link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff" crossorigin />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -42,7 +37,7 @@ const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'w
 <link rel="sitemap" href="/sitemap-index.xml" />
 <meta name="robots" content={robots}>
 <meta name="description" content={description} />
-<meta name="keywords" content="Новостройки Челябинска, Новые новостройки, Новые новостройки Челябинска, Агенство недвижимости, Агенство недвижимости Челябинск, Челябинск недвижимость, Жилой комплекс, Жилой комплекс Челябинск, Жилые комплексы Челябинск, Академ риверсайд, Академ риверсайд новостройки">
+<meta name="keywords" content={keywords ? keywords : 'Новостройки Челябинска, Новые новостройки, Новые новостройки Челябинска, Агенство недвижимости, Агенство недвижимости Челябинск, Челябинск недвижимость, Жилой комплекс, Жилой комплекс Челябинск, Жилые комплексы Челябинск, Академ риверсайд, Академ риверсайд новостройки'}>
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 
@@ -63,7 +58,7 @@ const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'w
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+{image && <meta property="og:image" content={new URL(urlForImage(image).url(), Astro.url)} /> }
 <meta property="og:image:type" content="image/webp" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -75,7 +70,7 @@ const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'w
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+{image && <meta property="twitter:image" content={new URL(urlForImage(image).url(), Astro.url)} /> }
 <meta name="twitter:image:alt" content="Новостройки">
 
 <meta name="theme-color" content="#03283C" />
@@ -84,6 +79,12 @@ const { title, description, image = '/public/y-1ujjAP65A.webp', websiteType = 'w
 <meta name="application-name" content="Монолид - Агентство недвижимости Челябинск">
 <meta name="apple-mobile-web-app-title" content="Mobile rules">
 <meta name="apple-mobile-web-app-status-bar-style" content="#03283C">
+
+<!-- Keywords -->
+{keywords && <meta name="keywords" content={keywords} />}
+
+
+
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
