@@ -12,7 +12,6 @@ import { urlForImage } from '../../lib/urlForImage'
 
 
 const blogs = await getSanity(`*[_type == "blog"]{
-    seo,
     image,
     blogTitle,
     blogSlug,
@@ -60,7 +59,7 @@ const customCrumbs = [
                                 <a class="blog__big-item" href={`/blog/${blogsSorted[0].blogSlug.current}/`}>
                                    <div class="blog__big-card">
                                         <div class="blog__big-img">
-                                            <img src={urlForImage(blogsSorted[0].image).url()} alt="blog__img" />
+                                            <img src={urlForImage(blogsSorted[0].image).format("webp").quality(75).url()} alt="blog__img" />
                                         </div>
                                         <div class="blog__card-big-info">
                                             <div>
@@ -84,7 +83,7 @@ const customCrumbs = [
                                     <a class="blog__item" href={`/blog/${blog.blogSlug.current}/`}>
                                             <div class="blog__card">
                                                 <div class="blog__img">
-                                                    <img src={urlForImage(blog.image).url()} alt="blog__img" />
+                                                    <img src={urlForImage(blog.image).format("webp").quality(75).url()} alt="blog__img" />
                                                 </div>
                                                 <div class="blog__card-info">
                                                     <h3 class="blog__title">{blog.blogTitle}</h3>

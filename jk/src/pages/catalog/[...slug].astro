@@ -10,7 +10,26 @@ import { urlForImage } from '../../lib/urlForImage'
 
 
 export async function getStaticPaths() {
-	const posts = await getSanity(`*[_type == 'zhks']`)
+	const posts = await getSanity(`*[_type == 'zhks']{
+		seo,
+		pageSlug,
+		matchingUrl,
+		isCottage,
+		cottageUrl,
+		title,
+		city,
+		location,
+		buildingType,
+		year,
+		isInProgress,
+		heroImage,
+		aboutSectionData,
+		isTherePreGallerySection,
+		preGallerySectionData,
+		galleryImages,
+		buildingProcess,
+		mapLocation
+	}`)
 	
 
 	return posts.map(
@@ -69,7 +88,6 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { Breadcrumbs } from 'astro-breadcrumbs';
-import { Image } from 'astro:assets';
 import IpotekaPayment from '../../components/IpotekaPayment.astro'
 
 import "../../../astro-breadcrumbs-config.scss";
@@ -91,9 +109,21 @@ const customCrumbs = [
   },
 ]
 
-const sanityLayouts = matchingUrl && await getSanity([`*[_type == '${matchingUrl}'] | order(orderRank asc)`]);
+const sanityLayouts = matchingUrl && await getSanity([`*[_type == '${matchingUrl}'] | order(orderRank asc) {
+	photo,
+	rooms,
+	price,
+	isAvailable,
+}`]);
 
-const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cottageUrl}'] | order(orderRank asc)`]);
+const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cottageUrl}'] | order(orderRank asc) {
+  title,
+  photos,
+  properties,
+  price,
+  isAvailable,
+
+}`]);
 
 ---
 
@@ -115,7 +145,7 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 					<section class="section__hero" aria-label={title}>
 
 
-						<div itemtype="http://schema.org/ImageObject" itemscope class="image__wrapper">{heroImage && <img loading="eager" itemprop="contentUrl" src={urlForImage(heroImage).url()} alt={title} />}</div>
+						<div itemtype="http://schema.org/ImageObject" itemscope class="image__wrapper">{heroImage && <img loading="eager" itemprop="contentUrl" src={urlForImage(heroImage).format("webp").quality(75).url()} alt={title} />}</div>
 						<h1 class="title-h1">{title}</h1>
 
 						<div class="c-breadcrumbs"><Breadcrumbs crumbs={customCrumbs}>
@@ -137,7 +167,7 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 											<h3>{item.title}</h3>
 											<p>{item.text}</p>
 										</div>
-										{item.image && <img src={urlForImage(item.image).url()} alt={item.title}/>}
+										{item.image && <img src={urlForImage(item.image).format("webp").quality(75).url()} alt={item.title}/>}
 										{item.video && <video autoplay muted loop src={item.video}></video>}
 									</li>
 									))}
@@ -169,7 +199,7 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 								{sanityLayouts?.map((item: any) => (
 									<li class="masonry-item">
 										{item.isAvailable === false && <div class="isAvailable">Нет в наличии</div>}
-										<div class=`prewrapper ${item.isAvailable === false ? 'unavailable' : ''}` itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={urlForImage(item.photo).url()} data-caption={item.rooms} data-fancybox="layouts"><img loading="lazy" itemprop="contentUrl" src={urlForImage(item.photo).format('webp').url()}  alt={item.rooms}></a></div>
+										<div class=`prewrapper ${item.isAvailable === false ? 'unavailable' : ''}` itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={urlForImage(item.photo).format('webp').quality(75).url()} data-caption={item.rooms} data-fancybox="layouts"><img loading="lazy" itemprop="contentUrl" src={urlForImage(item.photo).format('webp').quality(75).url()}  alt={item.rooms}></a></div>
 										<div class="layouts__texts">
 											<p class="rooms">{item.rooms}</p>
 											<p class="price">от {item.price} руб.</p>
@@ -193,7 +223,7 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 												<h3 class="rooms">{item.title}</h3>
 												<div class="cottage__images">
 													{item.photos?.map((image: any, ind: number) => (
-														<img loading="lazy" data-fancybox=`cottages${index}` class={`${ind === 0 ? 'first' : 'hidden'}`} src={urlForImage(image).format('webp').url()} alt={item.title} />
+														<img loading="lazy" data-fancybox=`cottages${index}` class={`${ind === 0 ? 'first' : 'hidden'}`} src={urlForImage(image).format('webp').quality(75).url()} alt={item.title} />
 													))}
 												</div>
 												<div class="properties-mobile cottage-item">
@@ -258,8 +288,8 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 								<ul>
 									{item.image.map((singleImg: any) => (
 										<li>
-											<a data-src={urlForImage(singleImg).url()} data-fancybox={item.title} itemscope itemtype="https://schema.org/ImageObject">
-												<img loading="lazy" itemprop="contentUrl" tabindex="0" src={urlForImage(singleImg).url()} alt="Фото галлерии" />
+											<a data-src={urlForImage(singleImg).format("webp").quality(75).url()} data-fancybox={item.title} itemscope itemtype="https://schema.org/ImageObject">
+												<img loading="lazy" itemprop="contentUrl" tabindex="0" src={urlForImage(singleImg).format("webp").quality(75).url()} alt="Фото галлерии" />
 											</a>
 										</li>
 									))}
@@ -295,8 +325,8 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 							<ul>
 								{galleryImages?.map((item: any) => (
 									<li>
-										<a data-src={urlForImage(item).url()} data-fancybox="gallery" itemscope itemtype="https://schema.org/ImageObject">
-											<img loading="lazy" itemprop="contentUrl" tabindex="0" src={urlForImage(item).format('webp').url()} alt="Фото галлерии" />
+										<a data-src={urlForImage(item).format('webp').quality(75).url()} data-fancybox="gallery" itemscope itemtype="https://schema.org/ImageObject">
+											<img loading="lazy" itemprop="contentUrl" tabindex="0" src={urlForImage(item).format('webp').quality(75).url()} alt="Фото галлерии" />
 										</a>
 									</li>
 								))}

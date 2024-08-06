@@ -12,7 +12,16 @@ import "../../../astro-breadcrumbs-config.scss";
 import { getSanity } from '../../lib/api'
 import { urlForImage } from '../../lib/urlForImage'
 
-const posts = await getSanity(`*[_type == 'zhks'] | order(orderRank asc)`)
+const posts = await getSanity(`*[_type == 'zhks'] | order(orderRank asc) {
+	year,
+	city,
+	location,
+	buildingType,
+	heroImage,
+	title,
+	pageSlug,
+	isInProgress
+	}`)
 
 
 
@@ -54,7 +63,7 @@ const customCrumbs = [
 										<meta itemprop="yearBuilt" content={post.year}>
 										<div class="card__item" itemscope itemtype="https://schema.org/ApartmentComplex" aria-label={post.title}>
 											<article>
-												<div class="image__wrapper"><img itemprop="image" src={urlForImage(post.heroImage).quality(75).url()} alt={post?.title} /></div>
+												<div class="image__wrapper"><img itemprop="image" src={urlForImage(post.heroImage).format("webp").quality(75).url()} alt={post?.title} /></div>
 												<div class="text__box div_anim">
 													<h2 itemprop="name">{post.title}</h2>
 													<div class="newBuildings__wrapper">

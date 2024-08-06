@@ -92,7 +92,7 @@ const customCrumbs = [
                 <div class="container">
                     <div class="blogWrap">
                         <h1  itemprop="headline" class="blog__title title-h1" id="blog__title">{blogTitle}</h1>
-                        <img itemscope itemprop="image" itemtype="http://schema.org/ImageObject" class="blog__img" src={urlForImage(image).format("webp").url()} />
+                        <img itemscope itemprop="image" itemtype="http://schema.org/ImageObject" class="blog__img" src={urlForImage(image).format("webp").quality(75).url()} />
                         <div class="blog__text" itemprop="articleBody">
                             <PortableTextBody body={blogDescription} components={myPortableTextComponents} />
                         </div>
