@@ -24,6 +24,8 @@ export async function getStaticPaths() {
 		isInProgress,
 		heroImage,
 		aboutSectionData,
+		layouts,
+		notZhkLayouts,
 		isTherePreGallerySection,
 		preGallerySectionData,
 		galleryImages,
@@ -46,6 +48,8 @@ export async function getStaticPaths() {
 		isInProgress,
 		heroImage,
 		aboutSectionData,
+		layouts,
+		notZhkLayouts,
 		isTherePreGallerySection,
 		preGallerySectionData,
 		galleryImages,
@@ -54,7 +58,7 @@ export async function getStaticPaths() {
             
 }) => { 
     return {
-        params: { slug: pageSlug },
+        params: { slug: pageSlug.current },
         props: {
 			seo,
 			matchingUrl,
@@ -68,6 +72,8 @@ export async function getStaticPaths() {
 			isInProgress,
 			heroImage,
 			aboutSectionData,
+			layouts,
+			notZhkLayouts,
 			isTherePreGallerySection,
 			preGallerySectionData,
 			galleryImages,
@@ -81,7 +87,7 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params
 
-const { seo, matchingUrl, isCottage, cottageUrl, title, city, location, buildingType, year, isInProgress, heroImage, aboutSectionData, isTherePreGallerySection, preGallerySectionData, galleryImages, buildingProcess, mapLocation} = Astro.props
+const { seo, matchingUrl, isCottage, cottageUrl, title, city, location, buildingType, year, isInProgress, heroImage, aboutSectionData, layouts, notZhkLayouts, isTherePreGallerySection, preGallerySectionData, galleryImages, buildingProcess, mapLocation} = Astro.props
 
 
 import BaseHead from '../../components/BaseHead.astro';
@@ -108,22 +114,6 @@ const customCrumbs = [
     href: `${Astro.url.pathname}`,
   },
 ]
-
-const sanityLayouts = matchingUrl && await getSanity([`*[_type == '${matchingUrl}'] | order(orderRank asc) {
-	photo,
-	rooms,
-	price,
-	isAvailable,
-}`]);
-
-const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cottageUrl}'] | order(orderRank asc) {
-  title,
-  photos,
-  properties,
-  price,
-  isAvailable,
-
-}`]);
 
 ---
 
@@ -177,7 +167,7 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 			
 					
 					
-					{sanityLayouts?.length > 0 && (
+					{layouts?.length > 0 && (
 						<section aria-labelledby="layouts__title" class="section__layouts">
 						<div class="container">
 							<h2 id="layouts__title">Планировки</h2>
@@ -194,9 +184,9 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 										</select>
 									</form>
 							</section>
-							<div class={`no-match ${sanityLayouts.length === 0 ? 'zero-length' : ''}`}>{sanityLayouts.length === 0 ? 'Нет планировок' : 'Кажется, ничего не найдено'}</div>
+							<div class={`no-match ${layouts.length === 0 ? 'zero-length' : ''}`}>{layouts.length === 0 ? 'Нет планировок' : 'Кажется, ничего не найдено'}</div>
 							<ul class="masonry__grid">
-								{sanityLayouts?.map((item: any) => (
+								{layouts?.map((item: any) => (
 									<li class="masonry-item">
 										{item.isAvailable === false && <div class="isAvailable">Нет в наличии</div>}
 										<div class=`prewrapper ${item.isAvailable === false ? 'unavailable' : ''}` itemscope itemtype="https://schema.org/ImageObject"><a class="prewrapper__link"  data-src={urlForImage(item.photo).format('webp').quality(75).url()} data-caption={item.rooms} data-fancybox="layouts"><img loading="lazy" itemprop="contentUrl" src={urlForImage(item.photo).format('webp').quality(75).url()}  alt={item.rooms}></a></div>
@@ -213,11 +203,11 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 					</section>
 					)}
 
-					{sanityCottageLayouts?.length > 0 && (
+					{notZhkLayouts?.length > 0 && (
 						<section class="section__cottages" aria-label="Дома">
 							<div class="container">
 								<ul class="masonry__grid">
-									{sanityCottageLayouts?.map((item: any, index: number) => (
+									{notZhkLayouts?.map((item: any, index: number) => (
 										<li class="cottage__count">
 											<div class="cottage-item layouts__texts">
 												<h3 class="rooms">{item.title}</h3>
@@ -288,7 +278,7 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 								<ul>
 									{item.image.map((singleImg: any) => (
 										<li>
-											<a data-src={urlForImage(singleImg).format("webp").quality(75).url()} data-fancybox={item.title} itemscope itemtype="https://schema.org/ImageObject">
+											<a class="pregallery__title" data-src={urlForImage(singleImg).format("webp").quality(75).url()} data-caption={item?.title} data-fancybox={item.title} itemscope itemtype="https://schema.org/ImageObject">
 												<img loading="lazy" itemprop="contentUrl" tabindex="0" src={urlForImage(singleImg).format("webp").quality(75).url()} alt="Фото галлерии" />
 											</a>
 										</li>
@@ -310,7 +300,7 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 									{buildingProcess?.map((item: any) => (
 										<li>
 											<a data-src={item.image} data-fancybox="buildingProcess" itemscope itemtype="https://schema.org/ImageObject">
-												<img loading="lazy" itemprop="contentUrl" tabindex="0" src={urlForImage(item.image).url()} alt="Фото хода строительства" />
+												<img loading="lazy" itemprop="contentUrl" tabindex="0" src={urlForImage(item?.image).url()} alt={item?.title} />
 											</a>
 										</li>
 									))}
@@ -1334,7 +1324,11 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 		},
 	});
 	
-	Fancybox.bind('[data-fancybox="Квартал 2.1"]', {
+	const pregalleryTitle = document.querySelectorAll('.pregallery__title')
+
+
+	pregalleryTitle.forEach(item => {
+		Fancybox.bind(`[data-fancybox="${item.getAttribute('data-fancybox')}"]`, {
 		Carousel: {
 			transition: "slide",
 		},
@@ -1345,39 +1339,10 @@ const sanityCottageLayouts = cottageUrl && await getSanity([`*[_type == '${cotta
 			type: "classic",
 		},
 	});
-	Fancybox.bind('[data-fancybox="Квартал 3.1"]', {
-		Carousel: {
-			transition: "slide",
-		},
+	})
 
-		hideScrollbar: false,
-
-		Thumbs: {
-			type: "classic",
-		},
-	});
-	Fancybox.bind('[data-fancybox="Квартал 5.1"]', {
-		Carousel: {
-			transition: "slide",
-		},
-
-		hideScrollbar: false,
-
-		Thumbs: {
-			type: "classic",
-		},
-	});
-	Fancybox.bind('[data-fancybox="Здание парковки"]', {
-		Carousel: {
-			transition: "slide",
-		},
-
-		hideScrollbar: false,
-
-		Thumbs: {
-			type: "classic",
-		},
-	});
+	
+	
 	
 	const cottageCount = document.querySelectorAll('.cottage__count')
 

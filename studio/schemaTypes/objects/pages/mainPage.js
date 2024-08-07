@@ -10,6 +10,10 @@ export const mainPage = defineType({
             name: 'seo',
             title: 'SEO',
             type: 'seo',
+            options: {
+                collapsible: true,
+                collapsed: true
+            }
         },
         {
             name: 'mainPageSlider',
@@ -48,6 +52,9 @@ export const mainPage = defineType({
                 {
                     type: 'reference',
                     to: [{type: 'zhks'}],
+                    options: {
+                        disableNew: true
+                    }
                 }
             ],
         }

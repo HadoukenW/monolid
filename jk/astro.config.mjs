@@ -24,7 +24,5 @@ export default defineConfig({
   adapter: netlify({
     ssr: true
   }),
-  // experimental: {
-  //   contentCollectionCache: true
-  // },
+  
 });
