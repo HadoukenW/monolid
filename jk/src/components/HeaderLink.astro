@@ -8,7 +8,7 @@ const { href, class: className, ...props } = Astro.props;
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === '/' + subpath?.[0];
-const isVtorichkaUrl = href === '/vtorichka/'
+const isVtorichkaUrl = href.includes('/vtorichka/')
 ---
 
 <li class="header__li" itemprop="name" class:list={[className]}>

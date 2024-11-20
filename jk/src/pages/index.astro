@@ -28,7 +28,7 @@ const mainPage = await getSanity(`*[_type == 'mainPage']{
 <html lang="ru">
 	<head>
 		<meta name="google-site-verification" content="Q9AYshM5ZO-5-S1P2x2zpY4UBrckX23NsOXKYlNpFlE" />
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image={mainPage[0]?.seo?.ogImage} />
+		<BaseHead title={mainPage[0]?.seo?.title} description={mainPage[0]?.seo?.description} ogImage={mainPage[0]?.seo?.ogImage ? urlForImage(mainPage[0]?.seo?.ogImage).url() : null} keywords={mainPage[0]?.seo?.keywords} />
 		
 	</head>
 	<body>

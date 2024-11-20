@@ -17,7 +17,7 @@ export const mainPage = defineType({
         },
         {
             name: 'mainPageSlider',
-            title: 'Слайдер',
+            title: 'Витрина Жилых Комплексов',
             type: 'array',
             of: [
                 {

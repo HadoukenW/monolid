@@ -21,7 +21,6 @@ const customCrumbs = [
 
 import { getSanity } from '../lib/api'
 import { urlForImage } from '../lib/urlForImage'
-import { Image } from 'astro:assets';
 import PortableTextBody from '../components/PortableTextBody.astro';
 import { myPortableTextComponents } from '../components/PortableTextComponents'
 const sanityVtorichka = await getSanity([`*[_type == 'vtorichka'] | order(orderRank asc)`])
@@ -200,7 +199,7 @@ const sanityVtorichka = await getSanity([`*[_type == 'vtorichka'] | order(orderR
 
         .grid__item {
             display: flex;
-            transition: .3s ease transform;
+            transition: .3s ease box-shadow;
             align-self: stretch;
 
             @media(max-width: 767px) {
@@ -210,7 +209,8 @@ const sanityVtorichka = await getSanity([`*[_type == 'vtorichka'] | order(orderR
             }
 
             &:hover {
-                transform: scale(1.01);
+                box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.2);
+
             }
 
 

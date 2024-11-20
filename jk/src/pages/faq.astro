@@ -1,11 +1,13 @@
 ---
-import { Image } from 'astro:assets'
 import Header from '../components/Header.astro'
 import BaseHead from '../components/BaseHead.astro'
 import { Breadcrumbs } from "astro-breadcrumbs";
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Footer from '../components/Footer.astro'
 import "../../astro-breadcrumbs-config.scss";
+import { getSanity } from '../lib/api';
+import { urlForImage } from '../lib/urlForImage';
+import PortableTextBody from '../components/PortableTextBody.astro';
+import { myPortableTextComponents } from '../components/PortableTextComponents';
 const customCrumbs = [
  {
     text: "Главная",
@@ -17,12 +19,14 @@ const customCrumbs = [
   }
 ]
 
+const faq = await getSanity(`*[_type == 'faq']`)
+
 ---
 
 <!doctype html>
 <html lang="ru">
 	<head>
-		<BaseHead title="Ответы на вопросы – Monolid - Агентство недвижимости Челябинск" description="Зайдите в наш кредитный калькулятор и сделайте предварительный расчёт. Мы приложим все усилия - и вы получите именно ту сумму, которая вам нужна!" />
+		<BaseHead title={faq[0]?.seo?.title} description={faq[0]?.seo?.description} ogImage={faq[0]?.seo?.ogImage ? urlForImage(faq[0]?.seo?.ogImage).url() : null} keywords={faq[0]?.seo?.keywords} />
 	</head>
 	<body>
 		<div class="wrapper">
@@ -38,119 +42,25 @@ const customCrumbs = [
 				<main>
 					<section aria-labelledby="faq__title">
                         <div class="container">
-                            <h1 class="title-h1" id="faq__title">Ответы на часто задаваемые вопросы </h1>
+                            <h1 class="title-h1" id="faq__title">{faq[0]?.title}</h1>
                             
                             <ul class="accordion">
-                                <li class="accordion__item-anim">
-                                    <div class="accordion__item" itemtype="https://schema.org/Question" itemscope>
-                                        <div class="accordion__trigger">
-                                            <div class="accordion__title" itemprop="name">Какова стоимость жилья в определенном районе или городе?</div>
-                                            <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
+                                {
+                                    faq[0].faq.map((item) => (
+                                    <li class="accordion__item-anim">
+                                        <div class="accordion__item" itemtype="https://schema.org/Question" itemscope>
+                                            <div class="accordion__trigger">
+                                                <div class="accordion__title" itemprop="name">{item.question}</div>
+                                                <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
+                                            </div>
+                                            <div class="accordion__content" itemtype="https://schema.org/Answer" itemprop="acceptedAnswer" itemscope>
+                                                <p itemprop="text"><PortableTextBody body={item.answer} components={myPortableTextComponents}/></p>
+                                            </div>
                                         </div>
-                                        <div class="accordion__content" itemtype="https://schema.org/Answer" itemprop="acceptedAnswer" itemscope>
-                                            <p itemprop="text">Определение стоимости жилья в конкретном районе или городе зависит от множества факторов, включая расположение, тип жилья, состояние рынка и прочее. Вам следует обратиться к местным агентствам недвижимости или использовать онлайн-платформы для поиска недвижимости, чтобы получить актуальные данные о ценах. Там вы сможете найти информацию о текущих ценах на продажу или аренду жилья в конкретном районе или городе.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="accordion__item-anim">
-                                    <div class="accordion__item" itemtype="https://schema.org/Question" itemscope>
-                                        <div class="accordion__trigger">
-                                            <div class="accordion__title" itemprop="name">Какие шаги необходимо предпринять для покупки недвижимости?</div>
-                                            <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
-                                        </div>
-                                        <div class="accordion__content" itemtype="https://schema.org/Answer" itemprop="acceptedAnswer" itemscope>
-                                            <p itemprop="text">
-                                                <ol>
-                                                    <li><strong>Финансовая подготовка:</strong> Оцените свою финансовую ситуацию, определите свой бюджет на покупку недвижимости и решите, нужно ли вам ипотечное кредитование.</li>
-                                                    <li><strong>Поиск недвижимости:</strong> Определите ваши предпочтения относительно типа недвижимости, местоположения и бюджета, а затем начните поиск подходящих вариантов через местные агентства недвижимости или онлайн-платформы.</li>
-                                                    <li><strong>Просмотр объектов:</strong> Посетите объекты, которые вас заинтересовали, чтобы оценить их состояние, расположение и соответствие вашим требованиям.</li>
-                                                    <li><strong>Проведение дополнительных проверок:</strong> Проверьте юридический статус недвижимости, историю ее владения, наличие обременений и другие юридические аспекты.</li>
-                                                    <li><strong>Соглашение и заключение сделки:</strong> После выбора подходящего объекта начните процесс согласования цены и условий с продавцом, а затем оформите сделку через нотариуса или агента по недвижимости.</li>
-                                                    <li><strong>Получение финансирования:</strong> Если вы используете ипотечное кредитование, подайте заявку на кредит и получите одобрение от банка.</li>
-                                                    <li><strong>Заключение договора и передача собственности:</strong> После согласования всех условий и получения финансирования заключите договор купли-продажи и завершите процесс передачи собственности.</li>
-                                                    <li><strong>Регистрация сделки:</strong> Зарегистрируйте сделку в соответствии с местным законодательством, чтобы официально завершить процесс покупки недвижимости.</li>
-                                                </ol>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="accordion__item-anim">
-                                    <div class="accordion__item" itemtype="https://schema.org/Question" itemscope>
-                                        <div class="accordion__trigger">
-                                            <div class="accordion__title" itemprop="name">Каковы текущие тренды на рынке недвижимости?</div>
-                                            <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
-                                        </div>
-                                        <div class="accordion__content" itemtype="https://schema.org/Answer" itemprop="acceptedAnswer" itemscope>
-                                            <p itemprop="text">В настоящее время на рынке одним из основных трендов является Индивидуальное Жилое Строительство(ИЖС).Так как тенденция рынка направлена на то, чтобы человек, жил в своем доме в нескольких минутах езды от города, в котором человек без особых усилий мог бы поставить как минимум два семейных автомобиля, выйти на террасу после трудного дня, устроить пикник .</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="accordion__item-anim">
-                                    <div class="accordion__item" itemtype="https://schema.org/Question" itemscope>
-                                        <div class="accordion__trigger">
-                                            <div class="accordion__title" itemprop="name">Какие факторы влияют на цены на недвижимость?</div>
-                                            <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
-                                        </div>
-                                        <div class="accordion__content" itemtype="https://schema.org/Answer" itemprop="acceptedAnswer" itemscope>
-                                            <p itemprop="text">
-                                                <ol>
-                                                    <li><strong>Спрос и предложение:</strong> Уровень спроса на жилье и количество доступных объектов недвижимости влияют на цены.</li>
-                                                    <li><strong>Экономическая ситуация:</strong> Общее состояние экономики, уровень занятости, доходы населения и процентные ставки могут влиять на способность людей покупать недвижимость.</li>
-                                                    <li><strong>Местоположение:</strong> Расположение недвижимости относительно центра города, наличие инфраструктуры, транспортной доступности, а также престижности района могут оказывать значительное влияние на цену.</li>
-                                                    <li><strong>Строительство и развитие:</strong> Новые строительные проекты, развитие инфраструктуры, изменения в зонировании и планировке города могут повлиять на цены на недвижимость.</li>
-                                                    <li><strong>Интерес инвесторов:</strong> Интерес инвесторов к рынку недвижимости также может оказывать влияние на цены.</li>
-                                                    <li><strong>Политическая стабильность:</strong> Политическая ситуация в стране или регионе может влиять на уровень доверия инвесторов и, следовательно, на цены на недвижимость.</li>
-                                                    <li><strong>Налоговая политика:</strong> Изменения в налоговой политике, такие как изменения ставок налогов на недвижимость, также могут влиять на цены.</li>
-                                                    <li><strong>Демографические изменения: </strong> Изменения в населении, такие как прирост населения, миграция или изменение демографической структуры, могут также повлиять на спрос на недвижимость и, следовательно, на цены.</li>
-                                                </ol>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-
-
-                                <li class="accordion__item-anim">
-                                    <div class="accordion__item" itemtype="https://schema.org/Question" itemscope>
-                                        <div class="accordion__trigger">
-                                            <div class="accordion__title" itemprop="name">Как оценить стоимость моего дома?</div>
-                                            <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
-                                        </div>
-                                        <div class="accordion__content" itemtype="https://schema.org/Answer" itemprop="acceptedAnswer" itemscope>
-                                            <p itemprop="text">
-                                                <ol>
-                                                    <li><strong>Сравнительный анализ:</strong> Этот метод включает сравнение вашего дома с аналогичными недвижимыми объектами в вашем районе, которые были недавно проданы или находятся в настоящее время на рынке. Риэлторы и оценщики могут использовать этот метод, чтобы определить рыночную стоимость вашего дома.</li>
-                                                    <li><strong>Доходный подход:</strong> Этот метод чаще всего используется для оценки инвестиционных недвижимых объектов. Он основан на доходе, который может принести ваш дом в качестве арендного объекта. Этот подход часто применяется к многоквартирным домам или коммерческой недвижимости.</li>
-                                                    <li><strong>Стоимость восстановления:</strong> Этот метод оценки определяет стоимость восстановления дома, если бы он был разрушен и требовал восстановительных работ. Это может включать в себя оценку стоимости строительных материалов и труда.</li>
-                                                    <li><strong>Метод затрат:</strong> Этот метод оценки учитывает затраты на строительство вашего дома с учетом сегодняшних цен на строительные материалы и труд. Однако он может быть менее точным, так как он не учитывает факторы рынка и износа.</li>
-                                                </ol>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="accordion__item-anim">
-                                    <div class="accordion__item" itemtype="https://schema.org/Question" itemscope>
-                                        <div class="accordion__trigger">
-                                            <div class="accordion__title" itemprop="name">Какие налоговые обязательства связаны с владением недвижимостью?</div>
-                                            <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
-                                        </div>
-                                        <div class="accordion__content" itemtype="https://schema.org/Answer" itemprop="acceptedAnswer" itemscope>
-                                            <p itemprop="text">Владение недвижимостью может включать налоги на имущество, прирост стоимости, доход от аренды, трансфер, наследование, а также местные налоги и сборы.</p>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="accordion__item-anim">
-                                    <div class="accordion__item" itemtype="https://schema.org/Question" itemscope>
-                                        <div class="accordion__trigger">
-                                            <div class="accordion__title" itemprop="name">Каковы правила оформления ипотеки?</div>
-                                            <div class="svg__wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 21 13" fill="none"><path d="M1.75 2L10.25 10.5L18.75 2" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></svg></div>
-                                        </div>
-                                        <div class="accordion__content" itemtype="https://schema.org/Answer" itemprop="acceptedAnswer" itemscope>
-                                            <p itemprop="text">При оформлении ипотеки необходимо предоставить документы, подтверждающие личность и доход, пройти оценку недвижимости, получить утверждение кредита, заключить договор ипотеки, получить средства и выплачивать кредитные платежи в соответствии с условиями договора.</p>
-                                        </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                    ))
+                                }
+                                
                             </ul>
                         </div>
                     </section>

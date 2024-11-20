@@ -3,9 +3,12 @@ import Header from '../components/Header.astro'
 import BaseHead from '../components/BaseHead.astro'
 
 import { Breadcrumbs } from "astro-breadcrumbs";
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Footer from '../components/Footer.astro'
 import "../../astro-breadcrumbs-config.scss";
+import { getSanity } from '../lib/api';
+import { urlForImage } from '../lib/urlForImage';
+import PortableTextBody from '../components/PortableTextBody.astro';
+import { myPortableTextComponents } from '../components/PortableTextComponents';
 const customCrumbs = [
  {
     text: "Главная",
@@ -16,10 +19,13 @@ const customCrumbs = [
     href: "/contacts/",
   }
 ]
+
+const contacts = await getSanity(`*[_type == 'contacts']`)
+
 ---
 <!doctype html>
 <html lang="ru">
-    <BaseHead title="Контакты – Monolid - Агентство недвижимости Челябинск" description={SITE_DESCRIPTION}/>
+    <BaseHead title={contacts[0]?.seo?.title} description={contacts[0]?.seo?.description} ogImage={contacts[0]?.seo?.ogImage ? urlForImage(contacts[0]?.seo?.ogImage).url() : null} keywords={contacts[0]?.seo?.keywords}/>
     <body>
         <div class="wrapper">
             <Header />
@@ -36,7 +42,7 @@ const customCrumbs = [
             <main>
                 <section id="ourContacts" aria-labelledby="ourContacts__title">
                     <div class="container">
-                        <h1 class="title-h1" id="ourContacts__title">Контакты</h1>
+                        <h1 class="title-h1" id="ourContacts__title">{contacts[0]?.title}</h1>
 
                         <div class="ourContacts__wrapper">
                             
@@ -48,8 +54,19 @@ const customCrumbs = [
                                         </svg>
                                     </div>
                                     <div class="contacts__phones">
-                                        <a href="tel:+79227301700">+ 7 (922) 730-17-00</a>
-                                        <a href="tel:+79227405800">+ 7 (922) 740-58-00</a>
+                                        {
+                                            contacts[0] && contacts[0].contacts.phone.map(item => {
+                                            let phoneNumber = item;
+                                            if (item && item.startsWith('8')) {
+                                                phoneNumber = '+7' + item.slice(1).replace(/-/g, '');
+                                            } else if (item) {
+                                                phoneNumber = item.replace(/[-\s]/g, '');
+                                            }
+                                            phoneNumber = phoneNumber.replace(/[(){}[\]]/g, ''); // Remove parentheses and other symbols
+                                            return <a href={`tel:${phoneNumber}`}>{item}</a>;
+                                        })
+                                        }
+                                        
                                     </div>
                                 </li>
                                 <li>
@@ -58,7 +75,7 @@ const customCrumbs = [
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M2 0.75H20C21.1046 0.75 22 1.64543 22 2.75V16.75C22 17.8546 21.1046 18.75 20 18.75H2C0.89543 18.75 0 17.8546 0 16.75V2.75C0 1.64543 0.89543 0.75 2 0.75ZM2 7.36811V16.75H20V7.36853L11 11.8685L2 7.36811ZM2 5.13199L11 9.63245L20 5.13247V2.75H2V5.13199Z" fill="#11263A"/>
                                         </svg>
                                     </div>
-                                    <a href="mailto:monolid2024@yandex.ru">monolid2024@yandex.ru</a>
+                                    <a href=`mailto:${contacts[0]?.contacts.email}`>{contacts[0]?.contacts.email}</a>
                                 </li>
                                 <li>
                                     <div class="icon__wrapper">
@@ -66,7 +83,7 @@ const customCrumbs = [
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9 22.5776L9.65773 22.0033C15.1887 17.1737 18 12.9568 18 9.25C18 4.00066 13.9029 0.25 9 0.25C4.09705 0.25 0 4.00066 0 9.25C0 12.9568 2.81131 17.1737 8.34227 22.0033L9 22.5776ZM9 19.9134C4.30661 15.6835 2 12.0992 2 9.25C2 5.1466 5.16411 2.25 9 2.25C12.8359 2.25 16 5.1466 16 9.25C16 12.0992 13.6934 15.6835 9 19.9134ZM9 4.25C11.7614 4.25 14 6.48858 14 9.25C14 12.0114 11.7614 14.25 9 14.25C6.23858 14.25 4 12.0114 4 9.25C4 6.48858 6.23858 4.25 9 4.25ZM6 9.25C6 7.59315 7.34315 6.25 9 6.25C10.6569 6.25 12 7.59315 12 9.25C12 10.9069 10.6569 12.25 9 12.25C7.34315 12.25 6 10.9069 6 9.25Z" fill="#11263A"/>
                                         </svg>
                                     </div>
-                                    <p>Челябинск, Университетская набережная 97А</p>
+                                    <p>{contacts[0]?.contacts.address}</p>
                                 </li>
                                 <li>
                                     <div class="icon__wrapper">
@@ -75,30 +92,21 @@ const customCrumbs = [
                                         </svg>
                                     </div>
                                     <div class="contacts__hours">
-                                        <b>ПН-ПТ: <span>10:00 – 20:00</span></b>
-                                        <b>СБ-ВС: <span>Выходной</span></b>
+                                        {contacts[0]?.contacts.openingHours.map((item) => (
+                                            <b>{item.days}<span style="margin-left: 5px">{item.time}</span></b>
+                                            
+                                        ))}
                                     </div>
                                 </li>
                                 
                             </ul>
 
                             <div class="map__wrapper">
-                                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A594de6463742a647c998d7dcfe2db792e09cfa7efd769402a53cf6421dd0079f&amp;source=constructor" width="600" height="550" frameborder="0"></iframe>
+                                <iframe src={`${contacts[0]?.contacts.map}`} width="600" height="550" frameborder="0"></iframe>
                             </div>
                         </div>
-
-                        <p class="p__text">На данной странице представлены контакты "MonoliD" - вы можете связаться с нами, а также увидеть адрес и расположение нашего офиса, если хотите прийти к нам лично.</p>
-                    
-                        <h2>Способы связи с нами:</h2>
-
-                        <ul class="howto">
-                            <li>оставить заявку на обратный звонок</li>
-                            <li>написать нам письмо на электронную почту</li>
-                            <li>позвонить по указанным номерам телефонов, как напрямую, так и через WhatsApp, Viber и Telegram</li>
-                            <li>посетить наш офис по адресу: Челябинск, Университетская набережная 97А                            </li>
-                        </ul>
-
-                        <p class="p__textF">Время работы компании "MonoliD" с 10:00 до 20:00. Здесь вы всегда получите квалифицированную помощь от профессионалов своего дела! Мы поможем с вашим запросом в самые кратчайшие сроки с максимально комфортным результатом!                        </p>
+                        <div class="p__text"><PortableTextBody body={contacts[0]?.contacts.additionalInfo} components={myPortableTextComponents}/></div>
+                        
                     </div>
                 </section>
             </main>
@@ -157,8 +165,11 @@ const customCrumbs = [
             display: flex;
             flex-direction: column;
             gap: 15px;
+            max-width: 634px;
+            width: 100%;
             @media(max-width: 1100px) {
                 width: 100%;
+                max-width: unset;
             }
             li {
                 display: flex;
@@ -171,6 +182,7 @@ const customCrumbs = [
                 padding: 30px clamp(0.938rem, -0.521rem + 4.86vw, 3.125rem);
                 gap: 20px;
                 border: 1px solid black;
+                width: 100%;
                 .icon__wrapper {
                     max-width: 60px;
                     width: 100%;

@@ -1,17 +1,11 @@
 ---
-import { Image } from 'astro:assets'
-import img1 from '../assets/ourservices-1.jpg'
-import img2 from '../assets/ourservices-2.png'
-import img3 from '../assets/ourservices-3.jpg'
-import img4 from '../assets/ourservices-4.jpg'
-import img5 from '../assets/ourservices-5.jpg'
-import img6 from '../assets/ourservices-6.jpg'
 import Header from '../components/Header.astro'
 import BaseHead from '../components/BaseHead.astro'
 import { Breadcrumbs } from "astro-breadcrumbs";
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Footer from '../components/Footer.astro'
 import "../../astro-breadcrumbs-config.scss";
+import { getSanity } from '../lib/api'
+import { urlForImage } from '../lib/urlForImage';
 const customCrumbs = [
  {
     text: "Главная",
@@ -22,12 +16,14 @@ const customCrumbs = [
     href: "/nashi-uslugi/",
   }
 ]
+
+const nashiUslugi = await getSanity(`*[_type == 'nashiUslugi']`)
 ---
 
 <!doctype html>
 <html lang="ru">
 	<head>
-		<BaseHead title="Наши услуги – Monolid - Агентство недвижимости Челябинск" description={SITE_DESCRIPTION} />
+		<BaseHead title={nashiUslugi[0]?.seo?.title} description={nashiUslugi[0]?.seo?.description} ogImage={nashiUslugi[0]?.seo?.ogImage ? urlForImage(nashiUslugi[0]?.seo?.ogImage).url() : null} keywords={nashiUslugi[0]?.seo?.keywords} />
 	</head>
 	<body>
 		<div class="wrapper">
@@ -46,76 +42,25 @@ const customCrumbs = [
                             <h1 class="title-h1" id="ourservices__title">Наши услуги</h1>
                     
                             <ul class="ourservives__wrapper">
-                                <li class="card">
-                                    
-                                        <h2>Новостройки</h3>
-                                        <ul>
-                                            <li>Более 30 новостроек</li>
-                                            <li>Подробные видеообзоры</li>
-                                            <li>Бесплатные экскурсии</li>
-                                        </ul>
-                                        <a class="card__btn" href="/catalog">Смотреть</a>
-                                    
-                                    <Image alt="Новостройки" src={img1}/>
-                                </li>
-                    
-                                <li class="card">
-                                    
-                                        <h2>Оценка недвижимости</h3>
-                                        <ul>
-                                            <li>Рассчитаем рыночную стоимость недвижимости и сроки продажи</li>
-                                        </ul>
-                                        <a class="card__btn btn__action" href="#">Записаться</a>
-                                    
-                                    <Image alt="Оценка недвижимости" src={img2}/>
-                                </li>
-                    
-                                
+                                {nashiUslugi[0]?.nashiUslugi?.map((item, idx) => (
                                     <li class="card">
-                                        <h2>Ипотека</h3>
+                                        
+                                        <h2>{item.uslugaTitle}</h2>
                                         <ul>
-                                            <li>Более 30 новостроек</li>
-                                            <li>Подробные видеообзоры</li>
-                                            <li>Бесплатные экскурсии</li>
-                                            <li>Программы с гос. поддержкой</li>
+                                            {
+                                                item.uslugaArray.map((item) => (
+                                                    <li>{item}</li>
+                                                ))
+                                            }
                                         </ul>
-                                        <a class="card__btn btn__action" href="#">Записаться</a>
-                                        <Image alt="Ипотека" src={img3}/>
-                                    </li>
+                                        {idx == 0 ? <a class="card__btn" href="/catalog">Смотреть</a> : <button class="card__btn btn__action">Записаться</button>}
+                                    
+                                    <img alt="Новостройки" src={urlForImage(item?.uslugaImage).url()}/>
+                                </li>
+                                ))
+                                }
+                    
                                 
-                    
-                                <li class="card">
-                                    
-                                        <h2>Продажа квартиры</h3>
-                                        <ul>
-                                            <li>Поможем продать вашу недвижимость быстро и безопасно за 25 дней</li>
-                                        </ul>
-                                        <a class="card__btn btn__action" href="#">Записаться</a>
-                                    
-                                    <Image alt="Продажа квартиры" src={img4}/>
-                                </li>
-                    
-                                <li class="card">
-                                    
-                                        <h2>Рефинансирование</h3>
-                                        <ul>
-                                            <li>Уменьшите ежемесячный платёж по ипотеке</li>
-                                        </ul>
-                                        <a class="card__btn btn__action" href="#">Записаться</a>
-                                    
-                                    <Image alt="Рефинансирование" src={img5}/>
-                                </li>
-                    
-                                <li class="card">
-                                    
-                                        <h2>Аренда</h3>
-                                        <ul>
-                                            <li>Поможем быстро сдать квартиру проверенным жильцам</li>
-                                        </ul>
-                                        <a class="card__btn btn__action" href="#">Записаться</a>
-                                    
-                                    <Image alt="Аренда" src={img6}/>
-                                </li>
                             </ul>
                         </div>
                     </section>
@@ -257,12 +202,14 @@ const customCrumbs = [
         display: flex;
         align-items: center;
         justify-content: center;
-
+        font-size: 18px;
         transition: .3s ease background;
         &:hover {
             background: #0b1099;
         }
     }
+
+
 
 </style>
 

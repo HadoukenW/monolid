@@ -1,11 +1,15 @@
 ---
+import { getSanity } from "../lib/api"
 
+const contacts = await getSanity(`*[_type == 'contacts']{
+    contacts
+}`)
 ---
 
 <div class="maps__section">
     <h2>Расположение нашего офиса</h2>
     <div class="maps__wrapper">
-        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A594de6463742a647c998d7dcfe2db792e09cfa7efd769402a53cf6421dd0079f&amp;source=constructor" /> 
+        <iframe src=`${contacts[0]?.contacts.map}` /> 
     </div>
 
 <style lang="scss">
